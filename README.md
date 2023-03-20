@@ -7,16 +7,34 @@ contribute directly please create a PR from a working branch.
 
 <div style="color:red;">Please note that the VitePress documentation, though deployed,  is not production ready until Airnode <code>v1.0.0</code> is released.</div>
 
-## Firebase
-
-Firebase is used to host the technical documentation.
-
-- production: https://vitepress-docs.web.app
-- staging: https://vitepress-docs--stage-n82mb5tu.web.app
-
 ## VitePress
 
 The technical documentation has moved from
 [VuePress](https://vuepress.vuejs.org) `v1` to
 [VitePress](https://vitepress.vuejs.org) `v1` beginning with the release of
 Airnode `v1.0.0`.
+
+## Running Locally
+
+To run the documentation locally, you will need to run the following commands:
+
+Install dependencies:
+
+```bash
+yarn install
+```
+
+Run the documentation locally:
+
+```bash
+yarn docs:dev
+```
+
+## Contributing
+
+For creating a new page, you will need to create a folder in the
+`/reference/oev/` directory. The folder name will be the name of the page.
+Inside the folder, you will need to create an `index.md` file. The `index.md`
+file will contain the content of the page. You will also need to update the
+`sidebar.js` file in the `/reference/oev/` directory. The `sidebar.js` file
+contains the sidebar navigation for the documentation.
