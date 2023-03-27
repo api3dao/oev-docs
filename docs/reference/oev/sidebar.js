@@ -4,15 +4,19 @@ module.exports = [
     items: [
       {
         text: '• OEV Relay Overview',
-        link: '/reference/oev/Overview/',
+        link: '/reference/oev/overview/',
       },
       {
         text: '• Searcher Onboarding',
-        link: '/reference/oev/Onboarding/',
+        link: '/reference/oev/searchers/',
+      },
+      {
+        text: '• dApp Onboarding',
+        link: '/reference/oev/dapps/',
       },
       {
         text: '• Key Parameters/Terms',
-        link: '/reference/oev/Terms/',
+        link: '/reference/oev/parameters/',
       },
       {
         text: '• API Endpoints',
