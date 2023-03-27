@@ -7,6 +7,14 @@ module.exports = [
         link: '/reference/oev/Overview/',
       },
       {
+        text: '• Searcher Onboarding',
+        link: '/reference/oev/Onboarding/',
+      },
+      {
+        text: '• Key Parameters/Terms',
+        link: '/reference/oev/Terms/',
+      },
+      {
         text: '• API Endpoints',
         link: '/reference/oev/endpoints/',
       },
