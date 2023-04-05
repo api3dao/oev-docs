@@ -77,7 +77,7 @@ function nav() {
       text: 'Reference',
       items: [
         { text: 'dAPIs', link: '/reference/dapis/understand/' },
-        { text: 'OEV', link: '/reference/oev/endpoints/' },
+        { text: 'OEV', link: '/reference/oev/overview/' },
         /*{
           text: 'Airnode',
           link: '/reference/airnode/latest/',

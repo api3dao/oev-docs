@@ -3,24 +3,34 @@ module.exports = [
     text: 'OEV Relay',
     items: [
       {
-        text: '• OEV Relay Overview',
-        link: '/reference/oev/overview/',
-      },
-      {
-        text: '• Searcher Onboarding',
-        link: '/reference/oev/searchers/',
-      },
-      {
-        text: '• dApp Onboarding',
-        link: '/reference/oev/dapps/',
+        text: '• Relay API Specification',
+        link: '/reference/oev/api/',
       },
       {
         text: '• Key Parameters/Terms',
         link: '/reference/oev/parameters/',
       },
+    ],
+  },
+  {
+    text: 'Searchers',
+    items: [
       {
-        text: '• API Endpoints',
-        link: '/reference/oev/endpoints/',
+        text: '• Overview',
+        link: '/reference/oev/overview/',
+      },
+      {
+        text: '• Integrating existing MEV bots with OEV auctions',
+        link: '/reference/oev/searchers/',
+      },
+    ],
+  },
+  {
+    text: 'dAPPs',
+    items: [
+      {
+        text: '• dApp Onboarding',
+        link: '/reference/oev/dapps/',
       },
     ],
   },

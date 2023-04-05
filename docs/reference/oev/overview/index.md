@@ -1,18 +1,91 @@
-Introduction:
-The OEV Relay is software run by oracles that allows third parties to participate in an auction for the sole right to publish an oracle update for a certain time period. This is designed to direct MEV value related to oracle updates back to the applications that generate the value. 
+---
+title: Overview
+sidebarHeader: Reference
+sidebarSubHeader: OEV
+pageHeader: Reference → OEV -> Searchers
+path: /reference/oev/overview/index.html
+outline: deep
+tags:
+---
 
-The OEV Auction:
-The auction process within the OEV relay is an off-chain sealed bid order book hosted by a single entity currently. It functions like a normal order book, but the orders are completely private, and are placed for a certain data feed with conditions being that the datapoint must be above or below a certain price. All orders are accompanied by a bid amount specified in the native token of chain you are bidding for a data feed update on. Once the oracle off-chain price meets the conditions specified by one or multiple orders, the OEV relay will fill the order with the highest bid amount for that condition. Any other orders that met those conditions with a lower bid amount will be canceled by the relay. When a searchers order is filled, they will have the exclusive rights to publish the oracle update for a certain amount of blocks, to publish the oracle update they must pay the specified bid amount within the same transaction to the data feed contract in thr native token.
+<PageHeader/>
 
-Auction periods are determined by the time it takes for the relay to reach a consensus between data providers on an off-chain price, making them randomized. In order to identify when a bid of yours has been filled or canceled you must query the status endpoint of the relay API, these status updates are not currently pushed to searchers. Bids are signed by the bidder and stored in the relay database to address any disputes that may occur. To execute the data feed update searchers must call the updateOevProxyDataFeedWithSignedData function. If searchers do not update the data feed within the Update Period parameter, and they have not been frontrun by another data feed update, they will be slashed a percentage of their bid.
- 
-There are two possible conditions available for orders:
->= greater than or equal to
-<= less than or equal to
+<SearchHighlight/>
 
-If a searcher has placed multiple bids for a single data feed that are all eligible, the bid amounts are summed and viewed as one bid by the relay. 
+# {{$frontmatter.title}}
 
-Searcher staking (Vault.sol):
-To be filled on a bid you must have staked a certain % of your bid amount in USDC, so you must be aware of the exchange rate between the native token you bid in and USDC. This percentage is defined as a parameter for the OEV relay that is subject to change, and is currently set at 10%. You may place as many bids as you like, and your collateral staked will only be checked when a bid is filled. Once you have been filled, the collateral is now reserved and cannot be used again until the data feed update has been performed. This collateral is used to slash a searcher if they fail to publish the data feed update that they bid for within a defined amount of time, in order to prevent denial of service attacks. If you have won an auction and are frontrun in performing the data feed update by either another searcher or the oracle itself, your collateral will be freed without any cost.
+The OEV relay operates an off-chain sealed bid order book, allowing searchers to
+place private bids for data feed updates. The relay fills the highest bid
+meeting the specified conditions and grants the winning searcher exclusive
+rights to publish the oracle update for a certain number of blocks.
 
-Deposits into Vault.sol will initially be set to only be withdrawable to the depositor address, regardless of who calls the function. You can change the address to be withdrawn to by the current withdrawal account calling setWithdrawalAccount with a new address. To withdraw funds you call the withdraw endpoint on the relay with a signed message, and receive a signature back that can be used to call the withdraw function within Vault.sol. Note that you must make an API call to withdraw because the stake amounts for each searcher available are stored and adjusted off-chain within the relay, the balances are not updated within Vault.sol until a searcher withdraws. Currently a withdrawal request requires all your available funds to be withdrawn, and they now cannot be used to place bids. You have 1 hour to use the signature before it expires. Vault.sol will not necessarily be deployed on the chain you are bidding for a data feed update on, and will start by being deployed on ethereum mainnet.
+Auction periods are randomized, and the relay reaches consensus between data
+providers on an off-chain price. Bidders can query the relay API to check the
+status of their bids. The relay stores signed bids in its database to address
+potential disputes.
+
+## Searcher Staking (Vault.sol)
+
+To participate in an auction, searchers must stake a certain percentage
+(currently 10%) of their bid amount in USDC. The staking collateral is checked
+when a bid is filled and is reserved until the data feed update is performed.
+This collateral is used to slash a searcher if they fail to publish the data
+feed update within the specified time. If a searcher is frontrun in performing
+the data feed update, their collateral is freed without any cost.
+
+## Depositing and Withdrawing
+
+Deposits into Vault.sol can only be withdrawn to the depositor address. To
+change the withdrawal address, the current withdrawal account must call
+`setWithdrawalAccount` with a new address.
+
+To withdraw funds, call the [withdraw endpoint](../api/#withdraw) on the relay
+and receive a signature that can be used to call the withdraw function within
+Vault.sol. Note that withdrawals must be made through an API call, as stake
+amounts are stored and adjusted off-chain. The balances within Vault.sol are
+only updated upon withdrawal. Withdrawal requests must withdraw all available
+funds and have a 1-hour expiration.
+
+Vault.sol will initially be deployed on the Ethereum mainnet, but may not
+necessarily be deployed on the chain you are bidding for a data feed update on.
+
+## Placing Orders
+
+Orders can be placed with two possible conditions:
+
+- \>= greater than or equal to
+- <= less than or equal to
+
+Each order must include:
+
+- A specific data feed
+- A price condition (either >= or <=)
+- A bid amount in the native token of the target chain
+
+If a searcher places multiple eligible bids for a single data feed, the bid
+amounts are summed and considered as one bid by the relay.
+
+Bids can be placed by calling the [place-bid endpoint](../api/#place-bid) on the
+relay API. If the searcher wins the auction, they will receive a signed message
+that can be used to update the data feed.
+
+Bids can be cancelled by calling the [cancel-bid endpoint](../api/#cancel-bid)
+on the relay API.
+
+## Executing Data Feed Updates
+
+To execute a data feed update, searchers must call the
+`updateOevProxyDataFeedWithSignedData` function. If they fail to update the data
+feed within the Update Period parameter and are not frontrun by another data
+feed update, they will be slashed a percentage of their bid.
+
+## Checking Bid Status
+
+To check the status of a bid, query the [status endpoint](../api/#status) of the
+relay API. Status updates are not currently pushed to searchers automatically
+and must be queried periodically.
+
+## Addressing Disputes
+
+Bids are signed by the bidder and stored in the relay database to address any
+disputes that may occur.
