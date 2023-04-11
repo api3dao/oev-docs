@@ -24,7 +24,7 @@ providers on an off-chain price. Bidders can query the relay API to check the
 status of their bids. The relay stores signed bids in its database to address
 potential disputes.
 
-## Searcher Staking (Vault.sol)
+## Searcher Staking (PrepaymentDepository.sol)
 
 To participate in an auction, searchers must stake a certain percentage
 (currently 10%) of their bid amount in USDC. The staking collateral is checked
@@ -35,18 +35,18 @@ the data feed update, their collateral is freed without any cost.
 
 ## Depositing and Withdrawing
 
-Deposits into Vault.sol can only be withdrawn to the depositor address. To
+Deposits into PrepaymentDepository.sol can only be withdrawn to the depositor address. To
 change the withdrawal address, the current withdrawal account must call
 `setWithdrawalAccount` with a new address.
 
 To withdraw funds, call the [withdraw endpoint](../api/#withdraw) on the relay
 and receive a signature that can be used to call the withdraw function within
-Vault.sol. Note that withdrawals must be made through an API call, as stake
-amounts are stored and adjusted off-chain. The balances within Vault.sol are
+PrepaymentDepository.sol. Note that withdrawals must be made through an API call, as stake
+amounts are stored and adjusted off-chain in a fully programatic manner by the relay. The balances within PrepaymentDepository.sol are
 only updated upon withdrawal. Withdrawal requests must withdraw all available
 funds and have a 1-hour expiration.
 
-Vault.sol will initially be deployed on the Ethereum mainnet, but may not
+PrepaymentDepository.sol will initially be deployed on the Ethereum mainnet, but may not
 necessarily be deployed on the chain you are bidding for a data feed update on.
 
 ## Placing Orders
@@ -72,6 +72,8 @@ that can be used to update the data feed.
 Bids can be cancelled by calling the [cancel-bid endpoint](../api/#cancel-bid)
 on the relay API.
 
+Best practice for searchers is to monitor the conversion rate between the native token they are bidding in and USDC to ensure their bids meet the minimum amount and collateral requirements.
+
 ## Executing Data Feed Updates
 
 To execute a data feed update, searchers must call the
@@ -84,8 +86,3 @@ feed update, they will be slashed a percentage of their bid.
 To check the status of a bid, query the [status endpoint](../api/#status) of the
 relay API. Status updates are not currently pushed to searchers automatically
 and must be queried periodically.
-
-## Addressing Disputes
-
-Bids are signed by the bidder and stored in the relay database to address any
-disputes that may occur.

@@ -65,7 +65,7 @@ This parameter is data feed proxy specific.
 :::
 
 The amount of USDC collateral relative to the bid amount that needs to be posted
-in the vault contract for a bid to win an auction, also the amount of funds that
+in PrepaymentDepositor.sol for a bid to win an auction, also the amount of funds that
 can be slashed upon misbehavior. This will be represented as a % of the bid
 amount and initially set to 10%.
 

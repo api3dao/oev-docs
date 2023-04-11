@@ -29,8 +29,8 @@ The proxy contract is updated with the latest data point by searchers using
 signed-data from airnodes. However, it displays the data point from
 [Api3ServerV1.sol](https://dapi-docs.api3.org/reference/dapis/understand/read-dapis.htmls)
 if it has a more recent timestamp than the last searcher update. Each dApp has
-its own proxy that searchers update to determine which dApps the OEV proceeds
-should be distributed to.
+its own proxy in order to determine which dApps the OEV proceeds
+should be distributed to. The data feed reads from Api3ServerV1.sol as well in order to have a fallback that is updated by the oracle rather than the searcher.
 
 ### Deploying a Proxy
 
