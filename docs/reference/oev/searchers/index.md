@@ -22,7 +22,9 @@ old searcher bots.
 
 ## Initializing API Key
 
-Depositing funds into PrepaymentDepository.sol will create an account for your public/private key combination with the OEV Relay API. You will use signatures with your private key to make calls to the API that require authentification. 
+Depositing funds into PrepaymentDepository.sol will create an account for your
+public/private key combination with the OEV Relay API. You will use signatures
+with your private key to make calls to the API that require authentification.
 
 ## Running Existing Bots as Backup
 
