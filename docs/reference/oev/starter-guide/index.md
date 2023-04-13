@@ -73,6 +73,12 @@ relay which will return the following response if you deposited 10 USDC:
 }
 ```
 
+## Get Configurations
+
+Before beginning to place bids, you need to get the configurations of the OEV
+proxies you are bidding on. The configurations can be fetched from the
+[configuration endpoint](../api/#get-configuration).
+
 ## Placing Bids
 
 To place a bid, call the [place bid endpoint](../api/#post-place-bid) on the
