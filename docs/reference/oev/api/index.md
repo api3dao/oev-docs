@@ -14,203 +14,566 @@ tags:
 
 # {{$frontmatter.title}} Version: 1.0.0
 
-## /configuration
+## Path Table
 
-#### GET
+| Method | Path                                 | Description |
+| ------ | ------------------------------------ | ----------- |
+| GET    | [/configuration](#get-configuration) |             |
+| POST   | [/cancel-bid](#post-cancel-bid)      |             |
+| POST   | [/place-bid](#post-place-bid)        |             |
+| POST   | [/withdraw](#post-withdraw)          |             |
+| POST   | [/status](#post-status)              |             |
 
-##### Description
+## Reference Table
 
-Configuration for individual OEV data feed proxy contracts
+| Name                  | Path                                                                                    | Description |
+| --------------------- | --------------------------------------------------------------------------------------- | ----------- |
+| ErrorResponse         | [#/components/schemas/ErrorResponse](#components-schemas-errorresponse)                 |             |
+| ConfigurationResponse | [#/components/schemas/ConfigurationResponse](#components-schemas-configurationresponse) |             |
+| CancelBidRequest      | [#/components/schemas/CancelBidRequest](#components-schemas-cancelbidrequest)           |             |
+| CancelBidResponse     | [#/components/schemas/CancelBidResponse](#components-schemas-cancelbidresponse)         |             |
+| PlaceBidRequest       | [#/components/schemas/PlaceBidRequest](#components-schemas-placebidrequest)             |             |
+| PlaceBidResponse      | [#/components/schemas/PlaceBidResponse](#components-schemas-placebidresponse)           |             |
+| WithdrawRequest       | [#/components/schemas/WithdrawRequest](#components-schemas-withdrawrequest)             |             |
+| WithdrawResponse      | [#/components/schemas/WithdrawResponse](#components-schemas-withdrawresponse)           |             |
+| StatusRequest         | [#/components/schemas/StatusRequest](#components-schemas-statusrequest)                 |             |
+| ExposableAuction      | [#/components/schemas/ExposableAuction](#components-schemas-exposableauction)           |             |
+| StatusResponse        | [#/components/schemas/StatusResponse](#components-schemas-statusresponse)               |             |
 
-##### Response
+## Path Details
 
-| Name    | Type                   | Description                    |
-| ------- | ---------------------- | ------------------------------ |
-| proxies | [ [ object ] ](#proxy) | a list of proxy configurations |
+---
 
-##### Status Codes
+### [GET]/configuration
 
-| Code | Description           |
-| ---- | --------------------- |
-| 200  | Operation successful  |
-| 500  | Internal server error |
+- Description  
+  Displays current values of the parameters which are configured by the relay
+  operators for each individual OEV data feed. Searchers should regularly
+  monitor these values to validate that they are complying with the OEV Relay
+  rules.
 
-## /cancel-bid
+#### Responses
 
-#### POST
+- 200 Operation successful
 
-##### Description
+`application/json`
 
-Cancels an existing bid
+```ts
+{
+  proxies: {
+    address: string;
+    chainId: integer;
+    auctionDelayTime: integer;
+    updatePeriod: integer;
+    minimalBidValue: string;
+    minimalConfirmations: integer;
+  }
+}
+```
 
-##### Request Body
+- 500 Internal server error
 
-| Name                | Type    | Description                                                   | Required |
-| ------------------- | ------- | ------------------------------------------------------------- | -------- |
-| id                  | string  | id of the bid                                                 | Yes      |
-| searcherAddress     | string  | address of the searcher that made the bid                     | Yes      |
-| validUntilTimestamp | integer |                                                               | Yes      |
-| vaultChainId        | integer | chainId of the vault contract on which the bid was made       | Yes      |
-| vaultAddress        | string  | address of the vault contract on which the bid was made       | Yes      |
-| requestType         | string  | specified as "API3 OEV Relay, cancel-bid" for cancelling bids | Yes      |
+`application/json`
 
-##### Response
+```ts
+{
+  error: string;
+}
+```
 
-| Name | Type   | Description                 |
-| ---- | ------ | --------------------------- |
-| id   | string | The id of the cancelled bid |
+---
 
-##### Status Codes
+### [POST]/cancel-bid
 
-| Code | Description               |
-| ---- | ------------------------- |
-| 200  | Bid successfully canceled |
-| 400  | Bid cannot be canceled    |
-| 404  | Bid or searcher not found |
-| 500  | Internal server error     |
+- Description  
+  Cancel individual bids for your account.
 
-## /place-bid
+#### RequestBody
 
-#### POST
+- application/json
 
-##### Description
+```ts
+{
+  id: string
+  searcherAddress: string
+  validUntilTimestamp: integer
+  prepaymentDepositoryChainId: integer
+  prepaymentDepositoryAddress: string
+  signature: string
+  requestType: enum[API3 OEV Relay, cancel-bid]
+}
+```
 
-Place a bid for a given dAPP Proxy at a given fulfillment value and condition
+#### Responses
 
-##### Request Body
+- 200 Bid successfully canceled
 
-| Name                | Type    | Description                                                      | Required |
-| ------------------- | ------- | ---------------------------------------------------------------- | -------- |
-| searcherAddress     | string  | address of the searcher that will make the bid                   | Yes      |
-| validUntilTimestamp | integer | time until the bid is valid before it expires                    | Yes      |
-| vaultChainId        | integer | chainId of the vault contract on which the bid will be made      | Yes      |
-| vaultAddress        | string  | address of the vault contract on which the bid will be made      | Yes      |
-| requestType         | string  | specified as "API3 OEV Relay, place-bid" for making bids         | Yes      |
-| dAppProxyAddress    | string  | The dAPP proxy address for which the bid will be made            | Yes      |
-| dAppProxyChainId    | integer | The chainId for which the bid will be made                       | Yes      |
-| condition           | string  | Condition for the bid fulfillment, can be "LTE"(<=) or "GTE"(>=) | Yes      |
-| fulfillmentValue    | string  | The fulfillment value (of given data feed) for the bid.          | Yes      |
+`application/json`
 
-##### Response
+```ts
+{
+  id: string;
+}
+```
 
-| Name | Type   | Description              |
-| ---- | ------ | ------------------------ |
-| id   | string | The id of the placed bid |
+- 400 Bid cannot be canceled
 
-##### Status Codes
+`application/json`
 
-| Code | Description                      |
-| ---- | -------------------------------- |
-| 200  | Bid successfully placed          |
-| 400  | Bid cannot be placed             |
-| 404  | dApp proxy or searcher not found |
-| 500  | Internal server error            |
+```ts
+{
+  error: string;
+}
+```
 
-## /withdraw
+- 404 Bid or searcher not found
 
-#### POST
+`application/json`
 
-##### Description
+```ts
+{
+  error: string;
+}
+```
 
-Request a withdrawal
+- 500 Internal server error
 
-##### Request Body
+`application/json`
 
-| Name                | Type    | Description                                                          | Required |
-| ------------------- | ------- | -------------------------------------------------------------------- | -------- |
-| searcherAddress     | string  | withdrawal address of the user making the withdrawal                 | Yes      |
-| validUntilTimestamp | integer | time until the withdrawal signature is valid                         | Yes      |
-| vaultChainId        | integer | chainId of the vault contract from which the withdrawal will be made | Yes      |
-| vaultAddress        | string  | address of the vault contract from which the withdrawal will be made | Yes      |
-| requestType         | string  | specified as "API3 OEV Relay, withdraw" for withdrawals              | Yes      |
+```ts
+{
+  error: string;
+}
+```
 
-##### Response
+---
 
-| Name                | Type   | Description                                       |
-| ------------------- | ------ | ------------------------------------------------- |
-| withdrawalHash      | string | hash used to verify the withdrawal                |
-| amount              | string | amount to withdraw from the withdrawal address    |
-| signature           | string | signature used to verify the withdrawal           |
-| expirationTimestamp | string | timestamp until the withdrawal signature is valid |
-| signer              | string | OEV Relay wallet which signs the withdrawal       |
+### [POST]/place-bid
 
-##### Status Codes
+- Description  
+  Place orders along with a bid amount in anticipation of an OEV opportunity on
+  a specific data feed/chain. These bids function similarly to an orderbook,
+  with the difference being that when bid conditions are met, only the highest
+  bid amount is filled.
 
-| Code | Description                      |
-| ---- | -------------------------------- |
-| 200  | Withdrawal request successful    |
-| 400  | Bid cannot be placed             |
-| 404  | dApp proxy or searcher not found |
-| 500  | Internal server error            |
+#### RequestBody
 
-## /status
+- application/json
 
-#### POST
+```ts
+{
+  searcherAddress: string
+  validUntilTimestamp: integer
+  prepaymentDepositoryChainId: integer
+  prepaymentDepositoryAddress: string
+  requestType: enum[API3 OEV Relay, place-bid]
+  dAppProxyAddress: string
+  dAppProxyChainId: integer
+  condition: enum[GTE, LTE]
+  fulfillmentValue: string
+  bidAmount: string
+  signature: string
+}
+```
 
-##### Description:
+#### Responses
 
-status information for a searcher, for more information about the parameters see
-[here](../parameters/)
+- 200 Bid successfully placed
 
-##### Request Body
+`application/json`
 
-| Name                | Type    | Description                                                  | Required |
-| ------------------- | ------- | ------------------------------------------------------------ | -------- |
-| searcherAddress     | string  | address of the searcher                                      | Yes      |
-| validUntilTimestamp | integer |                                                              | Yes      |
-| vaultChainId        | integer | chainId of the vault contract                                | Yes      |
-| vaultAddress        | string  | address of the vault contract                                | Yes      |
-| requestType         | string  | specified as "API3 OEV Relay, status" for getting the status | Yes      |
+```ts
+{
+  id: string;
+}
+```
 
-##### Response
+- 400 Bid cannot be placed
 
-| Name                    | Type                                      | Description                              |
-| ----------------------- | ----------------------------------------- | ---------------------------------------- |
-| availableFunds          | string                                    | available funds of the searcher          |
-| withdrawalReservedFunds | string                                    | funds reserved for pending withdrawals   |
-| bidReservedFunds        | string                                    | funds reserved for bids                  |
-| api3FeeFunds            | string                                    | funds transferred to the api3            |
-| slashedFunds            | string                                    | funds slashed for failed bid fulfilments |
-| pendingWithdrawals      | [ object ]                                | pending withdrawals of the searcher      |
-| bids                    | [ object ]                                | bids placed by the searcher              |
-| executableAuctions      | [ [ExposableAuction](#exposableauction) ] | executable auctions of the searcher      |
-| pastAuctions            | [ [ExposableAuction](#exposableauction) ] | past auctions of the searcher            |
+`application/json`
 
-##### Status Codes
+```ts
+{
+  error: string;
+}
+```
 
-| Code | Description                |
-| ---- | -------------------------- |
-| 200  | Request successful         |
-| 400  | Status cannot be retrieved |
-| 404  | Searcher not found         |
-| 500  | Internal server error      |
+- 404 dApp proxy or searcher not found
 
-## Models
+`application/json`
 
-#### ErrorResponse
+```ts
+{
+  error: string;
+}
+```
 
-| Name  | Type   | Description |
-| ----- | ------ | ----------- |
-| error | string |             |
+- 500 Internal server error
 
-#### Proxy
+`application/json`
 
-| Name                 | Description                                                                                                            |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| address              | Address of the proxy                                                                                                   |
-| chainId              | The chainId of the chain the proxy is deployed on                                                                      |
-| auctionDelayTime     | The minimum delay in seconds between the end of an auction and the start of the next one                               |
-| updatePeriod         | The maximum time in seconds that a searcher has to execute an update after winning an auction before they get slashed. |
-| minimalBidValue      | The minimum bid amount that a searcher has to bid                                                                      |
-| minimalConfirmations | The minimal confirmations necessary for a transaction to be accepted                                                   |
+```ts
+{
+  error: string;
+}
+```
 
-#### ExposableAuction
+---
 
-| Name                        | Type   | Description | Required |
-| --------------------------- | ------ | ----------- | -------- |
-| updateTransactionParameters | object |             | Yes      |
-| decodedValue                | string |             | Yes      |
-| updatePeriodEnd             | string |             | Yes      |
-| collateralPercentage        | number |             | Yes      |
-| api3FeePercentage           | number |             | Yes      |
-| exchangeRate                | number |             | Yes      |
+### [POST]/withdraw
+
+- Description  
+  Request a withdrawal from a specific prepayment depository contract and its
+  chain Id. Note that the returned signature that can be used to withdraw will
+  only be valid for a certain amount of time.
+
+#### RequestBody
+
+- application/json
+
+```ts
+{
+  searcherAddress: string
+  validUntilTimestamp: integer
+  prepaymentDepositoryChainId: integer
+  prepaymentDepositoryAddress: string
+  requestType: enum[API3 OEV Relay, withdraw]
+  signature: string
+}
+```
+
+#### Responses
+
+- 200 Withdrawal request successful
+
+`application/json`
+
+```ts
+{
+  withdrawalHash: string;
+  amount: string;
+  signature: string;
+  expirationTimestamp: string;
+  signer: string;
+}
+```
+
+- 400 Withdrawal cannot be requested
+
+`application/json`
+
+```ts
+{
+  error: string;
+}
+```
+
+- 404 dApp proxy or searcher not found
+
+`application/json`
+
+```ts
+{
+  error: string;
+}
+```
+
+- 500 Internal server error
+
+`application/json`
+
+```ts
+{
+  error: string;
+}
+```
+
+---
+
+### [POST]/status
+
+- Description  
+  This endpoint can be used to query all necessary info about a searcher's
+  account. To verify if your bids or withdrawals will be valid you should be
+  querying this regularly to check on the status of your collateral. If you have
+  active bids you will also want to consistently poll this endpoint to be aware
+  of when your bids have been fulfilled or cancelled.
+
+#### RequestBody
+
+- application/json
+
+```ts
+{
+  searcherAddress: string
+  validUntilTimestamp: integer
+  prepaymentDepositoryChainId: integer
+  prepaymentDepositoryAddress: string
+  requestType: enum[API3 OEV Relay, status]
+  signature: string
+}
+```
+
+#### Responses
+
+- 200 Request successful
+
+`application/json`
+
+```ts
+{
+  availableFunds: string
+  withdrawalReservedFunds: string
+  bidReservedFunds: string
+  api3FeeFunds: string
+  slashedFunds: string
+  pendingWithdrawals: {
+    withdrawalHash: string
+    amount: string
+    signature: string
+    expirationTimestamp: string
+    signer: string
+  }[]
+  bids: {
+    id: string
+    dAppProxyAddress: string
+    dAppProxyChainId: number
+    bidAmount: string
+    reservedAmount?: string
+    api3Fee?: string
+    condition: enum[GTE, LTE]
+    fulfillmentValue: string
+    status: enum[PENDING, WON, EXECUTED, SLASHED, SEARCHER_CANCELED, RELAY_CANCELED, FRONTRUN, EXPIRED]
+    updateTxHash: string
+    createdAt: string
+  }[]
+  executableAuctions: {
+    updateTransactionParameters: {
+      proxyAddress: string
+      dataFeedId: string
+      updateId: string
+      timestamp: string
+      data: string
+      packedOevSignatures?: string[]
+      nativeCurrencyAmount: string
+    }
+    decodedValue: string
+    updatePeriodEnd: string
+    collateralPercentage: number
+    api3FeePercentage: number
+    exchangeRate: number
+  }[]
+  pastAuctions:#/components/schemas/ExposableAuction[]
+}
+```
+
+- 400 Status cannot be retrieved
+
+`application/json`
+
+```ts
+{
+  error: string;
+}
+```
+
+- 404 Searcher not found
+
+`application/json`
+
+```ts
+{
+  error: string;
+}
+```
+
+- 500 Internal server error
+
+`application/json`
+
+```ts
+{
+  error: string;
+}
+```
+
+## References
+
+### #/components/schemas/ErrorResponse
+
+```ts
+{
+  error: string;
+}
+```
+
+### #/components/schemas/ConfigurationResponse
+
+```ts
+{
+  proxies: {
+    address: string;
+    chainId: integer;
+    auctionDelayTime: integer;
+    updatePeriod: integer;
+    minimalBidValue: string;
+    minimalConfirmations: integer;
+  }
+}
+```
+
+### #/components/schemas/CancelBidRequest
+
+```ts
+{
+  id: string
+  searcherAddress: string
+  validUntilTimestamp: integer
+  prepaymentDepositoryChainId: integer
+  prepaymentDepositoryAddress: string
+  signature: string
+  requestType: enum[API3 OEV Relay, cancel-bid]
+}
+```
+
+### #/components/schemas/CancelBidResponse
+
+```ts
+{
+  id: string;
+}
+```
+
+### #/components/schemas/PlaceBidRequest
+
+```ts
+{
+  searcherAddress: string
+  validUntilTimestamp: integer
+  prepaymentDepositoryChainId: integer
+  prepaymentDepositoryAddress: string
+  requestType: enum[API3 OEV Relay, place-bid]
+  dAppProxyAddress: string
+  dAppProxyChainId: integer
+  condition: enum[GTE, LTE]
+  fulfillmentValue: string
+  bidAmount: string
+  signature: string
+}
+```
+
+### #/components/schemas/PlaceBidResponse
+
+```ts
+{
+  id: string;
+}
+```
+
+### #/components/schemas/WithdrawRequest
+
+```ts
+{
+  searcherAddress: string
+  validUntilTimestamp: integer
+  prepaymentDepositoryChainId: integer
+  prepaymentDepositoryAddress: string
+  requestType: enum[API3 OEV Relay, withdraw]
+  signature: string
+}
+```
+
+### #/components/schemas/WithdrawResponse
+
+```ts
+{
+  withdrawalHash: string;
+  amount: string;
+  signature: string;
+  expirationTimestamp: string;
+  signer: string;
+}
+```
+
+### #/components/schemas/StatusRequest
+
+```ts
+{
+  searcherAddress: string
+  validUntilTimestamp: integer
+  prepaymentDepositoryChainId: integer
+  prepaymentDepositoryAddress: string
+  requestType: enum[API3 OEV Relay, status]
+  signature: string
+}
+```
+
+### #/components/schemas/ExposableAuction
+
+```ts
+{
+  updateTransactionParameters: {
+    proxyAddress: string
+    dataFeedId: string
+    updateId: string
+    timestamp: string
+    data: string
+    packedOevSignatures?: string[]
+    nativeCurrencyAmount: string
+  }
+  decodedValue: string
+  updatePeriodEnd: string
+  collateralPercentage: number
+  api3FeePercentage: number
+  exchangeRate: number
+}
+```
+
+### #/components/schemas/StatusResponse
+
+```ts
+{
+  availableFunds: string
+  withdrawalReservedFunds: string
+  bidReservedFunds: string
+  api3FeeFunds: string
+  slashedFunds: string
+  pendingWithdrawals: {
+    withdrawalHash: string
+    amount: string
+    signature: string
+    expirationTimestamp: string
+    signer: string
+  }[]
+  bids: {
+    id: string
+    dAppProxyAddress: string
+    dAppProxyChainId: number
+    bidAmount: string
+    reservedAmount?: string
+    api3Fee?: string
+    condition: enum[GTE, LTE]
+    fulfillmentValue: string
+    status: enum[PENDING, WON, EXECUTED, SLASHED, SEARCHER_CANCELED, RELAY_CANCELED, FRONTRUN, EXPIRED]
+    updateTxHash: string
+    createdAt: string
+  }[]
+  executableAuctions: {
+    updateTransactionParameters: {
+      proxyAddress: string
+      dataFeedId: string
+      updateId: string
+      timestamp: string
+      data: string
+      packedOevSignatures?: string[]
+      nativeCurrencyAmount: string
+    }
+    decodedValue: string
+    updatePeriodEnd: string
+    collateralPercentage: number
+    api3FeePercentage: number
+    exchangeRate: number
+  }[]
+  pastAuctions:#/components/schemas/ExposableAuction[]
+}
+```

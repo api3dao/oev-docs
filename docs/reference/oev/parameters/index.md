@@ -15,8 +15,8 @@ tags:
 # {{$frontmatter.title}}
 
 Monitor these OEV Relay parameters by querying the
-[status endpoint](../api/#status) of the API. All periods are in seconds unless
-specified otherwise.
+[status endpoint](../api/#post-status) of the API. All periods are in seconds
+unless specified otherwise.
 
 ## Auction Delay
 
@@ -65,8 +65,8 @@ This parameter is data feed proxy specific.
 :::
 
 The amount of USDC collateral relative to the bid amount that needs to be posted
-in PrepaymentDepositor.sol for a bid to win an auction, also the amount of funds that
-can be slashed upon misbehavior. This will be represented as a % of the bid
+in PrepaymentDepositor.sol for a bid to win an auction, also the amount of funds
+that can be slashed upon misbehavior. This will be represented as a % of the bid
 amount and initially set to 10%.
 
 ## API3 Fee %

@@ -16,8 +16,8 @@ module.exports = [
     text: 'Searchers',
     items: [
       {
-        text: '• Overview',
-        link: '/reference/oev/overview/',
+        text: '• Starter guide',
+        link: '/reference/oev/starter-guide/',
       },
       {
         text: '• Integrating existing MEV bots with OEV auctions',
