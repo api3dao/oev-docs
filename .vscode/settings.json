@@ -57,5 +57,8 @@
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "search.useIgnoreFiles": false
+  "search.useIgnoreFiles": false,
+  "editor.rulers": [
+    80
+  ]
 }

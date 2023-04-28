@@ -173,6 +173,7 @@ tags:
   fulfillmentValue: string
   bidAmount: string
   signature: string
+  updateExecutorAddress: string
 }
 ```
 
@@ -346,6 +347,7 @@ tags:
     status: enum[PENDING, WON, EXECUTED, SLASHED, SEARCHER_CANCELED, RELAY_CANCELED, FRONTRUN, EXPIRED]
     updateTxHash: string
     createdAt: string
+    updateExecutorAddress: string
   }[]
   executableAuctions: {
     updateTransactionParameters: {
@@ -362,6 +364,7 @@ tags:
     collateralPercentage: number
     api3FeePercentage: number
     exchangeRate: number
+    updateExecutorAddress: string
   }[]
   pastAuctions:#/components/schemas/ExposableAuction[]
 }
@@ -459,6 +462,7 @@ tags:
   fulfillmentValue: string
   bidAmount: string
   signature: string
+  updateExecutorAddress: string
 }
 ```
 
@@ -526,6 +530,7 @@ tags:
   collateralPercentage: number
   api3FeePercentage: number
   exchangeRate: number
+  updateExecutorAddress: string
 }
 ```
 
@@ -557,6 +562,7 @@ tags:
     status: enum[PENDING, WON, EXECUTED, SLASHED, SEARCHER_CANCELED, RELAY_CANCELED, FRONTRUN, EXPIRED]
     updateTxHash: string
     createdAt: string
+    updateExecutorAddress: string
   }[]
   executableAuctions: {
     updateTransactionParameters: {
@@ -573,6 +579,7 @@ tags:
     collateralPercentage: number
     api3FeePercentage: number
     exchangeRate: number
+    updateExecutorAddress: string
   }[]
   pastAuctions:#/components/schemas/ExposableAuction[]
 }

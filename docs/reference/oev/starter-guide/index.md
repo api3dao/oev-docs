@@ -15,27 +15,28 @@ tags:
 # {{$frontmatter.title}}
 
 The OEV relay operates an off-chain sealed bid order book, allowing searchers to
-place private bids for data feed updates. The relay fills the highest bid
+place private bids for data feed updates. The relay fills the highest bid(s)
 meeting the specified conditions and grants the winning searcher exclusive
-rights to publish the oracle update for a certain number of blocks.
+rights to publish the oracle update for a given period of time.
 
-Auction periods are randomized, and the relay reaches consensus between data
-providers on an off-chain price. Bidders can query the relay API to check the
-status of their bids. The relay stores signed bids in its database to address
-potential disputes.
+The relay periodically reaches consensus between data providers on an off-chain
+price and creates an auction for this data. Bidders can query the relay API to
+check the status of their bids. The relay stores signed bids in its database to
+address potential disputes.
 
-## Depositing USDC into PrepaymentDepository.sol
+## Depositing USDC into PrepaymentDepository
 
 To interact with the OEV Relay API using your public/private key pair, deposit
-the USDC into the PrepaymentDepository.sol contract. This will create an account
-for your key combination. Authentication for API calls requiring authorization
-is done through signatures with your private key.
+USDC into the PrepaymentDepository contract. Relay will wait until there are
+sufficient block confirmations and then automatically creates an account for
+your account and chain combination. Authentication for API calls requiring
+authorization is done through signatures with your private key.
 
 ::: info
 
-PrepaymentDepository.sol will initially be deployed on the Ethereum mainnet, but
-may not necessarily be deployed on the chain you are bidding for a data feed
-update on.
+PrepaymentDepository will initially be deployed on the Ethereum mainnet, but may
+not necessarily be deployed on the chain you are bidding for a data feed update
+on.
 
 :::
 
@@ -75,8 +76,8 @@ relay which will return the following response if you deposited 10 USDC:
 
 ## Get Configurations
 
-Before beginning to place bids, you need to get the configurations of the OEV
-proxies you are bidding on. The configurations can be fetched from the
+Before placing bids, you need to get the configurations of the OEV proxies you
+want to bid on. The configurations can be fetched from the
 [configuration endpoint](../api/#get-configuration).
 
 ## Placing Bids
@@ -87,11 +88,11 @@ the bid when querying the [status endpoint](../api/#post-status).
 
 ::: info
 
-The deposit collateral is checked when a bid is filled and is reserved until the
-data feed update is performed. This collateral is used to slash a searcher if
-they fail to publish the data feed update within the specified time. If a
-searcher is frontrun in performing the data feed update, their collateral is
-freed without any cost.
+The deposit collateral is checked when a bid is filled (not placed) and is
+reserved until the data feed update is performed. This collateral is used to
+slash a searcher if they fail to publish the data feed update within the
+specified time. If a searcher is frontrun in performing the data feed update,
+their collateral is freed without any cost.
 
 :::
 
@@ -113,6 +114,7 @@ const unsignedPayload = {
   condition: '<GTE>', // GTE or LTE
   bidAmount: '<1000000000000000000>', // use ethers.utils.parseEther
   fulfillmentValue: '1000',
+  updateExecutorAddress: '<UPDATE_EXECUTOR_ADDRESS>',
 };
 
 // sign the payload with the searcher's private key
@@ -129,9 +131,9 @@ Orders can be placed with two possible conditions:
 - `GTE` greater than or equal to
 - `LTE` less than or equal to
 
-If the searcher wins the auction, they will need to call the
-[status endpoint](../api/#post-status) to get the signed message that can be
-used to update the data feed.
+If the searcher wins the auction, they need to call the
+[status endpoint](../api/#post-status) to get the encoded transaction that can
+be used to update the data feed.
 
 Bids can be cancelled by calling the
 [cancel-bid endpoint](../api/#post-cancel-bid) on the relay API and providing
@@ -144,7 +146,7 @@ and collateral requirements.
 ## Checking Status of Bids
 
 To check the status of bids, call the [status endpoint](../api/#post-status) on
-the relay API.For Example, the status endpoint will return the following
+the relay API. For Example, the status endpoint will return the following
 response for the bid placed in the previous section:
 
 ```json
@@ -157,7 +159,7 @@ response for the bid placed in the previous section:
   "pendingWithdrawals": [],
   "bids": [
     {
-      "id": "0x1",
+      "id": "1",
       "bidAmount": "1000000000000000000",
       "condition": "GTE",
       "createdAt": "2021-09-01T00:00:00.000Z",
@@ -165,7 +167,8 @@ response for the bid placed in the previous section:
       "dAppProxyChainId": "<DAPP_PROXY_CHAIN_ID>",
       "fulfillmentValue": "1000",
       "status": "PENDING",
-      "updateTxHash": null
+      "updateTxHash": null,
+      "updateExecutorAddress": "<UPDATE_EXECUTOR_ADDRESS>"
     }
   ],
   "executableAuctions": [],
@@ -174,8 +177,10 @@ response for the bid placed in the previous section:
 ```
 
 if the bid wins the auction, the status will be updated to `WON` and the
-`executableAuctions` field will be populated with the signature that can be used
-to update the data feed. The following is an example of the response:
+`executableAuctions` field will be populated with the encoded transaction that
+can be used to update the data feed. This transaction needs to be submitted
+on-chain by the executor. The executor is chosen from the winning bids. The
+following is an example of the response:
 
 ```json
 {
@@ -196,7 +201,8 @@ to update the data feed. The following is an example of the response:
       "fulfillmentValue": "1000",
       "status": "WON",
       "updateTxHash": null,
-      "reservedAmount": "1000000"
+      "reservedAmount": "1000000",
+      "updateExecutorAddress": "<UPDATE_EXECUTOR_ADDRESS>"
     }
   ],
   "executableAuctions": [
@@ -214,12 +220,15 @@ to update the data feed. The following is an example of the response:
         "proxyAddress": "<DAPP_PROXY_ADDRESS>",
         "timestamp": "1679659672",
         "updateId": "0x1"
-      }
+      },
+      "updateExecutorAddress": "<UPDATE_EXECUTOR_ADDRESS>"
     }
   ],
   "pastAuctions": []
 }
 ```
+
+<!-- TODO: This needs to be rewritten to caputring OEV -->
 
 ## Updating the Data Feed
 
@@ -261,7 +270,8 @@ hash of the update. The auction will be moved to the `pastAuctions` field of the
       "status": "EXECUTED",
       "updateTxHash": "0x1",
       "reservedAmount": "1000000",
-      "api3Fee": "500000"
+      "api3Fee": "500000",
+      "updateExecutorAddress": "<UPDATE_EXECUTOR_ADDRESS>"
     }
   ],
   "executableAuctions": [],
@@ -280,7 +290,8 @@ hash of the update. The auction will be moved to the `pastAuctions` field of the
         "proxyAddress": "<DAPP_PROXY_ADDRESS>",
         "timestamp": "1679659672",
         "updateId": "0x1"
-      }
+      },
+      "updateExecutorAddress": "<UPDATE_EXECUTOR_ADDRESS>"
     }
   ]
 }
@@ -288,14 +299,14 @@ hash of the update. The auction will be moved to the `pastAuctions` field of the
 
 ## Withdrawing Funds
 
-Deposits into PrepaymentDepository.sol can only be withdrawn to the depositor
+Deposits into PrepaymentDepository can only be withdrawn to the depositor
 address. To change the withdrawal address, the current withdrawal account must
 call `setWithdrawalAccount` with a new address.
 
 To withdraw funds, call the [withdraw endpoint](../api/#post-withdraw) on the
 relay API and receive a signature that can be used to call the `withdraw`
-function within PrepaymentDepository.sol. Note that withdrawals must be made
-through an API call, as deposited amounts are stored and adjusted off-chain in a
-fully programatic manner by the relay. The balances within
-PrepaymentDepository.sol are only updated upon withdrawal. Withdrawal requests
-must withdraw all available funds and have a 1-hour expiration.
+function within PrepaymentDepository. Note that withdrawals must be made through
+an API call, as deposited amounts are stored and adjusted off-chain in a fully
+programatic manner by the relay. The balances within PrepaymentDepository are
+only updated upon withdrawal. Withdrawal requests must withdraw all available
+funds and have a 1-hour expiration.
