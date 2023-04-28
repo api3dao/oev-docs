@@ -83,7 +83,7 @@ want to bid on. The configurations can be fetched from the
 ## Placing Bids
 
 To place a bid, call the [place bid endpoint](../api/#post-place-bid) on the
-relay which will return the id of the bid. The bid id is used to keep track of
+relay which will return the ID of the bid. The bid ID is used to keep track of
 the bid when querying the [status endpoint](../api/#post-status).
 
 ::: info
@@ -137,7 +137,7 @@ be used to update the data feed.
 
 Bids can be cancelled by calling the
 [cancel-bid endpoint](../api/#post-cancel-bid) on the relay API and providing
-the bid id.
+the bid ID.
 
 Best practice for searchers is to monitor the conversion rate between the native
 token they are bidding in and USDC to ensure their bids meet the minimum amount

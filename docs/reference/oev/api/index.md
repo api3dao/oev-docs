@@ -225,7 +225,7 @@ tags:
 
 - Description  
   Request a withdrawal from a specific prepayment depository contract and its
-  chain Id. Note that the returned signature that can be used to withdraw will
+  chain ID. Note that the returned signature that can be used to withdraw will
   only be valid for a certain amount of time.
 
 #### RequestBody
