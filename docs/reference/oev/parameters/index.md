@@ -14,17 +14,17 @@ tags:
 
 # {{$frontmatter.title}}
 
-## Variable parameters
+## Variable Parameters
 
-OEV relay parameters that can be either chain or data feed proxy specific. You
-can query the [configuration endpoint](../api/#configuration) to see their
+OEV relay parameters can be either chain-specific or data feed proxy-specific.
+You can query the [configuration endpoint](../api/#configuration) to see their
 values. All time periods are in milliseconds unless specified otherwise.
 
 ### Auction Delay
 
 ::: info
 
-This parameter is chain specific.
+This parameter is chain-specific.
 
 :::
 
@@ -36,30 +36,30 @@ still giving searchers a reasonable time to land their transaction on-chain.
 
 ::: info
 
-This parameter is data feed proxy specific.
+This parameter is data feed proxy-specific.
 
 :::
 
-The time period searchers have to update the data feed after they won an
-auction. If they do not perform the update in this period, they will be
-[slashed](#slashing) (provided there was no other update that frontran them).
+The time period searchers have to update the data feed after they have won an
+auction. If they do not perform the update within this period, they will be
+[slashed](#slashing) (provided there was no other update that frontrun them).
 
 ### Minimal Bid Amount
 
 ::: info
 
-This parameter is data feed proxy specific.
+This parameter is data feed proxy-specific.
 
 :::
 
-The minimal amount in native tokens for a bid. Placing a bid with lower amount
+The minimal amount in native tokens for a bid. Placing a bid with a lower amount
 will fail.
 
 ### Minimal Block Confirmations
 
 ::: info
 
-This parameter is chain specific.
+This parameter is chain-specific.
 
 :::
 
@@ -92,9 +92,9 @@ to compensate data providers and the DAO. Will be smaller than or equal to the
 bid collateral. No fee is taken if the searcher is frontrun by another searcher
 or the oracle. Represented as a percentage of the bid amount. -->
 
-## Fixed parameters
+## Fixed Parameters
 
-OEV relay parameters that are the same for the all chains.
+OEV relay parameters that are the same for all chains.
 
 ### Withdraw Period
 
@@ -103,14 +103,14 @@ signed message that allows them to do so by calling the
 [`/withdraw` endpoint](../api/index.md#withdraw). **Set to 1 hour**. During this
 period, the funds are reserved for withdrawal and cannot be used as collateral.
 
-If the transaction is not made in the given timeframe, the relay will expire the
-withdrawal and unreserve the funds back to the searcher.
+If the transaction is not made within the given timeframe, the relay will expire
+the withdrawal and unreserve the funds back to the searcher.
 
-## Other terms
+## Other Terms
 
 ### Slashing
 
-When a searcher makes a bid and the BE has filled it (i.e., they won an
+When a searcher makes a bid and the BE has filled it (i.e., they have won an
 auction), a percentage of the bid amount is reserved from their available funds
 as collateral for potential slashing. If no entity updates the data feed, the
 searcher is slashed, and the reserved funds are not freed.

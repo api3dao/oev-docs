@@ -79,9 +79,9 @@ relay which will return the following response if you deposited 100 USDC:
 
 To make a request on the relay, you need to provide the payload for the
 respective endpoint that you intend to call. As a form of authentication, relay
-requires a the payload to be signed and signature provided as well. This
-signature needs to be unique and is used to identify this operation in case of a
-potential dispute.
+requires the payload to be signed and signature provided as well. This signature
+needs to be unique and is used to identify this operation in case of a potential
+dispute.
 
 ```javascript
 const unsignedPayload = {
@@ -205,7 +205,7 @@ response for the bid placed in the previous section:
 }
 ```
 
-if the bid wins the auction, the status will be updated to `WON` and the
+If the bid wins the auction, the status will be updated to `WON` and the
 `executableAuctions` field will be populated with the encoded transaction that
 can be used to update the data feed. This transaction needs to be submitted
 on-chain by the executor. The executor is chosen from the winning bids. The
@@ -254,7 +254,7 @@ following is an example of the response:
 ## Capturing OEV
 
 To capture the OEV, you should use a multicall contract that lets you update the
-data feed and the capture the OEV atomically. You can find the encoded update
+data feed and capture the OEV atomically. You can find the encoded update
 transaction data in the [status endpoint](../api/#post-status) response.
 
 <!-- TODO: This should be more descriptive and refer to some Multicall contract. Or at least mention how to deploy one. -->
@@ -315,6 +315,6 @@ To withdraw funds, call the [withdraw endpoint](../api/#post-withdraw) on the
 relay API and receive a signature that can be used to call the `withdraw`
 function within `PrepaymentDepository`. Note that withdrawals must be made
 through an API call, as deposited amounts are stored and adjusted off-chain in a
-fully programatic manner by the relay. The balances within
+fully programmatic manner by the relay. The balances within
 `PrepaymentDepository` are only updated upon withdrawal. Withdrawal requests
 must withdraw all available funds and have a 1-hour expiration.

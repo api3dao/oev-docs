@@ -30,7 +30,7 @@ API as authentication.
 
 Continue running your old MEV bots in parallel with the OEV Relay integration.
 In case the OEV Relay experiences downtime, your old searcher bots will still be
-able to execute opportunities as it did before integrating OEV data feeds.
+able to execute opportunities as they did before integrating OEV data feeds.
 
 ## Adapting to OEV Auction Integration
 
