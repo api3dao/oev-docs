@@ -20,7 +20,7 @@ This section discusses how to integrate OEV data feeds while maintaining the
 ability to execute opportunities such as liquidations or arbitrage using your
 old searcher bots.
 
-## Initializing API Key
+## Creating OEV Account
 
 Depositing funds into `PrepaymentDepository` will create an account on the OEV
 Relay API. You will sign signatures with your private key to make calls to the

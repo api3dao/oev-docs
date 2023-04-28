@@ -27,10 +27,10 @@ address potential disputes.
 ## Depositing USDC into PrepaymentDepository
 
 To interact with the OEV Relay API using your public/private key pair, deposit
-USDC into the `PrepaymentDepository` contract. Relay will wait until there are
-sufficient block confirmations and then automatically creates an account for
-your account and chain combination. Authentication for API calls requiring
-authorization is done through signatures with your private key.
+USDC into the `PrepaymentDepository` contract. Relay will wait for sufficient
+block confirmations and then automatically creates an account for your account
+and chain combination. Authentication for API calls is done via signatures with
+your private key.
 
 ::: info
 
@@ -43,7 +43,7 @@ update on.
 ### Deposit Function
 
 Call the deposit function with the desired USDC amount to deposit. The deposit
-function utilizes ERC20Permit to enable deposits without prior contract
+function utilizes `ERC20Permit` to enable deposits without prior contract
 approval. You can follow the steps below to deposit USDC via the frontend.
 
 ### Deposit Procedure (Frontend)
@@ -99,6 +99,8 @@ their collateral is freed without any cost.
 The following is an example of a bid that will be fulfilled if the price is
 greater than or equal to 1000:
 
+<!-- TODO: Make this a separate section -->
+
 ```javascript
 const unsignedPayload = {
   searcherAddress: '<SEARCHER_ADDRESS>',
@@ -146,7 +148,7 @@ and collateral requirements.
 ## Checking Status of Bids
 
 To check the status of bids, call the [status endpoint](../api/#post-status) on
-the relay API. For Example, the status endpoint will return the following
+the relay API. For example, the status endpoint will return the following
 response for the bid placed in the previous section:
 
 ```json
