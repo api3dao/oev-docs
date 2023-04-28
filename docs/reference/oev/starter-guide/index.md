@@ -74,6 +74,63 @@ relay which will return the following response if you deposited 100 USDC:
 }
 ```
 
+## Making OEV relay request
+
+To make a request on the relay, you need to provide the payload for the
+respective endpoint that you intend to call. As a form of authentication, relay
+requires a the payload to be signed and signature provided as well. This
+signature needs to be unique and is used to identify this operation in case of a
+potential dispute.
+
+```javascript
+const unsignedPayload = {
+  searcherAddress: '<SEARCHER_ADDRESS>',
+  validUntilTimestamp: getUnixTime(addSeconds(Date.now(), 10)),
+  prepaymentDepositoryChainId: '<PREPAYMENT_DEPOSITORY_CHAIN_ID>',
+  prepaymentDepositoryAddress: '<PREPAYMENT_DEPOSITORY_ADDRESS>',
+  requestType: 'API3 OEV Relay, place-bid',
+  dAppProxyAddress: '<DAPP_PROXY_ADDRESS>',
+  dAppProxyChainId: '<DAPP_PROXY_CHAIN_ID>',
+  condition: 'GTE',
+  bidAmount: '1000000000000000000',
+  fulfillmentValue: '123000000',
+  updateExecutorAddress: '<UPDATE_EXECUTOR_ADDRESS>',
+};
+
+// Sign the payload with the searcher's wallet.
+const signature = await signPayload(unsignedPayload, searcherWallet);
+// Use the payload to call the place-bid endpoint.
+const payload = {
+  ...unsignedPayload,
+  signature,
+};
+```
+
+To sign the payload, we require you to sort the object fields alphabetically and
+then sign the payload using [EIP-191](https://eips.ethereum.org/EIPS/eip-191).
+You could use the following implementation in javascript and ethers library.
+
+```javascript
+const sortedObject = (value) => {
+  if (typeof value === 'object' && value !== null) {
+    return Object.keys(value)
+      .sort()
+      .reduce((acc, key) => ({ ...acc, [key]: sortedObject(value[key]) }), {});
+  }
+
+  return value;
+};
+
+const sortedJsonStringify = (value) => {
+  return JSON.stringify(sortedObject(value));
+};
+
+const signPayload = (unsignedPayload, searcherWallet) => {
+  const payloadString = sortedJsonStringify(unsignedPayload);
+  return searcherWallet.signMessage(payloadString);
+};
+```
+
 ## Get Configurations
 
 Before placing bids, you need to get the configurations of the OEV proxies you
@@ -95,38 +152,6 @@ specified time. If a searcher is frontrun in performing the data feed update,
 their collateral is freed without any cost.
 
 :::
-
-The following is an example of a bid that will be fulfilled if the price is
-greater than or equal to 1000:
-
-<!-- TODO: Make this a separate section -->
-
-```javascript
-const unsignedPayload = {
-  searcherAddress: '<SEARCHER_ADDRESS>',
-  // Make sure the timestamp is in the future and sufficiently random
-  validUntilTimestamp: getUnixTime(
-    addSeconds(Date.now(), 100 + Math.random() * 10_000)
-  ),
-  prepaymentDepositoryChainId: '<PREPAYMENT_DEPOSITORY_CHAIN_ID>',
-  prepaymentDepositoryAddress: '<PREPAYMENT_DEPOSITORY_ADDRESS>',
-  requestType: RequestTypes.PLACE_BID,
-  dAppProxyAddress: '<DAPP_PROXY_ADDRESS>',
-  dAppProxyChainId: '<DAPP_PROXY_CHAIN_ID>',
-  condition: '<GTE>', // GTE or LTE
-  bidAmount: '<1000000000000000000>', // use ethers.utils.parseEther
-  fulfillmentValue: '1000',
-  updateExecutorAddress: '<UPDATE_EXECUTOR_ADDRESS>',
-};
-
-// sign the payload with the searcher's private key
-const signedPayload = await signPayload(unsignedPayload, signer);
-// use the payload to call the place-bid endpoint
-const payload = {
-  ...unsignedPayload,
-  signature: signedPayload.signature,
-};
-```
 
 Orders can be placed with two possible conditions:
 
