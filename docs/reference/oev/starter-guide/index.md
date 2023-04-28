@@ -50,10 +50,11 @@ approval. You can follow the steps below to deposit USDC via the frontend.
 
 To deposit USDC, follow the steps below:
 
-- Using the frontend at `<TODO>`, connect your wallet to the frontend.
+- Using the frontend at `https://oev.api3.org/`, connect your wallet to the
+  frontend.
 - Specify the USDC amount for deposit, which will be used for bidding.
 - Provide the deposit address which will be used for bidding.
-- The frontend will automatically prompt you to sign the deposit transaction.
+- Sign and make the deposit transaction.
 
 ### Check Balance
 
