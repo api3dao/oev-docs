@@ -22,7 +22,7 @@ old searcher bots.
 
 ## Initializing API Key
 
-Depositing funds into PrepaymentDepository will create an account on the OEV
+Depositing funds into `PrepaymentDepository` will create an account on the OEV
 Relay API. You will sign signatures with your private key to make calls to the
 API as authentication.
 

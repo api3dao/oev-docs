@@ -27,16 +27,16 @@ address potential disputes.
 ## Depositing USDC into PrepaymentDepository
 
 To interact with the OEV Relay API using your public/private key pair, deposit
-USDC into the PrepaymentDepository contract. Relay will wait until there are
+USDC into the `PrepaymentDepository` contract. Relay will wait until there are
 sufficient block confirmations and then automatically creates an account for
 your account and chain combination. Authentication for API calls requiring
 authorization is done through signatures with your private key.
 
 ::: info
 
-PrepaymentDepository will initially be deployed on the Ethereum mainnet, but may
-not necessarily be deployed on the chain you are bidding for a data feed update
-on.
+`PrepaymentDepository` will initially be deployed on the Ethereum mainnet, but
+may not necessarily be deployed on the chain you are bidding for a data feed
+update on.
 
 :::
 
@@ -279,14 +279,14 @@ hash of the update. The auction will be moved to the `pastAuctions` field of the
 
 ## Withdrawing Funds
 
-Deposits into PrepaymentDepository can only be withdrawn to the depositor
+Deposits into `PrepaymentDepository` can only be withdrawn to the depositor
 address. To change the withdrawal address, the current withdrawal account must
 call `setWithdrawalAccount` with a new address.
 
 To withdraw funds, call the [withdraw endpoint](../api/#post-withdraw) on the
 relay API and receive a signature that can be used to call the `withdraw`
-function within PrepaymentDepository. Note that withdrawals must be made through
-an API call, as deposited amounts are stored and adjusted off-chain in a fully
-programatic manner by the relay. The balances within PrepaymentDepository are
-only updated upon withdrawal. Withdrawal requests must withdraw all available
-funds and have a 1-hour expiration.
+function within `PrepaymentDepository`. Note that withdrawals must be made
+through an API call, as deposited amounts are stored and adjusted off-chain in a
+fully programatic manner by the relay. The balances within
+`PrepaymentDepository` are only updated upon withdrawal. Withdrawal requests
+must withdraw all available funds and have a 1-hour expiration.
