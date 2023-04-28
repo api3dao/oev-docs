@@ -58,11 +58,11 @@ To deposit USDC, follow the steps below:
 ### Check Balance
 
 To check your balance, query the [status endpoint](../api/#post-status) on the
-relay which will return the following response if you deposited 10 USDC:
+relay which will return the following response if you deposited 100 USDC:
 
 ```json
 {
-  "availableFunds": "10000000",
+  "availableFunds": "100000000",
   "withdrawalReservedFunds": "0",
   "bidReservedFunds": "0",
   "api3FeeFunds": "0",
@@ -151,7 +151,7 @@ response for the bid placed in the previous section:
 
 ```json
 {
-  "availableFunds": "10000000",
+  "availableFunds": "100000000",
   "withdrawalReservedFunds": "0",
   "bidReservedFunds": "0",
   "api3FeeFunds": "0",
@@ -159,16 +159,17 @@ response for the bid placed in the previous section:
   "pendingWithdrawals": [],
   "bids": [
     {
-      "id": "1",
-      "bidAmount": "1000000000000000000",
+      "id": "5babb665-0e97-43ba-b355-63553cddb033",
+      "dAppProxyAddress": "0x9E53700c4D0AC80eEc58Eaf381e2C11400C92989",
+      "dAppProxyChainId": 6999,
+      "bidAmount": "50000000000000000",
+      "reservedAmount": "5985582",
       "condition": "GTE",
-      "createdAt": "2021-09-01T00:00:00.000Z",
-      "dAppProxyAddress": "<DAPP_PROXY_ADDRESS>",
-      "dAppProxyChainId": "<DAPP_PROXY_CHAIN_ID>",
-      "fulfillmentValue": "1000",
+      "fulfillmentValue": "3000",
       "status": "PENDING",
       "updateTxHash": null,
-      "updateExecutorAddress": "<UPDATE_EXECUTOR_ADDRESS>"
+      "createdAt": "1682677875",
+      "updateExecutorAddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
     }
   ],
   "executableAuctions": [],
@@ -184,114 +185,93 @@ following is an example of the response:
 
 ```json
 {
-  "availableFunds": "9000000",
+  "availableFunds": "94014418",
   "withdrawalReservedFunds": "0",
-  "bidReservedFunds": "1000000",
+  "bidReservedFunds": "5985582",
   "api3FeeFunds": "0",
   "slashedFunds": "0",
   "pendingWithdrawals": [],
   "bids": [
     {
-      "id": "0x1",
-      "bidAmount": "1000000000000000000",
+      "id": "5babb665-0e97-43ba-b355-63553cddb033",
+      "dAppProxyAddress": "0x9E53700c4D0AC80eEc58Eaf381e2C11400C92989",
+      "dAppProxyChainId": 6999,
+      "bidAmount": "50000000000000000",
+      "reservedAmount": "5985582",
       "condition": "GTE",
-      "createdAt": "2021-09-01T00:00:00.000Z",
-      "dAppProxyAddress": "<DAPP_PROXY_ADDRESS>",
-      "dAppProxyChainId": "<DAPP_PROXY_CHAIN_ID>",
-      "fulfillmentValue": "1000",
+      "fulfillmentValue": "3000",
       "status": "WON",
       "updateTxHash": null,
-      "reservedAmount": "1000000",
-      "updateExecutorAddress": "<UPDATE_EXECUTOR_ADDRESS>"
+      "createdAt": "1682677875",
+      "updateExecutorAddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
     }
   ],
   "executableAuctions": [
     {
-      "api3FeePercentage": "10",
-      "collateralPercentage": "10",
-      "decodedValue": "1000",
-      "exchangeRate": "123.456",
-      "updatePeriodEnd": "2021-09-01T00:00:00.000Z",
-      "updateTransactionParameters": {
-        "data": "0x0",
-        "dataFeedId": "<DATA_FEED_ID>",
-        "nativeCurrencyAmount": "500000000000000000",
-        "packedOevSignatures": ["0x0"],
-        "proxyAddress": "<DAPP_PROXY_ADDRESS>",
-        "timestamp": "1679659672",
-        "updateId": "0x1"
-      },
-      "updateExecutorAddress": "<UPDATE_EXECUTOR_ADDRESS>"
+      "winningBidIds": ["5babb665-0e97-43ba-b355-63553cddb033"],
+      "nativeCurrencyAmount": "50000000000000000",
+      "encodedUpdateTransaction": "0xe6ec76ac0000000000000000000000009e53700c4d0ac80eec58eaf381e2c11400c9298959a9a65cde2e07d241e9c6256e41ab5ea0420f56b4bb4993a1e48d32ced39c0d87e84db0e1ed32e09014ca66c728cb58643f044ece7e726bfe184f4d43ed2b1600000000000000000000000000000000000000000000000000000000644ba07400000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000006bd991fe0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e00000000000000000000000008009ccf21cd961e6f39152bc5e50cb5c78692d40ff6d0c81da86440389baedc8943ab0d2a3b4deb5cba51f7be0433117832e3c41000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000417e72aa05cf8854bba7a303facffe5885e17d08d90f156fb68a794a94426012f427b5005f6dc9fe415e8ba961bf06b143ff43340feee2fe73f4dd9f6ea6d32eff1b00000000000000000000000000000000000000000000000000000000000000",
+      "decodedValue": "1809420798",
+      "updatePeriodEnd": "Fri Apr 28 2023 12:36:16 GMT+0200 (Central European Summer Time)",
+      "collateralPercentage": 10,
+      "api3FeePercentage": 10,
+      "exchangeRate": 11971164620063,
+      "updateExecutorAddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
     }
   ],
   "pastAuctions": []
 }
 ```
 
-<!-- TODO: This needs to be rewritten to caputring OEV -->
+## Capturing OEV
 
-## Updating the Data Feed
+To capture the OEV, you should use a multicall contract that lets you update the
+data feed and the capture the OEV atomically. You can find the encoded update
+transaction data in the [status endpoint](../api/#post-status) response.
 
-To update the data feed, call the `updateOevProxyDataFeedWithSignedData`
-function of the `Api3ServerV1` contract with the following parameters which can
-be obtained from the `updateTransactionParameters` field of the
-[status endpoint](../api/#post-status) response:
+<!-- TODO: This should be more descriptive and refer to some Multicall contract. Or at least mention how to deploy one. -->
 
-- `oevProxy` the address of the OEV dApp proxy
-- `dataFeedId` the id of the data feed
-- `updateId` the id of the update
-- `timestamp` the timestamp of the update
-- `data` the data of the update (in this case, the price of the asset provided
-  by the data feed)
-- `packedOevUpdateSignatures` packed signatures used to verify the update
-
-Once the update is submitted, the status of the bid will be updated to
+Once the update is confirmed, the status of the bid will be updated to
 `EXECUTED` and the `updateTxHash` field will be populated with the transaction
 hash of the update. The auction will be moved to the `pastAuctions` field of the
 [status endpoint](../api/#post-status) response.
 
 ```json
 {
-  "availableFunds": "9500000",
+  "availableFunds": "94014418",
   "withdrawalReservedFunds": "0",
   "bidReservedFunds": "0",
-  "api3FeeFunds": "500000",
+  "api3FeeFunds": "5985582",
   "slashedFunds": "0",
   "pendingWithdrawals": [],
   "bids": [
     {
-      "id": "0x1",
-      "bidAmount": "1000000000000000000",
+      "id": "5babb665-0e97-43ba-b355-63553cddb033",
+      "dAppProxyAddress": "0x9E53700c4D0AC80eEc58Eaf381e2C11400C92989",
+      "dAppProxyChainId": 6999,
+      "bidAmount": "50000000000000000",
+      "reservedAmount": "5985582",
+      "api3Fee": "5985582",
       "condition": "GTE",
-      "createdAt": "2021-09-01T00:00:00.000Z",
-      "dAppProxyAddress": "<DAPP_PROXY_ADDRESS>",
-      "dAppProxyChainId": "<DAPP_PROXY_CHAIN_ID>",
-      "fulfillmentValue": "1000",
+      "fulfillmentValue": "3000",
       "status": "EXECUTED",
-      "updateTxHash": "0x1",
-      "reservedAmount": "1000000",
-      "api3Fee": "500000",
-      "updateExecutorAddress": "<UPDATE_EXECUTOR_ADDRESS>"
+      "updateTxHash": "0xeec81c7fd9fd7d5a79a029b4c9df8296fa86176aa040c8041cde873e9609cb0e",
+      "createdAt": "1682677875",
+      "updateExecutorAddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
     }
   ],
   "executableAuctions": [],
   "pastAuctions": [
     {
-      "api3FeePercentage": "10",
-      "collateralPercentage": "10",
-      "decodedValue": "1000",
-      "exchangeRate": "123.456",
-      "updatePeriodEnd": "2021-09-01T00:00:00.000Z",
-      "updateTransactionParameters": {
-        "data": "0x0",
-        "dataFeedId": "<DATA_FEED_ID>",
-        "nativeCurrencyAmount": "500000000000000000",
-        "packedOevSignatures": ["0x0"],
-        "proxyAddress": "<DAPP_PROXY_ADDRESS>",
-        "timestamp": "1679659672",
-        "updateId": "0x1"
-      },
-      "updateExecutorAddress": "<UPDATE_EXECUTOR_ADDRESS>"
+      "winningBidIds": ["5babb665-0e97-43ba-b355-63553cddb033"],
+      "nativeCurrencyAmount": "50000000000000000",
+      "encodedUpdateTransaction": "0xe6ec76ac0000000000000000000000009e53700c4d0ac80eec58eaf381e2c11400c9298959a9a65cde2e07d241e9c6256e41ab5ea0420f56b4bb4993a1e48d32ced39c0d87e84db0e1ed32e09014ca66c728cb58643f044ece7e726bfe184f4d43ed2b1600000000000000000000000000000000000000000000000000000000644ba07400000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000006bd991fe0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e00000000000000000000000008009ccf21cd961e6f39152bc5e50cb5c78692d40ff6d0c81da86440389baedc8943ab0d2a3b4deb5cba51f7be0433117832e3c41000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000417e72aa05cf8854bba7a303facffe5885e17d08d90f156fb68a794a94426012f427b5005f6dc9fe415e8ba961bf06b143ff43340feee2fe73f4dd9f6ea6d32eff1b00000000000000000000000000000000000000000000000000000000000000",
+      "decodedValue": "1809420798",
+      "updatePeriodEnd": "Fri Apr 28 2023 12:36:16 GMT+0200 (Central European Summer Time)",
+      "collateralPercentage": 10,
+      "api3FeePercentage": 10,
+      "exchangeRate": 11971164620063,
+      "updateExecutorAddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
     }
   ]
 }
