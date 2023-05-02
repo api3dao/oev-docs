@@ -38,3 +38,19 @@ Inside the folder, you will need to create an `index.md` file. The `index.md`
 file will contain the content of the page. You will also need to update the
 `sidebar.js` file in the `/reference/oev/` directory. The `sidebar.js` file
 contains the sidebar navigation for the documentation.
+
+## Deploy to AWS S3 bucket ([link](http://oev-docs.s3-website-us-east-1.amazonaws.com/))
+
+**AWS Account**: `oev`
+
+**Bucket**: `oev-docs`
+
+To deploy the documentation to the AWS S3 bucket, you will need to run the:
+
+> Note: You will need to have the [AWS CLI](https://aws.amazon.com/cli/)
+> installed and AWS credentials configured.
+
+```bash
+yarn docs:build
+aws s3 sync ./docs/.vitepress/dist/ s3://oev-docs
+```
