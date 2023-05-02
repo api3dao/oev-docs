@@ -24,7 +24,7 @@ values. All time periods are in milliseconds unless specified otherwise.
 
 ::: info
 
-This parameter is chain-specific.
+This parameter is proxy-specific.
 
 :::
 
@@ -36,19 +36,20 @@ still giving searchers a reasonable time to land their transaction on-chain.
 
 ::: info
 
-This parameter is data feed proxy-specific.
+This parameter is proxy-specific.
 
 :::
 
 The time period searchers have to update the data feed after they have won an
 auction. If they do not perform the update within this period, they will be
-[slashed](#slashing) (provided there was no other update that frontrun them).
+[slashed](#slashing) (provided there was no other update on that data feed
+within the update period).
 
 ### Minimal Bid Amount
 
 ::: info
 
-This parameter is data feed proxy-specific.
+This parameter is proxy-specific.
 
 :::
 
@@ -63,8 +64,8 @@ This parameter is chain-specific.
 
 :::
 
-A number of blocks that must have passed for the OEV relay to acknowledge
-blockchain events.
+A number of block confirmations that must have passed for the OEV relay to
+acknowledge blockchain events.
 
 <!-- Commented out as it's currently not available via the /configuration endpoint -->
 <!-- ### Bid Collateral
@@ -112,5 +113,6 @@ the withdrawal and unreserve the funds back to the searcher.
 
 When a searcher makes a bid and the BE has filled it (i.e., they have won an
 auction), a percentage of the bid amount is reserved from their available funds
-as collateral for potential slashing. If no entity updates the data feed, the
-searcher is slashed, and the reserved funds are not freed.
+as collateral for potential slashing. If the data feed is not updated within the
+update period, the searcher is slashed, meaning the reserved funds are not
+freed.

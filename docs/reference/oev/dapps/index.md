@@ -14,10 +14,10 @@ tags:
 
 # {{$frontmatter.title}}
 
-OEV auctions function as a supplementary service to regular data feed
-operations, ensuring that updates persist through the oracle even during OEV
-relay downtime or periods with limited OEV opportunities. Integration involves
-deploying a proxy data feed contract and directing the dApp to it.
+OEV auctions operate as a supplementary service to regular data feed operations,
+ensuring that updates persist through the oracle even during OEV relay downtime
+or periods with limited OEV opportunities. Integration involves deploying a
+proxy data feed contract and directing the dApp to it.
 
 ## Proxy Contract
 
