@@ -20,17 +20,17 @@ This section discusses how to integrate OEV data feeds while maintaining the
 ability to execute opportunities such as liquidations or arbitrage using your
 old searcher bots.
 
-## Initializing API Key
+## Creating OEV Account
 
-Depositing funds into PrepaymentDepository.sol will create an account for your
-public/private key combination with the OEV Relay API. You will use signatures
-with your private key to make calls to the API that require authentication.
+Depositing funds into `PrepaymentDepository` will create an account on the OEV
+Relay API. You will sign signatures with your private key to make calls to the
+API as authentication.
 
 ## Running Existing Bots as Backup
 
 Continue running your old MEV bots in parallel with the OEV Relay integration.
 In case the OEV Relay experiences downtime, your old searcher bots will still be
-able to execute opportunities as it did before integrating OEV data feeds.
+able to execute opportunities as they did before integrating OEV data feeds.
 
 ## Adapting to OEV Auction Integration
 

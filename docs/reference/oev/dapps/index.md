@@ -1,8 +1,8 @@
 ---
-title: dAPP Onboarding
+title: dApp Onboarding
 sidebarHeader: Reference
 sidebarSubHeader: OEV
-pageHeader: Reference → OEV -> dAPPs
+pageHeader: Reference → OEV -> dApps
 path: /reference/oev/dapps/index.html
 outline: deep
 tags:
@@ -14,10 +14,10 @@ tags:
 
 # {{$frontmatter.title}}
 
-OEV auctions operate as a sidecar service to regular data feed operation,
-ensuring that updates continue through the oracle in case of OEV relay downtime
-or lack of OEV opportunities. Integration requires deploying a proxy data feed
-contract and pointing the dApp towards it.
+OEV auctions operate as a supplementary service to regular data feed operations,
+ensuring that updates persist through the oracle even during OEV relay downtime
+or periods with limited OEV opportunities. Integration involves deploying a
+proxy data feed contract and directing the dApp to it.
 
 ## Proxy Contract
 
@@ -25,20 +25,20 @@ contract and pointing the dApp towards it.
   <img src="/reference/oev/assets/dAPI.png" />
 </div>
 
-The proxy contract is updated with the latest data point by searchers using
-signed-data from airnodes. However, it displays the data point from
-[Api3ServerV1.sol](https://dapi-docs.api3.org/reference/dapis/understand/read-dapis.htmls)
-if it has a more recent timestamp than the last searcher update. Each dApp has
-its own proxy in order to determine which dApps the OEV proceeds should be
-distributed to. The data feed reads from Api3ServerV1.sol as well in order to
-have a fallback that is updated by the oracle rather than the searcher.
+Searchers use signed data from Airnodes to update the proxy contract with the
+latest data point. However, if
+[`Api3ServerV1`](https://dapi-docs.api3.org/reference/dapis/understand/read-dapis.htmls)
+has a more recent timestamp than the last searcher update, the data point from
+`Api3ServerV1` will be displayed. Each dApp has its own proxy to determine the
+distribution of OEV proceeds. The data feed also reads from `Api3ServerV1` to
+provide a fallback that is updated by the oracle instead of the searcher.
 
 ### Deploying a Proxy
 
 When deploying a proxy, the dApp specifies an address that can withdraw OEV
 proceeds from
-[Api3ServerV1.sol](https://dapi-docs.api3.org/reference/dapis/understand/read-dapis.htmls).
-This allows for the distribution of proceeds to the appropriate dApp.
+[`Api3ServerV1`](https://dapi-docs.api3.org/reference/dapis/understand/read-dapis.htmls).
+This enables the distribution of proceeds to the appropriate dApp.
 
 ::: tip
 
@@ -48,6 +48,6 @@ Please refer to the following guide on how to read from a proxy contract:
 
 :::
 
-By integrating OEV auctions as a sidecar service, developers can ensure a
+By integrating OEV auctions as a supplementary service, developers can ensure a
 seamless transition between oracle updates and OEV opportunities while
 maintaining the desired distribution of proceeds.
