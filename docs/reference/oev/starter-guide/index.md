@@ -132,6 +132,15 @@ const signPayload = (unsignedPayload, searcherWallet) => {
 };
 ```
 
+::: warning
+
+Bids with different `updateExecutorAddress` values are treated as separate bid
+groups. Only one group can win an auction, which reduces the chance of winning a
+particular auction. Moreover, bids in other groups will be cancelled. It is best
+practice to set the `updateExecutorAddress` to the same value for all bids.
+
+:::
+
 ## Get Configurations
 
 Before placing bids, you need to get the configurations of the OEV proxies you
