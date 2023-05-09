@@ -52,5 +52,5 @@ To deploy the documentation to the AWS S3 bucket, you will need to run the:
 
 ```bash
 yarn docs:build
-aws s3 sync ./docs/.vitepress/dist/ s3://oev-docs
+aws s3 sync ./docs/.vitepress/dist/ s3://oev-docs --acl public-read
 ```
