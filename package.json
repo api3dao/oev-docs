@@ -18,6 +18,7 @@
     "docs:dev": "yarn sync:VPFlyout; yarn sync:VPNavBarTitle; yarn sync:VPNavBar; yarn sync:VPSidebar; yarn sync:sidebarHeader; vitepress dev docs",
     "docs:build": "yarn sync:VPFlyout; yarn sync:VPNavBarTitle; yarn sync:VPNavBar; yarn sync:VPSidebar; yarn sync:sidebarHeader; vitepress build docs;",
     "docs:serve": "vitepress serve docs --port 8082",
+    "docs:generate:oevmd": "widdershins docs/reference/oev/api/swagger.yml --outfile docs/reference/oev/api/index.md --language_tabs 'javascript:JavaScript' 'shell:curl'",
     "format": "prettier --write --cache \"./**/*.{js,vue,md,json,yaml}\" --loglevel silent",
     "format:check": "prettier --check --cache \"./**/*.{js,vue,md,json,yaml}\"",
     "prepare": "husky install",
@@ -39,6 +40,7 @@
     "tiny-emitter": "^2.1.0",
     "vitepress": "1.0.0-alpha.49",
     "vue": "3.2.47",
-    "walk-sync": "^3.0.0"
+    "walk-sync": "^3.0.0",
+    "widdershins": "^4.0.1"
   }
 }
