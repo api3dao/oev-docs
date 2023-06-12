@@ -12,38 +12,37 @@ tags:
 
 <h1 id="oev-relay-api">OEV relay API v1.0.0</h1>
 
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+> Scroll down for code samples, example requests and responses. Select a
+> language for code samples from the tabs above or the mobile navigation menu.
 
 The API for making requests to OEV relay.
 
 Base URLs:
 
-* <a href="/api">/api</a>
+- <a href="/api">/api</a>
 
 <h1 id="oev-relay-api-api">API</h1>
 
-## get__configuration
+## get\_\_configuration
 
 > Code samples
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json'
+  Accept: 'application/json',
 };
 
-fetch('/api/configuration',
-{
+fetch('/api/configuration', {
   method: 'GET',
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```shell
@@ -55,9 +54,11 @@ curl -X GET /api/configuration \
 
 `GET /configuration`
 
-*Returns the OEV relay configuration.*
+_Returns the OEV relay configuration._
 
-Returns the present values of settings that are determined by relay operators for every distinct OEV proxy. It is essential for searchers to frequently observe these values to ensure compliance with the OEV relay guidelines.
+Returns the present values of settings that are determined by relay operators
+for every distinct OEV proxy. It is essential for searchers to frequently
+observe these values to ensure compliance with the OEV relay guidelines.
 
 > Example responses
 
@@ -80,16 +81,16 @@ Returns the present values of settings that are determined by relay operators fo
 
 <h3 id="get__configuration-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Operation successful.|[ConfigurationResponse](#schemaconfigurationresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error.|[ErrorResponse](#schemaerrorresponse)|
+| Status | Meaning                                                                    | Description            | Schema                                                |
+| ------ | -------------------------------------------------------------------------- | ---------------------- | ----------------------------------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Operation successful.  | [ConfigurationResponse](#schemaconfigurationresponse) |
+| 500    | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal server error. | [ErrorResponse](#schemaerrorresponse)                 |
 
 <aside class="success">
 This operation does not require authentication
 </aside>
 
-## post__place-bid
+## post\_\_place-bid
 
 > Code samples
 
@@ -137,9 +138,10 @@ curl -X POST /api/place-bid \
 
 `POST /place-bid`
 
-*Places a bid.*
+_Places a bid._
 
-Places a bid in anticipation of an OEV opportunity on a specific data feed/chain.
+Places a bid in anticipation of an OEV opportunity on a specific data
+feed/chain.
 
 > Body parameter
 
@@ -162,9 +164,9 @@ Places a bid in anticipation of an OEV opportunity on a specific data feed/chain
 
 <h3 id="post__place-bid-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[PlaceBidRequest](#schemaplacebidrequest)|false|none|
+| Name | In   | Type                                      | Required | Description |
+| ---- | ---- | ----------------------------------------- | -------- | ----------- |
+| body | body | [PlaceBidRequest](#schemaplacebidrequest) | false    | none        |
 
 > Example responses
 
@@ -178,18 +180,18 @@ Places a bid in anticipation of an OEV opportunity on a specific data feed/chain
 
 <h3 id="post__place-bid-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Bid successfully placed.|[PlaceBidResponse](#schemaplacebidresponse)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bid cannot be placed.|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Proxy or searcher not found.|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error.|[ErrorResponse](#schemaerrorresponse)|
+| Status | Meaning                                                                    | Description                  | Schema                                      |
+| ------ | -------------------------------------------------------------------------- | ---------------------------- | ------------------------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Bid successfully placed.     | [PlaceBidResponse](#schemaplacebidresponse) |
+| 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bid cannot be placed.        | [ErrorResponse](#schemaerrorresponse)       |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Proxy or searcher not found. | [ErrorResponse](#schemaerrorresponse)       |
+| 500    | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal server error.       | [ErrorResponse](#schemaerrorresponse)       |
 
 <aside class="success">
 This operation does not require authentication
 </aside>
 
-## post__cancel-bid
+## post\_\_cancel-bid
 
 > Code samples
 
@@ -232,7 +234,7 @@ curl -X POST /api/cancel-bid \
 
 `POST /cancel-bid`
 
-*Cancels bid.*
+_Cancels bid._
 
 Cancels specific bid request associated with the bid ID.
 
@@ -252,9 +254,9 @@ Cancels specific bid request associated with the bid ID.
 
 <h3 id="post__cancel-bid-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[CancelBidRequest](#schemacancelbidrequest)|false|none|
+| Name | In   | Type                                        | Required | Description |
+| ---- | ---- | ------------------------------------------- | -------- | ----------- |
+| body | body | [CancelBidRequest](#schemacancelbidrequest) | false    | none        |
 
 > Example responses
 
@@ -268,18 +270,18 @@ Cancels specific bid request associated with the bid ID.
 
 <h3 id="post__cancel-bid-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Bid successfully canceled.|[CancelBidResponse](#schemacancelbidresponse)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bid cannot be canceled.|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bid or searcher not found.|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error.|[ErrorResponse](#schemaerrorresponse)|
+| Status | Meaning                                                                    | Description                | Schema                                        |
+| ------ | -------------------------------------------------------------------------- | -------------------------- | --------------------------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Bid successfully canceled. | [CancelBidResponse](#schemacancelbidresponse) |
+| 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Bid cannot be canceled.    | [ErrorResponse](#schemaerrorresponse)         |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Bid or searcher not found. | [ErrorResponse](#schemaerrorresponse)         |
+| 500    | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal server error.     | [ErrorResponse](#schemaerrorresponse)         |
 
 <aside class="success">
 This operation does not require authentication
 </aside>
 
-## post__withdraw
+## post\_\_withdraw
 
 > Code samples
 
@@ -321,9 +323,11 @@ curl -X POST /api/withdraw \
 
 `POST /withdraw`
 
-*Requests a withdrawal.*
+_Requests a withdrawal._
 
-Initiates a withdrawal from a designated prepayment depository contract and its associated chain ID. Be aware that the provided signature for withdrawal will only remain valid for a limited period.
+Initiates a withdrawal from a designated prepayment depository contract and its
+associated chain ID. Be aware that the provided signature for withdrawal will
+only remain valid for a limited period.
 
 > Body parameter
 
@@ -340,9 +344,9 @@ Initiates a withdrawal from a designated prepayment depository contract and its 
 
 <h3 id="post__withdraw-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[WithdrawRequest](#schemawithdrawrequest)|false|none|
+| Name | In   | Type                                      | Required | Description |
+| ---- | ---- | ----------------------------------------- | -------- | ----------- |
+| body | body | [WithdrawRequest](#schemawithdrawrequest) | false    | none        |
 
 > Example responses
 
@@ -360,18 +364,18 @@ Initiates a withdrawal from a designated prepayment depository contract and its 
 
 <h3 id="post__withdraw-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Withdrawal request successful.|[WithdrawResponse](#schemawithdrawresponse)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Withdrawal cannot be requested.|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Proxy or searcher not found.|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error.|[ErrorResponse](#schemaerrorresponse)|
+| Status | Meaning                                                                    | Description                     | Schema                                      |
+| ------ | -------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Withdrawal request successful.  | [WithdrawResponse](#schemawithdrawresponse) |
+| 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Withdrawal cannot be requested. | [ErrorResponse](#schemaerrorresponse)       |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Proxy or searcher not found.    | [ErrorResponse](#schemaerrorresponse)       |
+| 500    | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal server error.          | [ErrorResponse](#schemaerrorresponse)       |
 
 <aside class="success">
 This operation does not require authentication
 </aside>
 
-## post__status
+## post\_\_status
 
 > Code samples
 
@@ -413,9 +417,13 @@ curl -X POST /api/status \
 
 `POST /status`
 
-*Returns information about searcher.*
+_Returns information about searcher._
 
-Returns essential information regarding a searcher's account. To confirm the validity of your bids or withdrawals, regularly query this endpoint to monitor the status of your collateral. If you have active bids, consistently polling this endpoint will keep you informed about the fulfillment or cancellation of your bids.
+Returns essential information regarding a searcher's account. To confirm the
+validity of your bids or withdrawals, regularly query this endpoint to monitor
+the status of your collateral. If you have active bids, consistently polling
+this endpoint will keep you informed about the fulfillment or cancellation of
+your bids.
 
 > Body parameter
 
@@ -432,9 +440,9 @@ Returns essential information regarding a searcher's account. To confirm the val
 
 <h3 id="post__status-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[StatusRequest](#schemastatusrequest)|false|none|
+| Name | In   | Type                                  | Required | Description |
+| ---- | ---- | ------------------------------------- | -------- | ----------- |
+| body | body | [StatusRequest](#schemastatusrequest) | false    | none        |
 
 > Example responses
 
@@ -474,9 +482,7 @@ Returns essential information regarding a searcher's account. To confirm the val
   ],
   "executableAuctions": [
     {
-      "winningBidIds": [
-        "497f6eca-6276-4993-bfeb-53cbbbba6f08"
-      ],
+      "winningBidIds": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"],
       "nativeCurrencyAmount": "50000000000000000",
       "encodedUpdateTransaction": "0xe6ec76ac0000000000000000000000009e53700c4d0ac80eec58eaf381e2c11400c9298959a9a65cde2e07d241e9c6256e41ab5ea0420f56b4bb4993a1e48d32ced39c0d87e84db0e1ed32e09014ca66c728cb58643f044ece7e726bfe184f4d43ed2b1600000000000000000000000000000000000000000000000000000000644ba07400000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000006bd991fe0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e00000000000000000000000008009ccf21cd961e6f39152bc5e50cb5c78692d40ff6d0c81da86440389baedc8943ab0d2a3b4deb5cba51f7be0433117832e3c41000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000417e72aa05cf8854bba7a303facffe5885e17d08d90f156fb68a794a94426012f427b5005f6dc9fe415e8ba961bf06b143ff43340feee2fe73f4dd9f6ea6d32eff1b00000000000000000000000000000000000000000000000000000000000000",
       "decodedValue": "1809420798",
@@ -489,9 +495,7 @@ Returns essential information regarding a searcher's account. To confirm the val
   ],
   "pastAuctions": [
     {
-      "winningBidIds": [
-        "497f6eca-6276-4993-bfeb-53cbbbba6f08"
-      ],
+      "winningBidIds": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"],
       "nativeCurrencyAmount": "50000000000000000",
       "encodedUpdateTransaction": "0xe6ec76ac0000000000000000000000009e53700c4d0ac80eec58eaf381e2c11400c9298959a9a65cde2e07d241e9c6256e41ab5ea0420f56b4bb4993a1e48d32ced39c0d87e84db0e1ed32e09014ca66c728cb58643f044ece7e726bfe184f4d43ed2b1600000000000000000000000000000000000000000000000000000000644ba07400000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000006bd991fe0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e00000000000000000000000008009ccf21cd961e6f39152bc5e50cb5c78692d40ff6d0c81da86440389baedc8943ab0d2a3b4deb5cba51f7be0433117832e3c41000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000417e72aa05cf8854bba7a303facffe5885e17d08d90f156fb68a794a94426012f427b5005f6dc9fe415e8ba961bf06b143ff43340feee2fe73f4dd9f6ea6d32eff1b00000000000000000000000000000000000000000000000000000000000000",
       "decodedValue": "1809420798",
@@ -507,12 +511,12 @@ Returns essential information regarding a searcher's account. To confirm the val
 
 <h3 id="post__status-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Request successful.|[StatusResponse](#schemastatusresponse)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Status cannot be retrieved.|[ErrorResponse](#schemaerrorresponse)|
-|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Searcher not found.|[ErrorResponse](#schemaerrorresponse)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Internal server error.|[ErrorResponse](#schemaerrorresponse)|
+| Status | Meaning                                                                    | Description                 | Schema                                  |
+| ------ | -------------------------------------------------------------------------- | --------------------------- | --------------------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)                    | Request successful.         | [StatusResponse](#schemastatusresponse) |
+| 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)           | Status cannot be retrieved. | [ErrorResponse](#schemaerrorresponse)   |
+| 404    | [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)             | Searcher not found.         | [ErrorResponse](#schemaerrorresponse)   |
+| 500    | [Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1) | Internal server error.      | [ErrorResponse](#schemaerrorresponse)   |
 
 <aside class="success">
 This operation does not require authentication
@@ -532,15 +536,14 @@ This operation does not require authentication
   "error": "Validation error",
   "context": "<valid-json-with-any-structure>"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|error|string|true|none|Brief description of the error.|
-|context|any|false|none|Optional additional context for the error - for example validation errors.|
+| Name    | Type   | Required | Restrictions | Description                                                                |
+| ------- | ------ | -------- | ------------ | -------------------------------------------------------------------------- |
+| error   | string | true     | none         | Brief description of the error.                                            |
+| context | any    | false    | none         | Optional additional context for the error - for example validation errors. |
 
 <h2 id="tocS_ConfigurationResponse">ConfigurationResponse</h2>
 <!-- backwards compatibility -->
@@ -562,20 +565,19 @@ This operation does not require authentication
     }
   ]
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|proxies|[object]|true|none|none|
-|» address|string|true|none|The address of the proxy.|
-|» chainId|integer|true|none|The chain ID associated with the proxy's chain.|
-|» auctionDelayTime|integer|true|none|The minimum delay, in milliseconds, between the end of an auction and the start of the next one.|
-|» updatePeriod|integer|true|none|The maximum duration, in milliseconds, a searcher has after winning an auction to execute an update. Otherwise, they are slashed.|
-|» minimalBidValue|string|true|none|The minimum native currency amount required for bids created for this proxy.|
-|» minimalConfirmations|integer|true|none|The minimum number of block confirmations needed to process events on the chain associated with this proxy.|
+| Name                   | Type     | Required | Restrictions | Description                                                                                                                       |
+| ---------------------- | -------- | -------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| proxies                | [object] | true     | none         | none                                                                                                                              |
+| » address              | string   | true     | none         | The address of the proxy.                                                                                                         |
+| » chainId              | integer  | true     | none         | The chain ID associated with the proxy's chain.                                                                                   |
+| » auctionDelayTime     | integer  | true     | none         | The minimum delay, in milliseconds, between the end of an auction and the start of the next one.                                  |
+| » updatePeriod         | integer  | true     | none         | The maximum duration, in milliseconds, a searcher has after winning an auction to execute an update. Otherwise, they are slashed. |
+| » minimalBidValue      | string   | true     | none         | The minimum native currency amount required for bids created for this proxy.                                                      |
+| » minimalConfirmations | integer  | true     | none         | The minimum number of block confirmations needed to process events on the chain associated with this proxy.                       |
 
 <h2 id="tocS_CancelBidRequest">CancelBidRequest</h2>
 <!-- backwards compatibility -->
@@ -594,26 +596,25 @@ This operation does not require authentication
   "prepaymentDepositoryAddress": "string",
   "signature": "0x21940805289d45833e2e589f41be30d5044c8bfa50060d43b69a3bebf5102264687a4d1c78386f8c519d2eb7b9b30868a8c1a600b80da0bc7978bfdfb52799b11b"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|requestType|string|true|none|The type of request, which is used to identify the specific operation being performed.|
-|id|string(uuid)|true|none|Bid ID to cancel.|
-|searcherAddress|string|true|none|Address of the searcher.|
-|validUntil|string|true|none|The serialized date time (ISO 8601 format) until which the authentication is valid.|
-|prepaymentDepositoryChainId|integer|true|none|The chain ID associated with the chain of the prepayment depository.|
-|prepaymentDepositoryAddress|string|true|none|Address of the prepayment depository contract.|
-|signature|string|true|none|Signature of the authentication request using EIP-191.|
+| Name                        | Type         | Required | Restrictions | Description                                                                            |
+| --------------------------- | ------------ | -------- | ------------ | -------------------------------------------------------------------------------------- |
+| requestType                 | string       | true     | none         | The type of request, which is used to identify the specific operation being performed. |
+| id                          | string(uuid) | true     | none         | Bid ID to cancel.                                                                      |
+| searcherAddress             | string       | true     | none         | Address of the searcher.                                                               |
+| validUntil                  | string       | true     | none         | The serialized date time (ISO 8601 format) until which the authentication is valid.    |
+| prepaymentDepositoryChainId | integer      | true     | none         | The chain ID associated with the chain of the prepayment depository.                   |
+| prepaymentDepositoryAddress | string       | true     | none         | Address of the prepayment depository contract.                                         |
+| signature                   | string       | true     | none         | Signature of the authentication request using EIP-191.                                 |
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|requestType|API3 OEV Relay, cancel-bid|
+| Property    | Value                      |
+| ----------- | -------------------------- |
+| requestType | API3 OEV Relay, cancel-bid |
 
 <h2 id="tocS_CancelBidResponse">CancelBidResponse</h2>
 <!-- backwards compatibility -->
@@ -626,14 +627,13 @@ This operation does not require authentication
 {
   "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|id|string(uuid)|true|none|The ID of the cancelled bid.|
+| Name | Type         | Required | Restrictions | Description                  |
+| ---- | ------------ | -------- | ------------ | ---------------------------- |
+| id   | string(uuid) | true     | none         | The ID of the cancelled bid. |
 
 <h2 id="tocS_PlaceBidRequest">PlaceBidRequest</h2>
 <!-- backwards compatibility -->
@@ -657,33 +657,32 @@ This operation does not require authentication
   "prepaymentDepositoryAddress": "string",
   "signature": "0x21940805289d45833e2e589f41be30d5044c8bfa50060d43b69a3bebf5102264687a4d1c78386f8c519d2eb7b9b30868a8c1a600b80da0bc7978bfdfb52799b11b"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|requestType|string|true|none|The type of request, which is used to identify the specific operation being performed.|
-|bidAmount|string|true|none|The amount to bid in the native currency.|
-|dAppProxyAddress|string|true|none|The address of the proxy.|
-|dAppProxyChainId|integer|true|none|The chain ID associated with the proxy's chain.|
-|condition|string|true|none|Specifies the condition of which the bid should be filled.|
-|fulfillmentValue|string|true|none|The target fulfillment value of the request. This value is used to determine whether the bid is filled.|
-|updateExecutorAddress|string|true|none|The address of the update executor that must be used to submit the data feed update in case the bid is fulfilled.|
-|searcherAddress|string|true|none|Address of the searcher.|
-|validUntil|string|true|none|The serialized date time (ISO 8601 format) until which the authentication is valid.|
-|prepaymentDepositoryChainId|integer|true|none|The chain ID associated with the chain of the prepayment depository.|
-|prepaymentDepositoryAddress|string|true|none|Address of the prepayment depository contract.|
-|signature|string|true|none|Signature of the authentication request using EIP-191.|
+| Name                        | Type    | Required | Restrictions | Description                                                                                                       |
+| --------------------------- | ------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+| requestType                 | string  | true     | none         | The type of request, which is used to identify the specific operation being performed.                            |
+| bidAmount                   | string  | true     | none         | The amount to bid in the native currency.                                                                         |
+| dAppProxyAddress            | string  | true     | none         | The address of the proxy.                                                                                         |
+| dAppProxyChainId            | integer | true     | none         | The chain ID associated with the proxy's chain.                                                                   |
+| condition                   | string  | true     | none         | Specifies the condition of which the bid should be filled.                                                        |
+| fulfillmentValue            | string  | true     | none         | The target fulfillment value of the request. This value is used to determine whether the bid is filled.           |
+| updateExecutorAddress       | string  | true     | none         | The address of the update executor that must be used to submit the data feed update in case the bid is fulfilled. |
+| searcherAddress             | string  | true     | none         | Address of the searcher.                                                                                          |
+| validUntil                  | string  | true     | none         | The serialized date time (ISO 8601 format) until which the authentication is valid.                               |
+| prepaymentDepositoryChainId | integer | true     | none         | The chain ID associated with the chain of the prepayment depository.                                              |
+| prepaymentDepositoryAddress | string  | true     | none         | Address of the prepayment depository contract.                                                                    |
+| signature                   | string  | true     | none         | Signature of the authentication request using EIP-191.                                                            |
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|requestType|API3 OEV Relay, place-bid|
-|condition|GTE|
-|condition|LTE|
+| Property    | Value                     |
+| ----------- | ------------------------- |
+| requestType | API3 OEV Relay, place-bid |
+| condition   | GTE                       |
+| condition   | LTE                       |
 
 <h2 id="tocS_PlaceBidResponse">PlaceBidResponse</h2>
 <!-- backwards compatibility -->
@@ -696,14 +695,13 @@ This operation does not require authentication
 {
   "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|id|string(uuid)|true|none|The ID assigned to the created bid.|
+| Name | Type         | Required | Restrictions | Description                         |
+| ---- | ------------ | -------- | ------------ | ----------------------------------- |
+| id   | string(uuid) | true     | none         | The ID assigned to the created bid. |
 
 <h2 id="tocS_WithdrawRequest">WithdrawRequest</h2>
 <!-- backwards compatibility -->
@@ -721,25 +719,24 @@ This operation does not require authentication
   "prepaymentDepositoryAddress": "string",
   "signature": "0x21940805289d45833e2e589f41be30d5044c8bfa50060d43b69a3bebf5102264687a4d1c78386f8c519d2eb7b9b30868a8c1a600b80da0bc7978bfdfb52799b11b"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|requestType|string|true|none|The type of request, which is used to identify the specific operation being performed.|
-|searcherAddress|string|true|none|Address of the searcher.|
-|validUntil|string|true|none|The serialized date time (ISO 8601 format) until which the authentication is valid.|
-|prepaymentDepositoryChainId|integer|true|none|The chain ID associated with the chain of the prepayment depository.|
-|prepaymentDepositoryAddress|string|true|none|Address of the prepayment depository contract.|
-|signature|string|true|none|Signature of the authentication request using EIP-191.|
+| Name                        | Type    | Required | Restrictions | Description                                                                            |
+| --------------------------- | ------- | -------- | ------------ | -------------------------------------------------------------------------------------- |
+| requestType                 | string  | true     | none         | The type of request, which is used to identify the specific operation being performed. |
+| searcherAddress             | string  | true     | none         | Address of the searcher.                                                               |
+| validUntil                  | string  | true     | none         | The serialized date time (ISO 8601 format) until which the authentication is valid.    |
+| prepaymentDepositoryChainId | integer | true     | none         | The chain ID associated with the chain of the prepayment depository.                   |
+| prepaymentDepositoryAddress | string  | true     | none         | Address of the prepayment depository contract.                                         |
+| signature                   | string  | true     | none         | Signature of the authentication request using EIP-191.                                 |
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|requestType|API3 OEV Relay, withdraw|
+| Property    | Value                    |
+| ----------- | ------------------------ |
+| requestType | API3 OEV Relay, withdraw |
 
 <h2 id="tocS_WithdrawResponse">WithdrawResponse</h2>
 <!-- backwards compatibility -->
@@ -756,18 +753,17 @@ This operation does not require authentication
   "expirationTimestamp": "1682684178",
   "signer": "0x7a9f3cd060ab180f36c17fe6bdf9974f577d77aa"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|withdrawalHash|string|true|none|The hash of the withdrawal transaction.|
-|amount|string|true|none|The USDC amount to withdraw.|
-|signature|string|true|none|The signature associated with the withdrawal transaction.|
-|expirationTimestamp|string|true|none|The timestamp after which the withdrawal transaction becomes invalid.|
-|signer|string|true|none|The address of the OEV relay account that signed the withdrawal transaction.|
+| Name                | Type   | Required | Restrictions | Description                                                                  |
+| ------------------- | ------ | -------- | ------------ | ---------------------------------------------------------------------------- |
+| withdrawalHash      | string | true     | none         | The hash of the withdrawal transaction.                                      |
+| amount              | string | true     | none         | The USDC amount to withdraw.                                                 |
+| signature           | string | true     | none         | The signature associated with the withdrawal transaction.                    |
+| expirationTimestamp | string | true     | none         | The timestamp after which the withdrawal transaction becomes invalid.        |
+| signer              | string | true     | none         | The address of the OEV relay account that signed the withdrawal transaction. |
 
 <h2 id="tocS_StatusRequest">StatusRequest</h2>
 <!-- backwards compatibility -->
@@ -785,25 +781,24 @@ This operation does not require authentication
   "prepaymentDepositoryAddress": "string",
   "signature": "0x21940805289d45833e2e589f41be30d5044c8bfa50060d43b69a3bebf5102264687a4d1c78386f8c519d2eb7b9b30868a8c1a600b80da0bc7978bfdfb52799b11b"
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|requestType|string|true|none|The type of request, which is used to identify the specific operation being performed.|
-|searcherAddress|string|true|none|Address of the searcher.|
-|validUntil|string|true|none|The serialized date time (ISO 8601 format) until which the authentication is valid.|
-|prepaymentDepositoryChainId|integer|true|none|The chain ID associated with the chain of the prepayment depository.|
-|prepaymentDepositoryAddress|string|true|none|Address of the prepayment depository contract.|
-|signature|string|true|none|Signature of the authentication request using EIP-191.|
+| Name                        | Type    | Required | Restrictions | Description                                                                            |
+| --------------------------- | ------- | -------- | ------------ | -------------------------------------------------------------------------------------- |
+| requestType                 | string  | true     | none         | The type of request, which is used to identify the specific operation being performed. |
+| searcherAddress             | string  | true     | none         | Address of the searcher.                                                               |
+| validUntil                  | string  | true     | none         | The serialized date time (ISO 8601 format) until which the authentication is valid.    |
+| prepaymentDepositoryChainId | integer | true     | none         | The chain ID associated with the chain of the prepayment depository.                   |
+| prepaymentDepositoryAddress | string  | true     | none         | Address of the prepayment depository contract.                                         |
+| signature                   | string  | true     | none         | Signature of the authentication request using EIP-191.                                 |
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|requestType|API3 OEV Relay, status|
+| Property    | Value                  |
+| ----------- | ---------------------- |
+| requestType | API3 OEV Relay, status |
 
 <h2 id="tocS_StatusResponse">StatusResponse</h2>
 <!-- backwards compatibility -->
@@ -846,9 +841,7 @@ This operation does not require authentication
   ],
   "executableAuctions": [
     {
-      "winningBidIds": [
-        "497f6eca-6276-4993-bfeb-53cbbbba6f08"
-      ],
+      "winningBidIds": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"],
       "nativeCurrencyAmount": "50000000000000000",
       "encodedUpdateTransaction": "0xe6ec76ac0000000000000000000000009e53700c4d0ac80eec58eaf381e2c11400c9298959a9a65cde2e07d241e9c6256e41ab5ea0420f56b4bb4993a1e48d32ced39c0d87e84db0e1ed32e09014ca66c728cb58643f044ece7e726bfe184f4d43ed2b1600000000000000000000000000000000000000000000000000000000644ba07400000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000006bd991fe0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e00000000000000000000000008009ccf21cd961e6f39152bc5e50cb5c78692d40ff6d0c81da86440389baedc8943ab0d2a3b4deb5cba51f7be0433117832e3c41000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000417e72aa05cf8854bba7a303facffe5885e17d08d90f156fb68a794a94426012f427b5005f6dc9fe415e8ba961bf06b143ff43340feee2fe73f4dd9f6ea6d32eff1b00000000000000000000000000000000000000000000000000000000000000",
       "decodedValue": "1809420798",
@@ -861,9 +854,7 @@ This operation does not require authentication
   ],
   "pastAuctions": [
     {
-      "winningBidIds": [
-        "497f6eca-6276-4993-bfeb-53cbbbba6f08"
-      ],
+      "winningBidIds": ["497f6eca-6276-4993-bfeb-53cbbbba6f08"],
       "nativeCurrencyAmount": "50000000000000000",
       "encodedUpdateTransaction": "0xe6ec76ac0000000000000000000000009e53700c4d0ac80eec58eaf381e2c11400c9298959a9a65cde2e07d241e9c6256e41ab5ea0420f56b4bb4993a1e48d32ced39c0d87e84db0e1ed32e09014ca66c728cb58643f044ece7e726bfe184f4d43ed2b1600000000000000000000000000000000000000000000000000000000644ba07400000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000006bd991fe0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e00000000000000000000000008009ccf21cd961e6f39152bc5e50cb5c78692d40ff6d0c81da86440389baedc8943ab0d2a3b4deb5cba51f7be0433117832e3c41000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000417e72aa05cf8854bba7a303facffe5885e17d08d90f156fb68a794a94426012f427b5005f6dc9fe415e8ba961bf06b143ff43340feee2fe73f4dd9f6ea6d32eff1b00000000000000000000000000000000000000000000000000000000000000",
       "decodedValue": "1809420798",
@@ -875,70 +866,68 @@ This operation does not require authentication
     }
   ]
 }
-
 ```
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|availableFunds|string|true|none|The USDC amount available for evaluating bids.|
-|withdrawalReservedFunds|string|true|none|The USDC amount reserved for currently pending withdrawals.|
-|bidReservedFunds|string|true|none|The USDC amount reserved for unexecuted pending auctions.|
-|api3FeeFunds|string|true|none|The USDC amount reserved for API3 fees.|
-|slashedFunds|string|true|none|The USDC amount for slashed bids.|
-|pendingWithdrawals|[object]|true|none|none|
-|» withdrawalHash|string|true|none|The hash of the withdrawal transaction.|
-|» amount|string|true|none|The USDC amount to withdraw.|
-|» signature|string|true|none|The signature associated with the withdrawal transaction.|
-|» expirationTimestamp|string|true|none|The timestamp after which the withdrawal transaction becomes invalid.|
-|» signer|string|true|none|The address of the OEV relay account that signed the withdrawal transaction.|
-|bids|[object]|true|none|none|
-|» id|string(uuid)|true|none|The ID of the bid.|
-|» dAppProxyAddress|string|true|none|The address of the proxy.|
-|» dAppProxyChainId|integer|true|none|The chain ID associated with the proxy's chain.|
-|» bidAmount|string|true|none|The native currency amount of the bid.|
-|» reservedAmount|string|false|none|The USDC amount reserved for this bid. Present only if the bid is filled.|
-|» api3Fee|string|false|none|The USDC amount reserved as a service fee for the API3 DAO. Present only when the bid is filled.|
-|» condition|string|true|none|Specifies the condition under which the bid should be filled.|
-|» fulfillmentValue|string|true|none|The target fulfillment value of the request. This value is used to determine whether the bid is filled.|
-|» status|string|true|none|The status of the bid.|
-|» updateTxHash|string¦null|true|none|The hash of the update transaction. Present only if the update transaction is executed.|
-|» createdAt|string|true|none|The serialized date time (ISO 8601 format) of the bid creation.|
-|» updateExecutorAddress|string|true|none|The address of the update executor that must be used to submit the data feed update in case the bid is fulfilled.|
-|executableAuctions|[object]|true|none|none|
-|» winningBidIds|[string]|true|none|none|
-|» nativeCurrencyAmount|string|true|none|The total native currency amount of all filled bids in this auction.|
-|» encodedUpdateTransaction|string|true|none|The encoded update transaction that updates the data feed.|
-|» decodedValue|string|true|none|The decoded value of the data feed used for informational purposes.|
-|» updatePeriodEnd|string|true|none|The serialized date time (ISO 8601 format) of the end of the update period.|
-|» collateralPercentage|integer|true|none|The percentage of the accumulated bid amount that is reserved for auction as collateral.|
-|» api3FeePercentage|integer|true|none|The percentage of the accumulated bid amount that is paid to the API3 as service fee.|
-|» exchangeRate|number|true|none|The exchange rate of the native currency to USDC.|
-|» updateExecutorAddress|string|true|none|The address of the update executor that must be used to submit the data feed update in case the bid is fulfilled.|
-|pastAuctions|[object]|true|none|none|
-|» winningBidIds|[string]|true|none|none|
-|» nativeCurrencyAmount|string|true|none|The total native currency amount of all filled bids in this auction.|
-|» encodedUpdateTransaction|string|true|none|The encoded update transaction that updates the data feed.|
-|» decodedValue|string|true|none|The decoded value of the data feed used for informational purposes.|
-|» updatePeriodEnd|string|true|none|The serialized date time (ISO 8601 format) of the end of the update period.|
-|» collateralPercentage|integer|true|none|The percentage of the accumulated bid amount that is reserved for auction as collateral.|
-|» api3FeePercentage|integer|true|none|The percentage of the accumulated bid amount that is paid to the API3 as service fee.|
-|» exchangeRate|number|true|none|The exchange rate of the native currency to USDC.|
-|» updateExecutorAddress|string|true|none|The address of the update executor that must be used to submit the data feed update in case the bid is fulfilled.|
+| Name                       | Type         | Required | Restrictions | Description                                                                                                       |
+| -------------------------- | ------------ | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------- |
+| availableFunds             | string       | true     | none         | The USDC amount available for evaluating bids.                                                                    |
+| withdrawalReservedFunds    | string       | true     | none         | The USDC amount reserved for currently pending withdrawals.                                                       |
+| bidReservedFunds           | string       | true     | none         | The USDC amount reserved for unexecuted pending auctions.                                                         |
+| api3FeeFunds               | string       | true     | none         | The USDC amount reserved for API3 fees.                                                                           |
+| slashedFunds               | string       | true     | none         | The USDC amount for slashed bids.                                                                                 |
+| pendingWithdrawals         | [object]     | true     | none         | none                                                                                                              |
+| » withdrawalHash           | string       | true     | none         | The hash of the withdrawal transaction.                                                                           |
+| » amount                   | string       | true     | none         | The USDC amount to withdraw.                                                                                      |
+| » signature                | string       | true     | none         | The signature associated with the withdrawal transaction.                                                         |
+| » expirationTimestamp      | string       | true     | none         | The timestamp after which the withdrawal transaction becomes invalid.                                             |
+| » signer                   | string       | true     | none         | The address of the OEV relay account that signed the withdrawal transaction.                                      |
+| bids                       | [object]     | true     | none         | none                                                                                                              |
+| » id                       | string(uuid) | true     | none         | The ID of the bid.                                                                                                |
+| » dAppProxyAddress         | string       | true     | none         | The address of the proxy.                                                                                         |
+| » dAppProxyChainId         | integer      | true     | none         | The chain ID associated with the proxy's chain.                                                                   |
+| » bidAmount                | string       | true     | none         | The native currency amount of the bid.                                                                            |
+| » reservedAmount           | string       | false    | none         | The USDC amount reserved for this bid. Present only if the bid is filled.                                         |
+| » api3Fee                  | string       | false    | none         | The USDC amount reserved as a service fee for the API3 DAO. Present only when the bid is filled.                  |
+| » condition                | string       | true     | none         | Specifies the condition under which the bid should be filled.                                                     |
+| » fulfillmentValue         | string       | true     | none         | The target fulfillment value of the request. This value is used to determine whether the bid is filled.           |
+| » status                   | string       | true     | none         | The status of the bid.                                                                                            |
+| » updateTxHash             | string¦null  | true     | none         | The hash of the update transaction. Present only if the update transaction is executed.                           |
+| » createdAt                | string       | true     | none         | The serialized date time (ISO 8601 format) of the bid creation.                                                   |
+| » updateExecutorAddress    | string       | true     | none         | The address of the update executor that must be used to submit the data feed update in case the bid is fulfilled. |
+| executableAuctions         | [object]     | true     | none         | none                                                                                                              |
+| » winningBidIds            | [string]     | true     | none         | none                                                                                                              |
+| » nativeCurrencyAmount     | string       | true     | none         | The total native currency amount of all filled bids in this auction.                                              |
+| » encodedUpdateTransaction | string       | true     | none         | The encoded update transaction that updates the data feed.                                                        |
+| » decodedValue             | string       | true     | none         | The decoded value of the data feed used for informational purposes.                                               |
+| » updatePeriodEnd          | string       | true     | none         | The serialized date time (ISO 8601 format) of the end of the update period.                                       |
+| » collateralPercentage     | integer      | true     | none         | The percentage of the accumulated bid amount that is reserved for auction as collateral.                          |
+| » api3FeePercentage        | integer      | true     | none         | The percentage of the accumulated bid amount that is paid to the API3 as service fee.                             |
+| » exchangeRate             | number       | true     | none         | The exchange rate of the native currency to USDC.                                                                 |
+| » updateExecutorAddress    | string       | true     | none         | The address of the update executor that must be used to submit the data feed update in case the bid is fulfilled. |
+| pastAuctions               | [object]     | true     | none         | none                                                                                                              |
+| » winningBidIds            | [string]     | true     | none         | none                                                                                                              |
+| » nativeCurrencyAmount     | string       | true     | none         | The total native currency amount of all filled bids in this auction.                                              |
+| » encodedUpdateTransaction | string       | true     | none         | The encoded update transaction that updates the data feed.                                                        |
+| » decodedValue             | string       | true     | none         | The decoded value of the data feed used for informational purposes.                                               |
+| » updatePeriodEnd          | string       | true     | none         | The serialized date time (ISO 8601 format) of the end of the update period.                                       |
+| » collateralPercentage     | integer      | true     | none         | The percentage of the accumulated bid amount that is reserved for auction as collateral.                          |
+| » api3FeePercentage        | integer      | true     | none         | The percentage of the accumulated bid amount that is paid to the API3 as service fee.                             |
+| » exchangeRate             | number       | true     | none         | The exchange rate of the native currency to USDC.                                                                 |
+| » updateExecutorAddress    | string       | true     | none         | The address of the update executor that must be used to submit the data feed update in case the bid is fulfilled. |
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|condition|GTE|
-|condition|LTE|
-|status|PENDING|
-|status|WON|
-|status|EXECUTED|
-|status|SLASHED|
-|status|SEARCHER_CANCELED|
-|status|RELAY_CANCELED|
-|status|FRONTRUN|
-|status|EXPIRED|
-
+| Property  | Value             |
+| --------- | ----------------- |
+| condition | GTE               |
+| condition | LTE               |
+| status    | PENDING           |
+| status    | WON               |
+| status    | EXECUTED          |
+| status    | SLASHED           |
+| status    | SEARCHER_CANCELED |
+| status    | RELAY_CANCELED    |
+| status    | FRONTRUN          |
+| status    | EXPIRED           |
