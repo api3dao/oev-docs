@@ -5,7 +5,7 @@ info:
   title: OEV relay API
   description: The API for making requests to OEV relay.
 servers:
-  - url: /api
+  - url: https://api-oev.api3.org/api
 tags:
   - name: API
 components:
