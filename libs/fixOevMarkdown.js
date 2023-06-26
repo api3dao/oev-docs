@@ -4,7 +4,7 @@ const path = require('path');
 function modifyText(text) {
   let newText = text.replace('__', ' ');
   let words = newText.split(' ');
-  words[0] = '\\' + words[0].toUpperCase();
+  words[0] = '/' + words[0].toUpperCase();
   let finalText = words.join(' ');
   return finalText;
 }
@@ -30,7 +30,6 @@ sidebarHeader: Reference
 sidebarSubHeader: OEV
 pageHeader: Reference → OEV -> OEV Relay
 path: /reference/oev/api/index.html
-outline: deep
 tags:
 ---\n\n<PageHeader/>\n\n<SearchHighlight/>\n\n`;
 
