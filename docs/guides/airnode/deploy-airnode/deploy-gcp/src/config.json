@@ -3,13 +3,12 @@
     {
       "authorizers": {
         "requesterEndpointAuthorizers": [],
-        "crossChainRequesterAuthorizers": []
+        "crossChainRequesterAuthorizers": [],
+        "requesterAuthorizersWithErc721": [],
+        "crossChainRequesterAuthorizersWithErc721": []
       },
       "authorizations": {
         "requesterEndpointAuthorizations": {}
-      },
-      "contracts": {
-        "AirnodeRrp": "0x2ab9f26E18B64848cd349582ca3B55c2d06f507d"
       },
       "id": "11155111",
       "providers": {
@@ -19,7 +18,6 @@
       },
       "type": "evm",
       "options": {
-        "fulfillmentGasLimit": 500000,
         "gasPriceOracle": [
           {
             "gasPriceStrategy": "latestBlockPercentileGasPrice",
@@ -65,16 +63,18 @@
     },
     "httpGateway": {
       "enabled": true,
-      "apiKey": "${HTTP_GATEWAY_API_KEY}",
       "maxConcurrency": 20,
       "corsOrigins": []
     },
     "httpSignedDataGateway": {
       "enabled": false
     },
+    "oevGateway": {
+      "enabled": false
+    },
     "logFormat": "plain",
     "logLevel": "DEBUG",
-    "nodeVersion": "0.11.0",
+    "nodeVersion": "0.14.0",
     "stage": "quick-gcp"
   },
   "triggers": {
@@ -98,7 +98,7 @@
   "templates": [],
   "ois": [
     {
-      "oisFormat": "1.4.0",
+      "oisFormat": "2.3.1",
       "title": "CoinGecko Basic Request",
       "version": "1.0.0",
       "apiSpecifications": {

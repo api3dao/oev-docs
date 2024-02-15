@@ -2,9 +2,9 @@
 title: secrets.env
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Deployment Files
+pageHeader: Reference → Airnode → v0.14 → Deployment Files
 path: /reference/airnode/latest/deployment-files/secrets-env.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -53,3 +55,5 @@ HEARTBEAT_URL="https://your.heartbeat.service.io/airnode"
 # GCP only
 GCP_PROJECT_ID="my-gcp-airnode-project-01"
 ```
+
+<FlexEndTag/>

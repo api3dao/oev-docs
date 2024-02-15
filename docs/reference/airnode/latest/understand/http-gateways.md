@@ -2,9 +2,9 @@
 title: HTTP Gateways (optional)
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Understanding Airnode
+pageHeader: Reference → Airnode → v0.14 → Understanding Airnode
 path: /reference/airnode/latest/understand/http-gateways.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -35,6 +37,27 @@ response.
 The regular HTTP gateway is strictly for testing purposes. Using a simple tool
 like CURL you can test that endpoints in the Airnode configuration are working
 properly without accessing the blockchain.
+
+In order to facilitate configuration and testing of parameters, HTTP gateway
+requests have the following differences in handling when compared to blockchain
+requests or requests to the HTTP signed data gateway:
+
+1. When a request's API call is successful but then that response fails
+   extraction and encoding, data are still returned. This is in contrast to the
+   other types of requests for which only an error would be returned. The API
+   call response, after undergoing any
+   [post-processing](/reference/ois/latest/processing.md), will be present in
+   the `rawValue` field independent of encoding success or failure:
+
+   ```json
+   {
+     "rawValue": {...}
+   }
+   ```
+
+2. Reserved parameters are inaccessible in response pre/post processing. This is
+   only relevant if reserved parameters are being _modified_ in pre/post
+   processing (advanced use case).
 
 ### HTTP Signed Data Gateway
 
@@ -230,16 +253,4 @@ signature: The response has been signed by Airnode.
 
 :::
 
-## More related material...
-
-The [airnode-example monorepo](/guides/airnode/monorepo-examples.html) hosts
-examples demonstrating use of the HTTP Gateway and HTTP Signed Data Gateway.
-Furthermore, there are additional examples of using CURL to call the HTTP
-gateway in the quick start tutorials.
-
-<div class="api3-css-nav-box-flex-row">
-  <NavBox type='REPO' id="_airnode-examples"/>
-  <NavBox type='GUIDE' id="_airnode-quick-start-aws"/>
-  <NavBox type='GUIDE' id="_airnode-quick-start-gcp"/>
-  <NavBox type='GUIDE' id="_airnode-quick-start-container"/>
-</div>
+<FlexEndTag/>

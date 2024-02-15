@@ -2,9 +2,9 @@
 title: Authorizers
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Concepts and Definitions
+pageHeader: Reference → Airnode → v0.14 → Concepts and Definitions
 path: /reference/airnode/latest/concepts/authorizers.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -44,12 +46,12 @@ fact satisfy the needs of many Airnodes.
 
 The diagram below illustrates how Airnode utilizes authorizers.
 
-> <img src="../assets/images/concepts-authorizers.png" width="650px"/>
+> <img src="../assets/images/concepts-authorizers.png" width="550px"/>
 >
-> 1. <p>When Airnode starts it reads its list of authorizer contracts declared in <code>config.json</code>.</p>
-> 2. <p>Airnode gathers requests from the event logs, during its run cycle.</p>
-> 3. <p>Airnode sends each request, along with the list of authorizer contracts, to <code>checkAuthorizationStatus()</code>.</p>
-> 4. <p><code>checkAuthorizationStatus()</code> executes the <code>isAuthorized()</code> function in each authorizer contract. If any one authorizer contract returns true, then true is returned to the Airnode which in turn proceeds to fulfill the request.</p>
+> 1. <p class="diagram-line">When Airnode starts it reads its list of authorizer contracts declared in <code>config.json</code>.</p>
+> 2. <p class="diagram-line">Airnode gathers requests from the event logs, during its run cycle.</p>
+> 3. <p class="diagram-line">Airnode sends each request, along with the list of authorizer contracts, to <code>checkAuthorizationStatus()</code>.</p>
+> 4. <p class="diagram-line"><code>checkAuthorizationStatus()</code> executes the <code>isAuthorized()</code> function in each authorizer contract. If any one authorizer contract returns true, then true is returned to the Airnode which in turn proceeds to fulfill the request.</p>
 
 ## Airnode Authorizer Policies
 
@@ -91,7 +93,7 @@ effectively implementing an on-chain call quota.
 ### Authorizer List
 
 Airnode authorizers are listed in the config.json file at
-[chains[n].authorize/reference/airnode/latest/understand/configuring.md#chains).
+[chains[n].authorizers](/reference/airnode/latest/understand/configuring.md#chains).
 An authorizer typically checks for a single condition (has the requester made
 their monthly payment, is the `requester` whitelisted, etc.). Authorizers can be
 combined to enforce more complex policies. If any of the authorizers in
@@ -193,50 +195,58 @@ making a static call to check if they are authorized. This scheme both allows
 the Airnode to set transparent and flexible policies, and this to be done with
 no gas overhead.
 
-Currently there are two `authorizers` scheme types,
-`requesterEndpointAuthorizers` and `crossChainRequesterAuthorizers`. These are
-set in `chains[n].authorizers` of `config.json` as described below.
+Currently there are four `authorizers` scheme types:
 
-### Same-chain: requesterEndpointAuthorizers
+- `requesterEndpointAuthorizers`
+- `crossChainRequesterAuthorizers`
+- `requesterAuthorizersWithErc721`
+- `crossChainRequesterAuthorizersWithErc721`
 
-The `requesterEndpointAuthorizers` authorizer scheme type specifies an array of
-on-chain contract addresses to query when attempting to authorize a request. In
-contrast to the other authorizer scheme type, `crossChainRequesterAuthorizers`,
-the contract addresses are expected to reside on the chain specified by the `id`
-field of the parent `chains` object i.e. the authorizer contract addresses are
-on the same chain. There are two configurations possible for
-`requesterEndpointAuthorizers`: "allow all" and "filter all".
+These are set in `chains[n].authorizers` of `config.json` as described below.
 
-#### Allow All
+### Special case: all authorizers values are empty arrays
 
-When `chains[n].authorizers.requesterEndpointAuthorizers` is an empty array, all
-requests are authorized. In the example below, all chain _2_ requests are
-authorized.
+When all `chains[n].authorizers` values are empty arrays, all requests are
+authorized. In the example below, all chain _2_ requests are authorized.
 
 ```json
 "chains": [
   {
     "id": "2",
-    "authorizers": { "requesterEndpointAuthorizers": [] }
+    "authorizers": {
+      "requesterEndpointAuthorizers": [],
+      "crossChainRequesterAuthorizers": [],
+      "requesterAuthorizersWithErc721": [],
+      "crossChainRequesterAuthorizersWithErc721": []
+    }
     ...
   },
   ...
 ]
 ```
 
-#### Filter All
+### Same-chain: requesterEndpointAuthorizers
 
-If the Airnode wants to authorize selectively, it should use one or more
-authorizer contracts that implement filtering logic. In the example below, a
-request would be authorized on chain _2_ if _either_ of the two
-`requesterEndpointAuthorizers` contracts authorize the request.
+The `requesterEndpointAuthorizers` authorizer scheme type specifies an array of
+on-chain contract addresses to query when attempting to authorize a request. In
+contrast to the analogous `crossChainRequesterAuthorizers` authorizer scheme
+type, the contract addresses are expected to reside on the chain specified by
+the `id` field of the parent `chains` object i.e. the authorizer contract
+addresses are on the same chain.
+
+In the example below, a request would be authorized on chain _2_ if _either_ of
+the two `requesterEndpointAuthorizers` contracts authorize the request.
 
 ```json
 "chains": [
   {
     "id": "2",
-    "authorizers": { "requesterEndpointAuthorizers": ["0xcd...cd8d", "0xff...d19c"] }
-    ...
+    "authorizers": {
+      "requesterEndpointAuthorizers": ["0xcd...cd8d", "0xff...d19c"],
+      "crossChainRequesterAuthorizers": [],
+      "requesterAuthorizersWithErc721": [],
+      "crossChainRequesterAuthorizersWithErc721": []
+    }
   }
 ]
 ```
@@ -250,18 +260,18 @@ of each object resemble other `config.json` objects:
 authorize requests and both `chainType` and `contracts` are configured
 equivalently to their like named parent `chains[n]` objects described in the
 [config.json reference](/reference/airnode/latest/deployment-files/config-json.md#chains).
-Lastly, `chainId` specifies the cross-chain (network) id and `chainProvider` is
-an object containing the chain provider url for the _chain specified by
-`chainId`_.
+Note that the `contracts` object may be omitted if there is an existing API3
+`AirnodeRrpV0` deployment for the given chain, in which case Airnode will
+default to this address. A full listing of deployments can be found
+[here](/reference/airnode/latest/). Lastly, `chainId` specifies the cross-chain
+(network) id and `chainProvider` is an object containing the chain provider url
+for the _chain specified by `chainId`_.
 
 Note that `crossChainRequesterAuthorizers` is an array that can contain multiple
 cross-chain authorizer objects, which allows for authorizers across multiple
 chains and/or redundancy in providers for each chain.
 
-The below example combines both `requesterEndpointAuthorizers` and
-`crossChainRequesterAuthorizers` authorizer scheme types. Requests will be
-authorized if the same-chain (`"id": "2"`) `requesterEndpointAuthorizers`
-contract `0xcd...cd8d` authorizes the request or if the cross-chain
+In the below example, requests will be authorized if the cross-chain
 (`"chainId": "1"`) authorizer contract `0xCE5e...1abc` authorizes the request.
 
 ```json
@@ -269,7 +279,7 @@ contract `0xcd...cd8d` authorizes the request or if the cross-chain
   {
     "id": "2",
     "authorizers": {
-      "requesterEndpointAuthorizers": ["0xcd...cd8d"],
+      "requesterEndpointAuthorizers": [],
       "crossChainRequesterAuthorizers": [
         {
           "requesterEndpointAuthorizers": ["0xCE5e...1abc"],
@@ -282,9 +292,10 @@ contract `0xcd...cd8d` authorizes the request or if the cross-chain
             "url": "https://mainnet.infura.io/..."
           }
         }
-      ]
+      ],
+      "requesterAuthorizersWithErc721": [],
+      "crossChainRequesterAuthorizersWithErc721": []
     }
-    ...
   }
 ]
 ```
@@ -450,3 +461,5 @@ event SetWhitelistStatusPastExpiration(
 The `isAuthorized()` function will be called by AirnodeRrpV0 to verify the
 authorization status of a request. This function will return true for all
 whitelisted requester contracts, admins and the meta-admin address.
+
+<FlexEndTag/>

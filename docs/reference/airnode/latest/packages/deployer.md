@@ -2,9 +2,9 @@
 title: Deployer
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Packages
+pageHeader: Reference → Airnode → v0.14 → Packages
 path: /reference/airnode/latest/packages/deployer.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -15,10 +15,12 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 The
-[airnode-deployer](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-deployer)
+[airnode-deployer](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-deployer)
 package is used primarily by the
 [Docker Images](/reference/airnode/latest/docker/). This CLI tool provides the
 underlying commands used by the Docker images when deploying an Airnode. API
@@ -36,7 +38,7 @@ if you do not wish to use the Docker images.
 
 - [Using npx](/reference/airnode/latest/packages/deployer.md#using-npx)
 - [Global Package](/reference/airnode/latest/packages/deployer.md#global-package)
-- [Build Manually](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-deployer)
+- [Build Manually](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-deployer)
 
 ### Using npx
 
@@ -100,9 +102,9 @@ yarn build
 
 - Make sure `config.json` and `secrets.env` are available in the `config`
   directory. You can use the provided example
-  [config.json](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-deployer/config/config.example.json)
+  [config.json](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-deployer/config/config.example.json)
   and
-  [secrets.env](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-deployer/config/secrets.example.env)
+  [secrets.env](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-deployer/config/secrets.example.env)
   templates to get started quickly, but you will need to edit these with your
   own API details and secrets.
 
@@ -115,6 +117,30 @@ cp config/secrets.env.example config/secrets.env
 # Edit both `config.json` and `secrets.env` to reflect your configuration.
 ```
 -->
+
+## Credentials
+
+When using the `airnode-deployer` Docker image, AWS or GCP credentials are
+loaded automatically. Conversely, when using the deployer CLI directly, you will
+need to first load AWS or GCP credentials into the environment manually as
+described below.
+
+### AWS Credentials
+
+For AWS, there are two options:
+
+1. Set the environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
+   (and `AWS_SESSION_TOKEN` as well, if using temporary credentials) to their
+   appropriate values.
+2. Populate the AWS `credentials` file. See the AWS documentation for the
+   [expected file format](https://docs.aws.amazon.com/sdkref/latest/guide/file-format.html#file-format-creds)
+   as well as its
+   [default location](https://docs.aws.amazon.com/sdkref/latest/guide/file-location.html).
+
+### GCP Credentials
+
+Set the environmental variable `GOOGLE_APPLICATION_CREDENTIALS` to the path of
+the `gcp.json` credentials file.
 
 ## Commands
 
@@ -129,9 +155,9 @@ cp config/secrets.env.example config/secrets.env
 
 When creating or updating an Airnode the `config.json` and `secrets.env` files
 are needed. You can use the provided example
-[config.json](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-deployer/config/config.example.json)
+[config.json](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-deployer/config/config.example.json)
 and
-[secrets.env](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-deployer/config/secrets.example.env)
+[secrets.env](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-deployer/config/secrets.example.env)
 templates to get started quickly, but you will need to edit these with your own
 API details and secrets.
 
@@ -354,8 +380,4 @@ See how
 [remove-with-receipt](/reference/airnode/latest/docker/deployer-image.md#remove-with-receipt)
 is used via the AWS/GCP deployer image.
 
-## More related material...
-
-<div class="api3-css-nav-box-flex-row">
-  <NavBox type='REFERENCE' id='_reference-airnode-deployer-image'/>
-</div>
+<FlexEndTag/>

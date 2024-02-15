@@ -3,7 +3,7 @@ title: DocSets
 sidebarHeader: Docs Development
 sidebarSubHeader:
 pageHeader: Docs Development
-basePath: /dev/docsets.html
+path: /dev/docsets.html
 outline: deep
 tags:
 ---
@@ -17,11 +17,19 @@ The current docsets are as follows:
 
 - Explore: `/explore/`
 - Guides: `/guides`
-- Airnode: `/reference/airnode/latest/` Each version of Airnode is a docset.
-- OIS: `/reference/ois/latest/` Each version of OIS is a docset.
-- ChainAPI: `/reference/chainapi/`
-- QRNG: `/reference/qrng/`
-- dAPIs: `/reference/dapis/`
-- DAO Members `/reference/dao-members/`
+- Reference: `/reference`
+  - Airnode: Each version of Airnode is a docset.
+    - `/reference/airnode/next/`
+    - `/reference/airnode/latest/`
+    - `/reference/airnode/v0.11/`
+  - OIS: Each version of OIS is a docset.
+    - `/reference/ois/next/`
+    - `/reference/ois/latest/`
+    - `/reference/ois/v2.0/`
+  - QRNG: `/reference/qrng/`
+  - dAPIs: `/reference/dapis/`
+  - DAO Members `/reference/dao-members/`
 - Docs Development `/dev/`
-- Operations `/operations/`
+
+For more information about `/latest` and `/next` see
+[Airnode/OIS Versioning](/dev/versioning.md).

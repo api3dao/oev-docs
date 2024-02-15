@@ -2,9 +2,9 @@
 title: Heartbeat (optional)
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Understanding Airnode
+pageHeader: Reference → Airnode → v0.14 → Understanding Airnode
 path: /reference/airnode/latest/understand/heartbeat.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -32,7 +34,7 @@ notification every time it runs (self-operates).
 Turn on the optional heartbeat functionality by setting all fields in the
 `config.json` section for `nodeSettings.heartbeat`.
 
-```json
+```json{12-16}
 {
   ois:{...},
   triggers:{...},
@@ -66,7 +68,7 @@ Turn on the optional heartbeat functionality by setting all fields in the
        },
       "logFormat": "json",
       "logLevel": "INFO",
-      "nodeVersion": "0.10.0",
+      "nodeVersion": "0.14.0",
       "stage": "testnet",
   }
 }
@@ -83,24 +85,27 @@ The table below illustrates the parameters passed to the Heartbeat URL.
 | name                         | in     | type   |
 | ---------------------------- | ------ | ------ |
 | airnode-heartbeat-api-key    | header | string |
+| timestamp                    | body   | string |
+| stage                        | body   | string |
+| cloud_provider               | body   | string |
+| deployment_id                | body   | string |
+| region                       | body   | string |
 | http_gateway_url             | body   | string |
 | http_signed_data_gateway_url | body   | string |
 | oev_gateway_url              | body   | string |
-| cloud_provider               | body   | string |
-| stage                        | body   | string |
-| region                       | body   | string |
 | signature                    | body   | string |
-| timestamp                    | body   | string |
 
-Below is an example of what is included in the request body to `heartbeat.url`.
+Below is an example of what is included in the request body. Note that
+`airnode-heartbeat-api-key` can be found in the request header and not the body.
 
 ```json
 {
   "payload": {
     "timestamp": 1661582891,
-    "region": "us-east-1",
     "stage": "2209100913",
     "cloud_provider": "aws",
+    "deployment_id": "aws40207f25",
+    "region": "us-east-1",
     "http_gateway_url": "https://some.aws.http.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc",
     "http_signed_data_gateway_url": "https://some.aws.http.signed.data.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc",
     "oev_gateway_url": "https://some.aws.oev.gateway.url/v1/01234567-abcd-abcd-abcd-012345678abc"
@@ -130,32 +135,34 @@ The overall content to the heartbeat URL is as follows:
 <table>
   <tr>
     <td>airnode-heartbeat-api-key:</td><td>API key for heartbeat calls configured in nodeSettings.heartbeat.apiKey. Used for authentication against the heartbeat service running on URL from nodeSettings.heartbeat.url.</td>
-    <td>header</td>
+  </tr>
+  <tr>
+    <td>timestamp:</td><td>This is the heartbeat timestamp.</td>
+  </tr>
+  <tr>
+    <td>stage:</td><td>This is the deployment stage.</td>
+  </tr>
+  <tr>
+    <td>cloud_provider:</td><td>This is the deployment cloud provider.</td>
+  </tr>
+  <tr>
+    <td>deployment_id:</td><td>This is the deployment ID.</td>
+  </tr>
+  <tr>
+    <td>region:</td><td>This is the deployment region.</td>
   </tr>
   <tr>
     <td>http_gateway_url:</td><td>If HTTP gateway is enabled this is the URL of the gateway you can make test HTTP calls against.</td>
-    <td>body</td>
   </tr>
   <tr>
-    <td>http_signed_data_gateway_url:</td><td>If HTTP signed data gateway is enabled this is the URL of the gateway you can make HTTP calls against.</td><td>body</td>
-  </tr>
-    <tr>
-     <td>oev_gateway_url:</td><td>If OEV gateway is enabled this is the URL of the gateway you can make HTTP calls against.</td>
-     <td>body</td>
-   </tr>
-  <tr>
-    <td>cloud_provider:</td><td>This is the deployment cloud provider.</td><td>body</td>
+    <td>http_signed_data_gateway_url:</td><td>If HTTP signed data gateway is enabled this is the URL of the gateway you can make HTTP calls against.</td>
   </tr>
   <tr>
-    <td>region:</td><td>This is the deployment region.</td><td>body</td>
+    <td>oev_gateway_url:</td><td>If OEV gateway is enabled this is the URL of the gateway you can make HTTP calls against.</td>
   </tr>
   <tr>
-    <td>stage:</td><td>This is the deployment stage.</td><td>body</td>
-  </tr>
-  <tr>
-    <td>signature:</td><td>This is the signature of the heartbeat payload signed with the Airnode wallet.</td><td>body</td>
-  </tr>
-  <tr>
-    <td>timestamp:</td><td>This is the heartbeat timestamp.</td><td>body</td>
+    <td>signature:</td><td>This is the signature of the heartbeat payload signed with the Airnode wallet.</td>
   </tr>
 </table>
+
+<FlexEndTag/>

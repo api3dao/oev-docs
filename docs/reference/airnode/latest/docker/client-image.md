@@ -2,9 +2,9 @@
 title: Client Image
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Docker Images
+pageHeader: Reference → Airnode → v0.14 → Docker Images
 path: /reference/airnode/latest/docker/client-image.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -26,7 +28,7 @@ A docker client image has been published on
 [Docker Hub](https://hub.docker.com/r/api3/airnode-client). If you want to build
 the container from the source yourself, you can find the image and built
 instructions in the
-[Airnode repository](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-node/docker).
+[Airnode repository](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-node/docker).
 
 ## Configuration
 
@@ -84,21 +86,21 @@ Use the following command to run Airnode:
 docker run \
   --volume $(pwd):/app/config \
   --name airnode \
-  api3/airnode-client:0.11.0
+  api3/airnode-client:0.14.0
 ```
 
 ```powershell [Windows PowerShell]
 docker run  \
   --volume $(pwd):/app/config \
   --name airnode \
-  api3/airnode-client:0.11.0
+  api3/airnode-client:0.14.0
 ```
 
 ```batch [Windows]
 docker run  ^
   --volume %cd%:/app/config ^
   --name airnode ^
-  api3/airnode-client:0.11.0
+  api3/airnode-client:0.14.0
 ```
 
 :::
@@ -131,3 +133,5 @@ docker logs --follow airnode
 ```bash
 docker stop airnode
 ```
+
+<FlexEndTag/>

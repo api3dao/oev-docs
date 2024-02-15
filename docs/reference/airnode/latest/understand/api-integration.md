@@ -2,9 +2,9 @@
 title: API Integration
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Understanding Airnode
+pageHeader: Reference → Airnode → v0.14 → Understanding Airnode
 path: /reference/airnode/latest/understand/api-integration.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -43,7 +45,7 @@ OIS borrows formatting from
 [OAS OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md).
 If you have experience with OAS, OIS will seem familiar.
 
-::: tip OAS
+::: info OAS
 
 It is not recommended to refer to OAS for help while creating your OIS object.
 OIS only borrows formatting practices from OAS. Everything needed to create an
@@ -89,7 +91,7 @@ json object.
 
 ```json
 {
-  "oisFormat": "2.0.0",
+  "oisFormat": "2.3.1",
   "title": "myOisTitle",
   "version": "0.1.0",
   ...
@@ -100,8 +102,7 @@ json object.
 
 A specific version of the
 [OIS Specification](/reference/ois/latest/specification.md#_1-oisformat) to be
-used. For this guide, which uses Airnode `v0.11.x`, the proper OIS version is
-`2.0.0`.
+used. For Airnode `v0.14`, the proper OIS version is `2.3.0`.
 
 ### title
 
@@ -111,9 +112,8 @@ more than one OIS object and uses the title as the OIS identifier.
 ### version
 
 This is the version of the OIS which allows for version-control of the OIS
-integration. It is recommended to use
-[semver<ExternalLinkImage/>](https://semver.org/) versioning. The initial
-version could be `0.1.0`.
+integration. It is recommended to use [semver](https://semver.org/) versioning.
+The initial version could be `0.1.0`.
 
 <!--------------- STEP 2 ---------------->
 
@@ -122,7 +122,7 @@ version could be `0.1.0`.
 The `apiSpecifications` field is used to describe the API and its operations.
 
 ```json
-"oisFormat": "2.0.0",
+"oisFormat": "2.3.1",
 "title": "myOisTitle",
 "version": "0.1.0",
 "apiSpecifications": {
@@ -199,7 +199,7 @@ _What is an API operation?_
 #### Operations
 
 In the examples below, `GET` refers to an
-[HTTP request method<ExternalLinkImage/>](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
+[HTTP request method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods).
 This implies that you could have another API operation that can be specified
 using a different method but the same path.
 
@@ -483,8 +483,4 @@ Airnode endpoint parameters.
 Now that you have an OIS object, the next step is
 [API Security](/reference/airnode/latest/understand/api-security.md).
 
-## More related material...
-
-<div class="api3-css-nav-box-flex-row">
-  <NavBox type='REFERENCE' id="_reference-ois-specifications"/>
-</div>
+<FlexEndTag/>

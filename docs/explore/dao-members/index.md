@@ -13,6 +13,8 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 API3 is governed by a Decentralized Autonomous Organization (DAO). The DAO is a
@@ -28,15 +30,14 @@ privileges in the DAO and thus participate in the governance of the project
 directly. In addition, stakers receive
 [inflationary rewards](/explore/dao-members/rewards.md) and any additional
 benefits that the DAO may decide on in the future. The staked API3 tokens will
-back an on-chain [Service Coverage](/explore/dapis/service-coverage.md) as
-collateral to provide dAPI users with quantifiable and trustless security
-guarantees.
+back an on-chain [Service Coverage](/explore/dapis/using-dapis.md) as collateral
+to provide dAPI users with quantifiable and trustless security guarantees.
 
 The DAO votes on high-level matters such as staking incentives and
 collateralization, as well as grant proposals that provide DAO treasury funds to
 teams working in support of the DAO.
 
-> <img src="../assets/images/dao.png" width="450"/>
+> <img src="../assets/images/06-a-API3_DAO-Op1.png" width="450"/>
 
 ## DAO Structure
 
@@ -64,7 +65,7 @@ may demand additional layers in the form of subDAOs.
 
 To learn more about hierarchical team structures
 <a href="/api3-whitepaper-v1.0.3.pdf#page=22" target="_blank"> see Section 5.3
-of the API3 Whitepaper</a><ExternalLinkImage/>.
+of the API3 Whitepaper</a>.
 
 ### subDAO
 
@@ -98,3 +99,5 @@ Each team is expected to produce sufficiently detailed progress reports that
 enable the DAO to evaluate team performance with respect to proposed goals.
 These public reports have the additional benefit of increased accountability as
 dAPI users and the general public can audit API3 operations.
+
+<FlexEndTag/>

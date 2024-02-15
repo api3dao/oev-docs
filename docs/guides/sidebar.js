@@ -9,21 +9,34 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'Subscribing to Self-Funded dAPIs ',
-        link: '/guides/dapis/subscribing-self-funded-dapis/',
+        text: 'Getting Started with dAPIs',
+        link: '/guides/dapis/',
       },
       {
-        text: 'Reading a Self-Funded dAPI Proxy',
-        link: '/guides/dapis/read-self-funded-dapi/',
-      },
-      /*{
-        text: 'Self-Funded dAPIs',
+        text: 'Subscribing to dAPIs',
         collapsed: false,
-        items: [],
-      },*/
+        items: [
+          {
+            text: '• Subscribing to Managed dAPIs ',
+            link: '/guides/dapis/subscribing-managed-dapis/',
+          },
+          {
+            text: '• Subscribing to Self-Funded dAPIs ',
+            link: '/guides/dapis/subscribing-self-funded-dapis/',
+          },
+        ],
+      },
+      {
+        text: 'Reading a dAPI Proxy',
+        link: '/guides/dapis/read-a-dapi/',
+      },
+      {
+        text: 'Automate funding of multiple dAPIs with Gelato',
+        link: '/guides/dapis/funding-multiple-dapis-gelato/',
+      },
     ],
   },
-  /*{
+  {
     text: 'Airnode',
     collapsed: false,
     items: [
@@ -50,6 +63,10 @@ module.exports = [
         ],
       },
       {
+        text: 'Post processing',
+        link: '/guides/airnode/post-processing/',
+      },
+      {
         text: 'Calling an Airnode',
         link: '/guides/airnode/calling-an-airnode/',
       },
@@ -58,29 +75,29 @@ module.exports = [
         link: '/guides/airnode/rrp-request',
       },
       {
-        text: 'Using RRP Templates',
+        text: 'Making RRP Template Requests',
         link: '/guides/airnode/using-rrp-templates',
       },
       {
         text: 'Monorepo Examples',
         link: '/guides/airnode/monorepo-examples',
       },
-      {
-        text: 'Become an API Provider',
-        link: '/guides/airnode/become-api-provider',
-      },
+      //{
+      //text: 'Become an API Provider',
+      //link: '/guides/airnode/become-api-provider',
+      //},
     ],
-  },*/
-  /*{
+  },
+  {
     text: 'QRNG',
     collapsed: false,
     items: [
       {
         text: 'Getting Started with QRNG',
-        link: '/guides/qrng/qrng-example',
+        link: '/guides/qrng/',
       },
       {
-        text: 'Using QRNG - Remix Guide',
+        text: 'Using QRNG - Remix Example',
         link: '/guides/qrng/qrng-remix/',
       },
       {
@@ -92,12 +109,16 @@ module.exports = [
         link: '/guides/qrng/quantumon/',
       },
       {
+        text: `Building a Roulette with QRNG`,
+        link: '/guides/qrng/roulette-guide/',
+      },
+      {
         text: 'QRNG YouTube Tutorials',
         link: '/guides/qrng/youtube-demos/',
       },
     ],
-  },*/
-  /*{
+  },
+  {
     text: 'DAO Members',
     collapsed: false,
     items: [
@@ -122,7 +143,7 @@ module.exports = [
         link: '/guides/dao-members/videos',
       },
     ],
-  },*/
+  },
   {
     text: 'Miscellaneous',
     collapsed: false,

@@ -4,6 +4,7 @@ module.exports = [
     collapsable: false,
     items: [
       { text: 'Understanding OIS', link: '/reference/ois/latest/' },
+      { text: 'Versions', link: '/reference/ois/latest/versions' },
       { text: 'Specification', link: '/reference/ois/latest/specification' },
       {
         text: 'Reserved Parameter',
@@ -21,11 +22,6 @@ module.exports = [
         text: 'OIS Template',
         link: '/reference/ois/latest/template',
       },
-      /*
-      '/reference/ois/latest/processing.md',
-      '/reference/ois/latest/example.md',
-      '/reference/ois/latest/ois-template.md',
-      */
     ],
   },
 ];

@@ -2,9 +2,9 @@
 title: Cloud Resources
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11
+pageHeader: Reference → Airnode → v0.14 → Deployment References
 path: /reference/airnode/latest/cloud-resources.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -32,7 +34,7 @@ Airnode uses the following AWS or GCP resources.
 | CloudWatch  | Log groups for deployed resources. For more details see [Monitoring Airnode](/reference/airnode/latest/understand/monitor.md). |
 | Lambda      | The heart of the Airnode. Serverless functions providing the Airnode service.                                                  |
 | IAM         | Roles & policies to allow communication among other resources.                                                                 |
-| API Gateway | Endpoints for the HTTP Gateway and HTTP Signed Data Gateway.                                                                   |
+| API Gateway | Endpoints for the Airnode gateways.                                                                                            |
 | S3          | File describing the state of the deployed infrastructure.                                                                      |
 
 ### GCP
@@ -42,7 +44,7 @@ Airnode uses the following AWS or GCP resources.
 | Cloud Scheduler | Timer starting the Airnode service.                                                                                            |
 | Logs Explorer   | Log groups for deployed resources. For more details see [Monitoring Airnode](/reference/airnode/latest/understand/monitor.md). |
 | Cloud Functions | The heart of the Airnode. Serverless functions providing the Airnode service.                                                  |
-| API Gateway     | Endpoints for the HTTP Gateway and HTTP Signed Data Gateway.                                                                   |
+| API Gateway     | Endpoints for the Airnode gateways.                                                                                            |
 | Cloud Storage   | File describing the state of the deployed infrastructure & source code for cloud functions.                                    |
 | IAM             | Service accounts & roles to allow communication among other resources.                                                         |
 
@@ -54,13 +56,14 @@ The following regions are supported.
 | -------------------- | -------------- |
 | asia-northeast1      | ap-northeast-1 |
 | australia-southeast1 | ap-northeast-2 |
-| europe-west1         | ap-south-1     |
-| europe-west2         | ap-southeast-1 |
-| us-central1          | ap-southeast-2 |
-| us-east1             | ca-central-1   |
-| us-east4             | eu-central-1   |
-| us-west2             | eu-north-1     |
-| us-west4             | eu-west-1      |
+| europe-west1         | ap-northeast-3 |
+| europe-west2         | ap-south-1     |
+| us-central1          | ap-southeast-1 |
+| us-east1             | ap-southeast-2 |
+| us-east4             | ca-central-1   |
+| us-west2             | eu-central-1   |
+| us-west4             | eu-north-1     |
+|                      | eu-west-1      |
 |                      | eu-west-2      |
 |                      | eu-west-3      |
 |                      | sa-east-1      |
@@ -68,3 +71,5 @@ The following regions are supported.
 |                      | us-east-2      |
 |                      | us-west-1      |
 |                      | us-west-2      |
+
+<FlexEndTag/>

@@ -19,6 +19,8 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 API3's voting app implements a simple quorum-based voting mechanism with:
@@ -37,7 +39,7 @@ commands a larger treasury and can update all DAO settings, while the secondary
 commands a much smaller treasury and can update some of the DAO settings.
 
 See the
-[Api3Voting.sol](https://github.com/api3dao/api3-dao/blob/main/packages/api3-voting/contracts/Api3Voting.sol)<ExternalLinkImage/>
+[Api3Voting.sol](https://github.com/api3dao/api3-dao/blob/main/packages/api3-voting/contracts/Api3Voting.sol)
 contract code and the Aragon contracts it inherits from.
 
 - BaseTemplate
@@ -62,3 +64,5 @@ OR
 > 3. the total "yes" vote exceeds the "no" vote, and
 > 4. at least 50% (for Primary voting app proposals) or 15% (for Secondary
 >    voting app proposals) of all voting power has voted "yes" on the proposal.
+
+<FlexEndTag/>

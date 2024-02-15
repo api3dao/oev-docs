@@ -2,9 +2,9 @@
 title: Specification
 sidebarHeader: Reference
 sidebarSubHeader: OIS
-pageHeader: Reference → OIS → v2.0
+pageHeader: Reference → OIS → v2.3
 path: /reference/ois/latest/specification.html
-version:
+version: v2.3
 outline: deep
 tags:
 ---
@@ -15,12 +15,14 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 The Oracle Integration Specification (OIS) is based on
-[Open API specification (OAS)<ExternalLinkImage/>](https://swagger.io/specification/),
-but there are some differences, be sure to focus on the following documentation
-when working on an OIS file.
+[Open API specification (OAS)](https://swagger.io/specification/), but there are
+some differences, be sure to focus on the following documentation when working
+on an OIS file.
 
 ::: warning OAS
 
@@ -30,8 +32,11 @@ object is in these docs.
 
 :::
 
-See the article
-[Setting Oracle Integration Standards<ExternalLinkImage/>](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e)
+For an overview that explains how Airnode maps its endpoints to API provider
+operations, see
+[API integration](/reference/airnode/latest/understand/api-integration.md). Also
+see the medium article
+[Setting Oracle Integration Standards](https://medium.com/api3/setting-oracle-integration-standards-ac9104c38f9e)
 for an overview of OIS.
 
 - Fields denoted by (\*) are for documentation purposes and not used by an
@@ -40,7 +45,7 @@ for an overview of OIS.
   reference to assist in the populating of OIS fields.--> The OIS fields should be
   reviewed and customized by the integrating party.
 - All URLs are absolute (i.e.,
-  [relative URLs<ExternalLinkImage/>](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#relative-references-in-urls)
+  [relative URLs](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#relative-references-in-urls)
   are not supported).
 
 ## OIS Object Summary
@@ -58,7 +63,7 @@ An OIS has five root fields (keys).
 
 ```json
 {
-  "oisFormat": "1.1.1",
+  "oisFormat": "2.3.1",
   "title": "myOisTitle",
   "version": "1.2.3",
   "apiSpecifications": {
@@ -73,8 +78,8 @@ An OIS has five root fields (keys).
 ## 1. `oisFormat`
 
 (Required) The OIS format version followed while generating the specifications.
-
-<OisAirnodeVersions/>
+See [Versions](/reference/ois/latest/versions.md) for a list of OIS versions
+used by each Airnode version.
 
 ## 2. `title`
 
@@ -172,9 +177,9 @@ the non-nested application/json content-type is supported.</p>
 
 ### 4.3. `components`
 
-[<InfoBtnBlue/>](/reference/airnode/latest/understand/api-security.md)
-(Required) An object where security schemes can be found under
-`securitySchemes.{securitySchemeName}` with the following elements:
+(Required) An object where
+[security schemes](/reference/airnode/latest/understand/api-security.md) can be
+found under `securitySchemes.{securitySchemeName}` with the following elements:
 
 - `type`
 - `name`
@@ -301,7 +306,7 @@ schemes are assign to the entire API.
 (Required) A list of objects, each specifying an Airnode endpoint with the
 following fields:
 
-::: tip Please Note
+::: info Please Note
 
 Fields denoted by \* are for documentation purposes and not used by Airnode
 node.
@@ -323,6 +328,10 @@ node.
   [preProcessingSpecifications](/reference/ois/latest/specification.md#_5-9-preprocessingspecifications)
 - 5.10.
   [postProcessingSpecifications](/reference/ois/latest/specification.md#_5-10-postprocessingspecifications)
+- 5.11.
+  [preProcessingSpecificationV2](/reference/ois/latest/specification.md#_5-11-preprocessingspecificationv2)
+- 5.12.
+  [postProcessingSpecificationV2](/reference/ois/latest/specification.md#_5-12-postprocessingspecificationv2)
 
 ```json
 // endpoints
@@ -371,25 +380,16 @@ node.
         }
       }
     ],
-    "preProcessingSpecifications": [
-      {
-        "environment": "Node",
-        "value": "const output = {...input, from: \"eth\"};",
-        "timeoutMs": "5000"
-      },
-      {
-        "environment": "Node",
-        "value": "const output = {...input, from: input.from.toUpperCase()};",
-        "timeoutMs": "5000"
-      }
-    ],
-    "postProcessingSpecifications": [
-      {
-        "environment": "Node",
-        "value": "const output = Math.round(input.price * 1000);",
-        "timeoutMs": "5000"
-      }
-    ]
+    "preProcessingSpecificationV2": {
+      "environment": "Node",
+      "value": "({ endpointParameters }) => { return { endpointParameters: {...endpointParameters, from: 'ETH'} }; }",
+      "timeoutMs": 5000
+    },
+    "postProcessingSpecificationV2": {
+      "environment": "Node",
+      "value": "({ response }) => { return { response: parseInt(response.price) * 1000 }; }",
+      "timeoutMs": 5000
+    }
   }
 ]
 ```
@@ -434,10 +434,10 @@ respective API operation.-->
 
 ### 5.3. `fixedOperationParameters`
 
-[<InfoBtnBlue/>](/reference/airnode/latest/understand/api-integration.md#fixedoperationparameters)
 (Required) A list of objects specifying the fixed parameters for an API
-operation. While required, the fixedOperationParameters array can be left empty.
-Each object has the following elements:
+operation. While required, the
+[fixedOperationParameters](/reference/airnode/latest/understand/api-integration.md#fixedoperationparameters)
+array can be left empty. Each object has the following elements:
 
 - `operationParameter`
 - `value`
@@ -461,17 +461,19 @@ following elements:
 #### 5.3.2. `value`
 
 (Required) The value to be used for the respective parameter of an API operation
-that cannot be overridden by the requester.
+that cannot be overridden by the requester. This is allowed to be any type,
+including an object; for example, the following specifies an array containing
+multiple primitives: `["finalized", false]`.
 
 ### 5.4. `reservedParameters`
-
-[<InfoBtnBlue/>](/reference/airnode/latest/understand/api-integration.md#reservedparameters)
 
 A list of objects that specify reserved Airnode endpoint parameters that do not
 map to any API operation parameters, but are used for special purposes by the
 Airnode. See the
 [Reserved Parameters](/reference/ois/latest/reserved-parameters.md) doc for an
-in-depth explanation. Each object has the following elements:
+in-depth explanation and
+[reservedParameters](/reference/airnode/latest/understand/api-integration.md#reservedparameters).
+Each object has the following elements:
 
 - `name`
 - `fixed`
@@ -502,10 +504,10 @@ provided by a requester. Cannot be used together with `fixed`.
 
 ### 5.5. `parameters`
 
-[<InfoBtnBlue/>](/reference/airnode/latest/understand/api-integration.md#parameters)
-(Optional) A list of objects that specify Airnode endpoint parameters that map
-to an particular API operation's parameters. Each object has the following
-elements:
+(Optional) A list of objects that specify Airnode endpoint
+[parameters](/reference/airnode/latest/understand/api-integration.md#parameters)
+that map to an particular API operation's parameters. Each object has the
+following elements:
 
 - `operationParameter`
 - `name`
@@ -516,8 +518,9 @@ elements:
 
 #### 5.5.1. `operationParameter`
 
-(Required) An object that refers to a parameter of an API operation, has the
-following elements:
+(Optional) An object that refers to a parameter of an API operation and has the
+below elements. Note that if omitted, the `parameter` will not be included as
+part of the request to the API endpoint.
 
 - `name`
 - `in`
@@ -587,8 +590,16 @@ corresponding operation parameter.-->
 
 ### 5.9. `preProcessingSpecifications` \*
 
-(Optional) Defines the preprocessing code that can be used to modify the
-endpoint parameter before making the API request defined by an Airnode endpoint.
+::: warning Deprecation
+
+The `preProcessingSpecifications` field is deprecated. Use
+`preProcessingSpecificationV2` instead.
+
+:::
+
+(Optional) Defines the pre-processing code that can be used to modify the
+endpoint parameters before making the API request defined by an Airnode
+endpoint.
 
 See the [Pre/Post Processing](/reference/ois/latest/processing.md) doc for
 additional details.
@@ -603,7 +614,7 @@ additional details.
     // Define a new "from" parameter with value "eth"
     "value": "const output = {...input, from: \"eth\"};",
     // Run for 5 seconds maximum
-    "timeoutMs": "5000"
+    "timeoutMs": 5000
   },
   {
     // Execute synchronously in Node.js
@@ -611,12 +622,19 @@ additional details.
     // Uppercase the "from" parameter defined by the previous snippet
     "value": "const output = {...input, from: input.from.toUpperCase()};",
     // Run for 5 seconds maximum
-    "timeoutMs": "5000"
+    "timeoutMs": 5000
   }
 ]
 ```
 
 ### 5.10. `postProcessingSpecifications` \*
+
+::: warning Deprecation
+
+The `postProcessingSpecifications` field is deprecated. Use
+`postProcessingSpecificationV2` instead.
+
+:::
 
 (Optional) Defines the post-processing code that can be used to modify the API
 response from the request defined by an Airnode endpoint.
@@ -634,13 +652,54 @@ additional details.
     // Multiply the API return value by 1000 and round it to an integer
     "value": "const output = Math.round(input.price * 1000);",
     // Run for 5 seconds maximum
-    "timeoutMs": "5000"
+    "timeoutMs": 5000
   }
 ]
 ```
 
-## More related material...
+### 5.11. `preProcessingSpecificationV2` \*
 
-<div class="api3-css-nav-box-flex-row">
-  <NavBox type='REFERENCE' id="_reference-airnode-api-integrations"/>
-</div>
+(Optional) Defines the pre-processing code that can be used to modify the
+endpoint parameters before making the API request defined by an Airnode
+endpoint.
+
+See the [Pre/Post Processing](/reference/ois/latest/processing.md) doc for
+additional details.
+
+#### Example
+
+```json
+"preProcessingSpecificationV2": {
+  // Execute in Node.js. The v2 specification supports both synchronous and asynchronous code
+  "environment": "Node",
+  // Define a new "from" parameter with value "ETH"
+  "value": "({ endpointParameters }) => { return { endpointParameters: {...endpointParameters, from: 'ETH'} }; }",
+  // Run for 5 seconds maximum
+  "timeoutMs": 5000
+}
+```
+
+### 5.12. `postProcessingSpecificationV2` \*
+
+(Optional) Defines the post-processing code that can be used to modify the API
+response from the request defined by an Airnode endpoint.
+
+See the [Pre/Post Processing](/reference/ois/latest/processing.md) doc for
+additional details.
+
+#### Example
+
+```json
+"postProcessingSpecificationV2": [
+  {
+    // Execute in Node.js. The v2 specification supports both synchronous and asynchronous code
+    "environment": "Node",
+    // Multiply the API return value by 1000 and round it to an integer
+    "value": "({ response }) => { return { response: parseInt(response.price * 1000) }; }",
+    // Run for 5 seconds maximum
+    "timeoutMs": 5000
+  }
+]
+```
+
+<FlexEndTag/>

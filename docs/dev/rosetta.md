@@ -3,7 +3,7 @@ title: Rosetta, Nodejs, esbuild
 sidebarHeader: Docs Development
 sidebarSubHeader:
 pageHeader: Docs Development
-basePath: /dev/rosetta.html
+path: /dev/rosetta.html
 outline: deep
 tags:
 ---
@@ -12,25 +12,25 @@ tags:
 
 # {{$frontmatter.title}}
 
-This page refers to M1 Macs that have implemented the use of Rosetta. It is best
-not to use Rosetta with the VitePress docs. While it may work it almost always
-results in longer builds and other processes. Other issues can arise such as the
-Rosetta platform error. This usually happens when Nodejs and NPM are installed
-using CLI running with Rosetta on, and NPM will install the wrong
-[esbuild](https://esbuild.github.io/getting-started/) package. It is best to use
-a version of Nodejs and NPM installed with its installer or install it using
-your CLI with Rosetta deactivated.
+This page refers to Apple silicon Macs that have implemented the use of Rosetta.
+It is best not to use Rosetta with the VitePress docs. While it may work it
+almost always results in longer builds and other processes. Other issues can
+arise such as the Rosetta platform error. This usually happens when Nodejs and
+NPM are installed using CLI running with Rosetta on, and NPM will install the
+wrong [esbuild](https://esbuild.github.io/getting-started/) package. It is best
+to use a version of Nodejs and NPM installed with its installer or install it
+using your CLI with Rosetta deactivated.
 
-::: tip Nodejs `v18`
+::: info Nodejs `v20`
 
-It is best to use nodejs `v18` which gives the best performance and is the
+It is best to use nodejs `v20` which gives the best performance and is the
 engine described in the
-[package.json<ExternalLinkImage/>](https://github.com/api3dao/vitepress-docs/blob/main/package.json)
+[package.json](https://github.com/api3dao/vitepress-docs/blob/main/package.json)
 file.
 
 :::
 
-```js
+```sh
 failed to load config from /Users/warren/DEV/vitepress-docs/docs/.vitepress/config.js
 build error:
  Error:
@@ -63,12 +63,12 @@ is not running under Rosetta, it will install for the proper platform.
 `esbuild` will not appear in `packages.json` under `devDependencies`, but it
 does update.
 
-```js
+```sh
 yarn install --dev esbuild
 ```
 
 Next run a VitePress build.
 
-```js
+```sh
 yarn docs:build
 ```

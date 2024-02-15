@@ -1,21 +1,42 @@
 module.exports = [
   {
     text: 'Understanding dAPIs',
+    collapsed: false,
     items: [
       {
-        text: '• dAPIs are data feeds',
+        text: 'dAPIs are data feeds',
         link: '/reference/dapis/understand/',
       },
       {
-        text: '• Reading dAPIs',
+        text: 'Managed dAPIs',
+        link: '/reference/dapis/understand/managed',
+      },
+      {
+        text: 'Self-funded dAPIs',
+        link: '/reference/dapis/understand/self-funded',
+      },
+      {
+        text: 'Reading dAPIs',
         link: '/reference/dapis/understand/read-dapis',
       },
       {
-        text: '• Proxy contracts',
+        text: 'Proxy contracts',
         link: '/reference/dapis/understand/proxy-contracts',
       },
       {
-        text: '• Security',
+        text: 'IProxy interface',
+        link: '/reference/dapis/understand/iproxy',
+      },
+      {
+        text: 'Deviation thresholds',
+        link: '/reference/dapis/understand/deviations',
+      },
+      {
+        text: 'Sponsor wallets',
+        link: '/reference/dapis/understand/wallets',
+      },
+      {
+        text: 'Security',
         link: '/reference/dapis/understand/security',
       },
     ],
@@ -33,45 +54,14 @@ module.exports = [
         text: 'ID and Name Schemes',
         link: '/reference/dapis/schemes',
       },
-
+      {
+        text: 'Verify dAPI sources',
+        link: '/reference/dapis/verify-beacon',
+      },
       {
         text: 'Chains and Contracts',
-        link: '/reference/dapis/chains',
+        link: '/reference/dapis/chains/',
       },
     ],
   },
-  /*{
-    text: 'DapiServer Contract',
-    collapsed: false,
-    items: [
-      {
-        text: 'Overview',
-        link: '/reference/dapis/functions/',
-      },
-      {
-        text: '• Read Datafeed with DapiName',
-        link: '/reference/dapis/functions/read-data-feed-with-dapi-name',
-      },
-      {
-        text: '• Read Datafeed Value with dAPI Name',
-        link: '/reference/dapis/functions/read-data-feed-value-with-dapi-name',
-      },
-      {
-        text: '• Read Datafeed with Id',
-        link: '/reference/dapis/functions/read-data-feed-with-id',
-      },
-      {
-        text: '• Read Datafeed Value with Id',
-        link: '/reference/dapis/functions/read-data-feed-value-with-id',
-      },
-      {
-        text: '• Reader Can Read Datafeed',
-        link: '/reference/dapis/functions/reader-can-read-datafeed',
-      },
-      {
-        text: '• Datafeed Id to Reader to Whitelist Status',
-        link: '/reference/dapis/functions/data-feed-id-to-reader-to-whitelist-status',
-      },
-    ],
-  },*/
 ];

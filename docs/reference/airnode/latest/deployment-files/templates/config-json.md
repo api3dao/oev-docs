@@ -2,9 +2,9 @@
 title: config.json
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Deployment Files → Templates
+pageHeader: Reference → Airnode → v0.14 → Deployment Files → Templates
 path: /reference/airnode/latest/deployment-files/templates/config-json.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -51,15 +53,14 @@ as a reference while building a config.json file.
     {
       "authorizers": {
         "requesterEndpointAuthorizers": ["<FILL_*>"],
-        "crossChainRequesterAuthorizers": ["<FILL_*>"]
+        "crossChainRequesterAuthorizers": ["<FILL_*>"],
+        "requesterAuthorizersWithErc721": ["<FILL_*>"],
+        "crossChainRequesterAuthorizersWithErc721": ["<FILL_*>"]
       },
       "authorizations": {
         "requesterEndpointAuthorizations": {
           "<FILL_ENDPOINT_ID_1>" : ["<FILL_*>"]
         }
-      },
-      "contracts": {
-        "AirnodeRrp": "<FILL_*>"
       },
       "id": "<FILL_*>",
       "providers": {
@@ -69,7 +70,6 @@ as a reference while building a config.json file.
       },
       "type": "<FILL_*>",
       "options": {
-        "fulfillmentGasLimit": <FILL_NUMBER>,
         "gasPriceOracle": [
           {
             "gasPriceStrategy": "latestBlockPercentileGasPrice",
@@ -134,7 +134,7 @@ as a reference while building a config.json file.
      },
     "logFormat": "json",
     "logLevel": "INFO",
-    "nodeVersion": "0.10.0",
+    "nodeVersion": "0.14.0",
     "stage": "<FILL_*>"
   },
   "triggers": {
@@ -170,7 +170,7 @@ as a reference while building a config.json file.
   ],
   "ois": [
     {
-      "oisFormat": "1.4.0",
+      "oisFormat": "2.0.0",
       "version": "<FILL_*>",
       "title": "<FILL_OIS_TITLE>",
       "apiSpecifications": {
@@ -265,3 +265,5 @@ as a reference while building a config.json file.
   ]
 }
 ```
+
+<FlexEndTag/>

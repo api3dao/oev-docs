@@ -2,9 +2,9 @@
 title: secrets.env
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Deployment Files → Examples
+pageHeader: Reference → Airnode → v0.14 → Deployment Files → Examples
 path: /reference/airnode/latest/deployment-files/examples/secrets-env.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -40,3 +42,5 @@ SS_CURRENCY_CONVERTER_API_KEY=""
 ```
 
 :::
+
+<FlexEndTag/>

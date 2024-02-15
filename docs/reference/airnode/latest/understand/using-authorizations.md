@@ -2,9 +2,9 @@
 title: Using Authorizations (optional)
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Understanding Airnode
+pageHeader: Reference → Airnode → v0.14 → Understanding Airnode
 path: /reference/airnode/latest/understand/using-authorizations.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -15,19 +15,22 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 An Airnode can authorize smart contracts (know as requesters) access to its
 endpoints using
 [Authorizations](/reference/airnode/latest/concepts/authorizations.md). This
 method is off-chain and requires no blockchain knowledge by an API provider. It
-is different than [Authorize/reference/airnode/latest/concepts/authorizers.md)
-which is an on-chain auth scheme.
+is different than
+[Authorizers](/reference/airnode/latest/concepts/authorizers.md) which is an
+on-chain auth scheme.
 
 ::: info Alternative: Relayed Meta Data
 
 As an alternative to authorizers and authorizations, an API provider can use
-[Relayed Meta Data](/reference/airnode/latest/understand/api-security.md#relayed-meta-data-security-schemes)
+[<span style="color: rgb(16, 185, 129)">Relayed Meta Data</span>](/reference/airnode/latest/understand/api-security.md#relayed-meta-data-security-schemes)
 to authenticate a request. This approach is off-chain and requires no blockchain
 knowledge by the API provider. Note that it is possible to use authorizers,
 authorizations, and relayed meta data together.
@@ -58,16 +61,14 @@ requester addresses that can access them.
         "id": "1",
         ...
         "authorizers": {
-            "requesterEndpointAuthorizers": [
-                "0xeabb...C123",
-                "0xCE5e...1abc"
-            ]                The scheme type requesterEndpointAuthorizations
+            "requesterEndpointAuthorizers": []
+                             The scheme type requesterEndpointAuthorizations
         },                   grants access to endpointId/address pairs
-        "authorizations": {  ⬇︎
+        "authorizations": {  ⬇
             "requesterEndpointAuthorizations": {
                 "0x6db9...7af6": ["0xdhrt...A498"],
                 "0x8dd9...5ad7": ["0xdhrt...A498", "0xcse0...D236"],
-                       ⬆︎                 ⬆︎                ⬆︎
+                       ⬆                 ⬆                ⬆
                        endpointId         requester addresses
             }
         },
@@ -75,3 +76,5 @@ requester addresses that can access them.
  ]
 }
 ```
+
+<FlexEndTag/>

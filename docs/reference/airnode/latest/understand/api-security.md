@@ -2,9 +2,9 @@
 title: API Security
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Understanding Airnode
+pageHeader: Reference → Airnode → v0.14 → Understanding Airnode
 path: /reference/airnode/latest/understand/api-security.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -55,7 +57,7 @@ will be required grouping endpoint/API operations based on their security needs.
 An Airnode can use the following security scheme types to authenticate itself to
 API operations.
 
-- [apiKey]/reference/airnode/latest/understand/api-security.md#apikey)
+- [apiKey](/reference/airnode/latest/understand/api-security.md#apikey)
 - [http](/reference/airnode/latest/understand/api-security.md#http)
 
 A security scheme requires a unique name within the OIS object for which it
@@ -84,7 +86,7 @@ fields:
 ```json
 "ois": [
   {
-    "oisFormat": "1.4.0",
+    "oisFormat": "2.0.0",
     "title": "Ois Title",
     "version": "1.0.0",
     "apiSpecifications": {
@@ -159,8 +161,9 @@ file.
 
 ::: info Authentication Tutorial
 
-The [authenticated-coinmarketcap](/guides/airnode/monorepo-examples.md) monorepo
-example demonstrates authentication.
+The
+[<span style="color: rgb(16, 185, 129)">authenticated-coinmarketcap</span>](/guides/airnode/monorepo-examples.md)
+monorepo example demonstrates authentication.
 
 :::
 
@@ -191,9 +194,10 @@ for overview of its usage.
 
 ::: info Relay Metadata Tutorial
 
-The [relay-security-schemes](/guides/airnode/monorepo-examples.md) monorepo
-example demonstrates how to relay request metadata like chain ID and sponsor
-address to the API endpoint.
+The
+[<span style="color: rgb(16, 185, 129)">relay-security-schemes</span>](/guides/airnode/monorepo-examples.md)
+monorepo example demonstrates how to relay request metadata like chain ID and
+sponsor address to the API endpoint.
 
 :::
 
@@ -284,7 +288,7 @@ unlike the Airnode authentication security scheme, no values are stored in
 ```json
 "ois": [
   {
-    "oisFormat": "1.4.0",
+    "oisFormat": "2.0.0",
     "title": "Ois Title",
     "version": "1.0.0",
     "apiSpecifications": {
@@ -455,3 +459,5 @@ an additional secret goes in the query).
 
 If the API you are integrating is publicly accessible, you can set both the
 `security schemes` and `security` fields to empty objects.
+
+<FlexEndTag/>

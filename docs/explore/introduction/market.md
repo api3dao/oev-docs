@@ -11,8 +11,10 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
-<!-- section to review upon staged beta of market -->
-# API3 Market
+
+<FlexStartTag/>
+
+# {{$frontmatter.title}}
 
 API3 has developed an oracle solution that enables smart contracts to access and
 utilize valuable real-world data with ease. As such it is essential to make sure
@@ -22,8 +24,8 @@ possible.
 ### What is the API3 Market?
 
 The API3 Market provides tooling for dApp owners to access dAPIs. Use the
-[API3 Market<ExternalLinkImage/>](https://market.api3.org) to search for dAPIs,
-obtain dAPI proxy contract addresses, and monitor dAPIs..
+[API3 Market](https://market.api3.org) to search for dAPIs, obtain dAPI proxy
+contract addresses, and monitor dAPIs..
 
 <img src="../assets/images/API3_market_march2023_v1.png" style="width:1200px">
 
@@ -42,9 +44,11 @@ Currently, self-funded dAPIs can be accessed through a quick and simple process:
 <img src="../assets/images/self_funded_market_process_notext.png" style="width:500px">
 
 Self-funded data feeds are currently accessible at the
-[API3 Market<ExternalLinkImage/>](https://market.api3.org), with managed data
-feeds launching in the coming months.
+[API3 Market](https://market.api3.org), with managed data feeds launching in the
+coming months.
 
 While the API3 Market UI is intuitive, follow this
 [simple guide](/guides/dapis/subscribing-self-funded-dapis/) to sponsor,
 activate and read a self-funded dAPI.
+
+<FlexEndTag/>

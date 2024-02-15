@@ -2,9 +2,9 @@
 title: aws.env
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Deployment Files → Templates
+pageHeader: Reference → Airnode → v0.14 → Deployment Files → Templates
 path: /reference/airnode/latest/deployment-files/templates/aws-env.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -28,3 +30,5 @@ Variable names cannot contain dashes (-) or start with a number.
 AWS_ACCESS_KEY_ID=<FILL_*>
 AWS_SECRET_ACCESS_KEY=<FILL_*>
 ```
+
+<FlexEndTag/>

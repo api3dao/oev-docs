@@ -2,9 +2,9 @@
 title: Overview
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Deployment Files
+pageHeader: Reference → Airnode → v0.14 → Deployment Files
 path: /reference/airnode/latest/deployment-files/index.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -51,3 +53,5 @@ The deployer image outputs a
 [receipt.json](/reference/airnode/latest/deployment-files/receipt-json.md) file
 after deployment, which contains information about the deployment that can be
 referred to later on for interaction or removal.
+
+<FlexEndTag/>

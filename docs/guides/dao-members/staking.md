@@ -18,6 +18,8 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 Staking API3 tokens in the [DAO pool](/explore/dao-members/dao-pool.md) makes
@@ -29,7 +31,7 @@ you eligible for rewards and governance rights.
 
 Before tokens can be staked you must deposit them in the DAO pool. Doing so will
 remove them from your wallet and place them into the DAO pool under the control
-of its smart contracts. Deposited tokens show as WITHDRAWABLE can be removed
+of its smart contracts. Deposited tokens shown as WITHDRAWABLE can be removed
 from the DAO pool at any time and returned to your wallet. Watch the
 [Deposit and Withdraw](/guides/dao-members/videos.md#deposit-and-withdraw)
 video.
@@ -71,8 +73,9 @@ DAO pool (as a percentage of the DAO pool). Watch the
 [Stake and Earn](/guides/dao-members/videos.md#stake-and-earn) video.
 
 1. Click the **_Stake_** button.
-   > The tokens available to stake depends on the number deposited and are
-   > available to withdraw as displayed in the **Balance** box as WITHDRAWABLE.
+   > The number of tokens available to stake depends on the number of tokens
+   > deposited and are available to withdraw as displayed in the **Balance** box
+   > as WITHDRAWABLE.
 2. Enter the number of tokens to stake (or select the **Max** link) and click
    the **_Stake_** button.
 
@@ -122,3 +125,5 @@ To protect the DAO from proposal spam, unstaking is subject to a seven day
 waiting period.
 
 :::
+
+<FlexEndTag/>

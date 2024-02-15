@@ -2,9 +2,9 @@
 title: OIS Template
 sidebarHeader: Reference
 sidebarSubHeader: OIS
-pageHeader: Reference → OIS → v2.0
+pageHeader: Reference → OIS → v2.3
 path: /reference/ois/latest/template.html
-version:
+version: v2.3
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -27,12 +29,13 @@ fields. On the other hand, if two fields contain the same expression (e.g.,
 because they are referencing each other.
 
 The file below is a basic template for OIS. Note, that it might look differently
-for your particular use case. You can also check out the OISes created for our
-[examples in Airnode repository](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-examples/integrations).
+for your particular use case. You can also check out the OISes created for the
+examples in the
+[Airnode repository](https://github.com/api3dao/airnode/tree/v0.13/packages/airnode-examples/integrations).
 
 ```json
 {
-  "oisFormat": "1.1.1",
+  "oisFormat": "2.3.1",
   "title": "<FILL_*>",
   "version": "<FILL_*>",
   "apiSpecifications": {
@@ -113,3 +116,5 @@ for your particular use case. You can also check out the OISes created for our
   ]
 }
 ```
+
+<FlexEndTag/>

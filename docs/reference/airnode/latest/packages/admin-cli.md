@@ -2,9 +2,9 @@
 title: Admin CLI
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Packages
+pageHeader: Reference → Airnode → v0.14 → Packages
 path: /reference/airnode/latest/packages/admin-cli.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -15,10 +15,12 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 Use the
-[airnode-admin](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-admin)
+[airnode-admin](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-admin)
 Admin CLI tool to interact with Airnode across blockchains. There are commands
 for both developers (dApp) and API providers. Developers can sponsor
 [requester](/reference/airnode/latest/concepts/requester.md) contracts and
@@ -42,13 +44,13 @@ are just two examples of many possibilities. See the
 [Chain Providers](/reference/airnode/latest/concepts/chain-providers.md) doc for
 more information.
 
-- <code style="overflow-wrap: break-word;">https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID></code>
+- `https://eth-goerli.gateway.pokt.network/v1/lb/<APP_ID>`
 - `https://sepolia.infura.io/v3/<KEY>`
 
 The CLI connects to the
-[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
+[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
 or the
-[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
+[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
 contract, which addresses are derived from the current chain. You can optionally
 specify the contract addresses yourself by providing optional
 `airnode-rrp-address` or `requester-authorizer-with-airnode` command argument
@@ -103,13 +105,13 @@ npx @api3/airnode-admin $COMMAND --help
 Use the Admin CLI docker image as an alternative to `npx`:
 
 ```sh
-docker run api3/airnode-admin:0.10.0 --help
+docker run api3/airnode-admin:0.14.0 --help
 ```
 
 View the parameters of a command:
 
 ```sh
-docker run api3/airnode-admin:0.10.0 $COMMAND --help
+docker run api3/airnode-admin:0.14.0 $COMMAND --help
 ```
 
 ## SDK
@@ -193,7 +195,7 @@ relationships between
 [sponsorWallets](/reference/airnode/latest/concepts/sponsor.md#sponsorwallet) as
 well as [templates](/reference/airnode/latest/concepts/template.md) used by a
 sponsor's requesters. Some of these commands connect to the
-[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
+[AirnodeRrpV0.sol](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-protocol/contracts/rrp/AirnodeRrpV0.sol)
 protocol contract where the signer is sponsor account.
 
 - [sponsor-requester](/reference/airnode/latest/packages/admin-cli.md#sponsor-requester)
@@ -429,7 +431,7 @@ necessary to inline the template inside config. See
 an example template file.
 
 This command does **not** create a template on chain. Be sure to use the
-[create-template]/reference/airnode/latest/packages/admin-cli.md#create-template)
+[create-template](/reference/airnode/latest/packages/admin-cli.md#create-template)
 command on chain before making template requests.
 
 - `template-file-path`: Path to the template file to create on-chain.
@@ -640,11 +642,9 @@ npx @api3/airnode-admin derive-airnode-xpub --airnode-mnemonic "nature about sal
 
 Derives an
 [endpointId](/reference/airnode/latest/deployment-files/config-json.md#triggers)
-from the OIS title and the endpoint's name. This command uses the convention
-described in the
-[triggers](/reference/airnode/latest/understand/configuring.md#triggers) section
-of the configuring airnode documentation. Add the `endpointId` to the
-config.json file (`triggers.rrp[n].endpointId`).
+from the OIS title and the endpoint's name as described in the
+[endpoint](/reference/airnode/latest/concepts/endpoint.md) documentation. Add
+the `endpointId` to the config.json file (`triggers.rrp[n].endpointId`).
 
 - `ois-title`: The title of the OIS from config.json (`ois.title`).
 - `endpoint-name`: The name of the endpoint from config.json
@@ -723,10 +723,10 @@ authorizer contracts they have written themselves.
 
 This authorizer contract can whitelist
 [requesters](/reference/airnode/latest/concepts/requester.md) where each Airnode
-is adminned by themselves.
+is administered by themselves.
 
 These commands connect to the
-[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.8/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
+[RequesterAuthorizerWithAirnode.sol](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-protocol/contracts/authorizers/RequesterAuthorizerWithAirnode.sol)
 contract.
 
 - [set-whitelist-expiration](/reference/airnode/latest/packages/admin-cli.md#set-whitelist-expiration)
@@ -969,5 +969,7 @@ npx @api3/airnode-admin is-requester-whitelisted ^
 ## More Examples
 
 You can find more examples in the
-[test directory](https://github.com/api3dao/airnode/tree/v0.10/packages/airnode-admin/test)
+[test directory](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-admin/test)
 of the `@api3-dao/airnode/package/admin` repo.
+
+<FlexEndTag/>

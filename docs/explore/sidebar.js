@@ -31,7 +31,14 @@ module.exports = [
 
       //{ text: 'Blog Posts on Medium', link: '/explore/introduction/blog' },
       //{ text: 'Jobs', link: '/explore/introduction/jobs' },
-      { text: 'Contributing', link: '/explore/introduction/contributing' },
+      {
+        text: 'Contributing to the DAO',
+        link: '/explore/introduction/contributing',
+      },
+      {
+        text: 'API3 Docs Feedback',
+        link: '/explore/introduction/documentation-feedback',
+      },
     ],
   },
   {
@@ -41,19 +48,19 @@ module.exports = [
       { text: 'What are dAPIs?', link: '/explore/dapis/what-are-dapis' },
       {
         text: 'Using dAPIs in a dApp',
-        link: '/explore/dapis/service-coverage',
+        link: '/explore/dapis/using-dapis',
       },
       {
         text: 'Security considerations',
         link: '/explore/dapis/security-considerations',
       },
       {
-        text: 'OEV enabled dAPIs',
+        text: 'OEV capture with dAPIs',
         link: '/explore/dapis/OEV',
       },
     ],
   },
-  /*{
+  {
     text: 'Airnode',
     collapsed: false,
     items: [
@@ -111,5 +118,5 @@ module.exports = [
         link: '/explore/dao-members/dao-tracker',
       },
     ],
-  },*/
+  },
 ];

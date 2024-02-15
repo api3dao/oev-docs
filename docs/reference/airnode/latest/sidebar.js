@@ -1,28 +1,5 @@
 module.exports = [
   {
-    text: '',
-
-    items: [
-      {
-        text: 'Airnode',
-        link: '/reference/airnode/latest/',
-      },
-      { text: 'Versions', link: '/reference/airnode/latest/versions' },
-      {
-        text: 'Cloud Resources',
-        link: '/reference/airnode/latest/cloud-resources',
-      },
-      {
-        text: 'Chain Idiosyncrasies',
-        link: '/reference/airnode/latest/chain-idiosyncrasies',
-      },
-      {
-        text: 'Migration Guide',
-        link: '/reference/airnode/latest/migration',
-      },
-    ],
-  },
-  {
     text: 'Understanding Airnode',
     collapsed: false,
     items: [
@@ -73,6 +50,49 @@ module.exports = [
     ],
   },
   {
+    text: 'Airnode for dApp Developers',
+    collapsed: false,
+    items: [
+      { text: 'Airnode RRP', link: '/reference/airnode/latest/developers/' },
+      {
+        text: 'Requesters and Sponsors',
+        link: '/reference/airnode/latest/developers/requesters-sponsors',
+      },
+      {
+        text: 'Using Templates (RRP)',
+        link: '/reference/airnode/latest/developers/using-templates',
+      },
+      { text: 'Fees', link: '/reference/airnode/latest/developers/fees' },
+      {
+        text: 'Verify Airnode Addresses',
+        link: '/reference/airnode/latest/developers/verify-airnode-addresses',
+      },
+    ],
+  },
+  {
+    text: 'Deployment References',
+    collapsed: false,
+    items: [
+      {
+        text: 'Contract Addresses',
+        link: '/reference/airnode/latest/',
+      },
+      { text: 'Versions', link: '/reference/airnode/latest/versions' },
+      {
+        text: 'Cloud Resources',
+        link: '/reference/airnode/latest/cloud-resources',
+      },
+      {
+        text: 'Chain Idiosyncrasies',
+        link: '/reference/airnode/latest/chain-idiosyncrasies',
+      },
+      {
+        text: 'Migration Guide',
+        link: '/reference/airnode/latest/migration',
+      },
+    ],
+  },
+  {
     text: 'Concepts and Definitions',
     collapsed: true,
     items: [
@@ -112,10 +132,7 @@ module.exports = [
         text: 'Sponsor',
         link: '/reference/airnode/latest/concepts/sponsor',
       },
-      {
-        text: 'Requesters and Sponsors',
-        link: '/reference/airnode/latest/concepts/requesters-sponsors',
-      },
+
       {
         text: 'Template',
         link: '/reference/airnode/latest/concepts/template',
@@ -255,24 +272,6 @@ module.exports = [
         text: 'Validator',
         link: '/reference/airnode/latest/packages/validator',
       },
-    ],
-  },
-
-  {
-    text: 'dApp Developers',
-    collapsed: true,
-    items: [
-      { text: 'Overview', link: '/reference/airnode/latest/developers/' },
-
-      {
-        text: 'Calling Airnode (RRP)',
-        link: '/reference/airnode/latest/developers/call-an-airnode',
-      },
-      {
-        text: 'Using Templates',
-        link: '/reference/airnode/latest/developers/using-templates',
-      },
-      { text: 'Fees', link: '/reference/airnode/latest/developers/fees' },
     ],
   },
 ];

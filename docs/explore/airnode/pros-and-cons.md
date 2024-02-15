@@ -12,15 +12,16 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 API3 embraces the ideology of a decentralized web and the power of open source.
-Furthermore it believes that the
-[oracle problem is ill-posed](https://medium.com/api3/the-api-connectivity-problem-bd7fa0420636)<ExternalLinkImage/>
-and instead, the problem to be solved is how to connect APIs to the blockchain.
-Airnode is a first-party oracle solution that addresses this problem. Like all
-design decisions, however, the advantages presented below have tradeoffs that
-should be understood.
+Furthermore it believes that the oracle problem is ill-posed and instead, the
+problem to be solved is how to connect APIs to the blockchain. Airnode is a
+first-party oracle solution that addresses this problem. Like all design
+decisions, however, the advantages presented below have tradeoffs that should be
+understood.
 
 ### Advantages
 
@@ -28,8 +29,8 @@ should be understood.
   third-party oracle node solutions that use middlemen to deliver APIs to the
   blockchain.
 - Simple - Airnode's simple
-  [set and forget](/explore/airnode/what-is-airnode.html#_1-set-and-forget)
-  design avoids the time, complexity, and cost of other third-party oracle node
+  [set and forget](/explore/airnode/what-is-airnode.md#_1-set-and-forget) design
+  avoids the time, complexity, and cost of other third-party oracle node
   solutions.
 - Stateless - Airnode is stateless and treats the blockchain as the single
   source of truth. This alone solves the majority of operational problems of
@@ -42,11 +43,11 @@ should be understood.
   making the requests) specify a sponsor (account that sponsors the transaction)
   to pay for the response transaction.
 - Open source - Airnode and other API3 projects are developed on
-  [GitHub](https://github.com/api3dao)<ExternalLinkImage/>.
+  [GitHub](https://github.com/api3dao).
 - Secure - Airnode is inherently more secure than other solutions due to its
   stateless nature. Nonetheless, API3 remains highly focused on security and has
   a track record of favorable
-  [external security audits](https://github.com/api3dao/api3-dao/tree/main/reports)<ExternalLinkImage/>.
+  [external security audits](https://github.com/api3dao/api3-dao/tree/main/reports).
 - Free - API3 does not charge for deploying and using Airnode. Under the AWS
   lambda free tier, operating an Airnode can even be free.
 
@@ -72,3 +73,5 @@ The advantages that Airnode provides will greatly outweigh the tradeoffs for the
 large majority of use cases.
 
 <!-- TODO: provide benchmarks -->
+
+<FlexEndTag/>

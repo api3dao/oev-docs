@@ -2,9 +2,9 @@
 title: Configuring Airnode
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Understanding Airnode
+pageHeader: Reference → Airnode → v0.14 → Understanding Airnode
 path: /reference/airnode/latest/understand/configuring.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -72,14 +74,14 @@ Below is a simple chain array with a single chain provider.
     "authorizers": {
       "requesterEndpointAuthorizers": [
         "0xf18c105D0375E80980e4EED829a4A68A539E6178"
-      ]
+      ],
+      "crossChainRequesterAuthorizers": [],
+      "requesterAuthorizersWithErc721": [],
+      "crossChainRequesterAuthorizersWithErc721": []
     },
     "authorizations": {
         "requesterEndpointAuthorizations": {}
       },
-    "contracts": {
-      "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
-    },
     "id": "11155111",
     "providers": {
       "infuraSepolia": {
@@ -88,7 +90,6 @@ Below is a simple chain array with a single chain provider.
     },
     "type": "evm",
     "options": {
-      "fulfillmentGasLimit": 500000,
       "gasPriceOracle": [
         {
           "gasPriceStrategy": "latestBlockPercentileGasPrice",
@@ -125,11 +126,11 @@ Below is a simple chain array with a single chain provider.
 ],
 ```
 
-::: warning Idiosyncrasies
+::: info Idiosyncrasies
 
 See the dedicated
-[Chain Idiosyncrasies](/reference/airnode/latest/chain-idiosyncrasies.md) page
-for chain-specific configuration considerations.
+[<span style="color: rgb(16, 185, 129)">Chain Idiosyncrasies</span>](/reference/airnode/latest/chain-idiosyncrasies.md)
+page for chain-specific configuration considerations.
 
 :::
 
@@ -142,7 +143,7 @@ Airnode supports four strategies: `latestBlockPercentileGasPrice`,
 recommended to place it as the last strategy in the list as it should be the
 final fallback for the Airnode to use if all other strategies fail. For more
 detail on these strategies, see the
-[Gas Prices](/reference/airnode/latest/concepts/gas-prices.md) page.
+[Gas Price Strategies](/reference/airnode/latest/concepts/gas-prices.md) page.
 
 #### Considerations: Concurrency
 
@@ -185,12 +186,10 @@ The links below offer additional details for each field from the Deployment
 Files section:
 
 - [authorizers](/reference/airnode/latest/deployment-files/config-json.md#authorizers)
-- [contracts](/reference/airnode/latest/deployment-files/config-json.md#contracts)
 - [id](/reference/airnode/latest/deployment-files/config-json.md#id)
 - [providers](/reference/airnode/latest/deployment-files/config-json.md#providers)
 - [type](/reference/airnode/latest/deployment-files/config-json.md#type)
 - [options](/reference/airnode/latest/deployment-files/config-json.md#options)
-  - [options.fulfillmentGasLimit](/reference/airnode/latest/deployment-files/config-json.md#options-fulfillmentgaslimit)
   - [options.gasPriceOracle](/reference/airnode/latest/deployment-files/config-json.md#options-gaspriceoracle-n)
   - [options.withdrawalRemainder](/reference/airnode/latest/deployment-files/config-json.md#options-withdrawalremainder)
 - [maxConcurrency](/reference/airnode/latest/deployment-files/config-json.md#maxconcurrency)
@@ -227,7 +226,7 @@ The `nodeSettings` field holds node-specific (Airnode) configuration parameters.
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.10.0",
+    "nodeVersion": "0.14.0",
     "stage": "dev"
   },
 ```
@@ -325,6 +324,54 @@ from the `oisTitle` and `endpointName` using the CLI command
 Remember that an Airnode's config.json file can have more than one OIS object
 and that these endpoints can be triggers for `rrp`, `http`, and/or
 `httpSignedData` as desired.
+
+#### Considerations: cached responses
+
+When setting `triggers.rrp[n].cacheResponses` to `true`, Airnode caches API
+responses on the local filesystem per request ID. This only applies to
+blockchain requests. The flow is:
+
+1. A request is received from the Blockchain.
+1. The Airnode does an HTTP/S call to a remote API based on the request.
+1. [with caching enabled] Airnode stores the response on the local filesystem by
+   request ID.
+1. Airnode then follows the usual process of extracting the response,
+   post-processing it and sending the response back on chain as a fulfillment
+   callback.
+1. After all current requests are processed, Airnode then exits until the next
+   cycle (the next minute).
+1. If during the next cycle, if the Airnode gets the same request and it isn't
+   fulfilled, it will try and fulfill the request again. Ordinarily, without
+   caching enabled, it would follow steps 1, 2 and 4 (as shown above), but with
+   caching enabled it will fulfill the response using the cached API response
+   value.
+
+Clearance of the local filesystem cache is dependant on the environment Airnode
+runs in. As a guideline:
+
+- AWS Lambda persists for 2.5 hours.
+- Google Cloud persistence is completely arbitrary.
+- Docker persists as long as the container remains running.
+
+If the local filesystem is cleared, the cache is lost and if a repeat request is
+received after the cache has been cleared, Airnode will repeat the API call.
+Airnode self-clears cached data after the data has reached 1 hour's age.
+
+Furthermore, as an example: "if an Airnode AWS Lambda environment/container"
+(since this example of 2.5 hrs is specific to AWS) has been "warm" for 2.4 hours
+and Airnode gets a request, that request will only be cached until the container
+resets, in this case 2.5 hours - 2.4 hours = 0.1 hours.
+
+As described above, caching on serverless infrastructure is unreliable and if
+request caching is mission critical, Airnode should be run in a Docker container
+with a persistent `/tmp` directory.
+
+Caching is useful for non-idempotent API operations like random number
+generators. Consider the following use-case:
+
+> Random Numbers: in the absence of caching, a malicious blockchain provider can
+> selectively block fulfillments containing numbers they don't like, allowing
+> them to improve their odds of winning in a random-number betting game.
 
 #### References: `triggers`
 
@@ -482,7 +529,7 @@ the GCP project ID to build the Airnode.
 ### Creating a GCP project
 
 First
-[create a GCP project<ExternalLinkImage/>](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+[create a GCP project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 under which will the Airnode be deployed. Once the project is created, insert
 its
 [projectId](/reference/airnode/latest/deployment-files/config-json.md#cloudprovider)
@@ -516,3 +563,5 @@ urls and security credentials, so they should be kept secret. Make sure that you
 do not push your credentials to a repository or otherwise expose them as these
 credentials can be used to gain access to your Airnode's private key, AWS
 account or GCP account.
+
+<FlexEndTag/>

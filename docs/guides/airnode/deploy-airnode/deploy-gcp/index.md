@@ -12,52 +12,50 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
-This guide is a simple introduction that demonstrates the deployment of an
-Airnode. Configuration files are provided with only minor changes to be made. If
-you wish to use your own configuration files, you can generate them using
-[ChainAPI<ExternalLinkImage/>](https://chainapi.com).
-
-The latest release
-([0.11<ExternalLinkImage/>](https://hub.docker.com/r/api3/airnode-deployer/tags))
-of the Airnode
-[deployer image](/reference/airnode/latest/docker/deployer-image.md) will be
-used to deploy the off-chain component of Airnode (a.k.a., the node) to GCP.
+This guide demonstrates the deployment of an Airnode followed by an off-chain
+[HTTP Gateway](/reference/airnode/latest/understand/http-gateways.md) request.
+Configuration files are provided with only minor changes to be made. The
+[latest release](https://hub.docker.com/r/api3/airnode-deployer/tags) of the
+Airnode [deployer image](/reference/airnode/latest/docker/deployer-image.md)
+will be used to deploy the off-chain component of Airnode (a.k.a., the node) to
+GCP.
 
 This Airnode contains a single API operation (`GET /simple/price`) from
 [CoinGecko](https://www.coingecko.com/en/api/documentation) which returns the
 current value of a coin. This guide does not detail the overall configuration of
 an Airnode, it is just a quick start guide then lends itself to understanding an
-Airnode deployment
+Airnode deployment.
+
+Please note that this tutorial does not involve the blockchain nor an RRP
+(request-response protocol) call from a smart contract. If you wish to make an
+RRP call, please see the guides
+[Making an RRP Request](/guides/airnode/rrp-request.md) and
+[Calling an Airnode](/guides/airnode/calling-an-airnode/).
 
 ## Configuration Files
 
 An Airnode deployment on GCP uses the Docker
 [deployer image](/reference/airnode/latest/docker/deployer-image.md) which
-requires three files as input: [config.json](#config-json),
-[secrets.env](#secrets-env), and gcp.json.
-
-These files have been created and only require a few minor changes to make the
-deployment of the Airnode successful. These changes are needed to supply a GCP
-project ID, a chain provider url, a gateway key, and a mnemonic.
-
-If you've used ChainAPI to integrate your Airnode, extract the zip file and use
-that as the project directory.
+requires three files as input:
+[config.json](/guides/airnode/deploy-airnode/deploy-gcp/index.md#config-json),
+[secrets.env](/guides/airnode/deploy-airnode/deploy-gcp/index.md#secrets-env),
+and gcp.json. The `config.json` and `secrets.env` files have been created and
+only require a few minor changes to make the deployment of the Airnode
+successful. The changes are needed to supply a GCP project ID, a chain provider
+url, and a mnemonic.
 
 ## 1. Install Prerequisites
 
-Install the
-[Docker Desktop<ExternalLinkImage/>](https://docs.docker.com/get-docker/) and
-launch it.
+Install the [Docker Desktop](https://docs.docker.com/get-docker/) and launch it.
 
 ## 2. Project Folder
 
 Download the <a href="/zip-files/quick-start-gcp.zip" download>
 quick-start-gcp.zip</a> project folder. Extract it into any location.
-
-If you've used ChainAPI to integrate your Airnode, extract the zip file and use
-that as the project directory.
 
 ```
 quick-start-gcp
@@ -78,12 +76,12 @@ quick-start-gcp
   since the resource usage fits well within the free tier limit.
 
 - In order for Airnode to deploy successfully, you need to enable the
-  [App Engine Admin API<ExternalLinkImage/>](https://console.cloud.google.com/apis/library/appengine.googleapis.com)
+  [App Engine Admin API](https://console.cloud.google.com/apis/library/appengine.googleapis.com)
   specifically for the project. After enabling it, wait a few minutes before
   deploying the Airnode for this change to take effect.
 
 - Create a new service account from the
-  [IAM and admin > Service accounts<ExternalLinkImage/>](https://console.cloud.google.com/iam-admin/serviceaccounts)
+  [IAM and admin > Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)
   menu. Grant this account access to the project by adding the role `Owner`
   during creation.
 
@@ -109,8 +107,9 @@ writes `receipt.json` to the project root directory.
 :::
 
 This file requires no changes on your part. It has been created with just one
-API endpoint. It will instruct the Airnode to attach to the Sepolia test network
-and contains parameters to setup the off-chain Airnode.
+API endpoint and configured to listen to requests on the Sepolia test network,
+though this tutorial will not make any such requests. There are a few variables
+this file will interpolate from `secrets.env`.
 
 ### secrets.env
 
@@ -122,12 +121,13 @@ and contains parameters to setup the off-chain Airnode.
 
 :::
 
-There are four values `config.json` extracts from `secrets.env` as shown below.
-Add values for each.
+There are three values `config.json` interpolates from `secrets.env`. Add values
+for each of these fields.
 
-- `CHAIN_PROVIDER_URL`: A blockchain provider url from a provider such as
-  [Infura](https://infura.io/). Use a url for the Sepolia test network. If you
-  need one see the page [Create an Infura key](/guides/misc/infura-key/).
+- `CHAIN_PROVIDER_URL`: A blockchain provider url (including its API key) from a
+  provider such as [Infura](https://www.infura.io/). Use a url for the Sepolia
+  test network. If you need help creating one see the guide
+  [Create an Infura key](/guides/misc/infura-key/).
 
 - `AIRNODE_WALLET_MNEMONIC`: Provide the seed phrase (mnemonic) to a new digital
   wallet. The wallet does not need to be funded. Use the Admin CLI command
@@ -139,18 +139,15 @@ Add values for each.
   ```
 
 - `PROJECT_ID`: Project ID of your GCP project. During
-  [step #4](/guides/airnode/deploy-airnode/deploy-gcp/#_3-gcp-project-setup-credentials)
+  [step #3](/guides/airnode/deploy-airnode/deploy-gcp/#_3-gcp-project-setup-credentials)
   above you should have added the project ID to the `secrets.env` file.
-
-- `HTTP_GATEWAY_API_KEY`: Make up an apiKey to authenticate calls to the HTTP
-  Gateway. The expected length is 30 - 128 characters.
 
 ### gcp.json
 
 During
-[step #4](/guides/airnode/deploy-airnode/deploy-gcp/#_3-gcp-project-setup-credentials)
+[step #3](/guides/airnode/deploy-airnode/deploy-gcp/#_3-gcp-project-setup-credentials)
 above, the `gcp.json` file should have been placed into the `/quick-start-gcp`
-project folder.
+project folder root.
 
 ## 5. Deploy
 
@@ -167,11 +164,11 @@ the deployer image `deploy` command is run by the user root. This may cause
 permission issues when the `receipt.json` file is generated. Optionally you can
 specify the
 <a href="https://en.wikipedia.org/wiki/User_identifier" target="_blank">UID
-(user identifier)<externalLinkImage/></a> and <a
+(user identifier)</a> and <a
 href="https://en.wikipedia.org/wiki/Group_identifier" target="\_blank"> GID
-(group identifier)<externalLinkImage/></a> that the deployer image should use.
-Do so by setting the environment variables USER_ID and GROUP_ID, otherwise omit
-the line containing these variables.
+(group identifier)</a> that the deployer image should use. Do so by setting the
+environment variables USER_ID and GROUP_ID, otherwise omit the line containing
+these variables.
 
 ::: code-group
 
@@ -179,7 +176,7 @@ the line containing these variables.
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.9.2 deploy
+  api3/airnode-deployer:latest deploy
 ```
 
 ```batch [Windows]
@@ -187,13 +184,13 @@ docker run -it --rm \
 
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.9.2 deploy
+  api3/airnode-deployer:latest deploy
 ```
 
 :::
 
-Note the HTTP gateway URL in the output shown below. You will need it to test
-the Airnode in the next section.
+Make note of the `HTTP gateway URL` in your output shown below as it will be
+different. You will need it to test the Airnode.
 
 ```sh [output]
 ✔ Deployed Airnode 0x6A6cF2d0094c73b7aBb22Cd6196824BCBB830125 tutorial-gcp to gcp us-east1
@@ -205,16 +202,15 @@ the Airnode in the next section.
 ## 6. Test the Airnode
 
 After a successful deployment the Airnode can be tested directly using its
-[HTTP Gateway](/reference/airnode/latest/understand/http-gateways.md) without
-accessing the blockchain. You provide endpoint parameters to get a response from
-an integrated API.
+off-chain [HTTP Gateway](/reference/airnode/latest/understand/http-gateways.md).
+As a reminder, this is independent of the blockchain and RRP contract.
 
 ### HTTP Gateway
 
-Looking at the `config.json` code snippet below shows the HTTP gateway was
-activated for the Airnode. Furthermore the endpoint for `/simple/price` (with an
-`endpointId` of `0x6...af6`) has been added to `triggers.http[n]`. Only those
-endpoints added to the `http` array can be tested.
+Looking at the `config.json` code snippet below shows that the HTTP gateway is
+configured for the Airnode. Furthermore, the endpoint for `/simple/price` (with
+an `endpointId` of `0x6...af6`) is present in `triggers.http[n]`. Only those
+endpoints added to the `http` array can be tested using the HTTP gateway.
 
 ::: details Expand to view: HTTP gateway and endpoint ID
 
@@ -223,7 +219,6 @@ endpoints added to the `http` array can be tested.
   ...
   "httpGateway": {
     "enabled": true, // The gateway is activated for this Airnode
-    "apiKey": "${HTTP_GATEWAY_API_KEY}",
     "maxConcurrency": 20,
     "corsOrigins": []
   },
@@ -253,40 +248,28 @@ endpoints added to the `http` array can be tested.
 
 ### Execute Endpoint
 
-Use CURL to execute the HTTP gateway configured for the Airnode and get the
-results from the CoinGecko endpoint `/simple/price` bypassing the Sepolia test
-network that Airnode was deployed for.
+Use CURL to execute a HTTP gateway request for the CoinGecko endpoint
+`/simple/price`.
 
-:::info Custom ChainAPI configuration If you are using your own ChainAPI
-configuration, use the HTTP Gateway according to your OIS.
+As an alternative to CURL, an app such as [Insomnia](https://insomnia.rest/) or
+[Postman](https://www.postman.com/product/rest-client/) can be used. Windows
+users can also use
+[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
+(WSL2) to run CURL on Linux.
 
-:::
-
-As an alternative to CURL try an app such as
-[Insomnia<externalLinkImage/>](https://insomnia.rest/) or
-[Postman<externalLinkImage/>](https://www.postman.com/product/rest-client/).
-Windows users can also use
-[Windows Subsystem for Linux<externalLinkImage/>](https://docs.microsoft.com/en-us/windows/wsl/install)
-(WSL2) to run CURL for Linux.
-
-In order to test an endpoint make a HTTP POST request with the `endpointId` as a
-path parameter, the `Content-Type` header set to `application/json`, the
-`x-api-key` header set to the `HTTP_GATEWAY_API_KEY`, and place the endpoint
-parameter in the request body as a key/value pair.
+In order to test an endpoint, make a HTTP POST request with the `Content-Type`
+header set to `application/json`, the endpoint parameters in the request body,
+and the `endpointId` as a path parameter.
 
 - `-X`: POST
 - `-H`: The `Content-Type` using the value of `application/json`.
-- `-H`: The `x-api-key` using the value of the `HTTP_GATEWAY_API_KEY` from
-  `secrets.env`. Update the placeholder in the CURL example below with its
-  value.
 - `-d`: Use request body data to pass the endpoint parameter key/value pair.
 - `url`:
-  - `<httpGatewayUrl>`: The base URL to the gateway including the secret `UUID`
-    path parameter, displayed in the terminal at the end of an Airnode
-    deployment. Update the placeholder in the CURL example below with its value.
+  - `<httpGatewayUrl>`: The HTTP gateway URL as displayed in the terminal at the
+    end of an Airnode deployment, less the `:endpointId` placeholder.
   - <code style="overflow-wrap:break-word;">0x6db9...c27af6</code>: Passed as a
-    path parameter, the endpointId to call, see `triggers.rrp[0].endpointId` in
-    the `config.json` file.
+    path parameter, the `endpointId` to call. The value originates from
+    `triggers.rrp[0].endpointId` in the `config.json` file.
 
 #### Request
 
@@ -296,7 +279,6 @@ parameter in the request body as a key/value pair.
 curl -v \
 -X POST \
 -H 'Content-Type: application/json' \
--H 'x-api-key: <HTTP_GATEWAY_API_KEY-from-secrets.env>' \
 -d '{"parameters": {"coinIds": "api3", "coinVs_currencies": "usd"}}' \
 '<httpGatewayUrl>/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6'
 ```
@@ -305,14 +287,11 @@ curl -v \
 curl -v ^
 -X POST ^
 -H "Content-Type: application/json" ^
--H "x-api-key: <apiKey-from-secrets.env>" ^
 -d "{\"parameters\": {\"coinIds\": \"api3\", \"coinVs_currencies\": \"usd\"}}" ^
 "<httpGatewayUrl>/0x6db9e3e3d073ad12b66d28dd85bcf49f58577270b1cc2d48a43c7025f5c27af6"
 ```
 
 :::
-
-<br/>
 
 #### Response
 
@@ -337,7 +316,7 @@ was deployed.
 ```sh [Linux/Mac/WSL2]
 docker run -it --rm \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.9.2 remove-with-receipt
+  api3/airnode-deployer:latest remove-with-receipt
 ```
 
 ```batch [Windows]
@@ -345,7 +324,7 @@ docker run -it --rm \
 
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.9.2 remove-with-receipt
+  api3/airnode-deployer:latest remove-with-receipt
 ```
 
 :::
@@ -361,18 +340,22 @@ resources.
 
 ## Summary
 
-You have deployed an Airnode on GCP and tested it using the HTTP gateway that
-was enabled as part of the Airnode deployment. The Airnode, upon deployment,
-started contacting the `AirnodeRrpV0` contract on the Sepolia test network to
-gather any requests made by requesters to this Airnode. This guide did not
-address making a request on-chain as its purpose was simply to quickly deploy a
-functional Airnode.
+You have deployed an Airnode on GCP with its HTTP gateway enabled. The Airnode,
+upon deployment, started contacting the `AirnodeRrpV0` contract on the Sepolia
+test network to gather any requests made by requesters to this Airnode. However
+this guide did not address making a request on-chain as its purpose was to
+quickly deploy a functional Airnode. See the guides
+[Making an RRP Request](/guides/airnode/rrp-request.md) and
+[Calling an Airnode](/guides/airnode/calling-an-airnode/) to learn how your
+smart contract can make an RRP call to an Airnode.
 
-Finally the API integration was tested using the
-[HTTP gateway](/reference/airnode/latest/understand/http-gateways.md#http-gateway).
-You made a CURL request (using HTTP) to the HTTP gateway. Airnode queried the
-API provider and sent back a response. All of this was performed without
-accessing the blockchain.
+Finally the API integration was tested using the Airnode's off-chain
+[HTTP gateway](/reference/airnode/latest/understand/http-gateways.md). You made
+a CURL request (using HTTP) to the HTTP gateway. Airnode queried the API
+provider and sent back a response. All of this was performed without accessing
+the blockchain.
 
 Learn more about GCP resources that Airnode uses in the
 [Cloud Resources](/reference/airnode/latest/cloud-resources.md) doc.
+
+<FlexEndTag/>

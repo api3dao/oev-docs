@@ -14,6 +14,8 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 The [DAO Dashboard](https://dao.api3.org) is the portal to participate in the
@@ -25,14 +27,12 @@ interact with the DAO or modify/reuse any of its infrastructure.
 ## Preparing to use the Dashboard
 
 The guides for DAO Members to use the dashboard require a digital wallet such as
-[MetaMask](https://metamask.io/download/)<ExternalLinkImage/> to be integrated
-with your browser.
+[MetaMask](https://metamask.io/download/) to be integrated with your browser.
 
 1. Access the [DAO Dashboard](https://dao.api3.org) on **Mainnet**.
 
-2. Install a digital wallet (such as
-   [MetaMask](https://metamask.io/download/)<ExternalLinkImage/>) for your
-   preferred browser.
+2. Install a digital wallet (such as [MetaMask](https://metamask.io/download/))
+   for your preferred browser.
 
 3. Connect your wallet by clicking the **Connect Wallet** button in the upper
    right hand corner. Select your wallet from the popup. Be sure your wallet is
@@ -60,3 +60,5 @@ and learn more about the dashboard functionality.
   proposals.
 - [How to Vote](/guides/dao-members/voting.md) - Vote on proposals directly or
   through delegation.
+
+<FlexEndTag/>

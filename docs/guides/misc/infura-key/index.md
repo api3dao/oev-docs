@@ -2,8 +2,8 @@
 title: Create an Infura key
 sidebarHeader: Guides
 sidebarSubHeader:
-pageHeader: Guides
-path: /guides/misc/infura-key.html
+pageHeader: Guides → Miscellaneous
+path: /guides/misc/infura-key/index.html
 outline: deep
 tags:
 ---
@@ -11,6 +11,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -20,15 +22,14 @@ page. Infura provides access to Sepolia with its free plan.
 
 ## 1. Access your account
 
-To get started go to [Infura<ExternalLinkImage/>](https://www.infura.io) and
-create an account if you do not have one. If you do login. Infura will present
-your dashboard.
+To get started go to [Infura](https://www.infura.io/) and create an account if
+you do not have one. If you do login. Infura will present your dashboard.
 
 ## 2. Create a key
 
 Select the <b>CREATE NEW KEY</b>. Note that Infura projects have been renamed as
 keys. If you already have a key you wish to use, click on the <b>MANAGE KEY</b>
-button to the right of the key name and go the next step (#3).
+button to the right of the key name and go to the next step (#3).
 
 <img src="./src/infura-key-new.png" style="border:solid 1px lightgrey;width:70%;">
 
@@ -56,10 +57,4 @@ blockchain provider URL.
 https://sepolia.infura.io/v3/ec3dda...b3618a2
 ```
 
-<!--## More related material...
-
-<div class="api3-css-nav-box-flex-row">
-    <NavBox type='REFERENCE' id="_airnode-quick-start-aws"/>
-    <NavBox type='REFERENCE' id="_airnode-quick-start-gcp"/>
-</div>
--->
+<FlexEndTag/>

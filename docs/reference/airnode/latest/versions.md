@@ -2,9 +2,9 @@
 title: Versions
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11
+pageHeader: Reference → Airnode → v0.14 → Deployment References
 path: /reference/airnode/latest/versions.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -15,36 +15,40 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
-The latest version of Airnode is `{{versions.airnodeLatest}}`. See the
-[change log](https://github.com/api3dao/airnode/blob/master/packages/airnode-node/CHANGELOG.md)
-in the Airnode repo for all Airnode versions.
+The latest version of Airnode is `v0.14.x`. See
+[releases](https://github.com/api3dao/airnode/releases) in the Airnode repo for
+all Airnode versions. Below is a list of Airnode versions included in this
+documentation website. Each can be accessed via the Airnode selector at the top
+of the left sidebar under Reference.
 
-<table>
-    <tr v-if="versions.versionsAirnode" v-for="(item, index) in versions.versionsAirnode">
-        <td v-if="vrs === item.version"><b>{{item.version}}</b></td>
-        <td v-else><a  :href="item.path">{{item.version}}</a></td>
-    </tr>
-</table>
+|         |
+| ------- |
+| v0.14.x |
+| v0.13.x |
+| v0.12.x |
+| v0.11.x |
 
-## Previous Versions (v0.x)
+## Other Versions
 
-Prior to version `v0.11` there are several `v0.x` versions of Airnode. Their
+Prior to version `v0.11.x` there are several `v0.x` versions of Airnode. Their
 documentation is available at
-[https://api3dao.github.io/api3-docs](https://api3dao.github.io/api3-docs).
+[https://old-docs.api3.org](https://old-docs.api3.org).
 
-<table>
-    <tr v-for="(item, index) in versionsLegacy">
-        <td>{{item.version}}</td>
-    </tr>
-</table>
+|                                                           |
+| --------------------------------------------------------- |
+| [v0.10](https://old-docs.api3.org/airnode/v0.10/)         |
+| [v0.9](https://old-docs.api3.org/airnode/v0.9/)           |
+| [v0.8](https://old-docs.api3.org/airnode/v0.8/)           |
+| [v0.7](https://old-docs.api3.org/airnode/v0.7/)           |
+| [v0.6](https://old-docs.api3.org/airnode/v0.6/)           |
+| [v0.5](https://old-docs.api3.org/airnode/v0.5/)           |
+| [v0.4](https://old-docs.api3.org/airnode/v0.4/)           |
+| [v0.3](https://old-docs.api3.org/airnode/v0.3/)           |
+| [v0.2](https://old-docs.api3.org/airnode/v0.2/)           |
+| [pre-alpha](https://old-docs.api3.org/airnode/pre-alpha/) |
 
-<script setup lang="ts">
-    import versions from '../../../.vitepress/versions.json';
-    import versionsLegacy from '../../../.vitepress/versionsAirnodeLegacy.json';
-    import { useData } from 'vitepress';
-
-    const { frontmatter } = useData();
-    let vrs = frontmatter._value.version;
-</script>
+<FlexEndTag/>

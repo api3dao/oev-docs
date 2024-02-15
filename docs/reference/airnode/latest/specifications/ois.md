@@ -2,9 +2,9 @@
 title: Oracle Integration Specifications (OIS)
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Specifications
+pageHeader: Reference → Airnode → v0.14 → Specifications
 path: /reference/airnode/latest/specifications/ois.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -26,3 +28,5 @@ Airnode can serve endpoints from more than one API.
 Learn more about
 [Oracle Integration Specifications (OIS)](/reference/ois/latest/) in its
 versioned document set.
+
+<FlexEndTag/>

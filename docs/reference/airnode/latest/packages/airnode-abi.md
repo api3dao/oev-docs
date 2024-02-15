@@ -2,9 +2,9 @@
 title: Airnode ABI
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Packages
+pageHeader: Reference → Airnode → v0.14 → Packages
 path: /reference/airnode/latest/packages/airnode-abi.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -15,10 +15,12 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 The
-[airnode-abi](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-abi)
+[airnode-abi](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-abi)
 package is a unique way to encode and decode parameters for use with Airnode.
 Parameters are provided with encoding types, names and values. The types are
 shortened and grouped with a version as the "header". The name/value pairs are
@@ -96,3 +98,5 @@ const decoded = decode(encodedData);
 console.log(decoded);
 // { from: 'ETH', amount: ethers.BigNumber.from('100000') }
 ```
+
+<FlexEndTag/>

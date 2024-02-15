@@ -12,12 +12,14 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 An oracle is an agent that acts as an intermediary between a smart contract
 platform and an API. In other words, a decentralized application can use an
 oracle to call an API. It is important to understand that an oracle can access
-API data in more than one way on behave of a dApp.
+API data in more than one way on behalf of a dApp.
 
 In a traditional sense, an oracle node acts as a proxy by listening for requests
 made on the blockchain. The oracle then calls the API over the Web and fulfills
@@ -27,9 +29,10 @@ implement a protocol. This defines how decentralized applications can make
 requests to the oracle and receive responses.
 
 Moving beyond the RRP protocol, certain protocols may be more appropriate
-depending on how an oracle node is being utilized such as for datafeeds, which
-have values stored on-chain. In fact datafeeds are what dApp owners desire the
-most. API3 provides datafeeds know as [dAPIs](/explore/dapis/what-are-dapis.md).
+depending on how an oracle node is being utilized such as for data feeds, which
+have values stored on-chain. In fact data feeds are what dApp owners desire the
+most. API3 provides data feeds know as
+[dAPIs](/explore/dapis/what-are-dapis.md).
 
 The tough question that comes into play, who owns and operates the oracle?
 
@@ -79,7 +82,7 @@ first-party oracle must provide an optimal architecture.
 
 <!--Third-party oracles are both insecure and expensive (see the
 <a href="/api3-whitepaper-v1.0.3.pdf#page=10" target="_blank">API3
-Whitepaper</a><externalLinkImage/> _Issues with Third-Party Oracles as Middlemen_ for a detailed explanation). In contrast, first-party oracles are both secure and cost-efficient due to not having a middleman on the interface path. -->
+Whitepaper</a> _Issues with Third-Party Oracles as Middlemen_ for a detailed explanation). In contrast, first-party oracles are both secure and cost-efficient due to not having a middleman on the interface path. -->
 
 <!-- Legacy oracle governance
 
@@ -110,7 +113,7 @@ well.
 
 ### Decentrally governed oracles
 
-Decentrally-governed networks of first-party oracles would adquately solve the
+Decentrally-governed networks of first-party oracles would adequately solve the
 API connectivity problem. Consider the following:
 
 1. Decentralized applications need access to APIs.
@@ -132,7 +135,7 @@ A decentralized API is a product which contains:
 By taking advantage of the advantages offered by decentralization, developers
 can build applications with elevated security and trustworthiness. See the
 medium article,
-[Why API3 DAO?<externalLinkImage/>](https://medium.com/api3/why-api3-dao-not-api3-corp-2dde51c537c1)
+[Why API3 DAO?](https://medium.com/api3/why-api3-dao-not-api3-corp-2dde51c537c1)
 on DAOs and decentralized governance.
 
 <!--
@@ -146,7 +149,7 @@ same solution can be reached through a more useful lens-->
 
 <!--Decentralized applications cannot access Web APIs, and oracle solutions aim to build decentralized interfaces to facilitate this. However, this approach results in an inferior solution and ecosystem (see the
 <a href="/api3-whitepaper-v1.0.3.pdf" target="_api3-whitepaper">API3
-Whitepaper</a><externalLinkImage/> for a detailed explanation).-->
+Whitepaper</a> for a detailed explanation).-->
 
 <!--Instead, API3 builds complete products called decentralized APIs (dAPIs for
 short), which are blockchain-native, decentralized API services. From the user's
@@ -154,3 +157,5 @@ short), which are blockchain-native, decentralized API services. From the user's
 experience of using a dAPI would be very similar to a Web developer using a
 traditional API; they would find a dAPI they need, pay the subscription fee, and
 enjoy access.-->
+
+<FlexEndTag/>

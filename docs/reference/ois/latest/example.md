@@ -2,9 +2,9 @@
 title: Example OIS Object
 sidebarHeader: Reference
 sidebarSubHeader: OIS
-pageHeader: Reference → OIS → v2.0
+pageHeader: Reference → OIS → v2.3
 path: /reference/ois/latest/example.html
-version:
+version: v2.3
 outline: deep
 tags:
 ---
@@ -15,6 +15,10 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 <<< @/reference/ois/latest/example.json
+
+<FlexEndTag/>

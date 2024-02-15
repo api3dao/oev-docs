@@ -2,9 +2,9 @@
 title: Using Authorizers (optional)
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Understanding Airnode
+pageHeader: Reference → Airnode → v0.14 → Understanding Airnode
 path: /reference/airnode/latest/understand/apply-auth.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -34,7 +36,7 @@ logical standpoint, the authorization outcomes get *OR*ed.
 ::: info Alternative: Relayed Meta Data
 
 As an alternative to authorizers and authorizations, an API provider can use
-[Relayed Meta Data](/reference/airnode/latest/understand/api-security.md#relayed-meta-data-security-schemes)
+[<span style="color: rgb(16, 185, 129)">Relayed Meta Data</span>](/reference/airnode/latest/understand/api-security.md#relayed-meta-data-security-schemes)
 to authenticate a request. This approach is off-chain and requires no blockchain
 knowledge by the API provider. Note that it is possible to use authorizers,
 authorizations, and relayed meta data together.
@@ -49,59 +51,55 @@ Airnode's `airnodeAddress`. Sponsors (via their sponsored requesters) use
 endpoints. However, rather than serve them publicly, you may want to:
 
 - Only serve your own
-  [requester contracts](/reference/airnode/latest/concepts/requesters-sponsors.md).
+  [requester contracts](/reference/airnode/latest/developers/requesters-sponsors.md).
 - Only serve sponsors who have made a subscription payment.
 - Only serve sponsors who have gone through KYC.
 
-You can use different authorizer contracts for an Airnode deployment per chain
-by declaring them in the `config.json` file under `chains[n].authorizers`. Add
-one or more authorizer contract addresses to the
-`chains[n].authorizers.requesterEndpointAuthorizers` array or add one or more
-cross-chain authorizer objects to the
-`chains[n].authorizers.crossChainRequesterAuthorizers` array as shown below. If
-the `requesterEndpointAuthorizers` array is left empty then all requests will be
-accepted by the Airnode but still could be filtered by using
+The `chains[n].authorizers` object within `config.json` enables requests to be
+authorized in a variety of ways and even across chains. Currently, the
+authorizers include `requesterEndpointAuthorizers`,
+`crossChainRequesterAuthorizers`, `requesterAuthorizersWithErc721`, and
+`crossChainRequesterAuthorizersWithErc721`.
+
+Note that when all `chains[n].authorizers` values are empty arrays, all requests
+are authorized, but still can be filtered by using
 [Relayed Meta Data Security Schemes](/reference/airnode/latest/understand/api-security.md#relayed-meta-data-security-schemes).
 
+Below are examples of how to use the authorizers.
+
 ```json
-{                       // The scheme type
- ...                    // authorizers.requesterEndpointAuthorizers
- "chains":[             // lists on-chain authorizer contract addresses
-    {                   // such as the pre-built
-      "id": "1",        // RequesterAuthorizerWithAirnode contract
-      ...               // or custom authorizer contracts.
-      "authorizers": {
-        "requesterEndpointAuthorizers": [  // Requests must satisfy at least
+{
+ ...
+ "chains":[
+    {                   Scheme type requesterEndpointAuthorizers lists
+      "id": "1",        on-chain authorizer contract addresses
+      ...               such as RequesterAuthorizerWithAirnode
+      "authorizers": {  ⬇
+        "requesterEndpointAuthorizers": [  // Requests must be authorized by
           "0xeabb...C123",                 // one of the authorizer contracts
           "0xCE5e...1abc"
         ],
-        "crossChainRequesterAuthorizers": []
+        "crossChainRequesterAuthorizers": [],
+        "requesterAuthorizersWithErc721": [],
+        "crossChainRequesterAuthorizersWithErc721": []
       }
     },
     {
       "id": "2",
       ...
-      "authorizers": {
-        "requesterEndpointAuthorizers": [], // All requests will be processed
-        "crossChainRequesterAuthorizers": []
+      "authorizers": { // All requests are authorized
+        "requesterEndpointAuthorizers": [],
+        "crossChainRequesterAuthorizers": [],
+        "requesterAuthorizersWithErc721": [],
+        "crossChainRequesterAuthorizersWithErc721": []
       },
     },
     {
       "id": "3",
       ...
       "authorizers": {
-        "requesterEndpointAuthorizers": [  // Requests must satisfy a
-          "0xeabb...C123"                  // single authorizer contract
-        ],
-        "crossChainRequesterAuthorizers": []
-      }
-    },
-    {
-      "id": "4",
-      ...
-      "authorizers": {
-        "requesterEndpointAuthorizers": [  // Requests must satisfy a
-          "0xeabb...C123"                  // single authorizer contract
+        "requesterEndpointAuthorizers": [  // Requests must be authorized by
+          "0xeabb...C123"                  // a single authorizer contract
         ],                                 // OR an authorizer contract deployed
                                            // on a different chain (Ethereum mainnet)
         "crossChainRequesterAuthorizers": [
@@ -109,16 +107,15 @@ accepted by the Airnode but still could be filtered by using
             "requesterEndpointAuthorizers": ["0xCE5e...1abc"],
             "chainType": "evm",
             "chainId": "1",
-            "contracts": {
-              "AirnodeRrp": "0xa0AD...a1Bd"
-            },
             "chainProvider": {
               "url": "https://mainnet.infura.io/..."
             }
           }
-        ]
+        ],
+        "requesterAuthorizersWithErc721": [],
+        "crossChainRequesterAuthorizersWithErc721": []
       }
-    },
+    }
    ]
 }
 ```
@@ -143,3 +140,5 @@ case and can be implemented with the following steps:
 
 Once implemented, only requester contract addresses you have added to
 RequesterAuthorizerWithAirnode will have access to your Airnode.
+
+<FlexEndTag/>

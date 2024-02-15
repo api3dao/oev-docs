@@ -1,15 +1,16 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
 import { useWindowScroll } from '@vueuse/core';
-import { useSidebar } from '../composables/sidebar.js';
-import VPNavBarTitle from './VPNavBarTitle.vue';
-import VPNavBarSearch from './VPNavBarSearch.vue';
-import VPNavBarMenu from './VPNavBarMenu.vue';
-import VPNavBarTranslations from './VPNavBarTranslations.vue';
+import { ref, watchPostEffect } from 'vue';
+import { useData } from '../composables/data';
+import { useSidebar } from '../composables/sidebar';
 import VPNavBarAppearance from './VPNavBarAppearance.vue';
-import VPNavBarSocialLinks from './VPNavBarSocialLinks.vue';
 import VPNavBarExtra from './VPNavBarExtra.vue';
 import VPNavBarHamburger from './VPNavBarHamburger.vue';
+import VPNavBarMenu from './VPNavBarMenu.vue';
+import VPNavBarSearch from './VPNavBarSearch.vue';
+import VPNavBarSocialLinks from './VPNavBarSocialLinks.vue';
+import VPNavBarTitle from './VPNavBarTitle.vue';
+import VPNavBarTranslations from './VPNavBarTranslations.vue';
 
 defineProps<{
   isScreenOpen: boolean;
@@ -21,11 +22,16 @@ defineEmits<{
 
 const { y } = useWindowScroll();
 const { hasSidebar } = useSidebar();
+const { frontmatter } = useData();
 
-const classes = computed(() => ({
-  'has-sidebar': hasSidebar.value,
-  fill: y.value > 0,
-}));
+const classes = ref<Record<string, boolean>>({});
+
+watchPostEffect(() => {
+  classes.value = {
+    'has-sidebar': hasSidebar.value,
+    top: frontmatter.value.layout === 'home' && y.value === 0,
+  };
+});
 </script>
 
 <template>
@@ -47,6 +53,7 @@ const classes = computed(() => ({
         <div class="curtain" />
         <div class="content-body">
           <slot name="nav-bar-content-before" />
+          <!-- wkande Sep, 2022 comment out VPNavBarSearch below-->
           <!--VPNavBarSearch class="search" /-->
           <VPNavBarMenu class="menu" />
           <!-- wkande Sep, 2022 added custom search -->
@@ -75,6 +82,7 @@ const classes = computed(() => ({
   height: var(--vp-nav-height);
   transition: border-color 0.5s, background-color 0.5s;
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .VPNavBar.has-sidebar {
@@ -93,13 +101,9 @@ const classes = computed(() => ({
     padding: 0;
   }
 
-  .VPNavBar.fill {
+  .VPNavBar.fill:not(.has-sidebar) {
     border-bottom-color: var(--vp-c-gutter);
     background-color: var(--vp-nav-bg-color);
-  }
-
-  .VPNavBar.has-sidebar.fill {
-    background-color: transparent;
   }
 }
 
@@ -109,6 +113,11 @@ const classes = computed(() => ({
   margin: 0 auto;
   max-width: calc(var(--vp-layout-max-width) - 64px);
   height: var(--vp-nav-height);
+  pointer-events: none;
+}
+
+.container > .title,
+.container > .content {
   pointer-events: none;
 }
 

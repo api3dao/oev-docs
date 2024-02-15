@@ -2,9 +2,9 @@
 title: Airnode Authentication
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Concepts and Definitions
+pageHeader: Reference → Airnode → v0.14 → Concepts and Definitions
 path: /reference/airnode/latest/concepts/airnode-auth.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -91,3 +93,5 @@ curl -H "X-API-KEY: abcdef12345" \
 curl -H "Cookie: X-API-KEY:abcdef12345" \
   -X GET https://mydao.com?token=API3
 ```
+
+<FlexEndTag/>

@@ -18,7 +18,6 @@ inside the Airnode doc set.
           target="_docker-hub"
           >AWS/GCP Deployer Images
         </a>
-        <ExternalLinkImage />
       </li>
 
       <li>
@@ -27,7 +26,6 @@ inside the Airnode doc set.
           target="_docker-hub"
           >Client Images
         </a>
-        <ExternalLinkImage />
       </li>
 
       <li>
@@ -36,7 +34,6 @@ inside the Airnode doc set.
           target="_docker-hub"
           >Admin CLI Images
         </a>
-        <ExternalLinkImage />
       </li>
     </ul>
 

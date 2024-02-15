@@ -2,9 +2,9 @@
 title: Adapter
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Packages
+pageHeader: Reference → Airnode → v0.14 → Packages
 path: /reference/airnode/latest/packages/adapter.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -15,10 +15,12 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 The
-[airnode-adapter](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-adapter)
+[airnode-adapter](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-adapter)
 package has multiple responsibilities. It is used for building requests from an
 [Oracle Integration Specification (OIS)](/reference/ois/latest/), executing
 them, parsing the responses, but also converting and encoding them for on chain
@@ -121,10 +123,8 @@ Beware that any floating point number will be **floored**. This is necessary,
 because floating point numbers are not valid in solidity. To mitigate precision
 loss, you can use the
 [`_times`](/reference/ois/latest/reserved-parameters.md#times) parameter that is
-sufficiently large.
-
-For example, if the API response is a USD currency, you might want to use
-`_times: "100"` to convert the value to cents.
+sufficiently large. For example, if the API response is a USD currency, you
+might want to use `_times: "100"` to convert the value to cents.
 
 :::
 
@@ -190,9 +190,8 @@ For example, let's say the API wants to encode the following string
 `this is an example string that is a bit longer`. Its encoding is
 <code style="overflow-wrap: break-word;">0x7468697320697320616e206578616d706c6520737472696e672074686174206973206120626974206c6f6e676572</code>.
 This is the value that should be sent as a response to Airnode request, together
-with the `0x` prefix.
-
-You can use [ethers](https://docs.ethers.io/v5/) to encode these on the API side
+with the `0x` prefix. Use [ethers](https://docs.ethers.io/v5/) to encode these
+on the API side.
 
 ```js
 const value = 'this is an example string that is a bit longer';
@@ -236,9 +235,8 @@ For example, if the API response is the following string
 first trimmed to 31 characters, string `this is an example string that ` and
 afterwards converted to
 <code style="overflow-wrap: break-word;">0x7468697320697320616e206578616d706c6520737472696e6720746861742000</code>.
-
-You can use [ethers](https://docs.ethers.io/v5/) to decode the values off chain
-using the following snippet
+Use [ethers](https://docs.ethers.io/v5/) to decode the values off chain using
+the following snippet
 
 ```js
 const encoded =
@@ -262,3 +260,5 @@ For example:
   fixed and some not. This is irrelevant though, and all the elements are
   converted based on
   [`string32`](/reference/airnode/latest/packages/adapter.md#string32) rules.
+
+<FlexEndTag/>

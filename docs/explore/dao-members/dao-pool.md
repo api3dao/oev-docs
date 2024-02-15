@@ -12,6 +12,8 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 The API3 DAO has a single staking pool called the **DAO pool**. Staking API3
@@ -19,14 +21,14 @@ tokens in the pool will grant representation and
 [inflationary rewards](/explore/dao-members/rewards.md). Staked tokens will be
 used as collateral to pay out service coverage claims as needed. To do this, the
 pool focuses on three token utilities and implements
-[service coverage](/explore/dapis/service-coverage.md) which, by design,
-balances rewards and risks through responsible governance.
+[service coverage](/explore/dapis/using-dapis.md) which, by design, balances
+rewards and risks through responsible governance.
 
 ## Tokens
 
 API3 is the native token of the API3 project. The API3 ecosystem is a single
 token environment. Check out the Medium post
-[API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30)<ExternalLinkImage/>
+[API3 Tokenomics Update](https://medium.com/api3/api3-tokenomics-update-f032d6e49b30)
 for an in-depth overview on API3 tokenomics.
 
 ### Unstaked Tokens
@@ -62,8 +64,8 @@ utilities:
 
 _Main utilities of the API3 token._
 
-> <img src="../assets/images/dao-pool-token-utils.png" width="200"/>
->
+<img src="../assets/images/07-b-The_DAO_pool-Token_Utilities.png" style="width:350px">
+
 > 1. [Staking](/explore/dao-members/dao-pool.md#staking): Grants membership in
 >    the API3 DAO and rights to inflationary
 >    [rewards](/explore/dao-members/rewards.md).
@@ -79,7 +81,7 @@ them to govern in a way that minimizes **_security_** risks. "_Security_" refers
 to a "guarantee or reliability of dAPI service"
 
 Reference <a href="/api3-whitepaper-v1.0.3.pdf#page=25" target="_blank">section
-5.4 _"API3 Tokenomics"_</a><ExternalLinkImage/> of the API3 whitepaper.
+5.4 _API3 Tokenomics_</a> of the API3 whitepaper.
 
 ### Staking
 
@@ -89,8 +91,8 @@ governance voting rights and take part in providing API3 users with quantifiable
 _security_ in the form of service coverage. The DAO pool also grants you
 inflationary rewards and exposes you to the risk of service coverage claims.
 
-> <img src="../assets/images/dao-pool-staking.png" width="350"/>
->
+> <img src="../assets/images/07-a-The_DAO_pool-Staking.png" width="350"/>
+
 > <p class="diagram-line" style="color:gray;margin-top:25px;">Staked tokens in the DAO pool grant 
 > governance voting rights, inflationary rewards and are used to fund the coverage 
 > service which exposes staked tokens to the risks of service coverage claims.</p>
@@ -131,13 +133,13 @@ Exposing the governing parties to the risk would align their incentives with
 that of the DAO. The governing parties need to be penalized when a dAPI
 malfunction occurs using an onchain service coverage that provides dAPI users
 with quantifiable and trustless security guarantees. The
-[Service Coverage](/explore/dapis/service-coverage.md) uses staked tokens of the
-DAO pool as collateral, which means that when a dAPI malfunction is confirmed
+[Service Coverage](/explore/dapis/using-dapis.md) uses staked tokens of the DAO
+pool as collateral, which means that when a dAPI malfunction is confirmed
 through the dispute resolution protocol, user damages will be covered from the
 pool's staked tokens.
 
 See <a href="/api3-whitepaper-v1.0.3.pdf#page=27" target="_blank">Section 5.4.2,
-_"Collateral"_</a><ExternalLinkImage/>, of the API3 whitepaper.
+_Collateral_</a>, of the API3 whitepaper.
 
 ### Governance
 
@@ -174,9 +176,9 @@ clients. API3 follows the same scheme for dAPIs.
 To gain access to a dAPI, a dApp will pay a recurring subscription fee, which
 may be fixed or customized for the dApp based on a specific use case. These
 prices will be determined by the respective team, and will include a premium if
-the dApp wants to receive [Service Coverage](/explore/dapis/service-coverage).
-The payment can be made in any cryptocurrency, which will be received by the DAO
-in API3 tokens through a liquidity pool-based decentralized exchange.
+the dApp wants to receive [Service Coverage](/explore/dapis/using-dapis.md). The
+payment can be made in any cryptocurrency, which will be received by the DAO in
+API3 tokens through a liquidity pool-based decentralized exchange.
 
 ### API provider compensation
 
@@ -185,3 +187,5 @@ their existing pricing models. This will be done using stable coins wherever
 possible, some API providers categorically reject handling cryptocurrency as
 payment. In such cases, the DAO will provide a grant that will be paid out in
 return of the proof that the API provider is compensated in fiat by the grantee.
+
+<FlexEndTag/>

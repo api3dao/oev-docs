@@ -8,10 +8,19 @@ export default {
   appearance: true,
   ignoreDeadLinks: true,
   head: [
-    ['link', { rel: 'stylesheet', href: '/api3.css' }],
+    [
+      'script',
+      {},
+      "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-PKWG7ZFR');",
+    ],
+    ['link', { rel: 'stylesheet', href: '/styles/api3.css' }],
     [
       'link',
-      { rel: 'apple-touch-icon', sizes: '180x180', href: '/small-logo.png' },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/img/small-logo.png',
+      },
     ],
     [
       'link',
@@ -19,7 +28,7 @@ export default {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/small-logo.png',
+        href: '/img/small-logo.png',
       },
     ],
     [
@@ -28,14 +37,15 @@ export default {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/small-logo.png',
+        href: '/img/small-logo.png',
       },
     ],
   ],
   themeConfig: {
+    externalLinkIcon: true,
     logo: {
-      light: '/API3-Active.png',
-      dark: '/api3-inactive.png',
+      light: '/img/API3-Active.png',
+      dark: '/img/api3-inactive.png',
     },
     siteTitle: 'Documentation',
     socialLinks: [
@@ -52,12 +62,21 @@ export default {
     sidebar: {
       '/explore/': require('../explore/sidebar.js'),
       '/guides/': require('../guides/sidebar.js'),
-      //'/reference/airnode/latest/': require('../reference/airnode/latest/sidebar.js'),
-      //'/reference/ois/latest/': require('../reference/ois/latest/sidebar.js'),
+      '/reference/airnode/next/': require('../reference/airnode/next/sidebar.js'),
+      '/reference/airnode/latest/': require('../reference/airnode/latest/sidebar.js'),
+      '/reference/airnode/v0.13/': require('../reference/airnode/v0.13/sidebar.js'),
+      '/reference/airnode/v0.12/': require('../reference/airnode/v0.12/sidebar.js'),
+      '/reference/airnode/v0.11/': require('../reference/airnode/v0.11/sidebar.js'),
+      '/reference/ois/next/': require('../reference/ois/next/sidebar.js'),
+      '/reference/ois/latest/': require('../reference/ois/latest/sidebar.js'),
+      '/reference/ois/2.2/': require('../reference/ois/2.2/sidebar.js'),
+      '/reference/ois/2.1/': require('../reference/ois/2.1/sidebar.js'),
+      '/reference/ois/2.0/': require('../reference/ois/2.0/sidebar.js'),
       '/reference/dapis/': require('../reference/dapis/sidebar.js'),
-      '/reference/oev/': require('../reference/oev/sidebar.js'),
-      //'/reference/qrng/': require('../reference/qrng/sidebar.js'),
-      //'/reference/dao-members/': require('../reference/dao-members/sidebar.js'),
+      'reference/oev/': require('../reference/oev/sidebar.js'),
+      '/reference/oev-network/': require('../reference/oev-network/sidebar.js'),
+      '/reference/qrng/': require('../reference/qrng/sidebar.js'),
+      '/reference/dao-members/': require('../reference/dao-members/sidebar.js'),
       '/dev/': require('../dev/sidebar.js'),
     },
     nav: nav(),
@@ -77,14 +96,14 @@ function nav() {
       text: 'Reference',
       items: [
         { text: 'dAPIs', link: '/reference/dapis/understand/' },
-        { text: 'OEV', link: '/reference/oev/starter-guide/' },
-        /*{
+        {
           text: 'Airnode',
-          link: '/reference/airnode/latest/',
+          link: '/reference/airnode/latest/understand/',
         },
         { text: 'OIS', link: '/reference/ois/latest/' },
         { text: 'QRNG', link: '/reference/qrng/' },
-        { text: 'DAO Members', link: '/reference/dao-members/' },*/
+        { text: `OEV Network`, link: '/reference/oev-network/' },
+        { text: 'DAO Members', link: '/reference/dao-members/' },
       ],
     },
   ];

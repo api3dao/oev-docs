@@ -4,13 +4,13 @@ module.exports = [
     items: [
       { text: 'Getting Started', link: '/dev/' },
       { text: 'DocSets', link: '/dev/docsets' },
-      { text: 'Nav Boxes', link: '/dev/navboxes' },
+      { text: 'Airnode/OIS Versioning', link: '/dev/versioning' },
       { text: 'FlexSearch', link: '/dev/flexsearch' },
+      { text: 'Axios Scripts', link: '/dev/axios-scripts' },
       { text: 'Firebase', link: '/dev/firebase' },
       { text: 'Frontmatter', link: '/dev/frontmatter' },
       { text: 'Hyperlinks', link: '/dev/hyperlinks' },
       { text: 'Link Validation', link: '/dev/link-validation' },
-      { text: 'Tabs Component', link: '/dev/tabs' },
       {
         text: 'Page Styling',
         link: '/dev/page-styling',
@@ -22,6 +22,8 @@ module.exports = [
       { text: 'Rosetta, Nodejs, esbuild', link: '/dev/rosetta' },
       { text: 'Google Analytics 4', link: '/dev/ga4' },
       { text: 'VitePress Containers', link: '/dev/containers' },
+      { text: 'SSR on CloudFlare', link: '/dev/ssr' },
+      { text: 'Zip File Handling', link: '/dev/zip-handling' },
     ],
   },
 ];

@@ -1,10 +1,10 @@
 ---
-title: HTTP Gateways (optional)
+title: OEV Gateway (optional)
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Understanding Airnode
+pageHeader: Reference → Airnode → v0.14 → Understanding Airnode
 path: /reference/airnode/latest/understand/oev-gateway.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -15,11 +15,14 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
-OEV gateway is used in the OEV flow to sign the data won in the auction. The
+OEV gateway is used in the OEV flow to sign the data won in the OEV auction. The
 data is signed by the Airnode so that only the searcher who won the auction can
-use it to update the data feed.
+use it to update the data feed. You can learn more about OEV at
+https://api3.org.
 
 ## Setup
 
@@ -99,24 +102,24 @@ properly constructed HTTP request:
 ```json
 {
   "chainId": <CHAIN_ID>,
-  "dapiServerAddress": <DAPI_SERVER_ADDRESS>,
+  "api3ServerV1": <API3_SERVER_ADDRESS>,
   "oevProxyAddress": <OEV_PROXY_ADDRESS>,
   "updateId": <UPDATE_ID>,
   "bidderAddress": <BIDDER_ADDRESS>,
   "bidAmount": <BID_AMOUNT>,
-  "signedData": [
+  "beacons": [
     {
       "airnodeAddress": <AIRNODE_ADDRESS>,
-      "endpointId": <EDNPOINT_ID>,
-      "encodedParameters": <ENCODED_PARAMETERS>,
-      "timestamp": <TIMESTAMP>,
-      "encodedValue": <ENCODED_VALUE>,
-      "signature": <SIGNATURE>
+      "templateId": <TEMPLATE_ID>,
+      "signedData": {
+        "timestamp": <TIMESTAMP>,
+        "encodedValue": <ENCODED_VALUE>,
+        "signature": <SIGNATURE>
+      }
     },
     {
       "airnodeAddress": <AIRNODE_ADDRESS>,
-      "endpointId": <EDNPOINT_ID>,
-      "encodedParameters": <ENCODED_PARAMETERS>
+      "templateId": <TEMPLATE_ID>,
     },
     ...
   ]
@@ -126,52 +129,56 @@ properly constructed HTTP request:
 where:
 
 - `chainId` - ID of the blockchain where the auction was held.
-- `dapiServerAddress` - Blockchain address of the dAPI server contract.
+- `api3ServerV1` - Blockchain address of the API3 server contract.
 - `oevProxyAddress` - Blockchain address of the proxy data feed contract.
 - `updateId` - Auction update ID.
 - `bidderAddress` - Blockchain address of the winning searcher.
 - `bidAmount` - Bid amount that won the auction.
-- `signedData` - A list of beacon data to be signed. It can contain two types:
-  full beacon data, only beacon metadata
+- `beacons` - A list of beacon data to be signed. It can contain two types: full
+  beacon data, only beacon metadata
   - `airnodeAddress` - Airnode address identifying a beacon
-  - `endpointId` - Endpoint ID identifying a beacon
-  - `encodedParameters` - Parameters in their encoded form identifying a beacon
-  - `timestamp` - UNIX timestamp of the beacon data
-  - `encodedValue` - Beacon value in its encoded form
-  - `signature` - Signature of the beacon data
+  - `templateId` - Template ID identifying a beacon
+  - `signedData` - The signed beacon data received from signed data gateway.
+    - `timestamp` - UNIX timestamp of the beacon data
+    - `encodedValue` - Beacon value in its encoded form
+    - `signature` - Signature of the beacon data
 
 ### Example request
 
 ```sh
-curl \
--X POST \
--H 'Content-Type: application/json' \
--d '{"chainId":1,"dapiServerAddress":"0x...","oevProxyAddress":"0x...","updateId":"0x...","bidderAddress":"0x...","bidAmount":"0x...","signedData":[{"airnodeAddress":"0x...","endpointId":"0x...","encodedParameters":"0x...","timestamp":"16...","encodedValue":"0x...","signature":"0x..."},{"airnodeAddress":"0x...","endpointId":"0x...","encodedParameters":"0x..."}]}' \
-'<gatewayUrl>'
+curl --location '<gatewayUrl>' \
+--header 'Content-Type: application/json' \
+--data '{
+    "chainId": 6999,
+    "bidAmount": "50000000000000000",
+    "bidderAddress": "0xf20e5d27690078c102FDbDe117a990a337820A51",
+    "api3ServerV1": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    "oevProxyAddress": "0x29fbec16e63F1881a50423030e540037cecBd5A6",
+    "beacons": [
+         {
+            "airnodeAddress": "0xaD1b4e9F83bA33d9B0A92b0085f8606bFe4a41d0",
+            "templateId": "0xe7a871afe2dbe549219b60de080086ea1132f05f4557a21d95ef0a01d7511587",
+            "signedData": {
+                "encodedValue": "0x000000000000000000000000000000000000000000000000000000006d16277b",
+                "timestamp": "1679589673",
+                "signature": "0x36b4ba2ea19063e0f32055ef80774f302666bf9209f7f33b364fbfbd5079e8e61486f89aa9d63a392f2af2dd925b94da592fc5acb976303a095ffdcd77f1dc7d1b"
+            }
+        }
+    ],
+    "updateId": "0x336a3067645a4e33616f4e4c723734376633644555576a463675737900000000"
+}'
 ```
 
 ### Example response
 
 ```json
 [
-  {
-    "timestamp": "16...",
-    "encodedValue": "0x...",
-    "signature": "0x..."
-  },
-  {
-    "timestamp": "16...",
-    "encodedValue": "0x...",
-    "signature": "0x..."
-  }
+  "0xf9ada63d498bca65598b7a2504a89f61a82665dd7e2a0828cf21c6715aca5214103998ac98e5ddc3d32ba50c79de984d286b3d602019acf6689f31845ec04abb1b"
 ]
 ```
 
-The gateway will return a list of signed beacon data, signing for each beacon
-within the data feed that is served by the given Airnode. There are two elements
-that are signed: template ID of the beacon and the OEV update hash, uniqly
-identifying given OEV update.
+The gateway will return a list of signatures. There is a signature for each
+beacon within the data feed that is served by the given Airnode, returned in the
+same order as they are specified in the request body.
 
-- `timestamp` - UNIX timestamp of the signature
-- `encodedValue` - Encoded OEV update value
-- `signature` - Signature of the OEV update by Airnode
+<FlexEndTag/>

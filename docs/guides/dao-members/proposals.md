@@ -18,6 +18,8 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 Staking tokens in the DAO pool gives you governance rights to create and vote on
@@ -30,13 +32,12 @@ the DAO as described in
 [Dashboard Attributes](/reference/dao-members/dashboard-attributes.md) upon
 acceptance using a proposal. To view the percentage of staked tokens in the pool
 for an address, visit the
-[DAO Tracker wallets page](https://enormous.cloud/dao/api3/tracker/wallets)<ExternalLinkImage/>.
+[DAO Tracker wallets page](https://tracker.api3.org/wallets).
 
 You can vote on all proposals regardless of the percentage of staked tokens in
 the pool you own. See [How to Vote](/guides/dao-members/voting.md) for
 instructions. Alternatively, you can delegate your voting power to someone else.
-See the
-[delegation pitch section](https://forum.api3.org/c/delegation-pitch/7)<ExternalLinkImage/>
+See the [delegation pitch section](https://forum.api3.org/c/delegation-pitch/7)
 of the API3 forum for posts by community members offering to act as delegates or
 to post your own delegate pitch.
 
@@ -82,15 +83,15 @@ is a short list of requirements a DAO member must meet to create proposals.
 
 ### Promote
 
-Creating a proposal is a process and is highly recommended, and to some extend
+Creating a proposal is a process and is highly recommended, and to some extent
 expected, for your proposal to succeed.
 
 1. Promote your idea and gather feedback on the API3 forum using a
-   [sentiment check post](https://forum.api3.org/t/sentiment-check-template/56)<ExternalLinkImage/>.
+   [sentiment check post](https://forum.api3.org/t/sentiment-check-template/56).
    Generally, ideas receiving community engagement on the forum are more likely
    to pass once crafted as official proposals.
 2. Create an
-   [official proposal ](https://forum.api3.org/t/api3-dao-example-proposal-template/52)<ExternalLinkImage/>
+   [official proposal](https://forum.api3.org/t/api3-dao-example-proposal-template/52)
    post on the API3 forum. This should contain a link to the
    [proposal description on IPFS](/guides/dao-members/proposals.md#using-ipfs-for-proposals).
 3. After receiving feedback from the above steps, create a formal proposal using
@@ -101,7 +102,7 @@ expected, for your proposal to succeed.
   In general, a proposal type of _Primary_ has a larger treasury and more permissions but has more stringent voting settings than a _Secondary_ type. For a technical breakdown of the different permissions granted to the DAO's proposal types (and corresponding Agents) see this [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions).
   -->
 
-::: tip Public Address and ENS Names
+::: info Public Address and ENS Names
 
 For public addresses use the checksum version of the address where some
 alphabetical characters are capitalized. Copy your address to etherscan to get
@@ -111,7 +112,7 @@ below.
 
 :::
 
-::: tip USDC Precision
+::: info USDC Precision
 
 USDC uses 6 decimal places of precision as opposed to 18 that many other ERC20
 tokens use. Add 6 zeros after the amount you are asking for.
@@ -133,7 +134,7 @@ To create a new proposal using the DAO dashboard:
    > voting settings, and have different permissions to change contract
    > settings. For a technical breakdown of the different permissions granted to
    > the DAO's proposal types (and corresponding Agents) see this
-   > [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions)<ExternalLinkImage/>.
+   > [README](https://github.com/api3dao/api3-dao/blob/develop/packages/dao/README.md#permissions).
 
 3. Enter a descriptive **Title**.
 
@@ -146,8 +147,8 @@ To create a new proposal using the DAO dashboard:
    > A description can be typed text but consider using a PDF hosted on IPFS.
    > See the
    > [Using IPFS for Proposals](/guides/dao-members/proposals.md#using-ipfs-for-proposals)
-   > section below. Also consider adding a link back the forum where you posted
-   > your proposal for discussion.
+   > section below. Also consider adding a link back to the forum where you
+   > posted your proposal for discussion.
 
 5. Enter the **Target Contract** address.
 
@@ -159,6 +160,9 @@ To create a new proposal using the DAO dashboard:
 
    > Defines the signature of the function to call within the target contract.
    > For the target contract USDC mentioned above use
+
+   <!-- As noted below, a space will cause the transaction to fail in solidity. -->
+
    > `transfer(address,uint256)`. <span style="color:red">Do not use any spaces
    > in the signature: leading, trailing or otherwise.</span>
 
@@ -167,52 +171,36 @@ To create a new proposal using the DAO dashboard:
    > You can use zero if the target function is not `payable`.
 
 8. Enter **Parameters** which are the arguments that will be used to satisfy the
-   signature of the target contract function.
+   signature of the target contract function in step #6.
+
+   > In the case of step #5 above, the address
+   > `0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48` is for the USDC contract. You
+   > will be calling its `transfer` function, as indicated in step #6, should
+   > the proposal pass.
 
    > The arguments must be provided in JSON array format where the values are
-   > stringified.
+   > stringified. `["0xF4EB52Cf9D31a...d1663d78ddDEE9","499999000000"]`
 
-   ```json
-   ["0xF4EB52Cf9D31a...d1663d78ddDEE9", "499999000000"]
-   ```
+   In the example directly above, the respective Agent (primary or secondary )
+   would be calling the USDC contract
+   (`0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`) to transfer 499,999 USDC to
+   `0xF4EB52Cf9D31a...d1663d78ddDEE9`. Note that since
+   `transfer(address,uint256)` function transfers funds from the sender to the
+   specified address, the USDC is asked to be supplied from the Agent's balance.
 
-   In the example above, the respective Agent (primary or secondary) would be
-   calling the USDC contract (`0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`) to
-   transfer 499,999 USDC to `0xF4EB52Cf9D31a...d1663d78ddDEE9`. Note that since
-   `transfer(address,uint256)` transfers funds from the sender to the specified
-   address, the USDC is asked to be supplied from the Agent's balance.
+   USDC uses 6 decimal places of precision as opposed to 18 that many other
+   ERC20 tokens use. Consequently, multiply the desired $USD by 10^6 to get the
+   USDC amount to enter.
 
 9. When you are ready, click the **Create** button at the bottom of the page.
 
    > The proposal is then added to the proposal list and can be voted on.
 
-10. Return to the
-    [API3 forum](https://forum.api3.org/c/official-proposals/5)<ExternalLinkImage/>
+10. Return to the [API3 forum](https://forum.api3.org/c/official-proposals/5)
     and add a comment to your post with a link to your newly created proposal.
     This will help and encourage community members to vote.
 
 ## Proposal Execution
-
-<!-- The following is the older version of execution rules. This was not
-very accurate, see PR: AN384 proposals #516.
-
-A proposal is ready for execution if:
-
-1. The proposal hasn't already been executed, and
-2. greater than 50% of all voting power has voted "yes" on the proposal,
-
-OR
-
-1. The proposal hasn't already been executed, and
-2. the proposal's voting period has ended, and
-3. the total "yes" vote exceeds the "no" vote, and
-4. at least 50% (for Primary voting app proposals) or 15% (for Secondary voting
-   app proposals) of all voting power has voted "yes" on the proposal.
-
-Once a proposal has satisfied either set of criteria, anyone can send a
-transaction executing it using the Execute button that appears on its details
-page, as shown below:
--->
 
 A proposal is ready for execution if:
 
@@ -230,52 +218,51 @@ the proposal. Both primary and secondary type proposals execute immediately once
 
 ## Using ENS Names
 
-You are encouraged to use the
-[ENS app](https://app.ens.domains/)<ExternalLinkImage/> to register a name and
-associate it with an Ethereum account. Then, while entering your proposal
-parameters, you can use this ENS name instead of the account address. Before
-making the transaction that will create the proposal, the DAO dashboard will
-look up the address that the ENS name is pointing to and use the raw address in
-the proposal. Therefore, changing the address that the ENS name is pointing to
-after this look up operation **WILL NOT** have an affect on the proposal.
+You are encouraged to use the [ENS app](https://app.ens.domains/) to register a
+name and associate it with an Ethereum account. Then, while entering your
+proposal parameters, you can use this ENS name instead of the account address.
+Before making the transaction that will create the proposal, the DAO dashboard
+will look up the address that the ENS name is pointing to and use the raw
+address in the proposal. Therefore, changing the address that the ENS name is
+pointing to after this look up operation **WILL NOT** have an effect on the
+proposal.
 
 For voters to see your ENS name instead of the raw address on the proposal
-details page, you will have to use the
-[ENS app](https://app.ens.domains/)<ExternalLinkImage/> to set a reverse record
-pointing to your ENS name (i.e., you need to have your raw address point to the
-ENS name). If your proposal will make a `transfer(address,uint256)` call to an
-ERC20 token contract where `address` is the address of a _multisig_ wallet, you
-can
-[set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac)<ExternalLinkImage/>
+details page, you will have to use the [ENS app](https://app.ens.domains/) to
+set a reverse record pointing to your ENS name (i.e., you need to have your raw
+address point to the ENS name). If your proposal will make a
+`transfer(address,uint256)` call to an ERC20 token contract where `address` is
+the address of a _multisig_ wallet, you can
+[set a reverse record with the multisig](https://medium.com/the-ethereum-name-service/you-can-now-manage-ens-names-with-gnosis-safe-9ddcb7e6c4ac)
 to your ENS name. See Parameters in
-[this proposal](https://api3.eth/#/history/secondary-31)<ExternalLinkImage/> for
-an example.
+[this proposal](https://api3.eth/#/history/secondary-31) for an example.
 
 ## Using IPFS for Proposals
 
-Consider this use case: You posted on the
-[API3 forum](https://forum.api3.org/)<ExternalLinkImage/> about a potential
-proposal. You received positive feedback and decide to formally create a
-proposal using the DAO dashboard. In the proposal's description field you
-provide a link back to the forum so people can again see the proposal details.
-How does the voter know that it's the exact same proposal they had read earlier
-in the forum? IPFS addressing content by its hash is convenient here, because
-any change you'll make to your proposal will change its hash.
+Consider this use case: You posted on the [API3 forum](https://forum.api3.org/)
+about a potential proposal. You received positive feedback and decide to
+formally create a proposal using the DAO dashboard. In the proposal's
+description field you provide a link back to the forum so people can again see
+the proposal details. How does the voter know that it's the exact same proposal
+they had read earlier in the forum? IPFS addressing content by its hash is
+convenient here, because any change you'll make to your proposal will change its
+hash.
 
-> <img src="../assets/images/ipfs-proposals.png" width="550"/>
+<img src="../assets/images/ipfs-proposals.png" width="550"/>
 
-To host a proposal description on IPFS:
+There are hosting services for IPFS such as [Pinata](https://www.pinata.cloud)
+and [Fleek](https://fleek.co) to name a few. To host a proposal description on
+Pinata's IPFS site:
 
 1. Create a PDF version of the proposal.
-2. Upload the PDF to [Fleek](https://fleek.co)<ExternalLinkImage/> or your
-   preferred IPFS hosting provider. To do so using Fleek, create a free Basic
-   account and use the Upload tool on the Storage page. Fleek will provide an
-   IPFS hash of the PDF, for example:
-   <code style="overflow-wrap: break-word;">bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u</code>.
-3. If using Fleek, append the hash to `https://ipfs.fleek.co/ipfs/`. The URL for
-   the above hash would then be:
-   > https://ipfs.fleek.co/ipfs/bafybeifl4prxv75fgumtjh4ovklfkp7zzt7dwkl4xmndv37gtcalwpam2u<ExternalLinkImage/>
-4. Add the URL to your forum posting and later to the description field of your
+1. Upload the PDF to Pinata or your preferred IPFS hosting provider. To do so
+   using Pinata, select the **Files** menu from the sidebar on your personal
+   Pinata dashboard, then select the **Add Files** button. Drag the desired file
+   into the upload dialog.
+1. After the file is uploaded, Pinata will create a URL with the IPFS hash for
+   the PDF. Simply click on the file's link to display the PDF and copy its URL
+   from the browser URL bar.
+1. Add the URL to your forum posting and later to the description field of your
    DAO dashboard proposal.
 
 Remember that the URL the voter sees in the DAO dashboard proposal description
@@ -290,3 +277,5 @@ posting. Lastly, create the proposal using the DAO dashboard. Since the proposal
 contains the IPFS hashed link in the description field, the PDF should be
 considered final and changing the hashed link in the forum at this point would
 caution the voter.
+
+<FlexEndTag/>

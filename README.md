@@ -2,55 +2,46 @@
 
 The technical documentation is maintained by the core technical team. Please
 feel free to create [issues](https://github.com/api3dao/vitepress-docs/issues)
-for discussions, proposed, additions and changes. If you would like to
-contribute directly please create a PR from a working branch.
-
-<div style="color:red;">Please note that the VitePress documentation, though deployed,  is not production ready until Airnode <code>v1.0.0</code> is released.</div>
+for discussions, proposals, additions, and changes in the repo `vitepress-docs`.
 
 ## VitePress
 
 The technical documentation has moved from
-[VuePress](https://vuepress.vuejs.org) `v1` to
-[VitePress](https://vitepress.vuejs.org) `v1` beginning with the release of
-Airnode `v1.0.0`.
+[VuePress](https://vuepress.vuejs.org) to
+[VitePress](https://vitepress.vuejs.org).
 
-## Running Locally
+- `vitepress-docs`: uses VitePress
+- `api3-docs`: uses VuePress
 
-To run the documentation locally, you will need to run the following commands:
+## Firebase
 
-Install dependencies:
+Firebase is used to host the `vitepress-docs` technical documentation.
 
-```bash
-yarn install
-```
+### Production
 
-Run the documentation locally:
+- DNS: https://docs.api3.org
+- Hosted with Firebase: https://vitepress-docs.web.app
 
-```bash
-yarn docs:dev
-```
+### Previews
 
-## Contributing
+Additionally each PR has its own Firebase preview site. The URL will be
+available in the PR's comments.
 
-For creating a new page, you will need to create a folder in the
-`/reference/oev/` directory. The folder name will be the name of the page.
-Inside the folder, you will need to create an `index.md` file. The `index.md`
-file will contain the content of the page. You will also need to update the
-`sidebar.js` file in the `/reference/oev/` directory. The `sidebar.js` file
-contains the sidebar navigation for the documentation.
+## Making a Contribution
 
-## Deploy to AWS S3 bucket ([link](http://oev-docs.s3-website-us-east-1.amazonaws.com/))
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to make a
+contribution.
 
-**AWS Account**: `oev`
+## Legacy documentation
 
-**Bucket**: `oev-docs`
+The original documentation for the repo `api3-docs` is now accessible via
+https://old-docs.api3.org and is still hosted using `gh-pages`.
 
-To deploy the documentation to the AWS S3 bucket, you will need to run the:
+- DNS: http://old-docs.api3.org
+- Hosted with GitHub: https://api3dao.github.io/api3-docs
 
-> Note: You will need to have the [AWS CLI](https://aws.amazon.com/cli/)
-> installed and AWS credentials configured.
+## /dev/ docset
 
-```bash
-yarn docs:build
-aws s3 sync ./docs/.vitepress/dist/ s3://oev-docs --acl public-read
-```
+Use https://docs.api3.org/dev/ to learn more about how the `vitepress-docs`
+documentation is managed. For the legacy documentation use
+https://old-docs.api3.org/dev/.

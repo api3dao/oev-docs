@@ -2,9 +2,9 @@
 title: Deploying Airnode
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Understanding Airnode
+pageHeader: Reference → Airnode → v0.14 → Understanding Airnode
 path: /reference/airnode/latest/understand/deploying.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -28,12 +30,15 @@ the next step is to deploy the Airnode.
 The recommended way to deploy Airnode is by using the Docker
 [deployer image](/reference/airnode/latest/docker/deployer-image.md). This image
 is simply a wrapper around the
-[deployer CLI](https://github.com/api3dao/airnode/tree/v0.8/packages/airnode-deployer).
+[deployer CLI](https://github.com/api3dao/airnode/blob/v0.14/packages/airnode-deployer).
 Try the
 [Deploying an Airnode on AWS](/guides/airnode/deploy-airnode/deploy-aws/)
 tutorial if you wish to become familiar with the deployer image first. There are
 also tutorials for [GCP](/guides/airnode/deploy-airnode/deploy-gcp/) and a
-[client Docker container](/guides/airnode/deploy-airnode/deploy-container/).
+[client Docker container](/guides/airnode/deploy-airnode/deploy-container/) as
+well as several repo based examples in the
+[Airnode monorepo example](https://github.com/api3dao/airnode/tree/v0.14/packages/airnode-examples)
+package.
 
 The deployer interacts with a cloud provider to deploy Airnode programmatically,
 without requiring you to click through a lot of ever-changing graphical
@@ -49,8 +54,7 @@ The [deployer image](/reference/airnode/latest/docker/deployer-image.md) is
 containerized as a Docker image. This will deploy the Airnode to the cloud
 provider without the worry of installing dependencies and is the recommended way
 to do a deployment. If you do not already have docker installed go to the
-[Docker website<ExternalLinkImage/>](https://docs.docker.com/get-docker/) and
-install it.
+[Docker website](https://docs.docker.com/get-docker/) and install it.
 
 ## Deployment
 
@@ -96,14 +100,14 @@ should the need arise.
 docker run -it --rm \
   -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \
   -v "$(pwd):/app/config" \
-  api3/airnode-deployer:0.10.0 deploy
+  api3/airnode-deployer:0.14.0 deploy
 ```
 
 ```batch [Windows]
 # For Windows, use CMD (not PowerShell).
 docker run -it --rm ^
   -v "%cd%:/app/config" ^
-  api3/airnode-deployer:0.10.0 deploy
+  api3/airnode-deployer:0.14.0 deploy
 ```
 
 :::
@@ -129,7 +133,7 @@ deployment was successful or not.
       "disableConcurrencyReservations": false
     },
     "stage": "dev",
-    "nodeVersion": "0.10.0",
+    "nodeVersion": "0.14.0",
     "timestamp": "2022-03-26T02:37:55.506Z"
   },
   "success": true
@@ -150,8 +154,8 @@ this.
 ## Make an RRP request of the Airnode
 
 Once the Airnode is deployed, see
-[Calling an Airnode](/reference/airnode/latest/developers/call-an-airnode.md) to
-learn how requests are made using the request-response protocol (RRP).
+[Calling an Airnode](/reference/airnode/latest/developers/index.md) to learn how
+requests are made using the request-response protocol (RRP).
 
 ## Removing the Airnode
 
@@ -160,11 +164,4 @@ for [remove](/reference/airnode/latest/docker/deployer-image.md#remove) or
 [remove-with-receipt](/reference/airnode/latest/docker/deployer-image.md#remove-with-receipt)
 instructions.
 
-## More related material...
-
-<div class="api3-css-nav-box-flex-row">
-  <NavBox type='REPO' id="_airnode-examples"/>
-  <NavBox type='GUIDE' id="_airnode-quick-start-aws"/>
-  <NavBox type='GUIDE' id="_airnode-quick-start-gcp"/>
-  <NavBox type='GUIDE' id="_airnode-quick-start-container"/>
-</div>
+<FlexEndTag/>

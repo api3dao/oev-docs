@@ -12,14 +12,14 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
-## The API3 DAO
-
-[API3<ExternalLinkImage/>](https://api3.org) is a collaborative project to
-deliver traditional API services to smart contract platforms in a decentralized
-and trust-minimized way. It is governed by a decentralized autonomous
-organization (DAO), namely the API3 DAO.
+[API3](https://api3.org) is a collaborative project to deliver traditional API
+services to smart contract platforms in a decentralized and trust-minimized way.
+It is governed by a decentralized autonomous organization (DAO), namely the API3
+DAO.
 
 <img src="../assets/images/06-a-API3_DAO-Op1.png" style="width:400px">
 
@@ -42,7 +42,7 @@ Within this introduction of API3 we will explore;
 - API3 Market
 
 If you wish to view a detailed discussion of the API3 project, read the
-[API3 Whitepaper<ExternalLinkImage/>](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf).
+[API3 Whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf).
 
 ## APIs in Web3
 
@@ -78,8 +78,8 @@ to the lowest levels of the protocol.
 Additionally, existing oracle solutions fall short because they fail to make
 this distinction, resulting in inferior solutions that depend on third-party
 oracles and ecosystems that exclude API providers. As such, API3 believes the
-oracle problem is ill-posed, instead we are faced with an
-[API Connectivity Problem<ExternalLinkImage/>](https://medium.com/api3/the-api-connectivity-problem-bd7fa0420636).
+oracle problem is ill-posed, instead we are faced with an API Connectivity
+Problem.
 
 ## Airnode
 
@@ -96,10 +96,9 @@ API data can be pushed on-chain.
 
 Airnode also has range of common features built into it. These include
 implementations such as pre and post processing,
-[authentication<ExternalLinkImage/>](https://docs.api3.org/airnode/v0.10/concepts/relay-meta-auth.html),
-or
-[authorizations<ExternalLinkImage/>](https://docs.api3.org/airnode/v0.10/concepts/authorizations.html),
-to name a few.
+[authentication](/reference/airnode/latest/concepts/relay-meta-auth.md), or
+[authorizations](/reference/airnode/latest/concepts/authorizations.md), to name
+a few.
 
 ### Self operating
 
@@ -108,12 +107,4 @@ own [first-party oracle](/explore/introduction/first-party.md) nodes. Doing so
 means that it is the API provider's Airnode that places its signed API data
 on-chain.
 
-## More related material...
-
-Read more on how [Airnode works](https://docs.api3.org/airnode/v0.10/).
-
-[API Connectivity Problem<ExternalLinkImage/>](https://medium.com/api3/the-api-connectivity-problem-bd7fa0420636)
-
-[API3 whitepaper<ExternalLinkImage/>](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf)
-
-[APIs: The Digital Glue<ExternalLinkImage/>](https://medium.com/api3/apis-the-digital-glue-7ac87566e773)
+<FlexEndTag/>

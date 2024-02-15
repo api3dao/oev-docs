@@ -2,9 +2,9 @@
 title: Request
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Concepts and Definitions
+pageHeader: Reference → Airnode → v0.14 → Concepts and Definitions
 path: /reference/airnode/latest/concepts/request.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -35,7 +37,7 @@ AirnodeRrpV0.sol.
 > 5.  <p>Airnode sends the response to fulFill() in AirnodeRrpV0 which in turn removes the pending requestId from storage and forwards the response to myFulFill(). The requestId is included as part of the response.</p>
 
 Learn more on how to
-[Call an Airnode](/reference/airnode/latest/developers/call-an-airnode.md).
+[Call an Airnode](/reference/airnode/latest/developers/index.md).
 
 ## `requestId`
 
@@ -157,7 +159,7 @@ received a successful response from the API provider.
 > 2.  <p>If AirnodeRrpV0.fulFill() fails internally or the underlying low level call to myFulFill() reverts then Airnode will start the process in step #3 to fail the request.</p>
 > 3.  <p>If Airnode errors, or is told by AirnodeRrpV0.fulFill() to error, it calls AirnodeRrpV0.fail() which removes the request from the pending list of requestIds on-chain.</p>
 
-::: tip Important to Note
+::: info Important to Note
 
 Fulfill is the only outcome that returns results to a requester contract.
 
@@ -208,3 +210,5 @@ made but not yet fulfilled/failed. If a requester has made a request, received a
 Airnode has called back `fail()` instead.Returns `true` if the request is
 awaiting fulfillment (i.e., `true` if `fulfill()` or `fail()` is not called back
 yet), `false` otherwise.
+
+<FlexEndTag/>

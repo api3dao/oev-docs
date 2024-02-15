@@ -12,13 +12,15 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
 The API3 Pool contract is where API3 token holders can stake their tokens to
 acquire voting power in the DAO. Stakers receive rewards in API3 tokens and can
 optionally delegate their voting power to another user.
 
-::: tip Paying coverage claims
+::: info Paying coverage claims
 
 The DAO pool contract (API3Pool.sol) will also be used to pay coverage claims
 out of the DAO pool. This functionality has not been implemented to-date.
@@ -26,9 +28,9 @@ out of the DAO pool. This functionality has not been implemented to-date.
 :::
 
 See the list of
-[pool contracts](https://github.com/api3dao/api3-dao/tree/main/packages/pool/contracts)<ExternalLinkImage/>
+[pool contracts](https://github.com/api3dao/api3-dao/tree/main/packages/pool/contracts)
 and specifically the
-[API3Pool.sol](https://github.com/api3dao/api3-dao/blob/main/packages/pool/contracts/Api3Pool.sol)<ExternalLinkImage/>
+[API3Pool.sol](https://github.com/api3dao/api3-dao/blob/main/packages/pool/contracts/Api3Pool.sol)
 contract for an understanding of the contract inheritance structure:
 
 - TimelockUtils.sol
@@ -76,3 +78,5 @@ contract for an understanding of the contract inheritance structure:
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `mintReward()`                                   | Distributes new API3 tokens into the staking pool, where they can be unstaked and withdrawn by members using their share of the pool |
 | `payOutClaim(address recipient, uint256 amount)` | A special function callable only by approved claims manager contracts to pay out claims directly from the pool.                      |
+
+<FlexEndTag/>

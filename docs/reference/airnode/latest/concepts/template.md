@@ -2,9 +2,9 @@
 title: Template
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Concepts and Definitions
+pageHeader: Reference → Airnode → v0.14 → Concepts and Definitions
 path: /reference/airnode/latest/concepts/template.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -48,3 +50,5 @@ templateId = keccak256(abi.encodePacked(
   parameters
 ));
 ```
+
+<FlexEndTag/>

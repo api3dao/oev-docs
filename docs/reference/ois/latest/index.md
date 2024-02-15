@@ -2,9 +2,9 @@
 title: Understanding OIS
 sidebarHeader: Reference
 sidebarSubHeader: OIS
-pageHeader: Reference → OIS → v2.0
+pageHeader: Reference → OIS → v2.3
 path: /reference/ois/latest/index.html
-version:
+version: v2.3
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -42,11 +44,6 @@ endpoint that maps to the same API operation.
 > - <p>A) <b>ois.apiSpecifications.paths</b>:  Describes API operations.</p>
 > - <p>B)<b> ois.endpoints:  </b>Defines Airnode endpoints.</p>
 >   <p>Relationships exist between an Airnode endpoint and an API operation.</p>
-
-## Releases
-
-<br/>
-<OisAirnodeVersions/>
 
 ## API Mapping Examples
 
@@ -116,8 +113,8 @@ An Airnode may wish to create two Airnode endpoints mapped to a single API
 operation whereas the requester does not pass any argument. While the API
 operation returns any token value based on a path parameter `id`, Airnode will
 only allow one particular token per Airnode endpoint. This is done using
-`fixedOOperationParameters` rather than normal `parameters`. By applying a
-`value` to `fixedOOperationParameters` for each Airnode endpoint, only the token
+`fixedOperationParameters` rather than normal `parameters`. By applying a
+`value` to `fixedOperationParameters` for each Airnode endpoint, only the token
 in the `value` can be returned to the requester.
 
 ```json
@@ -136,7 +133,7 @@ in the `value` can be returned to the requester.
                     "in": "path",
                     "name": "id"
                 },
-                "value":"API#"
+                "value":"API3"
     ...
     },
     {
@@ -158,3 +155,5 @@ in the `value` can be returned to the requester.
     },
 ]
 ```
+
+<FlexEndTag/>

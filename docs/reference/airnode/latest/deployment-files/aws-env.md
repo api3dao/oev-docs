@@ -2,9 +2,9 @@
 title: aws.env
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Deployment Files
+pageHeader: Reference → Airnode → v0.14 → Deployment Files
 path: /reference/airnode/latest/deployment-files/aws-env.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -26,3 +28,5 @@ or start with a number.
 AWS_ACCESS_KEY_ID=XYZ...123
 AWS_SECRET_ACCESS_KEY=ABC7...89
 ```
+
+<FlexEndTag/>

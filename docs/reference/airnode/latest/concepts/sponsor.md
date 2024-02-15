@@ -2,9 +2,9 @@
 title: Sponsor
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Concepts and Definitions
+pageHeader: Reference → Airnode → v0.14 → Concepts and Definitions
 path: /reference/airnode/latest/concepts/sponsor.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -14,6 +14,8 @@ tags:
 <PageHeader/>
 
 <SearchHighlight/>
+
+<FlexStartTag/>
 
 # {{$frontmatter.title}}
 
@@ -38,7 +40,7 @@ Making a request.
 1. The now "sponsored" requester makes a
    [request](/reference/airnode/latest/concepts/request.md) of an Airnode.
    Parameters passed to the Airnode include the `sponsorAddress` and the
-   `sponsorWalletAddress`.
+   `sponsorWallet` address.
 2. The Airnode verifies that the sponsor of the requester is the sponsor that
    derived the `sponsorWallet` associated with the Airnode.
 3. The Airnode uses the respective sponsor's `sponsorWallet` to fulfill the
@@ -52,10 +54,10 @@ How a requester refers to the sponsor.
    the requester is sponsored, and if so, emits the request event.
 
 2. Next Airnode derives the `sponsorWallet` address using the provided
-   `sponsorAddress`, then checks if this matches `sponsorWallet`. Airnode will
-   ignore the request if the two do not match. This is done this way because
-   deriving the `sponsorWallet` address from the `sponsorAddress` on-chain is
-   not feasible.
+   `sponsorAddress`, then checks if this matches `sponsorWallet` address
+   provided in the request. Airnode will ignore the request if the two do not
+   match. This is done this way because deriving the `sponsorWallet` address
+   from the `sponsorAddress` on-chain is not feasible.
 
 ## sponsorAddress
 
@@ -92,7 +94,7 @@ requests to prevent timeout issues. For high volatility use cases it is
 recommended to use multiple sponsors (and thus sponsor wallets) as the requests
 from different sponsor wallets are performed in parallel.
 
-::: tip Wallet and Protocols
+::: info Wallet and Protocols
 
 A sponsorWallet derived for a particular sponsor depends on the Airnode protocol
 (RRP, the forthcoming PSP protocol, etc.). This means that a sponsorWallet
@@ -140,7 +142,7 @@ m/44'/60'/0'/1/...
 ```
 
 Anyone can use the xpub that the Airnode has announced (through off-chain
-channels) and the sponsor's `sponsorAddress` to derive a `sponsorWalletAddress`
+channels) and the sponsor's `sponsorAddress` to derive a `sponsorWallet` address
 for a specific Airnode–sponsor pair. In other words, a sponsor can calculate the
 address of their respective sponsor wallet for an Airnode and have requesters
 use it to make requests right away.
@@ -198,12 +200,12 @@ a requester". This sponsorship is know to have, and be defined by, a
 This sponsorship allows the requester to use the sponsor's `sponsorWallet` for a
 particular Airnode to cover gas costs incurred by the Airnode in response to a
 request. Learn more about
-[sponsorships](/reference/airnode/latest/concepts/requesters-sponsors.md).
+[sponsorships](/reference/airnode/latest/developers/requesters-sponsors.md).
 
 Use the
 [Admin CLI tool](/reference/airnode/latest/packages/admin-cli.md#sponsor-requester)
 to sponsor a requester. An example can be seem in the
-[Requesters and Sponsors](/reference/airnode/latest/concepts/requesters-sponsors.md#how-to-sponsor-a-requester)
+[Requesters and Sponsors](/reference/airnode/latest/developers/requesters-sponsors.md#how-to-sponsor-a-requester)
 doc.
 
 ## Derive a Sponsor Wallet
@@ -224,5 +226,7 @@ Airnode wallet before deriving a child sponsor wallet address.
 Use the
 [Admin CLI tool](/reference/airnode/latest/packages/admin-cli.md#derive-sponsor-wallet-address)
 to derive a `sponsorWallet`. An example can be seem in the
-[Requesters and Sponsors](/reference/airnode/latest/concepts/requesters-sponsors.md#how-to-derive-a-sponsor-wallet)
+[Requesters and Sponsors](/reference/airnode/latest/developers/requesters-sponsors.md#how-to-derive-a-sponsor-wallet)
 doc.
+
+<FlexEndTag/>

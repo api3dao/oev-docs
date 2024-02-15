@@ -2,9 +2,9 @@
 title: Overview
 sidebarHeader: Reference
 sidebarSubHeader: Airnode
-pageHeader: Reference → Airnode → v0.11 → Understanding Airnode
+pageHeader: Reference → Airnode → v0.14 → Understanding Airnode
 path: /reference/airnode/latest/understand/index.html
-version: v0.11
+version: v0.14
 outline: deep
 tags:
 ---
@@ -15,14 +15,16 @@ tags:
 
 <SearchHighlight/>
 
+<FlexStartTag/>
+
 # {{$frontmatter.title}}
 
-This section is a progression of pages that aims to provide a detailed
-understanding of the capabilities and functionality of Airnode. Airnode is a
-first-party oracle that pushes off-chain API data on-chain via data feeds
-(dAPIs) or using its request-response protocol (RRP). Airnode runs off-chain as
-a background component of the API3 ecosystem. Learn more about what an
-[Airnode](/explore/airnode/what-is-airnode.md) is.
+Airnode is a first-party oracle that pushes off-chain API data on-chain via data
+feeds (dAPIs) or using its request-response protocol (RRP). Airnode runs
+off-chain as a background component of the API3 ecosystem. Learn more about what
+an [Airnode](/explore/airnode/what-is-airnode.md) is. **Understanding Airnode**
+is a progression of pages that provides a detailed understanding of the
+capabilities and functionality of Airnode.
 
 ## Project Folder
 
@@ -115,9 +117,10 @@ cloud provider service (e.g. AWS, EC2, or Lightsail). Use the Docker
 [Airnode Client Image](/reference/airnode/latest/docker/client-image.md) for
 this type of deployment.
 
-## More related material...
+Try the guide AWS
+[Deploying Airnode via AWS](/guides/airnode/deploy-airnode/deploy-aws/index.md)
+as a quick introduction to an Airnode deployment. Also be sure to visit
+[ChainAPI](https://chainapi.com) and try its user-friendly UI that deploys an
+Airnode.
 
-<div class="api3-css-nav-box-flex-row">
-  <NavBox type='EXPLORE' id="_what-is-airnode"/>
-  <NavBox type='GUIDE' id="_airnode-quick-start-aws"/>
-</div>
+<FlexEndTag/>

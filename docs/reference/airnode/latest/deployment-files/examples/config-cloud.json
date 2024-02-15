@@ -3,13 +3,12 @@
     {
       "authorizers": {
         "requesterEndpointAuthorizers": [],
-        "crossChainRequesterAuthorizers": []
+        "crossChainRequesterAuthorizers": [],
+        "requesterAuthorizersWithErc721": [],
+        "crossChainRequesterAuthorizersWithErc721": []
       },
       "authorizations": {
         "requesterEndpointAuthorizations": {}
-      },
-      "contracts": {
-        "AirnodeRrp": "0xa0AD79D995DdeeB18a14eAef56A549A04e3Aa1Bd"
       },
       "id": "11155111",
       "providers": {
@@ -19,7 +18,6 @@
       },
       "type": "evm",
       "options": {
-        "fulfillmentGasLimit": 500000,
         "gasPriceOracle": [
           {
             "gasPriceStrategy": "providerRecommendedGasPrice",
@@ -69,7 +67,7 @@
     },
     "logFormat": "plain",
     "logLevel": "INFO",
-    "nodeVersion": "0.11.0",
+    "nodeVersion": "0.14.0",
     "stage": "dev"
   },
   "triggers": {
@@ -99,7 +97,7 @@
   "templates": [],
   "ois": [
     {
-      "oisFormat": "1.4.0",
+      "oisFormat": "2.0.0",
       "title": "CoinGecko Requests",
       "version": "1.0.0",
       "apiSpecifications": {
