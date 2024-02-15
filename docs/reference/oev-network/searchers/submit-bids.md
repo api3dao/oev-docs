@@ -27,7 +27,7 @@ you will need to deposit testETH into the OEV Auction House Contract to start
 placing bids.
 
 ```javascript
-const { JsonRpcProvider, Wallet, Contract } = require('ethers');
+const { JsonRpcProvider, Wallet, Contract, parseEther } = require('ethers');
 const provider = new JsonRpcProvider(
   'https://oev-network-sepolia-testnet-rpc.eu-north-2.gateway.fm'
 );
@@ -40,7 +40,7 @@ const auctionHouse = new Contract(
 
 const deposit = async () => {
   const tx = await auctionHouse.deposit({
-    value: ethers.utils.parseEther('1'),
+    value: parseEther('1'),
   });
   console.log(tx.hash);
   await tx.wait();
@@ -84,6 +84,7 @@ const {
   keccak256,
   solidityPacked,
   AbiCoder,
+  parseEther,
 } = require('ethers');
 
 const getBidTopic = (chainId, proxyAddress) => {
@@ -139,10 +140,10 @@ const placeBidWithExpiration = async () => {
   const tx = await auctionHouse.placeBidWithExpiration(
     bidTopic,
     11155111,
-    ethers.utils.parseEther('1'),
+    parseEther('1'),
     bidDetails,
-    ethers.utils.parseEther('0'), // Collateral Basis Points is 0 on testnet
-    ethers.utils.parseEther('0'), // Protocol Fee Basis Points is 0 on testnet
+    parseEther('0'), // Collateral Basis Points is 0 on testnet
+    parseEther('0'), // Protocol Fee Basis Points is 0 on testnet
     Math.floor(Date.now() / 1000) + 60 * 60 * 12 // 12 hours from now
   );
   console.log(tx.hash);
@@ -198,10 +199,10 @@ const placeBid = async () => {
   const tx = await auctionHouse.placeBid(
     bidTopic,
     11155111,
-    ethers.utils.parseEther('1'),
+    parseEther('1'),
     bidDetails,
-    ethers.utils.parseEther('0'), // Collateral Basis Points is 0 on testnet
-    ethers.utils.parseEther('0') // Protocol Fee Basis Points is 0 on testnet
+    parseEther('0'), // Collateral Basis Points is 0 on testnet
+    parseEther('0') // Protocol Fee Basis Points is 0 on testnet
   );
   console.log(tx.hash);
   await tx.wait();
