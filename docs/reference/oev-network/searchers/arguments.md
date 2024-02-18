@@ -20,7 +20,7 @@ tags:
 
 dAPPs use a proxy address to read the latest data point from the dAPI. OEV
 Network enabled proxies can be deployed using the [API3 Market](market.api3.org)
-(soon) or using the [ProxyFactory contract](../../dapis/chains/)
+(soon)
 
 ### Condition and Condition Value
 

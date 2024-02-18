@@ -73,7 +73,6 @@ export default {
       '/reference/ois/2.1/': require('../reference/ois/2.1/sidebar.js'),
       '/reference/ois/2.0/': require('../reference/ois/2.0/sidebar.js'),
       '/reference/dapis/': require('../reference/dapis/sidebar.js'),
-      'reference/oev/': require('../reference/oev/sidebar.js'),
       '/reference/oev-network/': require('../reference/oev-network/sidebar.js'),
       '/reference/qrng/': require('../reference/qrng/sidebar.js'),
       '/reference/dao-members/': require('../reference/dao-members/sidebar.js'),

@@ -21,6 +21,14 @@ To submit a bid for a price update, you need to first
 [bridge your testETH](../understand/bridge-oev-network.md) to the OEV Network
 Sepolia Testnet.
 
+## Prerequisites
+
+install the following packages:
+
+```bash
+yarn add "ethers" "@api3/contracts@2.0.0-beta5"
+```
+
 ## Deposit testETH into OEV Auction House Contract
 
 you will need to deposit testETH into the OEV Auction House Contract to start
@@ -28,13 +36,17 @@ placing bids.
 
 ```javascript
 const { JsonRpcProvider, Wallet, Contract, parseEther } = require('ethers');
+const {
+  abi: OevAuctionHouseAbi,
+} = require('@api3/contracts/artifacts/contracts/api3-server-v1/OevAuctionHouse.sol/OevAuctionHouse.json');
+
 const provider = new JsonRpcProvider(
   'https://oev-network-sepolia-testnet-rpc.eu-north-2.gateway.fm'
 );
 const wallet = new Wallet('<your_private_key>', provider);
 const auctionHouse = new Contract(
-  '0x7597985630674dA4D62Ae60ad4D10E40bb619B08',
-  ['function deposit() external payable returns (uint256 bidderBalance)'],
+  '0x7597985630674dA4D62Ae60ad4D10E40bb619B08', // OevAuctionHouse contract address
+  OevAuctionHouseAbi,
   wallet
 );
 
@@ -42,9 +54,6 @@ const deposit = async () => {
   const tx = await auctionHouse.deposit({
     value: parseEther('1'),
   });
-  console.log(tx.hash);
-  await tx.wait();
-  console.log('Deposited');
 };
 ```
 
@@ -68,10 +77,10 @@ the arguments.
 
 | Argument             | Type    | Description                                                                                  |
 | -------------------- | ------- | -------------------------------------------------------------------------------------------- |
-| bidTopic             | bytes32 | [Bid topic](./arguments.md#bidtopic)                                                         |
+| bidTopic             | bytes32 | [Bid topic](./arguments.md#bidtopic-bytes32)                                                 |
 | chainId              | uint256 | Chain ID                                                                                     |
 | bidAmount            | uint256 | Bid amount in the native currency of the chain where the proxy is deployed                   |
-| bidDetails           | bytes   | [Bid details](./arguments.md#biddetails---bytes)                                             |
+| bidDetails           | bytes   | [Bid details](./arguments.md#biddetails-bytes)                                               |
 | maxCollateralAmount  | uint256 | Maximum collateral amount in the currency of the chain that OevAuctionHouse is deployed on   |
 | maxProtocolFeeAmount | uint256 | Maximum protocol fee amount in the currency of the chain that OevAuctionHouse is deployed on |
 | expirationTimestamp  | uint32  | Expiration timestamp after which the bid cannot be awarded, min - 15 seconds, max 24 hours   |
@@ -85,7 +94,12 @@ const {
   solidityPacked,
   AbiCoder,
   parseEther,
+  hexlify,
+  randomBytes,
 } = require('ethers');
+const {
+  abi: OevAuctionHouseAbi,
+} = require('@api3/contracts/artifacts/contracts/api3-server-v1/OevAuctionHouse.sol/OevAuctionHouse.json');
 
 const getBidTopic = (chainId, proxyAddress) => {
   return keccak256(
@@ -108,8 +122,14 @@ const getBidDetails = (
     (c) => c.description === condition
   );
   return abiCoder.encode(
-    ['address', 'uint8', 'uint256', 'address'],
-    [proxyAddress, conditionIndex, conditionValue, updaterAddress]
+    ['address', 'uint8', 'uint256', 'address', 'bytes32'],
+    [
+      proxyAddress,
+      conditionIndex,
+      conditionValue,
+      updaterAddress,
+      hexlify(randomBytes(32)),
+    ]
   );
 };
 
@@ -119,10 +139,8 @@ const provider = new JsonRpcProvider(
 const wallet = new Wallet('<your_private_key>', provider);
 
 const auctionHouse = new Contract(
-  '0x7597985630674dA4D62Ae60ad4D10E40bb619B08',
-  [
-    'function placeBidWithExpiration(bytes32 bidTopic, uint256 chainId, uint256 bidAmount, bytes bidDetails, uint256 maxCollateralAmount, uint256 maxProtocolFeeAmount, uint32 expirationTimestamp) external',
-  ],
+  '0x7597985630674dA4D62Ae60ad4D10E40bb619B08', // OevAuctionHouse contract address
+  OevAuctionHouseAbi,
   wallet
 );
 
@@ -140,15 +158,12 @@ const placeBidWithExpiration = async () => {
   const tx = await auctionHouse.placeBidWithExpiration(
     bidTopic,
     11155111,
-    parseEther('1'),
+    parseEther('0.1'),
     bidDetails,
     parseEther('0'), // Collateral Basis Points is 0 on testnet
     parseEther('0'), // Protocol Fee Basis Points is 0 on testnet
     Math.floor(Date.now() / 1000) + 60 * 60 * 12 // 12 hours from now
   );
-  console.log(tx.hash);
-  await tx.wait();
-  console.log('Bid Placed');
 };
 ```
 
@@ -171,90 +186,57 @@ tolerate and specify them in the arguments.
 | maxCollateralAmount  | uint256 | Maximum collateral amount in the currency of the chain that OevAuctionHouse is deployed on   |
 | maxProtocolFeeAmount | uint256 | Maximum protocol fee amount in the currency of the chain that OevAuctionHouse is deployed on |
 
-```javascript
-const provider = new JsonRpcProvider(
-  'https://oev-network-sepolia-testnet-rpc.eu-north-2.gateway.fm'
-);
-const wallet = new Wallet('<your_private_key>', provider);
+The code snippet is similar to above, except `expirationTimestamp` is excluded
+as an argument to the `placeBid` function.
 
-const auctionHouse = new Contract(
-  '0x7597985630674dA4D62Ae60ad4D10E40bb619B08',
-  [
-    'function placeBid(bytes32 bidTopic, uint256 chainId, uint256 bidAmount, bytes bidDetails, uint256 maxCollateralAmount, uint256 maxProtocolFeeAmount) external',
-  ],
-  wallet
-);
-
-const placeBid = async () => {
-  const bidTopic = getBidTopic(
-    11155111,
-    '0xa8cea58ab9060600e94bb28b2c8510b73171b55c'
-  );
-  const bidDetails = getBidDetails(
-    '0xa8cea58ab9060600e94bb28b2c8510b73171b55c',
-    'LTE',
-    50000,
-    '<searcher address doing the update>'
-  );
-  const tx = await auctionHouse.placeBid(
-    bidTopic,
-    11155111,
-    parseEther('1'),
-    bidDetails,
-    parseEther('0'), // Collateral Basis Points is 0 on testnet
-    parseEther('0') // Protocol Fee Basis Points is 0 on testnet
-  );
-  console.log(tx.hash);
-  await tx.wait();
-  console.log('Bid Placed');
-};
-```
-
-### Checking Bid Status and Listening for Awarded Bids
+## Checking Bid Status and Listening for Awarded Bids
 
 Searchers can check the status of their bids by quering the bidId using the
 `Bids` getter function of the OEV Auction House Contract.
 
 ```javascript
-const { JsonRpcProvider, Contract, keccak256, AbiCoder } = require('ethers');
-
-const abiCoder = new AbiCoder();
+const {
+  JsonRpcProvider,
+  Contract,
+  keccak256,
+  AbiCoder,
+  solidityPacked,
+} = require('ethers');
+const {
+  abi: OevAuctionHouseAbi,
+} = require('@api3/contracts/artifacts/contracts/api3-server-v1/OevAuctionHouse.sol/OevAuctionHouse.json');
 
 const provider = new JsonRpcProvider(
   'https://oev-network-sepolia-testnet-rpc.eu-north-2.gateway.fm'
 );
 const auctionHouse = new Contract(
-  '0x7597985630674dA4D62Ae60ad4D10E40bb619B08',
-  [
-    'function bids(bytes32 bidId) external view returns (uint8, uint32, uint104, uint104)',
-  ],
+  '0x7597985630674dA4D62Ae60ad4D10E40bb619B08', // OevAuctionHouse contract address
+  OevAuctionHouseAbi,
   provider
 );
 
-bytes32 bidId = keccak256(
-    abiCoder.encode(
-        ['address', 'bytes32', 'bytes'],
-        ['<searcher address doing the update>', bidTopic, bidDetails]
-    )
+const bidId = keccak256(
+  solidityPacked(
+    ['address', 'bytes32', 'bytes32'],
+    ['<bidder address>', bidTopic, keccak256(bidDetails)]
+  )
 );
 
 const getBidStatus = async () => {
-
-// solidity enum BidStatus {
-//     None,
-//     Placed,
-//     Awarded,
-//     FulfillmentReported,
-//     FulfillmentConfirmed,
-//     FulfillmentContradicted
-// }
+  // solidity enum BidStatus {
+  //     None,
+  //     Placed,
+  //     Awarded,
+  //     FulfillmentReported,
+  //     FulfillmentConfirmed,
+  //     FulfillmentContradicted
+  // }
   const bid = await auctionHouse.bids(bidId);
   // check if the bid is awarded
   if (bid[0] === 2) {
     console.log('Bid is awarded');
   }
 };
-
 ```
 
 Searchers need to listen for awarded bids using the `AwardedBid` event of the
@@ -262,66 +244,137 @@ OEV Auction House Contract.
 
 ```javascript
 const { JsonRpcProvider, Contract } = require('ethers');
-
-const provider = new JsonRpcProvider(
-  'https://oev-network-sepolia-testnet-rpc.eu-north-2.gateway.fm'
-
-    const auctionHouse = new Contract(
-        '0x7597985630674dA4D62Ae60ad4D10E40bb619B08',
-        [
-            'event AwardedBid(address indexed bidder, bytes32 indexed bidTopic, bytes32 indexed bidId, bytes awardDetails, uint256 bidderBalance)',
-        ],
-        provider
-    );
-
-    auctionHouse.on('AwardedBid', (bidder, bidTopic, bidId, awardDetails, bidderBalance) => {
-        if (bidder === '<searcher address doing the update>') {
-            console.log('Bid is awarded');
-            // perform the oracle update using the awarded bid
-        }
-    });
-
-```
-
-### Performing the oracle update using the awarded bid
-
-Once the bid is awarded, the searcher can perform the oracle update by using the
-`awardDetails` directly via a multicall to the Api3ServerV1 contract.
-
-```javascript
-const { JsonRpcProvider, Contract, keccak256, AbiCoder } = require('ethers');
-
-const abiCoder = new AbiCoder();
-
-const awardDetails = '0x';
+const {
+  abi: OevAuctionHouseAbi,
+} = require('@api3/contracts/artifacts/contracts/api3-server-v1/OevAuctionHouse.sol/OevAuctionHouse.json');
 
 const provider = new JsonRpcProvider(
   'https://oev-network-sepolia-testnet-rpc.eu-north-2.gateway.fm'
 );
 
-const multicall3 = new Contract(
-  '0xcA11bde05977b3631167028862bE2a173976CA11',
-  [
-    'function aggregate3Value(Call3Value[] calldata calls) public payable returns (Result[] memory returnData)',
-  ],
+const auctionHouse = new Contract(
+  '0x7597985630674dA4D62Ae60ad4D10E40bb619B08', // OevAuctionHouse contract address
+  OevAuctionHouseAbi,
+  provider
+);
+
+const bidId = keccak256(
+  solidityPacked(
+    ['address', 'bytes32', 'bytes32'],
+    ['<bidder address>', bidTopic, keccak256(bidDetails)]
+  )
+);
+
+const awardedTransaction = await new Promise((resolve, reject) => {
+  OevAuctionHouse.on(
+    'AwardedBid',
+    (bidder, bidTopic, awardBidId, awardDetails, bidderBalance) => {
+      if (bidId === awardBidId) {
+        OevAuctionHouse.removeAllListeners('AwardedBid');
+        resolve(awardDetails);
+      }
+    }
+  );
+});
+
+// awardedTransaction is the oracle update that the searcher
+// can use to perform the oracle update
+```
+
+## Performing the oracle update using the awarded bid
+
+Once the bid is awarded, the searcher can perform the oracle update by using the
+encoded awardTransaction on the
+[Api3ServerV1 contract](https://docs.api3.org/reference/dapis/chains/).
+
+```javascript
+const {
+  JsonRpcProvider,
+  Contract,
+  keccak256,
+  AbiCoder,
+  parseEther,
+} = require('ethers');
+const {
+  abi: Api3ServerV1Abi,
+} = require('@api3/contracts/artifacts/contracts/api3-server-v1/Api3ServerV1.sol/Api3ServerV1.json');
+
+const abiCoder = new AbiCoder();
+
+const awardedTransaction = '0x'; // refer to Checking Bid Status and Listening for Awarded Bids
+
+const provider = new JsonRpcProvider(
+  'https://gateway.tenderly.co/public/sepolia'
+);
+
+const api3ServerV1 = new Contract(
+  '0x709944a48cAf83535e43471680fDA4905FB3920a', // Api3ServerV1 contract address
+  Api3ServerV1Abi,
   provider
 );
 
 const performOracleUpdate = async () => {
-  const tx = await multicall3.aggregate3Value(
-    [
-      {
-        target: '0x709944a48cAf83535e43471680fDA4905FB3920a', // Api3ServerV1 contract address
-        allowFailure: false,
-        value: bidAmount,
-        callData: awardDetails,
-      },
-    ],
+  const awardDetails = abiCoder.decode(
+    ['address', 'bytes32', 'bytes32', 'uint256', 'bytes', 'bytes[]'],
+    awardedTransaction
+  );
+  const tx = await api3ServerV1.updateOevProxyDataFeedWithSignedData(
+    awardDetails[0], // proxy address
+    awardDetails[1], // dataFeedId
+    awardDetails[2], // updateId
+    awardDetails[3], // timestamp
+    awardDetails[4], // data
+    awardDetails[5], // packedOevUpdateSignatures
     {
-      value: bidAmount,
+      value: parseEther('0.1'), // bid amount
+    }
+  );
+};
+
+performOracleUpdate();
+```
+
+## Performing the oracle update using the awarded bid via Multicall
+
+Multicall is a contract that allows you to batch multiple calls in a single
+transaction. This can be useful when you want to perform multiple calls in a
+single transaction eg. perform the oracle update and liquidation event in a
+single transaction. To use multicall you will need to deploy the
+[OevSearcherMulticallV1 contract](https://github.com/api3dao/airnode-protocol-v1/blob/main/contracts/utils/OevSearcherMulticallV1.sol)
+and specify the OevSearcherMulticallV1 contract address as the updater address
+in [bidDetails](./arguments.md#biddetails-bytes).
+
+```javascript
+const { JsonRpcProvider, Contract, keccak256, AbiCoder } = require('ethers');
+
+const provider = new JsonRpcProvider(
+  'https://gateway.tenderly.co/public/sepolia'
+);
+
+const OevSearcherMulticallV1 = new Contract(
+  '<OevSearcherMulticallV1 address>', // OevSearcherMulticallV1 contract address
+  [
+    'function externalMulticallWithValue(address[] calldata targets, bytes[] calldata data, uint256[] calldata values) external payable returns (bytes[] memory returndata)',
+  ],
+  provider
+);
+
+const awardedTransaction = '0x'; // refer to Checking Bid Status and Listening for Awarded Bids
+
+const performOracleUpdate = async () => {
+  const tx = await OevSearcherMulticallV1.externalMulticallWithValue(
+    [
+      '0x709944a48cAf83535e43471680fDA4905FB3920a',
+      '<liquidationEventContractAddress>',
+    ],
+    [awardedTransaction, '<liquidationEventEncodedTransaction>'],
+    [parseEther('0.1'), '<liquidationEventValue>'],
+    {
+      value: parseEther('0.1'), // bid amount
     }
   );
 };
 ```
 
 <FlexEndTag />
+```

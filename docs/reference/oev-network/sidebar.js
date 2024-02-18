@@ -4,8 +4,8 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'Understanding OEV Network',
-        link: '/reference/oev-network/understand',
+        text: 'Auction Cycle',
+        link: '/reference/oev-network/understand/auction-cycle',
       },
       {
         text: 'Bridging to the OEV Network',
