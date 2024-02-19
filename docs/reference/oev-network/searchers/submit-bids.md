@@ -191,8 +191,7 @@ as an argument to the `placeBid` function.
 
 ## Checking Bid Status and Listening for Awarded Bids
 
-Searchers can check the status of their bids by quering the bidId using the
-`Bids` getter function of the OEV Auction House Contract.
+Searchers can check the status of their bids by quering the bidId.
 
 ```javascript
 const {
@@ -234,13 +233,13 @@ const getBidStatus = async () => {
   const bid = await auctionHouse.bids(bidId);
   // check if the bid is awarded
   if (bid[0] === 2) {
-    console.log('Bid is awarded');
+    // fetch the awarded bid details from the Awarded Bid event logs
   }
 };
 ```
 
-Searchers need to listen for awarded bids using the `AwardedBid` event of the
-OEV Auction House Contract.
+Searchers can listen to the `AwardedBid` event of the OEV Auction House
+Contract.
 
 ```javascript
 const { JsonRpcProvider, Contract } = require('ethers');
@@ -284,8 +283,8 @@ const awardedTransaction = await new Promise((resolve, reject) => {
 ## Performing the oracle update using the awarded bid
 
 Once the bid is awarded, the searcher can perform the oracle update by using the
-encoded awardTransaction on the
-[Api3ServerV1 contract](https://docs.api3.org/reference/dapis/chains/).
+encoded awardTransaction on the `updateOevProxyDataFeedWithSignedData` function
+of [Api3ServerV1 contract](https://docs.api3.org/reference/dapis/chains/).
 
 ```javascript
 const {
@@ -307,19 +306,22 @@ const provider = new JsonRpcProvider(
   'https://gateway.tenderly.co/public/sepolia'
 );
 
+const wallet = new Wallet('<your_private_key>', provider);
+
 const api3ServerV1 = new Contract(
   '0x709944a48cAf83535e43471680fDA4905FB3920a', // Api3ServerV1 contract address
   Api3ServerV1Abi,
-  provider
+  wallet
 );
 
 const performOracleUpdate = async () => {
-  const awardDetails = abiCoder.decode(
-    ['address', 'bytes32', 'bytes32', 'uint256', 'bytes', 'bytes[]'],
+  const awardDetails = api3ServerV1.interface.decodeFunctionData(
+    'updateOevProxyDataFeedWithSignedData',
     awardedTransaction
   );
+
   const tx = await api3ServerV1.updateOevProxyDataFeedWithSignedData(
-    awardDetails[0], // proxy address
+    awardDetails[0], // oevProxy
     awardDetails[1], // dataFeedId
     awardDetails[2], // updateId
     awardDetails[3], // timestamp
@@ -351,12 +353,14 @@ const provider = new JsonRpcProvider(
   'https://gateway.tenderly.co/public/sepolia'
 );
 
+const wallet = new Wallet('<your_private_key>', provider);
+
 const OevSearcherMulticallV1 = new Contract(
   '<OevSearcherMulticallV1 address>', // OevSearcherMulticallV1 contract address
   [
     'function externalMulticallWithValue(address[] calldata targets, bytes[] calldata data, uint256[] calldata values) external payable returns (bytes[] memory returndata)',
   ],
-  provider
+  wallet
 );
 
 const awardedTransaction = '0x'; // refer to Checking Bid Status and Listening for Awarded Bids
@@ -364,11 +368,17 @@ const awardedTransaction = '0x'; // refer to Checking Bid Status and Listening f
 const performOracleUpdate = async () => {
   const tx = await OevSearcherMulticallV1.externalMulticallWithValue(
     [
-      '0x709944a48cAf83535e43471680fDA4905FB3920a',
+      '0x709944a48cAf83535e43471680fDA4905FB3920a', // Api3ServerV1 contract address
       '<liquidationEventContractAddress>',
     ],
-    [awardedTransaction, '<liquidationEventEncodedTransaction>'],
-    [parseEther('0.1'), '<liquidationEventValue>'],
+    [
+      awardedTransaction, // oracle update encoded transaction
+      '<liquidationEventEncodedTransaction>',
+    ],
+    [
+      parseEther('0.1'), // bid to beneficiary
+      '<liquidationEventValue>',
+    ],
     {
       value: parseEther('0.1'), // bid amount
     }
@@ -377,4 +387,3 @@ const performOracleUpdate = async () => {
 ```
 
 <FlexEndTag />
-```
