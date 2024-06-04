@@ -22,7 +22,7 @@ proxy data feed contract and directing the dApp to it.
 ## Proxy Contract
 
 <div>
-  <img src="/reference/oev/assets/dAPI.png" />
+  <img src="/explore/assets/images/dAPI_explainer.png" />
 </div>
 
 Searchers use signed data from Airnodes to update the proxy contract with the
