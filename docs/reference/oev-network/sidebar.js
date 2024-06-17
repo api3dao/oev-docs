@@ -1,15 +1,19 @@
 module.exports = [
   {
-    text: 'OEV Network',
+    text: 'Overview',
     collapsed: false,
     items: [
       {
+        text: 'OEV Network',
+        link: '/reference/oev-network/overview/oev-network',
+      },
+      {
         text: 'Auction Cycle',
-        link: '/reference/oev-network/understand/auction-cycle',
+        link: '/reference/oev-network/overview/auction-cycle',
       },
       {
         text: 'Bridging to the OEV Network',
-        link: '/reference/oev-network/understand/bridge-oev-network',
+        link: '/reference/oev-network/overview/bridge-oev-network',
       },
     ],
   },
@@ -24,6 +28,10 @@ module.exports = [
       {
         text: 'Argument Reference',
         link: '/reference/oev-network/searchers/arguments',
+      },
+      {
+        text: 'Collateral and Protocol Fee',
+        link: '/reference/oev-network/searchers/collateral-protocol-fee',
       },
     ],
   },

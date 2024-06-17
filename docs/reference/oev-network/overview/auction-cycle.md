@@ -3,7 +3,7 @@ title: Auction Cycle
 sidebarHeader: Reference
 sidebarSubHeader: OEV Network
 pageHeader: Reference → OEV Network → Auction Cycle
-path: /reference/oev-network/understand/auction-cycle.html
+path: /reference/oev-network/overview/auction-cycle.html
 outline: deep
 tags:
 ---
@@ -24,7 +24,7 @@ beneficiary of the dAPI proxy.
 To fully understand the auction mechanism let's break down the auction cycle
 using the following sequence diagram:
 
-![Auction Cycle](/reference/oev-network/understand/assets/oev-auction-sequence.png)
+![Auction Cycle](/reference/oev-network/overview/assets/oev-auction-sequence.png)
 
 The auction cycle consists of the following steps:
 
@@ -48,7 +48,6 @@ specified conditions to receive the price update i.e if the price of ETH <= 2000
 
 While submitting the bid, the searcher would also have to lock up collateral.
 The collateral locked for this bid would be a percentage of the bid amount.
-(less than 10% of the bid amount)
 
 4. <b>Auction trigger</b>
 
@@ -69,8 +68,6 @@ returned back to the auctioneer.
 
 The auctioneer then awards the winning bid on the OevAuctionHouse contract with
 the encoded transaction which contains the signatures and conditional update.
-The collateral locked for the winning bid is then deducted from the searcher's
-balance.
 
 7. <b>Triggering the oracle update</b>
 
@@ -78,6 +75,11 @@ The searcher can then use the encoded transaction to trigger the oracle update
 on the dAPI proxy and trigger the liquidation event. The searcher can only do
 the price update if they transfer the bid amount to the beneficiary of the dAPI
 proxy.
+
+A protocol fee is deducted from the collateral and the remaining collateral is
+returned to the searcher upon reporting the oracle update.
+
+if the oracle update is not confirmed, the collateral is slashed.
 
 8. <b> New auction cycle</b>
 

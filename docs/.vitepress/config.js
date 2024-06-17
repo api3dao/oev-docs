@@ -101,7 +101,10 @@ function nav() {
         },
         { text: 'OIS', link: '/reference/ois/latest/' },
         { text: 'QRNG', link: '/reference/qrng/' },
-        { text: `OEV Network`, link: '/reference/oev-network/' },
+        {
+          text: `OEV Network`,
+          link: '/reference/oev-network/overview/auction-cycle',
+        },
         { text: 'DAO Members', link: '/reference/dao-members/' },
       ],
     },

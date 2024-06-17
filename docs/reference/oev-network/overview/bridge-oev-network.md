@@ -2,8 +2,8 @@
 title: Bridging to the OEV Network
 sidebarHeader: Reference
 sidebarSubHeader: OEV Network
-pageHeader: Reference → OEV Network → Bridging to the OEV Network
-path: /reference/oev-network/understand/bridge-oev-network.html
+pageHeader: Reference → Overview → Bridging to the OEV Network
+path: /reference/oev-network/overview/bridge-oev-network.html
 outline: deep
 tags:
 ---
@@ -48,14 +48,14 @@ Make sure you have some Sepolia testETH in your wallet to use the Bridge. Use
 the [Alchemy Faucet](https://sepoliafaucet.com/) to get some testETH from the
 faucet.
 
-![OEV Network Bridge](/reference/oev-network/understand/assets/oev-bridge.png)
+![OEV Network Bridge](/reference/oev-network/overview/assets/oev-bridge.png)
 
 Click on Add to Metamask to add the OEV Network Sepolia Testnet to your Metamask
 wallet.
 
 Enter your amount to bridge and click on Continue.
 
-![OEV Network Bridge](/reference/oev-network/understand/assets/oev-bridge-2.png)
+![OEV Network Bridge](/reference/oev-network/overview/assets/oev-bridge-2.png)
 
 Check and confirm the transaction then click on Bridge.
 
