@@ -1,47 +1,13 @@
-# API3 Technical Documentation
+# OEV docs preview
 
-The technical documentation is maintained by the core technical team. Please
-feel free to create [issues](https://github.com/api3dao/vitepress-docs/issues)
-for discussions, proposals, additions, and changes in the repo `vitepress-docs`.
-
-## VitePress
-
-The technical documentation has moved from
-[VuePress](https://vuepress.vuejs.org) to
-[VitePress](https://vitepress.vuejs.org).
-
-- `vitepress-docs`: uses VitePress
-- `api3-docs`: uses VuePress
+This technical documentation is a fork of the official
+[API3 technical documentation](https://docs.api3.org). The intent is to develop
+OEV-related documentation here privately then merge into the official repo when
+ready.
 
 ## Firebase
 
-Firebase is used to host the `vitepress-docs` technical documentation.
-
-### Production
-
-- DNS: https://docs.api3.org
-- Hosted with Firebase: https://vitepress-docs.web.app
-
-### Previews
-
-Additionally each PR has its own Firebase preview site. The URL will be
-available in the PR's comments.
-
-## Making a Contribution
-
-Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to make a
-contribution.
-
-## Legacy documentation
-
-The original documentation for the repo `api3-docs` is now accessible via
-https://old-docs.api3.org and is still hosted using `gh-pages`.
-
-- DNS: http://old-docs.api3.org
-- Hosted with GitHub: https://api3dao.github.io/api3-docs
-
-## /dev/ docset
-
-Use https://docs.api3.org/dev/ to learn more about how the `vitepress-docs`
-documentation is managed. For the legacy documentation use
-https://old-docs.api3.org/dev/.
+Firebase is used to host the `oev-docs` technical documentation. A preview
+deployment is generated for every PR, while the main deployment is updated with
+every merge to the `main` branch. The url for the main deployment is:
+[https://oev-docs.web.app](https://oev-docs.web.app).
