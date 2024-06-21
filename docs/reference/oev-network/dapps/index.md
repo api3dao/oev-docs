@@ -15,9 +15,12 @@ tags:
 # {{$frontmatter.title}}
 
 OEV auctions operate as a supplementary service to regular data feed operations,
-ensuring that updates persist through the oracle even during OEV relay downtime
-or periods with limited OEV opportunities. Integration involves deploying a
-proxy data feed contract and directing the dApp to it.
+ensuring that updates persist through the oracle even during OEV Network
+downtime or periods with limited OEV opportunities. Integration involves reading
+from a proxy contract visible on the [API3 Market](https://market.api3.org).
+
+All the dAPIs on over 35+ chains have their own proxy addresses listed on the
+market.
 
 ## Proxy Contract
 
@@ -31,17 +34,6 @@ latest data point. However, if
 has a more recent timestamp than the last searcher update, the data point from
 `Api3ServerV1` will be displayed. Each dApp has its own proxy to determine the
 distribution of OEV proceeds.
-
-### Deploying a Proxy
-
-To deploy a proxy, head over to the [API3 Market](https://market.api3.org) and
-select the dAPI you want to deploy a proxy for. The API3 Market will guide you
-through the process of deploying a proxy.
-
-When deploying a proxy, the dApp specifies an address that can withdraw OEV
-proceeds from
-[`Api3ServerV1`](https://docs.api3.org/reference/dapis/understand/read-dapis.htmls).
-This enables the distribution of proceeds to the appropriate dApp.
 
 ::: tip
 

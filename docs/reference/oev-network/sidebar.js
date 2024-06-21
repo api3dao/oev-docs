@@ -29,9 +29,18 @@ module.exports = [
         text: 'Argument Reference',
         link: '/reference/oev-network/searchers/arguments',
       },
+
       {
         text: 'Collateral and Protocol Fee',
         link: '/reference/oev-network/searchers/collateral-protocol-fee',
+      },
+      {
+        text: 'Understanding Auctioneer',
+        link: '/reference/oev-network/searchers/understanding-auctioneer',
+      },
+      {
+        text: 'Auctioneer Reference',
+        link: '/reference/oev-network/searchers/auctioneer-reference',
       },
     ],
   },

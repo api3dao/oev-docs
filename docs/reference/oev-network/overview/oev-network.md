@@ -2,7 +2,7 @@
 title: OEV Network
 sidebarHeader: Reference
 sidebarSubHeader: OEV Network
-pageHeader: Reference → OEV Network → OEV Network
+pageHeader: Reference → OEV Network
 path: /reference/oev-network/overview/oev-network.html
 outline: deep
 tags:
@@ -17,15 +17,14 @@ tags:
 # {{$frontmatter.title}}
 
 OEV Network is an open marketplace that facilitates the distribution of oracle
-updates. This system operates on a special zk-rollup, ensuring transparency and
+updates. This system operates on a optimistic-rollup, ensuring transparency and
 verification of transactions. In this setup, MEV searchers place bids to gain
 the first opportunity to update a specific dAPI within a short window of time.
-This is because they predict that the timing of such an update could allow them
-to extract value, particularly if the dAPI’s data indicates a price that could
-lead to a profitable action before the next scheduled update.
+This is because the timing of such an update could allow them to extract value,
+particularly if the dAPI’s data indicates a price that could lead to a
+profitable action before the next scheduled update.
 
-dApps can choose to participate in this system on a voluntary basis. Auctions
-conducted via the OEV Network aim to ensure that the value extracted by
+Auctions conducted via the OEV Network aim to ensure that the value extracted by
 searchers is shared with the dApps responsible for generating this opportunity,
 instead of being monopolized by the validators through competitive bidding.
 

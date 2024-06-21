@@ -16,50 +16,34 @@ tags:
 
 # {{$frontmatter.title}}
 
-The OEV Network is a [Polygon CDK]() powered ZK Rollup that provides to
-facilitate a decentralized and trustless way to capture OEV from all dApps that
-uses API3 dAPIs.
-
 ## Network Details
 
 ### Mainnet
 
-Mainnet is currently under works and will be available soon.
-
-### Testnet
-
 OEV Network can be added as a custom network to an EVM compatible wallet.
 
-| Details            | Value                                                                |
-| ------------------ | -------------------------------------------------------------------- |
-| Network            | OEV Network Sepolia Testnet                                          |
-| Chain ID           | 736160594                                                            |
-| RPC URL            | https://oev-network-sepolia-testnet-rpc.eu-north-2.gateway.fm        |
-| Symbol             | testETH                                                              |
-| Block Explorer URL | https://oev-network-sepolia-testnet-blockscout.eu-north-2.gateway.fm |
-| Bridge URL         | https://oev-network-sepolia-testnet-bridge.eu-north-2.gateway.fm     |
+| Details            | Value                                     |
+| ------------------ | ----------------------------------------- |
+| Network            | OEV Network                               |
+| Chain ID           | 4913                                      |
+| RPC URL            | https://oev-network.calderachain.xyz/http |
+| Symbol             | ETH                                       |
+| Block Explorer URL | https://oev-network.calderaexplorer.xyz/  |
+| Bridge URL         | https://oev-network.bridge.caldera.xyz/   |
 
 ## Using the Bridge
 
-Use this link to bridge your Sepolia testETH to the OEV Network Sepolia testnet
-[OEV Network Bridge](https://oev-network-sepolia-testnet-bridge.eu-north-2.gateway.fm)
+Use this link to bridge your ETH to the OEV Network
+[OEV Network Bridge](https://oev-network.bridge.caldera.xyz/)
 
-Make sure you have some Sepolia testETH in your wallet to use the Bridge. Use
-the [Alchemy Faucet](https://sepoliafaucet.com/) to get some testETH from the
-faucet.
+Make sure you have some ETH in your wallet to use the Bridge.
 
 ![OEV Network Bridge](/reference/oev-network/overview/assets/oev-bridge.png)
 
-Click on Add to Metamask to add the OEV Network Sepolia Testnet to your Metamask
-wallet.
-
-Enter your amount to bridge and click on Continue.
-
-![OEV Network Bridge](/reference/oev-network/overview/assets/oev-bridge-2.png)
-
-Check and confirm the transaction then click on Bridge.
+Clicking on `Transfer Tokens` will automatically add the OEV Network to your
+Metamask wallet.
 
 Confirm the transaction in your wallet. Wait for it to bridge and you will see
-your testETH in your OEV Network wallet.
+your ETH on OEV Network.
 
 <FlexEndTag/>
