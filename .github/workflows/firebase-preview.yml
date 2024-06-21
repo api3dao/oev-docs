@@ -26,5 +26,5 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SA_VITEPRESS_DOCS }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SA_OEV_DOCS }}'
           expires: 7d

@@ -25,7 +25,7 @@ market.
 ## Proxy Contract
 
 <div>
-  <img src="/reference/dapis/assets/images/proxy.png" />
+  <img src="/explore/assets/images/dAPI_explainer.png" />
 </div>
 
 Searchers use signed data from Airnodes to update the proxy contract with the
