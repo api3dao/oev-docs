@@ -47,7 +47,7 @@ Collateral that needs to be deposited is a percentage of the bid amount.
 4. <b>Submitting a bid</b>
 
 The searcher would then submit a bid to the OevAuctionHouse contract with the
-specified conditions to receive the price update i.e if the price of ETH
+specified conditions to receive the price update i.e. if the price of ETH
 <= 2000. In order to be eligible to submit a bid, the searcher must have
 sufficient ETH deposited in the OevAuctionHouse contract, the amount of ETH
 required is a percentage of the bid amount.
