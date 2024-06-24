@@ -117,7 +117,7 @@ on the dAPI proxy and trigger the liquidation event. The searcher can only do
 the price update if they transfer the bid amount to the beneficiary of the dAPI
 proxy.
 
-14. <b> Submit fulfillment txhash to OevAuctionHouse</b>
+14. <b> Submit fulfillment tx hash to OevAuctionHouse</b>
 
 The searcher submits the fulfillment transaction hash to the OevAuctionHouse
 contract to confirm that the oracle update has been triggered. The searcher has
