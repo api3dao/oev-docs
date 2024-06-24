@@ -31,7 +31,7 @@ The auction cycle consists of the following steps:
 1. <b>Identifying profitable oracle updates</b>
 
 Identifying the conditions for an oracle update that would be valuable to the
-searcher eg. a liquidation event if the price of ETH falls below 2000.
+searcher e.g. a liquidation event if the price of ETH falls below 2000.
 
 2. <b> Bridging to the OEV Network</b>
 
