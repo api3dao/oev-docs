@@ -91,7 +91,7 @@ the airnodes for on-chain signature verification of the oracle update.
 
 9. <b> Fetch the encoded transaction from the airnodes</b>
 
-The auctioneer fetches the encoded transaction and signatures from the airnodes
+The auctioneer fetches the encoded transaction and signatures from the airnodes.
 
 10. <b> Award the winning bid</b>
 
