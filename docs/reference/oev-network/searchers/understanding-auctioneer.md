@@ -64,7 +64,7 @@ For each proxy the following checks are done by auctioneer during an auction
 round to filter out non-qualifying bids:
 
 - If there is no transaction count in the state, drop all the bids
-- if the bid was recently awarded. All bids placed in `exclusiveAuctionSeconds`
+- If the bid was recently awarded. All bids placed in `exclusiveAuctionSeconds`
   window following the awarded bid are dropped.
 - Drop all inactive bids. These are bids that are already awarded.
 - Drop all bids that do not satisfy the condition based on the latest off-chain
