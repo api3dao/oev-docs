@@ -17,7 +17,7 @@ tags:
 # {{$frontmatter.title}}
 
 OEV Network is an open marketplace that facilitates the distribution of oracle
-updates. This system operates on a optimistic-rollup, ensuring transparency and
+updates. This system operates on an optimistic-rollup, ensuring transparency and
 verification of transactions. In this setup, OEV searchers place bids to gain
 the first opportunity to update a specific dAPI within a short window of time.
 This is because the timing of such an update could allow them to extract value,

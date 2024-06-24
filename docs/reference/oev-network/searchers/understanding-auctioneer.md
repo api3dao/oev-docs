@@ -37,11 +37,11 @@ processed in sequence. For each PlacedBid event, the bid details are decoded and
 stored. If the bid is for an unknown chain/proxy combination it is ignored.
 Similarly, the bid is ignored if the bid details cannot be decoded.
 
-Each ExpeditedBidExpiration decreases the expiration of an already stored bid.
+Each `ExpeditedBidExpiration` decreases the expiration of an already stored bid.
 If the bid to expedite is not stored, the event is ignored, because it can be assumed it's too old and would be expired even without the expedition.
 
 The auctioneer state initialization is required if the auctioneer is restarted
-or there is downtime period. Once the auctioneer is initialized, the auctioneer
+or there is a downtime period. Once the auctioneer is initialized, the auctioneer
 can continue to compute the state based on incoming logs.
 
 ### Signed Data Fetching
@@ -52,13 +52,13 @@ time the auctioneer fetches a new off-chain data point of a dAPI.
 
 ### Parallel Auctions
 
-The Auctioneer run parallel auctions for each proxy address and chain listed on
+The Auctioneer runs auctions in parallel for each proxy address and chain listed on
 the [API3 Market](https://market.api3.org/).
 
 For each proxy there is a separate auction round that takes place. The auction
 round is documented in the
 [Auction Cycle](/reference/oev-network/overview/auction-cycle.html) page but
-there are some nuances in the auctioneer state that are discussed here.
+there are some nuances in the auctioneer state that are noted here.
 
 For each proxy the following checks are done by auctioneer during an auction
 round to filter out non-qualifying bids:
@@ -66,10 +66,10 @@ round to filter out non-qualifying bids:
 - If there is no transaction count in the state, drop all the bids
 - If the bid was recently awarded. All bids placed in `exclusiveAuctionSeconds`
   window following the awarded bid are dropped.
-- Drop all inactive bids. These are bids that are already awarded.
+- Drop all inactive bids. These are bids that have already been awarded.
 - Drop all bids that do not satisfy the condition based on the latest off-chain
   data point of the dAPI.
-- Drop all bids that have expired or soon to expire. Bids that expire in 15s are discarded, because the maximum time the bid can be expedited is 15s. This is to prevent griefing the awarded bids.
+- Drop all bids that have expired or will expire soon. Bids that expire in 15s are discarded, because the maximum time the bid can be expedited is 15s. This is to prevent griefing the awarded bids.
 
 Qualifying bids across **all proxies** are merged together, the auctioneer then
 selects the winning bids based on the following criteria:
@@ -95,7 +95,7 @@ The auctioneer then prepares the encoded OEV update transaction for each awarded
 having the airnodes of the dAPIs sign the winning bid and returning the
 signature. Auctioneer verifies the signatures and ensures that there is strict
 majority of beacon responses. It then creates the encoded function data for
-`updateOevProxyDataFeedWithSignedData` contract call in `Api3ServerV1` for
+the `updateOevProxyDataFeedWithSignedData` contract call in `Api3ServerV1` for
 searchers to use.
 
 Auctioneer awards all of the winning bids using a single transaction using the

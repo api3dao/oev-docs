@@ -44,7 +44,7 @@ The value that a searcher bids is in the native currency of the chain on which
 the oracle update is to be made. The collateral and protocol fee are calculated
 in basis points (1/100th of a percentage point) of the bid amount in ETH.
 
-The `Collateral Rate in basis points` and the `Protocol Fee in basis points` are
+The "Collateral Rate in basis points" and the "Protocol Fee in basis points" are
 parameters configured within the OevAuctionHouse contract. Searchers can query
 the `getCurrentCollateralAndProtocolFeeAmounts` function to get the current
 collateral and protocol fee rates for the specified `bidAmount` and `chainId`

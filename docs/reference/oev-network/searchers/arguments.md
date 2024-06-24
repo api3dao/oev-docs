@@ -18,7 +18,7 @@ tags:
 
 ### Proxy Address
 
-dAPPs use a proxy address to read the latest data point from a dAPI.The
+dAPPs use a proxy address to read the latest data point from a dAPI. The
 [API3 Market](market.api3.org) lists the proxy addresses for all dAPIs on over
 35+ chains.
 
@@ -34,8 +34,8 @@ from the dAPI is less than or equal to `50000`.
 
 ### bidTopic - Bytes32
 
-The bidTopic is constant value used by the auctioneer to filter bids that
-pertain to the specific auctioneer instance. That is to say, different versions
+The `bidTopic` is a constant value used by auctioneer to filter bids that
+pertain to a specific auctioneer instance. That is to say, different versions
 of the auctioneer will have different bid topics.
 
 Current bid topic is

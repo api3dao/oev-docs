@@ -56,12 +56,12 @@ Note: The collateral doesn't get locked until the bid is awarded.
 
 5. <b>Start of a new Auction Round</b>
 
-An auction rounds starts when the auctioneer receives a dAPI value update from
+An auction rounds start when the auctioneer receives a dAPI value update from
 Airnodes. (eg: ETH/USD = 2000).
 
 :::info Auction Rounds
 
-Off-chain Airnodes are streaming dAPI values to the auctioneer. Whenever there
+Off-chain Airnodes stream dAPI values to the auctioneer. Whenever there
 is a change in the dAPI value, the auctioneer would check if the new dAPI value
 satisfies the conditions of any of the bids on the OevAuctionHouse contract. If
 no bids are satisfied, the auctioneer waits for the next dAPI value change or new bids being placed. If a bid
@@ -72,8 +72,7 @@ next auction cycle for that dAPI proxy.
 
 6. <b>Check for bid conditions </b>
 
-The auctioneer queries the OevAuctionHouse contract to check if any of the bids
-are satisfied by the current dAPI value.
+The auctioneer checks the current dAPI value against bids received from the OevAuctionHouse contract to determine if any of the bids conditions have been met.
 
 7. <b>Finding the winning bid</b>
 
