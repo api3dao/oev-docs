@@ -190,7 +190,7 @@ const placeBid = async () => {
   const CHAIN_ID = process.env.CHAIN_ID ?? '5000'; // Default: mantle Mainnet
   const BID_AMOUNT = process.env.BID_AMOUNT ?? '0.000001'; // Default: 0.000001 MNT
   const BID_CONDITION = process.env.BID_CONDITION ?? 'LTE'; // Default: Less than or equal to
-  const BID_PRICE = process.env.BID_PRICE ?? '5'; // Default: 5
+  const BID_PRICE = process.env.BID_PRICE ?? '5'; // Default: 5 ETH
 
   const oevNetworkProvider = new JsonRpcProvider(
     process.env.OEV_NETWORK_RPC_URL
