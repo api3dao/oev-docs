@@ -214,7 +214,7 @@ const placeBid = async () => {
     BID_CONDITION, // The condition you want to update
     parseEther(BID_PRICE), // The price you want to update
     deployments.OevSearcherMulticallV1, // Your deployed multicall contract address
-    hexlify(randomBytes(32)) // Random padding
+    hexlify(randomBytes(32)) // Random nonce
   );
 
   // Placing our bid with the auction house on OEV testnet
