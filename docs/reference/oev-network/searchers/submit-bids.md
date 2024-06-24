@@ -213,7 +213,7 @@ const placeBid = async () => {
     PROXY_ADDRESS, // Proxy address of the dAPI
     BID_CONDITION, // The condition you want to update
     parseEther(BID_PRICE), // The price you want to update
-    deployments.OevSearcherMulticallV1, // Your deployed MultiCall contract Address
+    deployments.OevSearcherMulticallV1, // Your deployed multicall contract address
     hexlify(randomBytes(32)) // Random padding
   );
 
