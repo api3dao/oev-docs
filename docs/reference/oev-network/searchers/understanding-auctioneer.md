@@ -91,7 +91,7 @@ The first bid that satisfies all the above criteria for an auction round is
 awarded the bid. The bidder's collateral balance is deducted and the bid is
 marked as "awarded" for that auction round.
 
-The auctioneer then prepares the encoded oev update for each awarded bid by
+The auctioneer then prepares the encoded OEV update transaction for each awarded bid by
 having the airnodes of the dAPIs sign the winning bid and returning the
 signature. Auctioneer verifies the signatures and ensures that there is strict
 majority of beacon responses. It then creates the encoded function data for
