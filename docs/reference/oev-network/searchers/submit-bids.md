@@ -217,7 +217,7 @@ const placeBid = async () => {
     hexlify(randomBytes(32)) // Random nonce
   );
 
-  // Placing our bid with the auction house on OEV testnet
+  // Placing our bid on the OEV network
   const placedbidTx = await OevAuctionHouse.placeBidWithExpiration(
     bidTopic, // The bid topic of the auctioneer instance
     parseInt(CHAIN_ID), // Chain ID of the dAPI proxy
