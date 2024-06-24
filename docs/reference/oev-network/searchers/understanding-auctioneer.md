@@ -69,7 +69,7 @@ round to filter out non-qualifying bids:
 - Drop all inactive bids. These are bids that are already awarded.
 - Drop all bids that do not satisfy the condition based on the latest off-chain
   data point of the dAPI.
-- Drop all bids that have expired or soon to expire.
+- Drop all bids that have expired or soon to expire. Bids that expire in 15s are discarded, because the maximum time the bid can be expedited is 15s. This is to prevent griefing the awarded bids.
 
 Qualifying bids across **all proxies** are merged together, the auctioneer then
 selects the winning bids based on the following criteria:
