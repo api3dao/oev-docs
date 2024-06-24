@@ -98,7 +98,7 @@ majority of beacon responses. It then creates the encoded function data for
 `updateOevProxyDataFeedWithSignedData` contract call in `Api3ServerV1` for
 searchers to use.
 
-Auctioneer award all of the winning bids using a single transaction using the
+Auctioneer awards all of the winning bids using a single transaction using the
 persisted transaction count (a single `awardbid` call if only a single bid is
 awarded and multicall otherwise). The auctioneer also sets the award expiration
 for all the awarded bids, currently set to 60 seconds.
