@@ -61,7 +61,7 @@ Airnodes. (eg: ETH/USD = 2000).
 
 :::info Auction Rounds
 
-Off-chain airnodes are streaming dAPI values to the auctioneer. Whenever there
+Off-chain Airnodes are streaming dAPI values to the auctioneer. Whenever there
 is a change in the dAPI value, the auctioneer would check if the new dAPI value
 satisfies the conditions of any of the bids on the OevAuctionHouse contract. If
 no bids are satisfied, the auctioneer waits for the next dAPI value. If a bid
