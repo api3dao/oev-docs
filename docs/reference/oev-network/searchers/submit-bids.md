@@ -64,7 +64,7 @@ Mantle Mainnet) to pay for the gas fees.
 
 ## Deposit ETH into OEV Auction House Contract
 
-you will need to deposit ETH into the OEV Auction House Contract to start
+You will need to deposit ETH into the OEV Auction House Contract to start
 placing bids. You can do so by calling the `deposit-collateral` script in the
 repository.
 
