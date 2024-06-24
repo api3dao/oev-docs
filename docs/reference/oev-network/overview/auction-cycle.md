@@ -73,7 +73,7 @@ next auction cycle for that dAPI proxy.
 6. <b>Check for bid conditions </b>
 
 The auctioneer queries the OevAuctionHouse contract to check if any of the bids
-are satisfied by the new dAPI.
+are satisfied by the current dAPI value.
 
 7. <b>Finding the winning bid</b>
 
