@@ -38,7 +38,7 @@ stored. If the bid is for an unknown chain/proxy combination it is ignored.
 Similarly, the bid is ignored if the bid details cannot be decoded.
 
 Each ExpeditedBidExpiration decreases the expiration of an already stored bid.
-If the bid to expedite is not stored, the event is ignored.
+If the bid to expedite is not stored, the event is ignored, because it can be assumed it's too old and would be expired even without the expedition.
 
 The auctioneer state initialization is required if the auctioneer is restarted
 or there is downtime period. Once the auctioneer is initialized, the auctioneer
