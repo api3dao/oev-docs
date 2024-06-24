@@ -110,7 +110,7 @@ depositCollateral();
 
 ## Submitting a Bid, Performing the Oracle Update and Reporting Fulfillment
 
-The following scripts submits a bid, perform the oracle update and report
+The following script submits a bid, performs the oracle update and reports
 fulfillment of the oracle update. In the subsequent sections, we will discuss
 the operations performed in the script in detail.
 
