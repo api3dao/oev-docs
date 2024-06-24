@@ -87,7 +87,7 @@ selects the winning bids based on the following criteria:
   As a note, if there are multiple bids with the same collateral requirement,
   the Auctioneer does not specify which bid will be considered first.
 
-The first bid that satisfies all the above criteria for an auction round is
+The first bid that satisfies all of the above criteria for an auction round is
 awarded the bid. The bidder's collateral balance is deducted and the bid is
 marked as "awarded" for that auction round.
 
