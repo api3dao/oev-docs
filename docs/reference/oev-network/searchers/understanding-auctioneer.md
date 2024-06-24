@@ -46,7 +46,7 @@ can continue to compute the state based on incoming logs.
 
 ### Signed Data Fetching
 
-Auctioneer periodically fetches the latest off-chain data point from signed APIs
+Auctioneer periodically fetches the latest off-chain data point from Signed APIs
 for each airnode that belongs to a dAPI. Parallel Auctions are triggered every
 time the auctioneer fetches a new off-chain data point of a dAPI.
 
