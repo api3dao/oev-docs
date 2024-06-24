@@ -64,7 +64,7 @@ Airnodes. (eg: ETH/USD = 2000).
 Off-chain Airnodes are streaming dAPI values to the auctioneer. Whenever there
 is a change in the dAPI value, the auctioneer would check if the new dAPI value
 satisfies the conditions of any of the bids on the OevAuctionHouse contract. If
-no bids are satisfied, the auctioneer waits for the next dAPI value. If a bid
+no bids are satisfied, the auctioneer waits for the next dAPI value change or new bids being placed. If a bid
 has just won an auction, the auctioneer waits for 60 seconds before starting the
 next auction cycle for that dAPI proxy.
 
