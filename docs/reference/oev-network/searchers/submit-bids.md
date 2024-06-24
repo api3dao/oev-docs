@@ -20,7 +20,7 @@ tags:
 The [OEV Searcher Starter Repository](https://github.com/api3dao/oev-searcher-starter)
 Repository provides a reference implementation for using the OEV Network to
 participate in oracle update auctions. The repository contains a set of scripts
-that demonstrate how to deposit ETH into the OEV Auction House Contract, place
+that demonstrate how to deposit ETH into the OevAuctionHouse contract, place
 bids, check bid status, listen for awarded bids, perform oracle updates using
 the awarded bid and then finally submit fulfillment of the oracle update.
 
