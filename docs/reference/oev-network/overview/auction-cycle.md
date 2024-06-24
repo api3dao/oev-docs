@@ -36,7 +36,7 @@ searcher e.g. a liquidation event if the price of ETH falls below 2000.
 2. <b> Bridging to the OEV Network</b>
 
 In order to be first in line to trigger the liquidation event, the searcher
-would bridge ETH across to the OEV Network
+would bridge ETH across to the OEV Network.
 
 3. <b> Deposit Collateral into OevAuctionHouse </b>
 
