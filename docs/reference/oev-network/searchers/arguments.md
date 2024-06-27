@@ -35,20 +35,20 @@ from the dAPI is less than or equal to `50000`.
 ### bidTopic - Bytes32
 
 The `bidTopic` is a constant value used by auctioneer to filter bids that
-pertain to a specific auctioneer instance. That is to say, different versions
-of the auctioneer will have different bid topics.
+pertain to a specific auctioneer instance. That is to say, different versions of
+the auctioneer will have different bid topics.
 
 Current bid topic is
 `0x76302d70726f642d61756374696f6e6565720000000000000000000000000000`
 
 ### bidDetails - Bytes
 
-The bidDetails are the encoded parameters for the bid. The parameters are
+The `bidDetails` are the encoded parameters for the bid. The parameters are
 [proxy address](#proxy-address), [condition](#condition-and-condition-value),
 [condition value](#condition-and-condition-value) and updater address.
 
 ```javascript
-const { AbiCoder } = require('ethers');
+const { AbiCoder, hexlify } = require('ethers');
 const abiCoder = new AbiCoder();
 
 const BID_CONDITIONS = [
@@ -60,8 +60,14 @@ const conditionValue = 50000;
 const updaterAddress = '<searcher address doing the update>';
 const condition = BID_CONDITIONS.find((c) => c.description === 'LTE');
 const bidDetails = abiCoder.encode(
-  ['address', 'uint256', 'int224', 'address'],
-  [proxyAddress, condition.onchainIndex, conditionValue, updaterAddress]
+  ['address', 'uint256', 'int224', 'address', 'bytes32'],
+  [
+    proxyAddress,
+    condition.onchainIndex,
+    conditionValue,
+    updaterAddress,
+    hexlify(randomBytes(32)),
+  ]
 );
 ```
 

@@ -17,12 +17,13 @@ tags:
 
 # {{$frontmatter.title}}
 
-The [OEV Searcher Starter Repository](https://github.com/api3dao/oev-searcher-starter)
-Repository provides a reference implementation for using the OEV Network to
-participate in oracle update auctions. The repository contains a set of scripts
-that demonstrate how to deposit ETH into the OevAuctionHouse contract, place
-bids, check bid status, listen for awarded bids, perform oracle updates using
-the awarded bid and then finally submit fulfillment of the oracle update.
+The
+[OEV Searcher Starter Repository](https://github.com/api3dao/oev-searcher-starter)
+provides a reference implementation for using the OEV Network to participate in
+oracle update auctions. The repository contains a set of scripts that
+demonstrate how to deposit ETH into the OevAuctionHouse contract, place bids,
+check bid status, listen for awarded bids, perform oracle updates using the
+awarded bid and then finally submit fulfillment of the oracle update.
 
 ## Prerequisites
 
@@ -49,11 +50,11 @@ TARGET_NETWORK_RPC_URL="https://rpc.mantle.xyz"
 ## Deploy the OEV Searcher Multicall Contract
 
 The
-[OEV Searcher Multicall](https://github.com/api3dao/contracts/blob/main/contracts/utils/OevSearcherMulticallV1.sol)
-Contract is a contract that allows you to batch multiple calls in a single
-transaction. This is needed to perform the oracle update and subsequent calls in
-a single transaction. You can deploy the OEVSearcherMulticallV1 contract using
-the following script:
+[OEV Searcher Multicall Contract](https://github.com/api3dao/contracts/blob/main/contracts/utils/OevSearcherMulticallV1.sol)
+is a contract that allows you to batch multiple calls in a single transaction.
+This is needed to perform the oracle update and subsequent calls in a single
+transaction. You can deploy the OEVSearcherMulticallV1 contract using the
+following script:
 
 ```bash
 yarn deploy-multicall
@@ -93,7 +94,7 @@ const depositCollateral = async () => {
     oevNetworkWallet
   );
 
-  const amount = process.env.AMOUNT ?? '0.00001';
+  const amount = process.env.AMOUNT ?? '0.00001'; // Default: 0.00001 ETH
 
   const depositTx = await OevAuctionHouse.deposit({
     value: parseEther(amount),
@@ -190,7 +191,7 @@ const placeBid = async () => {
   const CHAIN_ID = process.env.CHAIN_ID ?? '5000'; // Default: mantle Mainnet
   const BID_AMOUNT = process.env.BID_AMOUNT ?? '0.000001'; // Default: 0.000001 MNT
   const BID_CONDITION = process.env.BID_CONDITION ?? 'LTE'; // Default: Less than or equal to
-  const BID_PRICE = process.env.BID_PRICE ?? '5'; // Default: 5 ETH
+  const BID_PRICE = process.env.BID_PRICE ?? '5'; // Default: 5 MNT
 
   const oevNetworkProvider = new JsonRpcProvider(
     process.env.OEV_NETWORK_RPC_URL
@@ -243,6 +244,13 @@ const placeBid = async () => {
   );
 };
 ```
+
+::: tip
+
+The defaults are set so that the placed bid is immediately awardable by the
+auctioneer.
+
+:::
 
 ### Without an Expiration Timestamp
 

@@ -19,12 +19,10 @@ tags:
 In the context of the OEV Network's auction mechanism, collateral plays a
 critical role in ensuring that oracle updates get triggered upon being awarded.
 
-For a searcher to participate in an auction for oracle updates, they are
-required to deposit ETH into the OevAuctionHouse contract. The value the
-searcher can bid is limited by the amount they have deposited. On placing a bid,
-the searcher locks up a percentage of the bid amount as collateral. Upon winning
-a bid, the collateral is locked until the oracle update is confirmed to be
-fulfilled.
+For a searcher to win an auction for oracle updates, they are required to
+deposit ETH into the OevAuctionHouse contract. The value the searcher can win is
+limited by the amount they have deposited. On winning a bid, the searcher locks
+up a percentage of the bid amount as collateral.
 
 In the event that the oracle update is fulfilled, the searcher is refunded the
 collateral and is charged a protocol fee. The protocol fee is also a percentage
@@ -35,8 +33,8 @@ protocol fee is refunded.
 
 | Parameter                | Value |
 | ------------------------ | ----- |
-| collateralInBasisPoints  | 2000  |
-| protocolFeeInBasisPoints | 1000  |
+| collateralInBasisPoints  | 1000  |
+| protocolFeeInBasisPoints | 0000  |
 
 ## Fee Calculation
 
