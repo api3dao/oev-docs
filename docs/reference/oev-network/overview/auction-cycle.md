@@ -36,8 +36,9 @@ searcher e.g. a liquidation event if the price of ETH falls below 2000.
 2. <b> Bridging to the OEV Network</b>
 
 In order to interact with the OEV Network and participate in the auction the
-searcher needs to [bridge](reference/oev-network/overview/bridge-oev-network.md)
-their ETH to the OEV Network.
+searcher needs to
+[bridge](/reference/oev-network/overview/bridge-oev-network.md) their ETH to the
+OEV Network.
 
 3. <b> Deposit Collateral into OevAuctionHouse </b>
 
