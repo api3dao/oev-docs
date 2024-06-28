@@ -48,9 +48,9 @@ new logs are fetched parallel auctions can be started.
 
 ### Signed Data Fetching
 
-Auctioneer periodically fetches the latest off-chain data point from Signed APIs
-for each airnode that belongs to a dAPI. Parallel auctions are triggered every
-time the auctioneer fetches a new off-chain data point of a dAPI.
+Auctioneer periodically fetches the current off-chain data point from Signed
+APIs for each airnode that belongs to a dAPI. Parallel auctions are triggered
+every time the auctioneer fetches a new off-chain data point of a dAPI.
 
 ### Parallel Auctions
 
@@ -67,7 +67,7 @@ round to filter out non-qualifying bids:
 
 - If there is no transaction count in the state, drop all the bids
 - Drop all inactive bids. These are bids that have already been awarded.
-- Drop all bids that do not satisfy the condition based on the latest off-chain
+- Drop all bids that do not satisfy the condition based on the current off-chain
   data point of the dAPI.
 - Drop all bids that have expired or will expire soon. Bids that expire in 15s
   are discarded, because the maximum time the bid can be expedited is 15s. This
