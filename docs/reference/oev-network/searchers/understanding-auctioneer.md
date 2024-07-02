@@ -65,7 +65,7 @@ there are some nuances in the auctioneer state that are noted here.
 For each proxy the following checks are done by auctioneer during an auction
 round to filter out non-qualifying bids:
 
-- If there is no transaction count in the state, drop all the bids
+- If there is no transaction count in the state, drop all the bids.
 - Drop all inactive bids. These are bids that have already been awarded.
 - Drop all bids that do not satisfy the condition based on the current off-chain
   data point of the dAPI.
