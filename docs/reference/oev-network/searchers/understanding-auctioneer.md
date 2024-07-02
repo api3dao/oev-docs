@@ -116,3 +116,30 @@ The auctioneer caches the bids and timestamp for all the auction rounds at the
 end of the run. This is used to filter out the bids that have already been
 awarded in the next auction round and to ensure that the auction only starts
 after the required delay has passed.
+
+## Fulfillment and Contradiction of Bids
+
+Upon winning an auction, the searcher receives an encoded transaction in
+`AwardedBid` event. Using this encoded transaction, the searcher can trigger the
+oracle update on the dAPI proxy. To release the collateral after the oracle
+update is fulfilled, the searcher must call the `reportFulfillment` function on
+the OevAuctionHouse contract with the transaction hash of the oracle update
+transaction.
+
+On the auctioneer's side, it will be continuously iterating through all the
+awarded bids and ignoring bids that haven't had enough time to be fulfilled or
+fulfillments that are too recent. Reported bids are grouped together and their
+transaction hashes are queried on the target chain to determine if:
+
+- The transaction was successful
+- The transaction emitted the `UpdatedOevProxy` event for the same `updateId` as
+  the original bid
+- The `UpdatedOevProxy` event was emitted by the correct `Api3ServerV1` address
+
+Once the auctioneer has verified that the oracle updates have been fulfilled for
+all the bids within the time window, it will submit a multicall transaction to
+the OevAuctionHouse contract to confirm/contradict the fulfillment of the bids.
+
+For the bids that have been contradicted, the collateral is slashed and the
+protocol fee is refunded. For the bids that have been confirmed, the collateral
+is released and the protocol fee is charged.

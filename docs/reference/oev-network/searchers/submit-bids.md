@@ -152,7 +152,7 @@ the arguments.
 | expirationTimestamp  | uint32  | Expiration timestamp after which the bid cannot be awarded, min - 15 seconds, max 24 hours   |
 
 ```javascript
-// The Bid Topic is constant value used by the auctioneer to filter bids that pertain to the specific auctioneer instance.
+// The Bid Topic is a constant value used by the auctioneer to filter bids that pertain to that specific auctioneer instance.
 // That is to say, different versions of the auctioneer will have different bid topics.
 const getBidTopic = () => {
   return '0x76302d70726f642d61756374696f6e6565720000000000000000000000000000';
@@ -223,7 +223,7 @@ const placeBid = async () => {
     bidTopic, // The bid topic of the auctioneer instance
     parseInt(CHAIN_ID), // Chain ID of the dAPI proxy
     parseEther(BID_AMOUNT), // The amount of chain native currency you are bidding to win this auction and perform the oracle update
-    bidDetails, // The details about the bid, proxy address, condition, price, your deployed multicall and random
+    bidDetails, // The details about the bid, proxy address, condition, price, your deployed multicall and random nonce
     MaxUint256, // Collateral Basis Points is set to max
     MaxUint256, // Protocol Fee Basis Points is set to max
     Math.trunc(Date.now() / 1000) + 60 * 60 * 12 // Expiration time is set to 12 hours from now
@@ -238,7 +238,7 @@ const placeBid = async () => {
       [
         oevNetworkWallet.address, // The wallet address if the signer doing the bid (public of your private key)
         bidTopic, // Details of the chain and price feed we want to update encoded
-        keccak256(bidDetails), // The details about the bid, proxy address, condition, price, your deployed multicall and random
+        keccak256(bidDetails), // The details about the bid, proxy address, condition, price, your deployed multicall and random nonce
       ]
     )
   );
@@ -353,3 +353,66 @@ const performOevUpdate = async (awardedTransaction) => {
 ```
 
 <FlexEndTag />
+
+## Submitting Fulfillment Transaction Hash
+
+Once the oracle update is performed, the searcher can submit the fulfillment
+transaction hash to the OevAuctionHouse contract to confirm that the oracle
+update has been triggered. Upon confirmation, the collateral of the winning bid
+is released and the protocol fee is charged.
+
+```javascript
+const reportFulfillment = async (updateTx, bidTopic, bidDetails, bidId) => {
+  const oevNetworkProvider = new JsonRpcProvider(
+    process.env.OEV_NETWORK_RPC_URL
+  );
+  const oevNetworkWallet = Wallet.fromPhrase(process.env.MNEMONIC).connect(
+    oevNetworkProvider
+  );
+  const OevAuctionHouseArtifact = await hre.artifacts.readArtifact(
+    'OevAuctionHouse'
+  );
+  const OevAuctionHouse = new Contract(
+    api3Contracts.deploymentAddresses.OevAuctionHouse['4913'],
+    OevAuctionHouseArtifact.abi,
+    oevNetworkWallet
+  );
+  const bidDetailsHash = keccak256(bidDetails);
+
+  const reportTx = await OevAuctionHouse.reportFulfillment(
+    bidTopic, // The bid topic of the auctioneer instance
+    bidDetailsHash, // Hash of the bid details
+    updateTx.hash // The transaction hash of the update transaction
+  );
+  await reportTx.wait();
+  console.log('Oracle update reported');
+
+  const confirmedFulfillmentTx = await new Promise(async (resolve, reject) => {
+    console.log('Waiting for confirmation of fulfillment...');
+    const OevAuctionHouseFilter = OevAuctionHouse.filters.ConfirmedFulfillment(
+      null,
+      bidTopic,
+      bidId,
+      null,
+      null
+    );
+    while (true) {
+      const currentBlock = await oevNetworkProvider.getBlockNumber();
+      const confirmEvent = await OevAuctionHouse.queryFilter(
+        OevAuctionHouseFilter,
+        currentBlock - 10,
+        currentBlock
+      );
+      if (confirmEvent.length > 0) {
+        console.log('Confirmed Fulfillment', confirmEvent[0].transactionHash);
+        resolve(confirmEvent);
+        break;
+      }
+      // Sleep for 0.1 second
+      await new Promise((r) => setTimeout(r, 100));
+    }
+  });
+
+  return confirmedFulfillmentTx;
+};
+```

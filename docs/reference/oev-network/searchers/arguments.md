@@ -38,7 +38,7 @@ The `bidTopic` is a constant value used by auctioneer to filter bids that
 pertain to a specific auctioneer instance. That is to say, different versions of
 the auctioneer will have different bid topics.
 
-Current bid topic is
+The current bid topic is
 `0x76302d70726f642d61756374696f6e6565720000000000000000000000000000`
 
 ### bidDetails - Bytes
