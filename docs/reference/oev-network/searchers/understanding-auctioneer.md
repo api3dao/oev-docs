@@ -83,8 +83,8 @@ selects the winning bids based on the following criteria:
 - Evaluate the bids in order of descending collateral based on:
 
   - The bidder does not have a pending withdrawal
-  - The bidder has enough collateral including COLLATERAL_REQUIREMENT_BUFFER.
-  - A different bid has not been awarded in this auction round.
+  - The bidder has enough collateral
+  - A different bid has not been awarded in this auction round
 
   As a note, if there are multiple bids with the same collateral requirement,
   the Auctioneer does not specify which bid will be considered first.

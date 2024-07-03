@@ -28,24 +28,27 @@ using the following sequence diagram:
 
 The auction cycle consists of the following steps:
 
-1. <b>Identifying profitable oracle updates</b>
-
-Identifying the conditions for an oracle update that would be valuable to the
-searcher, e.g. a liquidation event if the price of ETH falls below 2000.
-
-2. <b> Bridging to the OEV Network</b>
+1. <b> Bridging to the OEV Network</b>
 
 In order to interact with the OEV Network and participate in the auction the
 searcher needs to
 [bridge](/reference/oev-network/overview/bridge-oev-network.md) their ETH to the
-OEV Network.
+OEV Network and deposit ETH into the
+[OevAuctionHouse](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/OevAuctionHouse.sol)
+contract.
 
-3. <b> Deposit Collateral into OevAuctionHouse </b>
+2. <b> Update searcher balance in OevAuctionHouse </b>
 
-Once bridged the searcher needs to deposit into the OevAuctionHouse contract.
-[Collateral](/reference/oev-network/searchers/collateral-protocol-fee.md) is
-needed to be able to win in the auction. The amount of Collateral that needs to
-be deposited is a percentage of the bid amount.
+Depositing ETH updates the searcher's balance in the OevAuctionHouse contract.
+The deposit serves as
+[Collateral](/reference/oev-network/searchers/collateral-protocol-fee.md) which
+is needed to be able to win in the auction. The amount of Collateral that needed
+is a percentage of the bid amount.
+
+3. <b>Identify profitable oracle update</b>
+
+The searcher identifies conditions for an oracle update that would be valuable,
+for example a liquidation event if the price of ETH falls below 2000.
 
 4. <b>Submitting a bid</b>
 
