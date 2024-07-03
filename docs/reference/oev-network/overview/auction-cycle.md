@@ -53,11 +53,11 @@ for example a liquidation event if the price of ETH falls below 2000.
 4. <b>Submitting a bid</b>
 
 The searcher would then submit a bid to the OevAuctionHouse contract with the
-specified conditions to receive the price update i.e if the price of ETH
-<= 2000. In order to submit a bid, the searcher doesn't need to have collateral
-deposited in the OevAuctionHouse contract. However for a bid to be eligible to
-win an auction, the searcher needs to have the required collateral deposited in
-the OevAuctionHouse contract.
+specified conditions to receive the price update i.e price of ETH <= 2000. In
+order to submit a bid, the searcher doesn't need to have collateral deposited in
+the OevAuctionHouse contract. However for a bid to be eligible to win an
+auction, the searcher needs to have the required collateral deposited in the
+OevAuctionHouse contract.
 
 Note: The collateral doesn't get locked until the bid is awarded.
 

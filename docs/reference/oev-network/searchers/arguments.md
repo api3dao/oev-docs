@@ -1,5 +1,5 @@
 ---
-title: Argument Reference
+title: Argument and Constants
 sidebarHeader: Reference
 sidebarSubHeader: OEV Network
 pageHeader: Reference → OEV Network → Searchers → Argument Reference
