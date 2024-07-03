@@ -22,14 +22,15 @@ tags:
 
 OEV Network can be added as a custom network to an EVM compatible wallet.
 
-| Details            | Value                                     |
-| ------------------ | ----------------------------------------- |
-| Network            | OEV Network                               |
-| Chain ID           | 4913                                      |
-| RPC URL            | https://oev-network.calderachain.xyz/http |
-| Symbol             | ETH                                       |
-| Block Explorer URL | https://oev-network.calderaexplorer.xyz/  |
-| Bridge URL         | https://oev-network.bridge.caldera.xyz/   |
+| Details            | Value                          |
+| ------------------ | ------------------------------ |
+| Network            | OEV Network                    |
+| Chain ID           | 4913                           |
+| RPC URL (HTTP)     | http://oev.rpc.api3.org/http   |
+| RPC URL (WS)       | http://oev.rpc.api3.org/ws     |
+| Symbol             | ETH                            |
+| Block Explorer URL | https://oev.explorer.api3.org/ |
+| Bridge URL         | https://oev.bridge.api3.org/   |
 
 ## Using the Bridge
 

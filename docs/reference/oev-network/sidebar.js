@@ -5,7 +5,7 @@ module.exports = [
     items: [
       {
         text: 'OEV Network',
-        link: '/reference/oev-network/overview/oev-network',
+        link: '/reference/oev-network/',
       },
       {
         text: 'Auction Cycle',

@@ -16,11 +16,19 @@ tags:
 
 OEV auctions operate as a supplementary service to regular data feed operations,
 ensuring that updates persist through the oracle even during OEV Network
-downtime or periods with limited OEV opportunities. Integration involves reading
-from a proxy contract visible on the [API3 Market](https://market.api3.org).
+downtime or periods with limited OEV opportunities.
+
+## Integration
+
+Integration involves reading from a proxy contract visible on the
+[API3 Market](https://market.api3.org).
 
 All the dAPIs on over 35+ chains have their own proxy addresses listed on the
 market.
+
+<div>
+  <img src="/reference/oev-network/dapps/assets/market.png" />
+</div>
 
 ## Proxy Contract
 
@@ -32,8 +40,7 @@ Searchers use signed data from Airnodes to update the proxy contract with the
 latest data point. However, if
 [`Api3ServerV1`](https://docs.api3.org/reference/dapis/understand/read-dapis.htmls)
 has a more recent timestamp than the last searcher update, the data point from
-`Api3ServerV1` will be displayed. Each dApp has its own proxy to determine the
-distribution of OEV proceeds.
+`Api3ServerV1` will be displayed.
 
 ::: tip
 
