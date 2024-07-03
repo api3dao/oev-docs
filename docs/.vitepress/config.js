@@ -103,7 +103,7 @@ function nav() {
         { text: 'QRNG', link: '/reference/qrng/' },
         {
           text: `OEV Network`,
-          link: '/reference/oev-network/overview/auction-cycle',
+          link: '/reference/oev-network/',
         },
         { text: 'DAO Members', link: '/reference/dao-members/' },
       ],

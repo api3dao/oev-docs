@@ -30,7 +30,7 @@ The design of Auctioneer only requires logs from a limited time frame to be
 computed. This is because the validity of a bid is at most
 [1 day](https://github.com/api3dao/contracts/blob/d3c7dc6683445df14bf5f43b07e6ad9cc2813cc5/contracts/api3-server-v1/OevAuctionHouse.sol#L68)
 meaning that the state of the auctioneer can be computed using the logs from the
-last 24 hours.
+last 48 hours (accounting for fulfillment reporting window).
 
 All relevant OevAuctionHouse logs are fetched ordered chronologically and
 processed in sequence. For each PlacedBid event, the bid details are decoded and
@@ -127,19 +127,29 @@ the OevAuctionHouse contract with the transaction hash of the oracle update
 transaction.
 
 On the auctioneer's side, it will be continuously iterating through all the
-awarded bids and ignoring bids that haven't had enough time to be fulfilled or
-fulfillments that are too recent. Reported bids are grouped together and their
-transaction hashes are queried on the target chain to determine if:
+awarded bids and ignoring bids that haven't had enough time to be fulfilled.
+Reported bids are grouped together and their transaction hashes are queried on
+the target chain to determine if:
 
 - The transaction was successful
 - The transaction emitted the `UpdatedOevProxy` event for the same `updateId` as
   the original bid
 - The `UpdatedOevProxy` event was emitted by the correct `Api3ServerV1` address
+- Correct arguments were emitted in the `UpdatedOevProxy` event
 
 Once the auctioneer has verified that the oracle updates have been fulfilled for
 all the bids within the time window, it will submit a multicall transaction to
 the OevAuctionHouse contract to confirm/contradict the fulfillment of the bids.
 
-For the bids that have been contradicted, the collateral is slashed and the
-protocol fee is refunded. For the bids that have been confirmed, the collateral
-is released and the protocol fee is charged.
+For the bids that have been contradicted, the collateral is slashed. For the
+bids that have been confirmed, the collateral is released and the protocol fee
+is charged.
+
+## Auctioneer Configuration
+
+| Parameter                     | Value | Description                                                                                                |
+| ----------------------------- | ----- | ---------------------------------------------------------------------------------------------------------- |
+| REFRESH_LOGS_LOOP_INTERVAL_MS | 1000  | How frequently the auctioneer fetches logs from the OEV Network                                            |
+| exclusiveAuctionSeconds       | 60    | Time period during which no other auctions can take place for a proxy                                      |
+| COLLATERAL_REQUIREMENT_BUFFER | 5%    | Extra collateral percentage that searchers need to have in order for the Auctioneer to award a bid to them |
+| FETCH_SIGNED_DATA_INTERVAL_MS | 2000  | Defines the frequency of the signed data fetching and auctions loop.                                       |

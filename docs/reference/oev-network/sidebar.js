@@ -38,10 +38,6 @@ module.exports = [
         text: 'Understanding Auctioneer',
         link: '/reference/oev-network/searchers/understanding-auctioneer',
       },
-      {
-        text: 'Auctioneer Reference',
-        link: '/reference/oev-network/searchers/auctioneer-reference',
-      },
     ],
   },
   {
