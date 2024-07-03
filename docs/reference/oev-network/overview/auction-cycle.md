@@ -43,8 +43,7 @@ Depositing ETH updates the searcher's balance in the OevAuctionHouse contract.
 The deposited ETH serves as
 [Collateral](/reference/oev-network/searchers/collateral-protocol-fee.md) which
 is needed to be able to win in the auction. The amount of Collateral needed is a
-percentage of the bid amount that the searcher is willing to pay for the oracle
-update.
+percentage of the bid amount.
 
 3. <b>Identify profitable oracle update</b>
 
