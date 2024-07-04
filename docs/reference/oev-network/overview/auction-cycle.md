@@ -104,16 +104,18 @@ searcher to update the dAPI value for the given proxy. These signatures are then
 processed by Auctioneer to prepare the update transaction calldata for
 searchers' convenience.
 
-9. <b> Fetch the encoded transaction from the airnodes</b>
+9. <b> Fetch the signatures for the awarded bid from the airnodes</b>
 
-The auctioneer fetches the encoded transaction and signatures from the airnodes.
+The auctioneer fetches airnode signatures for the data feed update. These
+signatures are verified on-chain by the Api3ServerV1 contract to ensure that the
+update is valid and is triggered by the searcher who won the auction.
 
 10. <b> Award the winning bid</b>
 
-The auctioneer publishes the winning bid along with the encoded transaction and
-signatures to the OevAuctionHouse contract. The collateral of the winning bid is
-locked in the OevAuctionHouse contract in the same transaction that the winning
-bid is awarded.
+The auctioneer publishes the winning bid along with the encoded calldata
+together with signatures to the OevAuctionHouse contract. The collateral of the
+winning bid is locked in the OevAuctionHouse contract in the same transaction
+that the winning bid is awarded.
 
 11. <b> Fetch the awarded bid transaction</b>
 

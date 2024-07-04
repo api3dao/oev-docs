@@ -141,15 +141,15 @@ the arguments.
 
 #### Arguments for `placeBidWithExpiration`
 
-| Argument             | Type    | Description                                                                                  |
-| -------------------- | ------- | -------------------------------------------------------------------------------------------- |
-| bidTopic             | bytes32 | [Bid topic](./arguments.md#bidtopic-bytes32)                                                 |
-| chainId              | uint256 | Chain ID                                                                                     |
-| bidAmount            | uint256 | Bid amount in the native currency of the chain where the proxy is deployed                   |
-| bidDetails           | bytes   | [Bid details](./arguments.md#biddetails-bytes)                                               |
-| maxCollateralAmount  | uint256 | Maximum collateral amount in the currency of the chain that OevAuctionHouse is deployed on   |
-| maxProtocolFeeAmount | uint256 | Maximum protocol fee amount in the currency of the chain that OevAuctionHouse is deployed on |
-| expirationTimestamp  | uint32  | Expiration timestamp after which the bid cannot be awarded, min - 15 seconds, max 24 hours   |
+| Argument             | Type    | Description                                                                                |
+| -------------------- | ------- | ------------------------------------------------------------------------------------------ |
+| bidTopic             | bytes32 | [Bid topic](./arguments.md#bidtopic-bytes32)                                               |
+| chainId              | uint256 | Chain ID                                                                                   |
+| bidAmount            | uint256 | Bid amount in the native currency of the chain where the proxy is deployed                 |
+| bidDetails           | bytes   | [Bid details](./arguments.md#biddetails-bytes)                                             |
+| maxCollateralAmount  | uint256 | Maximum collateral amount in the currency of the chain that Api3ServerV1 is deployed on    |
+| maxProtocolFeeAmount | uint256 | Maximum protocol fee amount in the currency of the chain that Api3ServerV1 is deployed on  |
+| expirationTimestamp  | uint32  | Expiration timestamp after which the bid cannot be awarded, min - 15 seconds, max 24 hours |
 
 ```javascript
 // The Bid Topic is a constant value used by the auctioneer to filter bids that pertain to that specific auctioneer instance.
@@ -262,21 +262,21 @@ tolerate and specify them in the arguments.
 
 #### Arguments for `placeBid`
 
-| Argument             | Type    | Description                                                                                  |
-| -------------------- | ------- | -------------------------------------------------------------------------------------------- |
-| bidTopic             | bytes32 | [Bid topic](./arguments.md#bidtopic)                                                         |
-| chainId              | uint256 | Chain ID                                                                                     |
-| bidAmount            | uint256 | Bid amount in the native currency of the chain where the proxy is deployed                   |
-| bidDetails           | bytes   | [Bid details](./arguments.md#biddetails---bytes)                                             |
-| maxCollateralAmount  | uint256 | Maximum collateral amount in the currency of the chain that OevAuctionHouse is deployed on   |
-| maxProtocolFeeAmount | uint256 | Maximum protocol fee amount in the currency of the chain that OevAuctionHouse is deployed on |
+| Argument             | Type    | Description                                                                               |
+| -------------------- | ------- | ----------------------------------------------------------------------------------------- |
+| bidTopic             | bytes32 | [Bid topic](./arguments.md#bidtopic)                                                      |
+| chainId              | uint256 | Chain ID                                                                                  |
+| bidAmount            | uint256 | Bid amount in the native currency of the chain where the proxy is deployed                |
+| bidDetails           | bytes   | [Bid details](./arguments.md#biddetails---bytes)                                          |
+| maxCollateralAmount  | uint256 | Maximum collateral amount in the currency of the chain that Api3ServerV1 is deployed on   |
+| maxProtocolFeeAmount | uint256 | Maximum protocol fee amount in the currency of the chain that Api3ServerV1 is deployed on |
 
 The code snippet is similar to above, except `expirationTimestamp` is excluded
 as an argument to the `placeBid` function.
 
 ## Checking Bid Status and Listening for Awarded Bids
 
-Searchers can check the status of their bids by quering the bidId.
+Searchers can check the status of their bids by quering the bid ID.
 
 ```javascript
 const awardedTransaction = await new Promise(async (resolve, reject) => {
@@ -313,7 +313,7 @@ const awardedTransaction = await new Promise(async (resolve, reject) => {
 ## Performing the oracle update using the awarded bid
 
 Once the bid is awarded, the searcher can perform the oracle update by using the
-encoded awardTransaction on the `updateOevProxyDataFeedWithSignedData` function
+encoded award transaction on the `updateOevProxyDataFeedWithSignedData` function
 of [Api3ServerV1 contract](https://docs.api3.org/reference/dapis/chains/) via
 the deployed OevSearcherMulticallV1 contract.
 
