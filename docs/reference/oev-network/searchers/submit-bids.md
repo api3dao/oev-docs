@@ -30,7 +30,7 @@ awarded bid and then finally submit fulfillment of the oracle update.
 - Bridge ETH to the
   [OEV Network](/reference/oev-network/overview/bridge-oev-network.html)
 
-- clone the repository and install the dependencies
+- Clone the repository and install the dependencies
 
 ```bash
 git clone https://github.com/api3dao/oev-searcher-starter
@@ -43,7 +43,7 @@ yarn
 
 ```bash
 MNEMONIC="your mnemonic"
-OEV_NETWORK_RPC_URL="https://oev-network.calderachain.xyz/http"
+OEV_NETWORK_RPC_URL="https://oev.rpc.api3.org/http"
 TARGET_NETWORK_RPC_URL="https://rpc.mantle.xyz"
 ```
 
