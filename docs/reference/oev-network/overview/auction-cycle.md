@@ -53,13 +53,11 @@ for example a liquidation event if the price of ETH falls below 2000.
 4. <b>Submitting a bid</b>
 
 The searcher would then submit a bid to the OevAuctionHouse contract with the
-specified conditions to receive the price update i.e price of ETH <= 2000. In
+specified conditions to receive the price update, i.e. price of ETH <= 2000. In
 order to submit a bid, the searcher doesn't need to have collateral deposited in
 the OevAuctionHouse contract. However for a bid to be eligible to win an
-auction, the searcher needs to have the required collateral deposited in the
-OevAuctionHouse contract.
-
-Note: The collateral doesn't get locked until the bid is awarded.
+auction, a collateral deposit in the OevAuctionHouse contract is required. The
+collateral doesn't get locked until the bid is awarded.
 
 5. <b>Start of a new Auction Round</b>
 
@@ -88,13 +86,13 @@ Airnodes (eg: ETH/USD = 2000) or new blocks are produced on the OEV Network.
 6. <b>Check for bid conditions </b>
 
 The auctioneer checks the current dAPI value against bids received from the
-OevAuctionHouse contract to determine if any of the bids conditions have been
+OevAuctionHouse contract to determine if any of the bid's conditions have been
 met.
 
 7. <b>Finding the winning bid</b>
 
 If there are multiple bids that are satisfied, the auctioneer finds the winning
-bid by selecting the bid with the highest bid amount. More details on how the
+bid by selecting the one with the highest bid amount. More details on how the
 auctioneer selects the winning bid can be found in the
 [Understanding Auctioneer](/reference/oev-network/searchers/understanding-auctioneer.html#parallel-auctions)
 page.
@@ -120,13 +118,13 @@ bid is awarded.
 11. <b> Fetch the awarded bid transaction</b>
 
 The searcher fetches the awarded bid transaction from the OEV Network. This
-transaction contains the encoded transaction. The searcher has 60 second window
-of exclusivity to trigger the oracle update.
+transaction contains the encoded calldata. The searcher has 60 second window of
+exclusivity period to trigger the oracle update.
 
 12. <b>Triggering the oracle update</b>
 
-The searcher can then use the encoded transaction to trigger the oracle update
-on the dAPI proxy and trigger the liquidation event atomically in a multicall
+The searcher can then use the encoded calldata to trigger the oracle update on
+the dAPI proxy and trigger the liquidation event atomically in a multicall
 transaction. The searcher can only do the price update if they transfer the bid
 amount to the beneficiary of the dAPI proxy.
 
