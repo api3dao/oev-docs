@@ -30,10 +30,10 @@ of the bid amount.
 
 If the oracle update is not fulfilled, the collateral is slashed
 
-| Parameter                | Value | Human readable % |
-| ------------------------ | ----- | ---------------- |
-| collateralInBasisPoints  | 1000  | 10%              |
-| protocolFeeInBasisPoints | 0000  | 0%               |
+| Parameter                | Value |
+| ------------------------ | ----- |
+| collateralInBasisPoints  | 1000  |
+| protocolFeeInBasisPoints | 0000  |
 
 ::: tip
 

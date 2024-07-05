@@ -43,7 +43,7 @@ module.exports = [
         link: '/reference/oev-network/searchers/understanding-auctioneer',
       },
       {
-        text: 'Example searcher bot',
+        text: 'Example Searcher Bot',
         link: '/reference/oev-network/searchers/example-searcher-bot',
       },
     ],

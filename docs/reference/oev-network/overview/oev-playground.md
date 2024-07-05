@@ -21,7 +21,7 @@ The easiest way to experience OEV extraction and the OEV Network is through the
 walk you through the entire searcher flow by providing a graphical interface to
 perform each step.
 
-The playground consults the following:
+The playground consists of the following:
 
 - How to bridge ETH to the OEV network.
 - How to deposit collateral in the OevAuctionHouse contract.

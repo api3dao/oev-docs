@@ -121,11 +121,11 @@ after the required delay has passed.
 
 ## Fulfillment and Contradiction of Bids
 
-Upon winning an auction, the searcher receives an encoded calldata in
-`AwardedBid` event. Using this encoded calldata, the searcher can trigger the
-oracle update on the dAPI proxy. To release the collateral after the oracle
-update is fulfilled, the searcher must call the `reportFulfillment` function on
-the OevAuctionHouse contract with the transaction hash of the oracle update
+Upon winning an auction, the searcher receives encoded calldata in `AwardedBid`
+event. Using this encoded calldata, the searcher can trigger the oracle update
+on the dAPI proxy. To release the collateral after the oracle update is
+fulfilled, the searcher must call the `reportFulfillment` function on the
+OevAuctionHouse contract with the transaction hash of the oracle update
 transaction.
 
 On the auctioneer's side, it will be continuously iterating through all the
