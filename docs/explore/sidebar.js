@@ -10,10 +10,6 @@ module.exports = [
             text: '• Getting started with API3',
             link: '/explore/introduction/',
           },
-          /*{
-            text: '• Solving the API <div style="margin-left:11px;">Connectivity Problem</div>',
-            link: '/explore/introduction/connectivity-problem',
-          },*/
           {
             text: '• What are first-party oracles?',
             link: '/explore/introduction/first-party',
@@ -27,13 +23,6 @@ module.exports = [
             link: '/explore/introduction/oracle-extractable-value',
           },
         ],
-      },
-
-      //{ text: 'Blog Posts on Medium', link: '/explore/introduction/blog' },
-      //{ text: 'Jobs', link: '/explore/introduction/jobs' },
-      {
-        text: 'Contributing to the DAO',
-        link: '/explore/introduction/contributing',
       },
       {
         text: 'API3 Docs Feedback',
@@ -61,65 +50,6 @@ module.exports = [
       {
         text: 'OEV capture with dAPIs',
         link: '/explore/dapis/OEV',
-      },
-    ],
-  },
-  {
-    text: 'QRNG',
-    collapsed: false,
-    items: [
-      {
-        text: 'What is QRNG?',
-        link: '/explore/qrng/',
-      },
-    ],
-  },
-  {
-    text: 'Airnode',
-    collapsed: false,
-    items: [
-      {
-        text: 'What is Airnode?',
-        link: '/explore/airnode/what-is-airnode',
-      },
-      {
-        text: 'How does Airnode work?',
-        link: '/explore/airnode/how-does-airnode-work',
-      },
-      {
-        text: 'Why first-party oracles?',
-        link: '/explore/airnode/why-first-party-oracles',
-      },
-      {
-        text: 'Monetizing APIs in Web3',
-        link: '/explore/airnode/monetizing-apis-in-web3',
-      },
-      {
-        text: 'Accessing first-party data feeds',
-        link: '/explore/airnode/unlocking-real-world-data',
-      },
-    ],
-  },
-  {
-    text: 'DAO Members',
-
-    collapsed: false,
-    items: [
-      {
-        text: 'API3 DAO',
-        link: '/explore/dao-members/',
-      },
-      {
-        text: 'The DAO Pool',
-        link: '/explore/dao-members/dao-pool',
-      },
-      {
-        text: 'Inflationary Rewards',
-        link: '/explore/dao-members/rewards',
-      },
-      {
-        text: 'DAO Tracker',
-        link: '/explore/dao-members/dao-tracker',
       },
     ],
   },

@@ -17,15 +17,6 @@ hero:
     - theme: brand
       text: OEV Network
       link: /reference/oev-network/
-    - theme: brand
-      text: QRNG
-      link: /reference/qrng/
-    - theme: brand
-      text: Airnode
-      link: /reference/airnode/latest/understand/
-    - theme: brand
-      text: DAO Members
-      link: /reference/dao-members/
 ---
 
 <script>
