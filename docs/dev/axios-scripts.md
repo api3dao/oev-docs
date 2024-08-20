@@ -17,7 +17,7 @@ The script
 is used to generated local data files. These files are rendered by certain
 markdown pages as a data source. For example see these markdown files:
 
-- [/reference/dapis/chains/chains-list.md](https://raw.githubusercontent.com/api3dao/vitepress-docs/main/docs/reference/dapis/chains/chains-list.md)
+- [/dapis/reference/chains/chains-list.md](https://raw.githubusercontent.com/api3dao/vitepress-docs/main/docs/dapis/reference/chains/chains-list.md)
 - [/reference/airnode/latest/index.md](https://raw.githubusercontent.com/api3dao/vitepress-docs/main/docs/reference/airnode/latest/index.md)
 
 The local data files provide for a better page load experience rather than

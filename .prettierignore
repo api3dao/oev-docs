@@ -27,8 +27,8 @@ pnpm-lock.yaml
 /docs/reference/ois/latest/assets
 /docs/reference/airnode/latest/assets
 /docs/reference/dao-members/assets
-/docs/reference/dapis/assets
+/docs/dapis/reference/assets
 /docs/reference/chainapi/assets
 /docs/reference/qrng/assets
-/docs/guides/assets
-/docs/explore/assets
+/docs/oev/assets
+/docs/dapis/assets

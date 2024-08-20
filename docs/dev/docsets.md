@@ -15,8 +15,8 @@ tags:
 A docset is a logically grouped set of pages. Every docset has a root folder.
 The current docsets are as follows:
 
-- Explore: `/explore/`
-- Guides: `/guides`
+- Explore: `/dapis/`
+- Guides: `/oev`
 - Reference: `/reference`
   - Airnode: Each version of Airnode is a docset.
     - `/reference/airnode/next/`
@@ -27,7 +27,7 @@ The current docsets are as follows:
     - `/reference/ois/latest/`
     - `/reference/ois/v2.0/`
   - QRNG: `/reference/qrng/`
-  - dAPIs: `/reference/dapis/`
+  - dAPIs: `/dapis/reference/`
   - DAO Members `/reference/dao-members/`
 - Docs Development `/dev/`
 

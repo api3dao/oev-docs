@@ -12,24 +12,12 @@ hero:
     alt: API3
   actions:
     - theme: brand
-      text: dAPI
-      link: /guides/dapis/
+      text: dAPIs
+      link: /dapis/
     - theme: brand
       text: OEV Network
-      link: /reference/oev-network/
+      link: /oev/
 ---
-
-<script>
-export default {
-    mounted() {
-      // Since this page does not have the sidebar we need to make sure the reference menu is not highlighted
-      const api3_navbarReferenceBtn = document.getElementById(
-          'api3_Reference_Menu'
-      );
-      api3_navbarReferenceBtn.style.color = '';
-    }
-  }
-</script>
 
 <style>
 .api3-land-title{

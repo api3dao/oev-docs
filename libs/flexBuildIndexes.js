@@ -23,12 +23,12 @@ let indexLatest = new Index({
 
 // The latest docsets
 let latestDocsets = [
-  '/dist/explore/',
-  '/dist/guides/',
+  '/dist/dapis/',
+  '/dist/oev/',
   '/dist/reference/qrng',
-  '/dist/reference/dapis/',
+  '/dist/dapis/reference/',
   '/dist/reference/dao-members/',
-  '/dist/reference/oev-network/',
+  '/dist/oev/',
   '/dist/reference/ois/latest/',
   '/dist/reference/airnode/latest/',
 ];
@@ -89,7 +89,7 @@ async function buildContentFile(path) {
   let parsedPath = path.split('/.vitepress/dist')[1];
   let contentPath = contentDir + parsedPath.replace('.html', '.json');
 
-  // The frontmatter and url ex: /explore
+  // The frontmatter and url ex: /dapis
   const pathMarkdown =
     'docs/' + path.split('docs/.vitepress/dist/')[1].replace('.html', '.md');
   let frontmatter = yaml.load(
