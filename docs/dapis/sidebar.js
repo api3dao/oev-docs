@@ -28,10 +28,6 @@ module.exports = [
         text: 'Security considerations',
         link: '/dapis/introduction/security-considerations',
       },
-      {
-        text: 'OEV capture with dAPIs',
-        link: '/dapis/introduction/OEV',
-      },
     ],
   },
   {
