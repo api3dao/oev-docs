@@ -3,7 +3,7 @@ title: Page Styling
 sidebarHeader: Docs Development
 sidebarSubHeader:
 pageHeader: Docs Development
-path: /guides/page-styling.html
+path: /oev/page-styling.html
 outline: deep
 tags:
 ---

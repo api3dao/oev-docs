@@ -60,10 +60,8 @@ export default {
       copyright: 'Copyright © 2019-present API3',
     },
     sidebar: {
-      '/explore/': require('../explore/sidebar.js'),
-      '/guides/': require('../guides/sidebar.js'),
-      '/reference/dapis/': require('../reference/dapis/sidebar.js'),
-      '/reference/oev-network/': require('../reference/oev-network/sidebar.js'),
+      '/dapis/': require('../dapis/sidebar.js'),
+      '/oev/': require('../oev/sidebar.js'),
       '/dev/': require('../dev/sidebar.js'),
     },
     nav: nav(),
@@ -74,17 +72,10 @@ function nav() {
   return [
     { text: 'Home', link: '/' },
     {
-      text: 'Explore',
-      link: '/explore/introduction/',
-      activeMatch: '/explore/.*',
+      text: 'dAPIs',
+      link: '/dapis/introduction/',
+      activeMatch: '/dapis/.*',
     },
-    { text: 'Guides', link: '/guides/', activeMatch: '/guides/.*' },
-    {
-      text: 'Reference',
-      items: [
-        { text: 'dAPIs', link: '/reference/dapis/understand/' },
-        { text: 'OEV Network', link: '/reference/oev-network/' },
-      ],
-    },
+    { text: 'OEV', link: '/oev/', activeMatch: '/oev/.*' },
   ];
 }

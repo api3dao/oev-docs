@@ -3,7 +3,7 @@ title: Formatting Guides
 sidebarHeader: Docs Development
 sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/guides-format.html
+path: /dev/oev-format.html
 outline: deep
 tags:
 ---
@@ -30,8 +30,8 @@ progression is numbered. Once the progression starts it must be contiguous until
 the progression ends. There can only be un-numbers sections (heading2) before
 and after the progression. Each progression section must be heading2 and each
 start with a number followed by a period _(1.)_. See the
-[Deploying an Airnode on AWS](/guides/airnode/deploy-airnode/deploy-aws/) guide
-as an example.
+[Deploying an Airnode on AWS](/oev/airnode/deploy-airnode/deploy-aws/) guide as
+an example.
 
 Each section in the progression must instruct the reader to do something, an
 action. Sections that are purely instructional must be placed before or after
@@ -65,5 +65,5 @@ testnets-metamask
 1. For tutorials, “unnumbered” sections (heading 2) can precede or follow a
    series of numbered steps ( the tutorial's progression) which must be
    contiguous. See the
-   [Deploying an Airnode on AWS](/guides/airnode/deploy-airnode/deploy-aws/)
-   guide as an example.
+   [Deploying an Airnode on AWS](/oev/airnode/deploy-airnode/deploy-aws/) guide
+   as an example.

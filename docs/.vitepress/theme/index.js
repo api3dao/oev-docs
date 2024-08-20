@@ -3,7 +3,6 @@ import { onMounted, watch, nextTick } from 'vue';
 import { useRoute } from 'vitepress';
 import mediumZoom from 'medium-zoom';
 import Api3Layout from './Api3Layout.vue';
-import VersionPicklist from '../../_components/reference/VersionPicklist.vue';
 import SearchBtn from '../../_components/search/SearchBtn.vue';
 import SearchResults from '../../_components/search/SearchResults.vue';
 import TutorialResponse from '../../_components/guides/TutorialResponse.vue';
@@ -43,7 +42,6 @@ export default {
   // injects the slots
   Layout: Api3Layout,
   enhanceApp({ app }) {
-    app.component('VersionPicklist', VersionPicklist);
     app.component('SearchBtn', SearchBtn);
     app.component('SearchResults', SearchResults);
     app.component('TutorialResponse', TutorialResponse);

@@ -17,8 +17,8 @@ searching in the docs. The script
 [/libs/flexBuildIndexes.js](https://github.com/api3dao/vitepress-docs/blob/main/libs/flexBuildIndexes.js)
 will index all HTML files in the `/dist` folder for the following directories:
 
-- `/dist/explore/`
-- `/dist/guides/`
+- `/dist/dapis/`
+- `/dist/oev/`
 - `/dist/reference/`
 
 Any files that are not part of the docs but are desired to be retained should go
@@ -60,7 +60,7 @@ To overcome this short fall, the script
 gathers on-line data into local data files for markdown pages to use. This
 allows for proper rendering of HTML at build time. A example of a markdown file
 that uses a locally generated data file is
-[chains-list.md](https://raw.githubusercontent.com/api3dao/vitepress-docs/main/docs/reference/dapis/chains/chains-list.md).
+[chains-list.md](https://raw.githubusercontent.com/api3dao/vitepress-docs/main/docs/dapis/reference/chains/chains-list.md).
 
 ## Creating/updating the index files
 
@@ -151,7 +151,7 @@ more and more rapidly.
 Sometimes the need to display a long string is desired so that readers can copy
 paste the string. However this must be avoided for very long strings. A possible
 solution has been implemented in the
-[Calling an Airnode](/guides/airnode/calling-an-airnode/) guide, example:
+[Calling an Airnode](/oev/airnode/calling-an-airnode/) guide, example:
 (`0x3...000`→<CopyIcon
 text="0x315353535300000000000000000000000000000000000000000000000000000076735f63757272656e63696573000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000120696473000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001605f7061746800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001a05f7479706500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001e0000000000000000000000000000000000000000000000000000000000000000375736400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007626974636f696e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b626974636f696e2e7573640000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006696e743235360000000000000000000000000000000000000000000000000000"/>). This
 works because the string is a parameter of an HTML element. The flex search

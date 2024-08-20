@@ -59,8 +59,8 @@ async function validate(frontmatter) {
 
 async function main() {
   console.log('\n> directoryPath', directoryPath);
-  await getAllFiles(directoryPath + '/explore');
-  await getAllFiles(directoryPath + '/guides');
+  await getAllFiles(directoryPath + '/dapis');
+  await getAllFiles(directoryPath + '/oev');
   await getAllFiles(directoryPath + '/reference');
   console.log('> mdFiles', mdFiles.length);
   console.log('> calling getFrontmatter()');

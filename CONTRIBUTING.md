@@ -34,8 +34,8 @@ pnpm docs:dev
 
 The API3 Docs repository is structured as follows:
 
-- `/docs/explore`: Explore section within the API3 Docs.
-- `/docs/guides`: All the guides that demonstrate the use of Airnode, QRNG and
+- `/docs/dapis`: Explore section within the API3 Docs.
+- `/docs/oev`: All the guides that demonstrate the use of Airnode, QRNG and
   dAPIs.
 - `/docs/reference`: Contains the core documentation for Airnode, QRNG and
   dAPIs.
@@ -70,7 +70,7 @@ You can use markdown to format the content. Check out the
 useful links:
 
 - [Page styling](https://docs.api3.org/dev/page-styling.html)
-- [Formatting guides](https://docs.api3.org/dev/guides-format.html)
+- [Formatting guides](https://docs.api3.org/dev/oev-format.html)
 - [VitePress Containers](https://docs.api3.org/dev/containers.html)
 
 ### Git Workflow:

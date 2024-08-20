@@ -5,10 +5,9 @@
 const axios = require('axios');
 const fs = require('fs');
 const CHAINS = require('@api3/chains').CHAINS;
-const versionsRef = require('../docs/.vitepress/versions.json');
 
 /**
- * Builds the list of chains for /reference/dapis
+ * Builds the list of chains for /dapis/reference
  */
 async function dapiChains() {
   const repo = await axios.get(
@@ -43,7 +42,7 @@ async function dapiChains() {
   });
 
   fs.writeFileSync(
-    'docs/reference/dapis/chains/chains.json',
+    'docs/dapis/reference/chains/chains.json',
     JSON.stringify(list)
   );
 }
@@ -94,35 +93,7 @@ async function airnodeContractAddresses(contractName, url, path) {
 /* Start the script here */
 console.log('\n----- Building Axios based script files -----');
 
-console.log('> Building chains.json in docs/reference/dapis/chains/');
+console.log('> Building chains.json in docs/dapis/reference/chains/');
 dapiChains();
 
-console.log('> Building Airnode version specific contract address files');
-versionsRef.versionsAirnode.forEach((el) => {
-  let path = el.path;
-  let vrs = el.version;
-  let msg = '';
-
-  // Is the version the "/next" release?
-  // If so then use the /latest version, but the path of /next.
-  if (el.version === versionsRef.airnodeNext) {
-    vrs = versionsRef.airnodeLatest;
-    path = el.path;
-    msg = '(This is /next so using version from /latest)';
-  }
-
-  console.log('  ✺ path:', path, '▶︎', 'vrs:', vrs, '▶︎', msg);
-  let url =
-    'https://raw.githubusercontent.com/api3dao/airnode/' +
-    vrs +
-    '/packages/airnode-protocol/deployments/references.json';
-  airnodeContractAddresses('AirnodeRrpV0', url, path);
-  airnodeContractAddresses('RequesterAuthorizerWithAirnode', url, path);
-  airnodeContractAddresses('AccessControlRegistry', url, path);
-
-  // AirnodeRrpV0DryRun was added in v0.12
-  if (vrs !== 'v0.11') {
-    airnodeContractAddresses('AirnodeRrpV0DryRun', url, path);
-  }
-});
 console.log('------------------');
