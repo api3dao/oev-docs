@@ -2,7 +2,6 @@ import DefaultTheme from 'vitepress/theme';
 import { onMounted, watch, nextTick } from 'vue';
 import { useRoute } from 'vitepress';
 import mediumZoom from 'medium-zoom';
-import TutorialResponse from '../../_components/guides/TutorialResponse.vue';
 import WarningSimultaneousDeployments from '../../_components/guides/WarningSimultaneousDeployments.vue';
 import VersionWarning from '../../_components/VersionWarning.vue';
 import PageHeader from '../../_components/PageHeader.vue';
@@ -33,7 +32,6 @@ export default {
   },
 
   enhanceApp({ app }) {
-    app.component('TutorialResponse', TutorialResponse);
     app.component(
       'WarningSimultaneousDeployments',
       WarningSimultaneousDeployments
