@@ -16,13 +16,8 @@ search criteria. Below is the `$frontmatter` for this page.
 ```yaml
 ---
 title: Frontmatter
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/frontmatter.html
-version:
 outline: deep
-tags:
 ---
 ```
 
