@@ -31,12 +31,6 @@ Most `$frontmatter` keys are required.
 must provide a title for each page using the key `text`. They can be the same or
 different.
 
-### `sidebarHeader`
-
-(required) At the top of the sidebar is a text block (preceded by a folder
-image). This label represents a selection from the navbar or other hidden
-sections such as /dev or /operations.
-
 ### `sidebarSubHeader`
 
 (required for Airnode and OIS) In the case of the navbar selection
