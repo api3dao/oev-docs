@@ -2,7 +2,6 @@ import DefaultTheme from 'vitepress/theme';
 import { onMounted, watch, nextTick } from 'vue';
 import { useRoute } from 'vitepress';
 import mediumZoom from 'medium-zoom';
-import VersionWarning from '../../_components/VersionWarning.vue';
 import PageHeader from '../../_components/PageHeader.vue';
 import CopyIcon from '../../_components/CopyIcon.vue';
 import Video from '../../_components/Video.vue';
@@ -27,7 +26,6 @@ export default {
   },
 
   enhanceApp({ app }) {
-    app.component('VersionWarning', VersionWarning);
     app.component('PageHeader', PageHeader);
     app.component('CopyIcon', CopyIcon);
     app.component('Video', Video);
