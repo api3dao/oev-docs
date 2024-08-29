@@ -5,7 +5,6 @@ import mediumZoom from 'medium-zoom';
 import VersionWarning from '../../_components/VersionWarning.vue';
 import PageHeader from '../../_components/PageHeader.vue';
 import CopyIcon from '../../_components/CopyIcon.vue';
-import SponsorWalletWarning from '../../_components/reference/airnode/SponsorWalletWarning.vue';
 import Video from '../../_components/Video.vue';
 import EthersAbiCoder from '../../_components/EthersAbiCoder.vue';
 
@@ -31,7 +30,6 @@ export default {
     app.component('VersionWarning', VersionWarning);
     app.component('PageHeader', PageHeader);
     app.component('CopyIcon', CopyIcon);
-    app.component('SponsorWalletWarning', SponsorWalletWarning);
     app.component('Video', Video);
     app.component('EthersAbiCoder', EthersAbiCoder);
   },
