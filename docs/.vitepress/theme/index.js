@@ -4,7 +4,6 @@ import { useRoute } from 'vitepress';
 import mediumZoom from 'medium-zoom';
 import TutorialResponse from '../../_components/guides/TutorialResponse.vue';
 import WarningSimultaneousDeployments from '../../_components/guides/WarningSimultaneousDeployments.vue';
-import DeployerPermissionsWarning from '../../_components/guides/DeployerPermissionsWarning.vue';
 import VersionWarning from '../../_components/VersionWarning.vue';
 import PageHeader from '../../_components/PageHeader.vue';
 import CopyIcon from '../../_components/CopyIcon.vue';
@@ -39,7 +38,6 @@ export default {
       'WarningSimultaneousDeployments',
       WarningSimultaneousDeployments
     );
-    app.component('DeployerPermissionsWarning', DeployerPermissionsWarning);
     app.component('VersionWarning', VersionWarning);
     app.component('PageHeader', PageHeader);
     app.component('CopyIcon', CopyIcon);
