@@ -7,7 +7,6 @@ import PageHeader from '../../_components/PageHeader.vue';
 import CopyIcon from '../../_components/CopyIcon.vue';
 import SponsorWalletWarning from '../../_components/reference/airnode/SponsorWalletWarning.vue';
 import DockerHubImages from '../../_components/reference/airnode/DockerHubImages.vue';
-import DeleteAirnodeAws from '../../_components/reference/airnode/DeleteAirnodeAws.vue';
 import DeleteAirnodeGcp from '../../_components/reference/airnode/DeleteAirnodeGcp.vue';
 import Video from '../../_components/Video.vue';
 import EthersAbiCoder from '../../_components/EthersAbiCoder.vue';
@@ -36,7 +35,6 @@ export default {
     app.component('CopyIcon', CopyIcon);
     app.component('SponsorWalletWarning', SponsorWalletWarning);
     app.component('DockerHubImages', DockerHubImages);
-    app.component('DeleteAirnodeAws', DeleteAirnodeAws);
     app.component('DeleteAirnodeGcp', DeleteAirnodeGcp);
     app.component('Video', Video);
     app.component('EthersAbiCoder', EthersAbiCoder);
