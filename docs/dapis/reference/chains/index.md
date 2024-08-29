@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 dAPIs can be read on the following chains using
@@ -23,5 +19,3 @@ interface. Use the [API3 Market](https://market.api3.org/) website to acquire
 proxy contract addresses.
 
 <!--@include: ./chains-list.md-->
-
-<FlexEndTag/>

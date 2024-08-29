@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 dAPIs are on-chain data feeds sourced from off-chain first-party oracles owned
@@ -126,5 +122,3 @@ to choose from based on the chain and dAPI:
 
 See the guide [Subscribing to dAPIs](/dapis/guides/subscribing-to-dapis/) and
 learn more on how to access dAPIs.
-
-<FlexEndTag/>

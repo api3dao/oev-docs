@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 API3 has developed an oracle solution that simplifies how smart contracts can
@@ -69,5 +65,3 @@ coming months.
 While the API3 Market UI is intuitive, follow this
 [simple guide](/dapis/guides/subscribing-self-funded-dapis/) to sponsor,
 activate and read a self-funded dAPI.-->
-
-<FlexEndTag/>

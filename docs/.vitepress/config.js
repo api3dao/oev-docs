@@ -8,11 +8,11 @@ export default {
   appearance: true,
   ignoreDeadLinks: true,
   head: [
-    [
+    /*[
       'script',
       {},
       "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-PKWG7ZFR');",
-    ],
+    ],*/
     ['link', { rel: 'stylesheet', href: '/styles/api3.css' }],
     [
       'link',
@@ -42,6 +42,29 @@ export default {
     ],
   ],
   themeConfig: {
+    search: {
+      provider: 'local',
+      options: {
+        miniSearch: {
+          /**
+           * @type {Pick<import('minisearch').Options, 'extractField' | 'tokenize' | 'processTerm'>}
+           */
+          options: {
+            /* ... */
+          },
+          /**
+           * @type {import('minisearch').SearchOptions}
+           * @default
+           * { fuzzy: 0.2, prefix: true, boost: { title: 4, text: 2, titles: 1 } }
+           */
+          searchOptions: {
+            fuzzy: 0.2,
+            prefix: true,
+            boost: { title: 4, text: 2, titles: 1 },
+          },
+        },
+      },
+    },
     externalLinkIcon: true,
     logo: {
       light: '/img/API3-Active.png',

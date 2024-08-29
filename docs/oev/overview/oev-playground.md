@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 The easiest way to experience OEV extraction and the OEV Network is through the

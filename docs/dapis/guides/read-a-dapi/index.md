@@ -14,10 +14,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 This guide requires a proxy contract address for a particular dAPI you are
@@ -111,5 +107,3 @@ For additional information on how to read from a dAPI proxy, please refer to the
 [datafeed-reader-example](https://github.com/api3dao/data-feed-reader-example)
 repository which contains a hardhat project with a sample smart contract that
 reads from a dAPI proxy.
-
-<FlexEndTag/>

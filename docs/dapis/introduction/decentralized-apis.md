@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 dAPIs are on-chain data feeds sourced from off-chain first-party oracles owned
@@ -72,5 +68,3 @@ update. Our data partners also add their Airnode address to their DNS records.
 
 This means their oracle node can be verified through cryptographic signatures,
 optimizing the security of price feed operation.
-
-<FlexEndTag/>

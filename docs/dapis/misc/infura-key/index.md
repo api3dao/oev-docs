@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 Some of the guides require a blockchain provider URL to interact with the
@@ -56,5 +52,3 @@ blockchain provider URL.
 ```sh
 https://sepolia.infura.io/v3/ec3dda...b3618a2
 ```
-
-<FlexEndTag/>

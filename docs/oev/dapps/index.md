@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 OEV auctions operate as a supplementary service to regular data feed operations,
@@ -54,5 +50,3 @@ Please refer to the following guide on how to read from a proxy contract:
 By integrating OEV auctions as a supplementary service, developers can ensure a
 seamless transition between oracle updates and OEV opportunities while
 maintaining the desired distribution of proceeds.
-
-<FlexEndTag/>

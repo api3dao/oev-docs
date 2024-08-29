@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 ## Network Details
@@ -46,5 +42,3 @@ Metamask wallet.
 
 Confirm the transaction in your wallet. Wait for it to bridge and you will see
 your ETH on OEV Network.
-
-<FlexEndTag/>

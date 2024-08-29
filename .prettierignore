@@ -15,12 +15,8 @@ pnpm-lock.yaml
 /docs/dev/using-metamask/src/HelloWorld.sol.js
 /docs/dev/using-metamask/src/HelloWorld.sol
 
-# The flexsearch files can be huge, skip them. 
-# These are auto genereated anyway.
-/indexes
-/docs/public/indexes
+
 /docs/public/img
-/docs/public/zip-files
 /docs/public/api3-whitepaper-v1.0.3.pdf
 
 # assets

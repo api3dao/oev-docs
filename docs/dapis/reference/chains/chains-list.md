@@ -1,4 +1,4 @@
-<!-- Why this file. In order for the flex search to index the chain info they
+<!-- Why this file. In order for the search to index the chain info they
 cannot be inside a Vue component since it is rendered at runtime. The chains.json
 file here is read during the Vite build so the data will actually end up inside
 /dist/<filename>.

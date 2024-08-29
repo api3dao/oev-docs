@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 > <Video src="https://www.youtube.com/embed/FVI16FAJgjQ"/>
@@ -56,5 +52,3 @@ developers to:
 
 You can head to the [API3 Market](https://market.api3.org/dapis) to explore this
 further.
-
-<FlexEndTag/>

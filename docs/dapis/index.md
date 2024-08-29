@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 > <Video src="https://www.youtube.com/embed/wLZ4pyqAFuE"/>
@@ -89,5 +85,3 @@ using a proxy contract:
 
 - [Subscribe and activate a dAPI](/dapis/guides/subscribing-to-dapis/)
 - [Read a dAPI Proxy](/dapis/guides/read-a-dapi/)
-
-<FlexEndTag/>

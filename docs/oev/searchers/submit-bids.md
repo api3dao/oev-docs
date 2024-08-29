@@ -11,10 +11,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 The
@@ -348,8 +344,6 @@ const performOevUpdate = async (awardedTransaction) => {
   return updateTx;
 };
 ```
-
-<FlexEndTag />
 
 ## Submitting Fulfillment Transaction Hash
 

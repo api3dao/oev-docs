@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 Funds from sponsor wallets are used to pay the gas cost when updating the
@@ -37,5 +33,3 @@ read the value of the dAPI.
 > Airnode monitors the value of an API provider's API endpoint based on its
 > `updateInterval` parameter. If the on-chain value deviates from the API
 > provider value, the dAPI's beacon is updated on-chain.
-
-<FlexEndTag/>

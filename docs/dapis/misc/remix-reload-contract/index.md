@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 Some of the guides use the Remix IDE. When you close the Remix IDE or change
@@ -55,5 +51,3 @@ probably did not use the correct contract address.
 Watch this short video that explains the above steps in more detail.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_bPAEltRhrE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<FlexEndTag/>

@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 ### Proxy Address
@@ -70,5 +66,3 @@ const bidDetails = abiCoder.encode(
   ]
 );
 ```
-
-<FlexEndTag />;

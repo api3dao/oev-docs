@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 There are various moving parts in the operation of dAPIs which bring with it a
@@ -51,5 +47,3 @@ configuration is purchased.
 It is important that no central authority has the opportunity to impact the
 delivery of a dAPI's value. API3 is committed to keep the beacon sets behind a
 dAPI updated in a completely decentralized fashion.
-
-<FlexEndTag/>

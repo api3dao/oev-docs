@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 Oracle extractable value (OEV) refers to oracles making use of their position to
@@ -58,5 +54,3 @@ optimal market making protocol for apps that use oracles. Better market making
 from a dApps LPs creates a flywheel effect of drawing more liquidity to the
 application while being able to lower fees and list more assets, which then
 attracts more users and volume.
-
-<FlexEndTag/>

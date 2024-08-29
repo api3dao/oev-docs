@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 [API3](https://api3.org) is a collaborative project to deliver traditional API
@@ -106,5 +102,3 @@ on-chain.
 When data served from Airnode is served directly from the source to the chain
 with cryptographic signatures. When used in DeFi this enhances the security of
 the price feed due to the optimized transparency.
-
-<FlexEndTag/>

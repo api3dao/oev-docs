@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 [Datafeed values are stored on-chain](/dapis/reference/understand/#values-stored-on-chain)
@@ -83,5 +79,3 @@ const beaconSetId = ethers.utils.keccak256(
   ethers.utils.defaultAbiCoder.encode(['bytes32[]'], [sortedBeacons])
 );
 ```
-
-<FlexEndTag/>

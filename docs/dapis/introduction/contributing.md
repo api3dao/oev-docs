@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 We think critical infrastructure, like API3 DAO's first-party oracles, should
@@ -160,5 +156,3 @@ external contributors and diversity in thought is a strength.
 - Community Chat on [Telegram](https://t.me/API3DAO)
 - Developer Chat on [Discord](https://discord.gg/qnRrcfnm5W)
 - [YouTube Channel](https://www.youtube.com/channel/UCCpUthOhahxjdeX9T7t7nJQ)
-
-<FlexEndTag/>

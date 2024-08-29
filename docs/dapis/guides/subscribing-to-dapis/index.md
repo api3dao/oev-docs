@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 [dAPIs](/dapis/introduction/using-dapis.md#managed-dapis) are datafeeds that are
@@ -111,5 +107,3 @@ You can now use this to read from the configured dAPI.
 
 To get started with using dAPIs, you can follow the
 [Reading a dAPI Proxy guide](/dapis/guides/read-a-dapi/).
-
-<FlexEndTag/>

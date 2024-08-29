@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 API3 composes dAPIs out of individual beacons and beacon sets, and provides them
@@ -55,5 +51,3 @@ does not need to change the code itself, rather it only needs to use a different
 proxy address when calling the `read()` function on the proxy contract. If the
 dAPI interface has previously been imported, it abstracts away the technical
 implementation of accessing new data feeds.
-
-<FlexEndTag/>

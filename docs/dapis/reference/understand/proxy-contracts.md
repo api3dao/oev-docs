@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 Proxy contracts are generated and deployed by the
@@ -53,5 +49,3 @@ import "@api3/contracts/api3-server-v1/proxies/interfaces/IProxy.sol";
 (value, timestamp) = IProxy(proxyAddress).read();
 
 ```
-
-<FlexEndTag/>

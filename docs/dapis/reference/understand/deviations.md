@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 A deviation threshold value is used to update the on-chain value of a dAPI's
@@ -70,5 +66,3 @@ settings.
 | 0.5%      | 24 hours  |
 | 1%        | 24 hours  |
 | 5%        | 24 hours  |
-
-<FlexEndTag/>

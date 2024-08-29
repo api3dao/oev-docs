@@ -10,8 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
 # {{$frontmatter.title}}
 
 You can add a style definition just for a single page. Be careful not to use

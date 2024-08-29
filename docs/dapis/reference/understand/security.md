@@ -10,10 +10,6 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
 # {{$frontmatter.title}}
 
 dAPIs are structured to provide first-party data to smart contracts. API3, or
@@ -56,5 +52,3 @@ Also consider the decentralized nature of the API3 DAO. Decentralized and
 autonomous DAOs are not controlled by any central authority, which makes them
 more resistant to censorship. API3 is a true DAO that operates transparently
 with regards to all of its management practices.
-
-<FlexEndTag/>
