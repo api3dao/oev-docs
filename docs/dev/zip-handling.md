@@ -1,11 +1,7 @@
 ---
 title: Zip File Handling
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/zip-handling.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

@@ -1,16 +1,12 @@
 ---
 title: Remix Reload Contract
-sidebarHeader: Guides
-sidebarSubHeader:
-pageHeader: Guides → Miscellaneous
-path: /oev/misc/remix-reload-contract/index.html
+pageHeader: dAPIs → Miscellaneous
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Remix Reload Contract
 
 Some of the guides use the Remix IDE. When you close the Remix IDE or change
 workspaces, Remix will lose track of any deployed contracts. This guide will

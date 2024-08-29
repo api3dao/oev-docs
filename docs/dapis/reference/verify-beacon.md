@@ -1,16 +1,12 @@
 ---
 title: Verify dAPI sources
-sidebarHeader: dAPIs
-sidebarSubHeader: dAPIs
-pageHeader: Reference → dAPIs
-path: /dapis/reference/verify-beacon.html
+pageHeader: dAPIs → Reference
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Verify dAPI sources
 
 [Datafeed values are stored on-chain](/dapis/reference/understand/#values-stored-on-chain)
 within the

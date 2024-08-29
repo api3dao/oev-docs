@@ -1,16 +1,12 @@
 ---
 title: Create an Infura key
-sidebarHeader: Guides
-sidebarSubHeader:
-pageHeader: Guides → Miscellaneous
-path: /oev/misc/infura-key/index.html
+pageHeader: dAPIs → Miscellaneous
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Create an Infura key
 
 Some of the guides require a blockchain provider URL to interact with the
 Sepolia testnet. When a URL is needed for a guide, you will be referred to this

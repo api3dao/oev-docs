@@ -1,16 +1,12 @@
 ---
 title: Security Considerations
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → dAPIs
-path: /dapis/introduction/security-considerations.html
+pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Security Considerations
 
 There are various moving parts in the operation of dAPIs which bring with it a
 variety of security considerations. When using dAPIs integrating parties should

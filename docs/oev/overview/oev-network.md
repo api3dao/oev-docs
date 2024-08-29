@@ -1,16 +1,12 @@
 ---
 title: OEV Network
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader: Reference → OEV Network
-path: /oev/index.html
+pageHeader: OEV → Overview
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# OEV Network
 
 ![Auction Cycle](/oev/overview/assets/oev-network.png)
 

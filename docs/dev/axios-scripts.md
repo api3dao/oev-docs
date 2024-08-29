@@ -1,11 +1,7 @@
 ---
 title: Axios Scripts
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/axios-scripts.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

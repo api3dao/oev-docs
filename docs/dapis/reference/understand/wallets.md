@@ -1,16 +1,12 @@
 ---
 title: Sponsor wallets
-sidebarHeader: dAPIs
-sidebarSubHeader: dAPIs
-pageHeader: Reference → dAPIs → Understanding dAPIs
-path: /dapis/reference/understand/wallets.html
+pageHeader: dAPIs → Reference
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Sponsor wallets
 
 Funds from sponsor wallets are used to pay the gas cost when updating the
 on-chain value of dAPIs' sourced beacon value.

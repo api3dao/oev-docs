@@ -1,16 +1,12 @@
 ---
 title: API3 DAO Welcomes Community Participation
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore
-path: /dapis/introduction/contributing.html
+pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# API3 DAO Welcomes Community Participation
 
 We think critical infrastructure, like API3 DAO's first-party oracles, should
 implement open and transparent contributor processes to align with our vision of

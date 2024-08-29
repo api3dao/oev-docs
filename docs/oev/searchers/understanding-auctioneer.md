@@ -1,18 +1,14 @@
 ---
 title: Understanding Auctioneer
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader: Reference → OEV Network → Searchers → Understanding Auctioneer
-path: /oev/searchers/understanding-auctioneer.html
+pageHeader: OEV → Searchers
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
 # {{$frontmatter.title}}
 
-## Auctioneer State
+## Understanding Auctioneer
 
 Both Searchers and Auctioneers use the OEV Network as the source of truth and
 the use of blockchain events is crucial to both in the operation of the auction

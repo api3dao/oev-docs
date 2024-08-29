@@ -1,11 +1,7 @@
 ---
 title: Link Validation
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/link-validation.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

@@ -1,16 +1,12 @@
 ---
 title: Subscribing to dAPIs
-sidebarHeader: Guides
-sidebarSubHeader:
-pageHeader: Guides → dAPIs
-path: /dapis/guides/subscribing-to-dapis/index.html
+pageHeader: dAPIs → Guides
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Subscribing to dAPIs
 
 [dAPIs](/dapis/introduction/using-dapis.md#managed-dapis) are datafeeds that are
 sourced directly from multiple

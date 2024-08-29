@@ -1,16 +1,12 @@
 ---
 title: OEV Playground
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader: Reference → OEV Network → OEV Playground
-path: /oev/overview/oev-playground.html
+pageHeader: OEV → Overview
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# OEV Playground
 
 The easiest way to experience OEV extraction and the OEV Network is through the
 [OEV Playground](https://api3dao.github.io/oev-playground/). OEV Playground will

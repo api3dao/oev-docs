@@ -1,16 +1,12 @@
 ---
 title: dAPI Names
-sidebarHeader: dAPIs
-sidebarSubHeader: dAPIs
-pageHeader: Reference → dAPIs
-path: /dapis/reference/dapi-names.html
+pageHeader: dAPIs → Reference
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# dAPI Names
 
 A dAPI is a live data point associated with human readable `dapiName`. dAPI
 definitions simplify access and can return aggregated data feed (beacon) values

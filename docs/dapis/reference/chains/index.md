@@ -1,16 +1,12 @@
 ---
 title: Chains and Contracts
-sidebarHeader: dAPIs
-sidebarSubHeader: dAPIs
-pageHeader: Reference → dAPIs
-path: /dapis/reference/chains/index.html
+pageHeader: dAPIs → Reference
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Chains and Contracts
 
 dAPIs can be read on the following chains using
 [proxy contracts](/dapis/reference/understand/proxy-contracts.md) via the

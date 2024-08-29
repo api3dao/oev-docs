@@ -1,16 +1,12 @@
 ---
 title: Add testnets to MetaMask
-sidebarHeader: Guides
-sidebarSubHeader:
-pageHeader: Guides → Miscellaneous
-path: /oev/misc/testnets-metamask/index.html
+pageHeader: dAPIs → Miscellaneous
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Add testnets to MetaMask
 
 ChainList is a list of EVM networks. Use its information to connect wallets and
 Web3 middleware providers to the appropriate chain. Follow the simple

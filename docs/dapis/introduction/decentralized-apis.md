@@ -1,16 +1,12 @@
 ---
 title: Decentralized APIs (dAPIs)
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → About our journey!
-path: /dapis/introduction/decentralized-apis.html
+pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Decentralized APIs (dAPIs)
 
 dAPIs are on-chain data feeds sourced from off-chain first-party oracles owned
 and operated by API providers themselves. dAPIs provide DeFi with a secure and

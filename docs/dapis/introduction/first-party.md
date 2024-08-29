@@ -1,16 +1,13 @@
 ---
 title: What are first-party oracles?
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → About our journey!
-path: /dapis/introduction/first-party.html
+pageHeader: dAPIs → Introduction
 outline: deep
 tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# What are first-party oracles?
 
 An oracle is an agent that acts as an intermediary between a smart contract
 platform and an API. In other words, a decentralized application can use an

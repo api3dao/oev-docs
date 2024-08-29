@@ -1,16 +1,12 @@
 ---
 title: dApp Onboarding
-sidebarHeader: OEV
-sidebarSubHeader: OEV
-pageHeader: Reference → OEV -> dApps
-path: /oev/dapps/index.html
+pageHeader: OEV -> dApps
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# dApp Onboarding
 
 OEV auctions operate as a supplementary service to regular data feed operations,
 ensuring that updates persist through the oracle even during OEV Network

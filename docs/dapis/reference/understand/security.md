@@ -1,16 +1,12 @@
 ---
 title: Security
-sidebarHeader: dAPIs
-sidebarSubHeader: dAPIs
-pageHeader: Reference → dAPIs → Understanding dAPIs
-path: /dapis/reference/understand/security.html
+pageHeader: dAPIs → Reference
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Security
 
 dAPIs are structured to provide first-party data to smart contracts. API3, or
 any other middleman, cannot interrupt the flow of off-chain data to a smart

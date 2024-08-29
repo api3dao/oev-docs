@@ -34,7 +34,7 @@ module.exports = [
         link: '/oev/searchers/submit-bids',
       },
       {
-        text: 'Argument Reference',
+        text: 'Argument and Constants',
         link: '/oev/searchers/arguments',
       },
 

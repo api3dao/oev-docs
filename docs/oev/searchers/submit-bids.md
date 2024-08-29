@@ -1,17 +1,12 @@
 ---
 title: Submitting Bids for Oracle updates
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader:
-  Reference → OEV Network → Searchers → Submitting Bids for Oracle updates
-path: /oev/searchers/submit-bids.html
+pageHeader: OEV → Searchers
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Submitting Bids for Oracle updates
 
 The
 [OEV Searcher Starter Repository](https://github.com/api3dao/oev-searcher-starter)

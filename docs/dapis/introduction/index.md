@@ -1,16 +1,12 @@
 ---
 title: Getting started with API3
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → About our journey!
-path: /dapis/introduction/index.html
+pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Getting started with API3
 
 [API3](https://api3.org) is a collaborative project to deliver traditional API
 services to smart contract platforms in a decentralized and trust-minimized way.

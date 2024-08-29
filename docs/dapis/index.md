@@ -1,16 +1,12 @@
 ---
 title: What are dAPIs?
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → dAPIs
-path: /dapis/introduction/what-are-dapis.html
+pageHeader: dAPIs → Overview
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# What are dAPIs?
 
 > <Video src="https://www.youtube.com/embed/wLZ4pyqAFuE"/>
 

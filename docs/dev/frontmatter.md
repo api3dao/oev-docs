@@ -1,11 +1,7 @@
 ---
 title: Frontmatter
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/frontmatter.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

@@ -1,11 +1,7 @@
 ---
 title: Hyperlinks
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/hyperlinks.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

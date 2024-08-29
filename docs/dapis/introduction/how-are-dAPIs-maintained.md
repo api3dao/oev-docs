@@ -1,16 +1,13 @@
 ---
 title: How are dAPIs maintained?
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → dAPIs
-path: /dapis/introduction/how-are-dAPIs-maintained.html
+pageHeader: dAPIs → Introduction
 outline: deep
 tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# How are dAPIs maintained?
 
 API3 composes dAPIs out of individual beacons and beacon sets, and provides them
 as turn-key data feed services. Users need not worry about the exact API

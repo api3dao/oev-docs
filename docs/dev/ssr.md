@@ -1,11 +1,7 @@
 ---
 title: SSR on CloudFlare
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/ssr.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

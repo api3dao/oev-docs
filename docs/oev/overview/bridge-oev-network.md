@@ -1,16 +1,12 @@
 ---
 title: Bridging to the OEV Network
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader: Reference → Overview → Bridging to the OEV Network
-path: /oev/overview/bridge-oev-network.html
+pageHeader: OEV → Overview
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Bridging to the OEV Network
 
 ## Network Details
 

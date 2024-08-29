@@ -1,11 +1,7 @@
 ---
 title: Formatting Guides
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/oev-format.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

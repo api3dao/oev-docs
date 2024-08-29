@@ -1,11 +1,7 @@
 ---
 title: Page Styling
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /oev/page-styling.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

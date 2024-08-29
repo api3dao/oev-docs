@@ -1,11 +1,7 @@
 ---
 title: Firebase
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/firebase.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

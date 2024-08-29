@@ -1,16 +1,12 @@
 ---
 title: Proxy contracts
-sidebarHeader: dAPIs
-sidebarSubHeader: dAPIs
-pageHeader: Reference → dAPIs → Understanding dAPIs
-path: /dapis/reference/understand/proxy-contracts.html
+pageHeader: dAPIs → Reference
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Proxy contracts
 
 Proxy contracts are generated and deployed by the
 [API3 Market](https://market.api3.org) and allow for simple access to dAPIs by

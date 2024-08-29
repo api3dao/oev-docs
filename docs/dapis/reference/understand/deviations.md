@@ -1,16 +1,12 @@
 ---
 title: Deviation thresholds
-sidebarHeader: dAPIs
-sidebarSubHeader: dAPIs
-pageHeader: Reference → dAPIs → Understanding dAPIs
-path: /dapis/reference/understand/deviations.html
+pageHeader: dAPIs → Reference
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# Deviation thresholds
 
 A deviation threshold value is used to update the on-chain value of a dAPI's
 beacon or beacon set. When the on-chain value deviates (by an established

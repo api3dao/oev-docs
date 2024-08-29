@@ -1,16 +1,12 @@
 ---
 title: OEV capture with dAPIs
-sidebarHeader: OEV
-sidebarSubHeader:
-pageHeader: Explore → dAPIs
-path: /dapis/introduction/OEV.html
+pageHeader: OEV → Overview
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-# {{$frontmatter.title}}
+# OEV capture with dAPIs
 
 Oracle extractable value (OEV) refers to oracles making use of their position to
 capture value that would otherwise have gone to third parties.

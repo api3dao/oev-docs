@@ -1,13 +1,7 @@
 ---
 title: Getting Started with dAPIs
-sidebarHeader: Guides
-sidebarSubHeader:
 pageHeader: dAPIs → Guides
-path: /dapis/guides/index.html
 outline: deep
-tags:
-  - dapis
-  - getting started
 ---
 
 <PageHeader/>
