@@ -22,12 +22,12 @@ features:
     title: Simple and minimal, always
     details: Lorem ipsum...
   - icon:
-      src: /public/img/small-logo.png
+      src: /img/small-logo.png
     title: Another cool feature
     details: Lorem ipsum...
   - icon:
-      dark: /public/img/Folder-Dark.png
-      light: /public/img/Folder-Light.png
+      dark: /img/Folder-Dark.png
+      light: /img/Folder-Light.png
     title: Another cool feature
     details: Lorem ipsum...
 ---
