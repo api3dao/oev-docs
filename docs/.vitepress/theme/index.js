@@ -31,5 +31,4 @@ export default {
     app.component('Video', Video);
     app.component('EthersAbiCoder', EthersAbiCoder);
   },
-  globalSearch: { index: { tag: 'myTags' } },
 };
