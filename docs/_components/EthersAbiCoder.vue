@@ -52,7 +52,6 @@ export default {
   },
   mounted() {
     this.$nextTick(async function () {});
-    console.log('MOUNTED', this.types);
   },
 };
 </script>
