@@ -4,6 +4,11 @@ module.exports = [
     collapsed: false,
     items: [
       {
+        text: 'Oracle Extractable Value ',
+        link: 'oracle-extractable-value.md',
+      },
+
+      {
         text: 'OEV Capture',
         link: '/oev/',
       },
