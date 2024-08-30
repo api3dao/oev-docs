@@ -5,7 +5,7 @@ module.exports = [
     items: [
       {
         text: 'Oracle Extractable Value ',
-        link: 'oracle-extractable-value.md',
+        link: '/oev/overview/oracle-extractable-value',
       },
 
       {
