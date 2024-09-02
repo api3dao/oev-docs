@@ -1,11 +1,7 @@
 ---
 title: Getting Started
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/index.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

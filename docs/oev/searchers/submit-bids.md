@@ -1,21 +1,12 @@
 ---
 title: Submitting Bids for Oracle updates
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader:
-  Reference → OEV Network → Searchers → Submitting Bids for Oracle updates
-path: /oev/searchers/submit-bids.html
+pageHeader: OEV → Searchers
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Submitting Bids for Oracle updates
 
 The
 [OEV Searcher Starter Repository](https://github.com/api3dao/oev-searcher-starter)
@@ -348,8 +339,6 @@ const performOevUpdate = async (awardedTransaction) => {
   return updateTx;
 };
 ```
-
-<FlexEndTag />
 
 ## Submitting Fulfillment Transaction Hash
 

@@ -1,22 +1,12 @@
 ---
 title: Getting Started with dAPIs
-sidebarHeader: Guides
-sidebarSubHeader:
 pageHeader: dAPIs → Guides
-path: /dapis/guides/index.html
 outline: deep
-tags:
-  - dapis
-  - getting started
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Getting Started with dAPIs
 
 This is the getting started section for dAPIs along with some frequently asked
 questions. If you have a question that is not answered here, you can head over
@@ -138,5 +128,3 @@ gets updated when the price hits the set
 
 Read more about
 [Proxy Contracts](/dapis/reference/understand/proxy-contracts.md).
-
-<FlexEndTag/>

@@ -1,20 +1,12 @@
 ---
 title: dAPI Names
-sidebarHeader: dAPIs
-sidebarSubHeader: dAPIs
-pageHeader: Reference → dAPIs
-path: /dapis/reference/dapi-names.html
+pageHeader: dAPIs → Reference
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# dAPI Names
 
 A dAPI is a live data point associated with human readable `dapiName`. dAPI
 definitions simplify access and can return aggregated data feed (beacon) values
@@ -86,5 +78,3 @@ When you read with an ID, you will always read a value directly from a Beacon or
 Beacon set. Learn more about
 [dAPI Composition](/dapis/introduction/what-are-dapis.md).
  -->
-
-<FlexEndTag/>

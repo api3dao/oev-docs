@@ -1,20 +1,12 @@
 ---
 title: Auction Cycle
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader: Reference → OEV Network → Auction Cycle
-path: /oev/overview/auction-cycle.html
+pageHeader: OEV → Overview
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Auction Cycle
 
 The OEV Network uses an on-chain auction mechanism to facilitate the
 distribution of conditional oracle updates. The condition embedded in the oracle

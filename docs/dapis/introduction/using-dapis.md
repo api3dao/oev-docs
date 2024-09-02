@@ -1,20 +1,12 @@
 ---
 title: Using dAPIs in a dApp
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → dAPIs
-path: /dapis/introduction/using-dapis.html
+pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Using dAPIs in a dApp
 
 > <Video src="https://www.youtube.com/embed/FVI16FAJgjQ"/>
 
@@ -56,5 +48,3 @@ developers to:
 
 You can head to the [API3 Market](https://market.api3.org/dapis) to explore this
 further.
-
-<FlexEndTag/>

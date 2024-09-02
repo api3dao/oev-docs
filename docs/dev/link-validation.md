@@ -1,11 +1,7 @@
 ---
 title: Link Validation
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/link-validation.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>
@@ -20,7 +16,7 @@ The script is part of a three step process to keep the links in the docs clean.
 
 The three steps:
 
-1. `pnpm dev:build`: When doing a local build VitePress will valid markdown
+1. `pnpm docs:build`: When doing a local build VitePress will valid markdown
    links and does so very well. Fix them before proceeding. This step will also
    catch bad `src` paths for images. It does not validate anchors.
 2. Search the code base for `](#`. This will show markdown links that link

@@ -1,11 +1,7 @@
 ---
 title: Frontmatter
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/frontmatter.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>
@@ -20,13 +16,8 @@ search criteria. Below is the `$frontmatter` for this page.
 ```yaml
 ---
 title: Frontmatter
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/frontmatter.html
-version:
 outline: deep
-tags:
 ---
 ```
 
@@ -39,12 +30,6 @@ Most `$frontmatter` keys are required.
 (required) Sets the page's title. This title is not used by the sidebars which
 must provide a title for each page using the key `text`. They can be the same or
 different.
-
-### `sidebarHeader`
-
-(required) At the top of the sidebar is a text block (preceded by a folder
-image). This label represents a selection from the navbar or other hidden
-sections such as /dev or /operations.
 
 ### `sidebarSubHeader`
 

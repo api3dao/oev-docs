@@ -1,20 +1,12 @@
 ---
 title: Bridging to the OEV Network
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader: Reference → Overview → Bridging to the OEV Network
-path: /oev/overview/bridge-oev-network.html
+pageHeader: OEV → Overview
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Bridging to the OEV Network
 
 ## Network Details
 
@@ -46,5 +38,3 @@ Metamask wallet.
 
 Confirm the transaction in your wallet. Wait for it to bridge and you will see
 your ETH on OEV Network.
-
-<FlexEndTag/>

@@ -1,20 +1,12 @@
 ---
 title: Collateral And Protocol Fee
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader: Reference → OEV Network → Collateral And Protocol Fee
-path: /oev/searchers/collateral-protocol-fee.html
+pageHeader: OEV → Searchers
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Collateral And Protocol Fee
 
 In the context of the OEV Network's auction mechanism, collateral plays a
 critical role in ensuring that oracle updates get triggered upon being awarded.

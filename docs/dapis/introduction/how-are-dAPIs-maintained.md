@@ -1,20 +1,13 @@
 ---
 title: How are dAPIs maintained?
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → dAPIs
-path: /dapis/introduction/how-are-dAPIs-maintained.html
+pageHeader: dAPIs → Introduction
 outline: deep
 tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# How are dAPIs maintained?
 
 API3 composes dAPIs out of individual beacons and beacon sets, and provides them
 as turn-key data feed services. Users need not worry about the exact API
@@ -55,5 +48,3 @@ does not need to change the code itself, rather it only needs to use a different
 proxy address when calling the `read()` function on the proxy contract. If the
 dAPI interface has previously been imported, it abstracts away the technical
 implementation of accessing new data feeds.
-
-<FlexEndTag/>

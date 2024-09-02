@@ -1,20 +1,12 @@
 ---
 title: API3 DAO Welcomes Community Participation
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore
-path: /dapis/introduction/contributing.html
+pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# API3 DAO Welcomes Community Participation
 
 We think critical infrastructure, like API3 DAO's first-party oracles, should
 implement open and transparent contributor processes to align with our vision of
@@ -160,5 +152,3 @@ external contributors and diversity in thought is a strength.
 - Community Chat on [Telegram](https://t.me/API3DAO)
 - Developer Chat on [Discord](https://discord.gg/qnRrcfnm5W)
 - [YouTube Channel](https://www.youtube.com/channel/UCCpUthOhahxjdeX9T7t7nJQ)
-
-<FlexEndTag/>

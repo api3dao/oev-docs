@@ -1,20 +1,12 @@
 ---
 title: What are dAPIs?
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → dAPIs
-path: /dapis/introduction/what-are-dapis.html
+pageHeader: dAPIs → Overview
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# What are dAPIs?
 
 > <Video src="https://www.youtube.com/embed/wLZ4pyqAFuE"/>
 
@@ -89,5 +81,3 @@ using a proxy contract:
 
 - [Subscribe and activate a dAPI](/dapis/guides/subscribing-to-dapis/)
 - [Read a dAPI Proxy](/dapis/guides/read-a-dapi/)
-
-<FlexEndTag/>

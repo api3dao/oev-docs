@@ -1,20 +1,12 @@
 ---
 title: API3 Market
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → About our journey!
-path: /dapis/introduction/market.html
+pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# API3 Market
 
 API3 has developed an oracle solution that simplifies how smart contracts can
 interact with real-world data. As such we believe it is equally as important the
@@ -69,5 +61,3 @@ coming months.
 While the API3 Market UI is intuitive, follow this
 [simple guide](/dapis/guides/subscribing-self-funded-dapis/) to sponsor,
 activate and read a self-funded dAPI.-->
-
-<FlexEndTag/>

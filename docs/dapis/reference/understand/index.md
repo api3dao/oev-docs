@@ -1,20 +1,12 @@
 ---
 title: dAPIs
-sidebarHeader: dAPIs
-sidebarSubHeader: dAPIs
-pageHeader: Reference → dAPIs → Understanding dAPIs
-path: /dapis/reference/understand/index.html
+pageHeader: dAPIs → Reference
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# dAPIs
 
 dAPIs are on-chain data feeds sourced from off-chain first-party oracles owned
 and operated by API providers themselves and are continuously updated using
@@ -126,5 +118,3 @@ to choose from based on the chain and dAPI:
 
 See the guide [Subscribing to dAPIs](/dapis/guides/subscribing-to-dapis/) and
 learn more on how to access dAPIs.
-
-<FlexEndTag/>

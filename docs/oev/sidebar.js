@@ -4,6 +4,11 @@ module.exports = [
     collapsed: false,
     items: [
       {
+        text: 'Oracle Extractable Value ',
+        link: '/oev/overview/oracle-extractable-value',
+      },
+
+      {
         text: 'OEV Capture',
         link: '/oev/',
       },
@@ -34,7 +39,7 @@ module.exports = [
         link: '/oev/searchers/submit-bids',
       },
       {
-        text: 'Argument Reference',
+        text: 'Argument and Constants',
         link: '/oev/searchers/arguments',
       },
 

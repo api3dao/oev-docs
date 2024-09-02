@@ -1,20 +1,12 @@
 ---
 title: Security Considerations
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → dAPIs
-path: /dapis/introduction/security-considerations.html
+pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Security Considerations
 
 There are various moving parts in the operation of dAPIs which bring with it a
 variety of security considerations. When using dAPIs integrating parties should
@@ -51,5 +43,3 @@ configuration is purchased.
 It is important that no central authority has the opportunity to impact the
 delivery of a dAPI's value. API3 is committed to keep the beacon sets behind a
 dAPI updated in a completely decentralized fashion.
-
-<FlexEndTag/>

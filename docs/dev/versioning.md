@@ -1,11 +1,7 @@
 ---
 title: Airnode/OIS Versioning
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/versioning.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

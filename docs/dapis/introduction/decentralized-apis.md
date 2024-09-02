@@ -1,20 +1,12 @@
 ---
 title: Decentralized APIs (dAPIs)
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → About our journey!
-path: /dapis/introduction/decentralized-apis.html
+pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Decentralized APIs (dAPIs)
 
 dAPIs are on-chain data feeds sourced from off-chain first-party oracles owned
 and operated by API providers themselves. dAPIs provide DeFi with a secure and
@@ -72,5 +64,3 @@ update. Our data partners also add their Airnode address to their DNS records.
 
 This means their oracle node can be verified through cryptographic signatures,
 optimizing the security of price feed operation.
-
-<FlexEndTag/>

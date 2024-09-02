@@ -1,20 +1,12 @@
 ---
 title: ID and Name Schemes
-sidebarHeader: dAPIs
-sidebarSubHeader: dAPIs
-pageHeader: Reference → dAPIs
-path: /dapis/reference/schemes.html
+pageHeader: dAPIs → Reference
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# ID and Name Schemes
 
 An Airnode places the value of a data feed on-chain into a beacon. Therefore
 beacons are the on-chain persistent state of a data feed value.
@@ -58,5 +50,3 @@ Beacon's value with a function such as
 [readDataFeedWithId()](/dapis/reference/functions/read-data-feed-with-id.md),
 the `beaconId` is needed.
 -->
-
-<FlexEndTag/>

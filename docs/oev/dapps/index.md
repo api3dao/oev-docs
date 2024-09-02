@@ -1,20 +1,12 @@
 ---
 title: dApp Onboarding
-sidebarHeader: OEV
-sidebarSubHeader: OEV
-pageHeader: Reference → OEV -> dApps
-path: /oev/dapps/index.html
+pageHeader: OEV -> dApps
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# dApp Onboarding
 
 OEV auctions operate as a supplementary service to regular data feed operations,
 ensuring that updates persist through the oracle even during OEV Network
@@ -54,5 +46,3 @@ Please refer to the following guide on how to read from a proxy contract:
 By integrating OEV auctions as a supplementary service, developers can ensure a
 seamless transition between oracle updates and OEV opportunities while
 maintaining the desired distribution of proceeds.
-
-<FlexEndTag/>

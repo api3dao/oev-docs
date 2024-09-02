@@ -1,11 +1,7 @@
 ---
 title: VitePress Containers
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/containers.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

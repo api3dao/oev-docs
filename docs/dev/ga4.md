@@ -1,11 +1,7 @@
 ---
 title: Google Analytics
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/ga4.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

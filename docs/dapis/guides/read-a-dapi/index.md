@@ -1,11 +1,7 @@
 ---
 title: Reading a dAPI proxy
-sidebarHeader: Guides
-sidebarSubHeader:
-pageHeader: Guides → dAPIs
-path: /dapis/guides/read-a-dapi/index.html
+pageHeader: dAPIs → Guides
 outline: deep
-tags:
 ---
 
 <!-- https://blog.chain.link/smart-contract-call-another-smart-contract/ -->
@@ -14,11 +10,7 @@ tags:
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Reading a dAPI proxy
 
 This guide requires a proxy contract address for a particular dAPI you are
 interested in. You can find them in the [API3 Market](https://market.api3.org)
@@ -111,5 +103,3 @@ For additional information on how to read from a dAPI proxy, please refer to the
 [datafeed-reader-example](https://github.com/api3dao/data-feed-reader-example)
 repository which contains a hardhat project with a sample smart contract that
 reads from a dAPI proxy.
-
-<FlexEndTag/>

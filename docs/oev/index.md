@@ -1,20 +1,12 @@
 ---
 title: OEV capture with dAPIs
-sidebarHeader: OEV
-sidebarSubHeader:
-pageHeader: Explore → dAPIs
-path: /dapis/introduction/OEV.html
+pageHeader: OEV → Overview
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# OEV capture with dAPIs
 
 Oracle extractable value (OEV) refers to oracles making use of their position to
 capture value that would otherwise have gone to third parties.
@@ -58,5 +50,3 @@ optimal market making protocol for apps that use oracles. Better market making
 from a dApps LPs creates a flywheel effect of drawing more liquidity to the
 application while being able to lower fees and list more assets, which then
 attracts more users and volume.
-
-<FlexEndTag/>

@@ -1,20 +1,12 @@
 ---
 title: Argument and Constants
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader: Reference → OEV Network → Searchers → Argument Reference
-path: /oev/searchers/arguments.html
+pageHeader: OEV → Searchers
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Argument and Constants
 
 ### Proxy Address
 
@@ -70,5 +62,3 @@ const bidDetails = abiCoder.encode(
   ]
 );
 ```
-
-<FlexEndTag />;

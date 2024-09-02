@@ -1,11 +1,7 @@
 ---
 title: DocSets
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/docsets.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

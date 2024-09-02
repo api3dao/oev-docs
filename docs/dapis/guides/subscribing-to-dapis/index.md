@@ -1,20 +1,12 @@
 ---
 title: Subscribing to dAPIs
-sidebarHeader: Guides
-sidebarSubHeader:
-pageHeader: Guides → dAPIs
-path: /dapis/guides/subscribing-to-dapis/index.html
+pageHeader: dAPIs → Guides
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Subscribing to dAPIs
 
 [dAPIs](/dapis/introduction/using-dapis.md#managed-dapis) are datafeeds that are
 sourced directly from multiple
@@ -111,5 +103,3 @@ You can now use this to read from the configured dAPI.
 
 To get started with using dAPIs, you can follow the
 [Reading a dAPI Proxy guide](/dapis/guides/read-a-dapi/).
-
-<FlexEndTag/>

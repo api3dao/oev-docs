@@ -1,11 +1,7 @@
 ---
 title: Rosetta, Nodejs, esbuild
-sidebarHeader: Docs Development
-sidebarSubHeader:
 pageHeader: Docs Development
-path: /dev/rosetta.html
 outline: deep
-tags:
 ---
 
 <PageHeader/>

@@ -1,20 +1,12 @@
 ---
 title: OEV Network
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader: Reference → OEV Network
-path: /oev/index.html
+pageHeader: OEV → Overview
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# OEV Network
 
 ![Auction Cycle](/oev/overview/assets/oev-network.png)
 
@@ -43,5 +35,3 @@ updates the data feed, ensuring immediate value return to the dApp, the data
 providers, and the creators of the dAPIs and the OEV Network itself, API3. This
 approach not only improves the efficiency of oracle operations but also
 distributes the extracted value more equitably among participants.
-
-<FlexEndTag/>

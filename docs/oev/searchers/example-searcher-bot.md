@@ -1,20 +1,12 @@
 ---
 title: Example Searcher Bot
-sidebarHeader: OEV
-sidebarSubHeader: OEV Network
-pageHeader: Reference → OEV Network → Searchers → Example Searcher Bot
-path: /oev/searchers/example-searcher-bot.html
+pageHeader: OEV → Searchers
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Example Searcher Bot
 
 To experience the OEV extraction process, we've prepared an example bot that
 implements all of the steps discussed in the docs to capture OEV liquidations

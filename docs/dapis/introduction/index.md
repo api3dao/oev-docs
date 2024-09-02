@@ -1,20 +1,12 @@
 ---
 title: Getting started with API3
-sidebarHeader: dAPIs
-sidebarSubHeader:
-pageHeader: Explore → About our journey!
-path: /dapis/introduction/index.html
+pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
 
-<SearchHighlight/>
-
-<FlexStartTag/>
-
-# {{$frontmatter.title}}
+# Getting started with API3
 
 [API3](https://api3.org) is a collaborative project to deliver traditional API
 services to smart contract platforms in a decentralized and trust-minimized way.
@@ -106,5 +98,3 @@ on-chain.
 When data served from Airnode is served directly from the source to the chain
 with cryptographic signatures. When used in DeFi this enhances the security of
 the price feed due to the optimized transparency.
-
-<FlexEndTag/>
