@@ -24,9 +24,8 @@ the `beaconId` based on the specification of the dAPI. Providers also update the
 `beaconId` at a higher deviation threshold/heartbeat as a fallback.
 
 To verify that the Airnode address of a `beaconId` belongs to the provider
-listed in the market, refer to the
-[Verify Airnode Addresses](/reference/airnode/latest/developers/verify-airnode-addresses.md)
-section.
+listed in the market, refer to the specific feed on the
+[API3 Market](https://market.api3.org/).
 
 ## Verifying beaconId
 
@@ -34,7 +33,7 @@ The `templateId` is calculated by taking the hash of the `encodedParameters` and
 `endpointId`.
 
 Following is an `ethers.js` v5 script to derive the `templateId` (you need
-[`@airnode-abi`](/reference/airnode/latest/packages/airnode-abi.md) installed):
+[`@airnode-abi`](https://www.npmjs.com/package/@api3/airnode-abi) installed):
 
 ```javascript
 import { encode } from '@api3/airnode-abi';

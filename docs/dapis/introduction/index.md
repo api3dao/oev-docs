@@ -21,7 +21,7 @@ provide developers with an easy way to access off-chain resources from within
 their smart contracts, without having to worry about the security and trust
 implications of doing so.
 
-### Within this introduction of API3 we will explore;
+### Within this introduction of API3 we will explore:
 
 - APIs within the blockchain
 - Airnode & First-party oracles
@@ -83,10 +83,8 @@ Web3, hundreds of Airnodes have been deployed.
 <img src="../assets/images/04-Airnode_Design_Philosophy.png" style="width:400px">
 
 Airnode also has range of common features built into it. These include
-implementations such as pre and post processing,
-[authentication](/reference/airnode/latest/concepts/relay-meta-auth.md), or
-[authorizations](/reference/airnode/latest/concepts/authorizations.md), to name
-a few.
+implementations such as pre and post processing, authentication, or
+authorizations, to name a few.
 
 ### Operated by the data provider
 

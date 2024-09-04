@@ -252,10 +252,10 @@ tolerate and specify them in the arguments.
 
 | Argument             | Type    | Description                                                                                  |
 | -------------------- | ------- | -------------------------------------------------------------------------------------------- |
-| bidTopic             | bytes32 | [Bid topic](./arguments.md#bidtopic)                                                         |
+| bidTopic             | bytes32 | [Bid topic](./arguments.md#bidtopic-bytes32)                                                 |
 | chainId              | uint256 | Chain ID                                                                                     |
 | bidAmount            | uint256 | Bid amount in the native currency of the chain where the proxy is deployed                   |
-| bidDetails           | bytes   | [Bid details](./arguments.md#biddetails---bytes)                                             |
+| bidDetails           | bytes   | [Bid details](./arguments.md#biddetails-bytes)                                               |
 | maxCollateralAmount  | uint256 | Maximum collateral amount in the currency of the chain that OevAuctionHouse is deployed on   |
 | maxProtocolFeeAmount | uint256 | Maximum protocol fee amount in the currency of the chain that OevAuctionHouse is deployed on |
 
