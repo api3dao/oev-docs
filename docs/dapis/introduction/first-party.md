@@ -2,7 +2,6 @@
 title: What are first-party oracles?
 pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
@@ -24,8 +23,7 @@ requests to the oracle and receive responses.
 Moving beyond the RRP protocol, certain protocols may be more appropriate
 depending on how an oracle node is being utilized such as for data feeds, which
 have values stored on-chain. In fact data feeds are what dApp owners desire the
-most. API3 provides data feeds know as
-[dAPIs](/dapis/introduction/what-are-dapis.md).
+most. API3 provides data feeds know as [dAPIs](/dapis/introduction/index.md).
 
 The tough question that comes into play, who owns and operates the oracle?
 

@@ -31,16 +31,6 @@ Most `$frontmatter` keys are required.
 must provide a title for each page using the key `text`. They can be the same or
 different.
 
-### `sidebarSubHeader`
-
-(required for Airnode and OIS) In the case of the navbar selection
-**Reference**, there are sub-selections such as Airnode, OIS, dAPIs, etc.
-
-### `pageHeader`
-
-(required) Supplies the text used on each page above the `$frontmatter.title`.
-This is a breadCrumb trail without the links.
-
 ### `path`
 
 (required) The path to the page. The path is used by the search engine as a

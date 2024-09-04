@@ -15,11 +15,9 @@ to our [Discord server](https://discord.com/invite/qnRrcfnm5W).
 ## What are dAPIs?
 
 dAPIs are on-chain decentralized data feeds sourced directly from
-[first-party oracles](/dapis/airnode/why-first-party-oracles.md) owned and
-operated by API providers themselves (using
-[Airnode](/reference/airnode/latest/understand/)) and are continuously updated
-using [signed data](/reference/airnode/latest/understand/http-gateways.md). dApp
-owners can read the on-chain value of any dAPI in real-time.
+[first-party oracles](/dapis/introduction/first-party.md) owned and operated by
+API providers themselves (using Airnode) and are continuously updated using
+signed data. dApp owners can read the on-chain value of any dAPI in real-time.
 
 dAPIs serve a variety of data feeds, such as latest cryptocurrency, stock, and
 commodity prices. They can power various decentralized applications such as DeFi
@@ -42,10 +40,9 @@ Check out the API3 Market [here](https://market.api3.org/).
 
 ## How do dAPIs and OEV work?
 
-[dAPIs](/dapis/reference/understand/managed.md) are sourced directly from
-multiple [first-party](/dapis/airnode/why-first-party-oracles.md) data providers
-running an Airnode and aggregated using their
-[Airnode's signed data](/reference/airnode/latest/understand/http-gateways.md).
+dAPIs are sourced directly from multiple
+[first-party](/dapis/introduction/first-party.md) data providers running an
+Airnode and aggregated using their Airnode's signed data.
 
 Users also get the option to configure the
 [deviation threshold](/dapis/reference/understand/deviations.md) and
@@ -102,7 +99,7 @@ You can get the `proxyAddress` for activated dAPIs from within the data feed
 dashboard through the [API3 Market](https://market.api3.org/).
 
 To read more about reading a dAPI value,
-[click here](/dapis/guides/read-a-dapi/).
+[click here](/dapis/guides/read-a-dapi/index.md).
 
 ## Data providers for dAPIs
 

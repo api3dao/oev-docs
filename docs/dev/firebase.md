@@ -35,9 +35,5 @@ OR
 ```sh
 pnpm docs:build
 
-pnpm flex:build
-
-pnpm flex:test
-
 firebase emulators:start
 ```

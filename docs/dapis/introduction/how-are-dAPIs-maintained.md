@@ -2,7 +2,6 @@
 title: How are dAPIs maintained?
 pageHeader: dAPIs → Introduction
 outline: deep
-tags:
 ---
 
 <PageHeader/>
@@ -37,8 +36,7 @@ in a dApp contract to start reading from the dAPIs.
 <img src="../assets/images/dAPI_explainer.png" style="width:500px">
 
 The `API3ServerV1.sol` contract reads directly from its data store of beacons,
-which are powered by API provider-operated
-[Airnodes](/reference/airnode/latest/understand/). Thus proxies allow dAPIs to
+which are powered by API provider-operated Airnodes. Thus proxies allow dAPIs to
 be used like libraries. The smart contract only needs to
 [import the interface](/dapis/guides/read-a-dapi/index.md#_2-read-a-dapi) for
 calling the proxy contract.

@@ -6,5 +6,15 @@
   "/api3-whitepaper-v1.0.3.pdf",
   "https://eth-goerli.gateway.pokt.network/v1/lb/",
   "https://api3.eth/",
-  "https://www.infura.io/"
+  "https://bscscan.com",
+  "https://basescan.org",
+  "https://polygonscan.com",
+  "https://oev.rpc.api3.org",
+  "https://mumbai.polygonscan.com/",
+  "https://sepolia.basescan.org",
+  "https://testnet.bscscan.com/",
+  "https://opbnb-testnet.bscscan.com",
+  "https://opbnb.bscscan.com",
+  "https://explorermainnet.zircuit.com",
+  "https://www.infura.io"
 ]

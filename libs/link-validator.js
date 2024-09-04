@@ -11,7 +11,7 @@ const axios = require('axios');
 const walkSync = require('walk-sync');
 
 /**
- * node ./libs/link-validator.js  http://127.0.0.1:8082  ./docs/.vitepress/dist/airnode/
+ * node ./libs/link-validator.js  http://127.0.0.1:8082  ./docs/.vitepress/dist/
  * Gather args
  * [2] (baseURL) the target URL (http://localhost:8080) for link verification.
  * [3] (distDir) is the sub-directory (usually dist) with the html docs. If /dist is

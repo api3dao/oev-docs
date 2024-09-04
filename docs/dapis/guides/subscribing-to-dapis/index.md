@@ -8,12 +8,11 @@ outline: deep
 
 # Subscribing to dAPIs
 
-[dAPIs](/dapis/introduction/using-dapis.md#managed-dapis) are datafeeds that are
-sourced directly from multiple
-[first-party oracles](/dapis/airnode/why-first-party-oracles) and aggregated
-using Signed data. It utilizes first-party oracles, enabling data to be served
-directly from reputable API providers. This guide will walk you through the
-process of subscribing to a dAPI.
+[dAPIs](/dapis/introduction/using-dapis.md) are datafeeds that are sourced
+directly from multiple [first-party oracles](/dapis/introduction/first-party.md)
+and aggregated using Signed data. It utilizes first-party oracles, enabling data
+to be served directly from reputable API providers. This guide will walk you
+through the process of subscribing to a dAPI.
 
 ## API3 Market
 

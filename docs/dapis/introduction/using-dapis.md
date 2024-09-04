@@ -10,11 +10,10 @@ outline: deep
 
 > <Video src="https://www.youtube.com/embed/FVI16FAJgjQ"/>
 
-As outlined on the page
-[What are dAPIs?](/dapis/introduction/what-are-dapis.md), API3 has created a
-unified, user-friendly implementation that is designed to simplify the process
-of obtaining data feed services. The API3 Market enables dApp owners to connect
-to a decentralized API and access its data feeds.
+As outlined on the page [What are dAPIs?](/dapis/guides/index.md), API3 has
+created a unified, user-friendly implementation that is designed to simplify the
+process of obtaining data feed services. The API3 Market enables dApp owners to
+connect to a decentralized API and access its data feeds.
 
 ## A Next Generation Push Oracle
 

@@ -39,7 +39,7 @@ has a more recent timestamp than the last searcher update, the data point from
 
 Please refer to the following guide on how to read from a proxy contract:
 
-- [Reading a dAPI Proxy](/oev/dapis/read-a-dapi/)
+- [Reading a dAPI Proxy](/dapis/guides/read-a-dapi/index.md)
 
 :::
 
