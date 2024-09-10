@@ -4,7 +4,7 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'Oracle Extractable Value',
+        text: 'OEV',
         link: '/oev/',
       },
       {

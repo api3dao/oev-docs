@@ -1,28 +1,74 @@
 ---
-title: OEV capture with dAPIs
+title: OEV
 pageHeader: OEV → Overview
 outline: deep
 ---
 
 <PageHeader/>
 
-# OEV capture with dAPIs
+# What is OEV?
 
 Oracle Extractable Value (OEV) is a subset of Maximal Extractable Value (MEV)
-that occurs within on-chain liquidations. Currently, liquidations in lending
-markets are very inefficient with significant amounts of collateral being passed
-to block producers (validators). The OEV Network is a solution that makes
-liquidations more efficient by just using a dAPI price feed.
+that occurs as a result of an oracle update. The idea is that not all oracle
+updates are the same. Some oracle updates expose opportunities on the market
+which can be captured by "searchers". Searchers monitor the market for
+profitable opportunities and compete with each other to realize them the first -
+paying the majority of the exposed value to block validators in the process.
+This dynamics is unhealthy, because the majority of the value should be split
+between the dApp and the searcher who realized the the opportunity.
 
-## What is OEV?
+OEV aims to solve this problem by auctioning off the exclusive right to execute
+the oracle update(s), allowing the winner to atomically update the price feed(s)
+and capture the opportunity on the market. The searcher can pay small gas fees,
+because they are guaranteed the exclusive update rights. On the other hand, the
+auction proceeds are distributed back to the dApp which created this
+opportunity.
 
-Any update to data feeds, or a lack thereof, can create opportunities for OEV
-such as arbitrage and liquidations. During each of these interactions value is
-leaking from the dApp users to both searchers and blockchain validators. Learn
-more about OEV in a summary of the
+With OEV the searcher can announce the the desire for a particular oracle update
+along with the amount willing to pay for it. There is an open auction, bound by
+certain rules, which selects the winner. The winner must pay the announced
+amount and as a result is able to use the oracle update to capture the
+opportunity.
+
+Learn more about OEV in a summary of the
 [OEV Litepaper](https://medium.com/api3/oracle-extractable-value-oev-13c1b6d53c5b).
 
+::: info
+
+**Basic Example**
+
+Imagine a basic overcollateralized lending platform, which uses an oracle for
+it's price feeds to ensure the price remains up-to-date. Borrowers of the
+protocol can be liquidated with some incentive if their position becomes
+unhealthy to ensure the protocol remains solvent. Say liquidations can occur if
+the loan-to-value ration is over 90%. Let's look what happens with protocol's
+health in time.
+
+Assume that initially there are no unhealthy positions. Many of the price feed
+updates that happen are "unnecessary", because they don't expose and unhealthy
+positions and the protocol remains healthy. However, say in time there a price
+drop, that causes many of the positions which used that asset as collateral to
+get close to the 90% liquidation threshold.
+
+The price update that causes a position to become unhealthy has some intrinsic
+value. From the protocol's perspective, this affects it's solvency and presents
+a threat. On the other hand, for searcher this poses a profitable opportunity.
+The intrinsic value of the price update is equal to the profit the searcher can
+make - the liquidation incentive minus the operational gas costs.
+
+Searcher monitors the dApp and sees that this opportunity is soon to become
+unhealthy. They announce that they want to execute the price feed update and pay
+X in return. They win the auction, pay X and make the oracle update and
+liquidation atomically.
+
+The concept of OEV is not tailored to liquidations only, but can occur anywhere
+where price feed updates such as arbitrage and many more.
+
+:::
+
 ## Leveraging OEV alongside dAPIs
+
+<!-- TODO: Refactor this section -->
 
 Integrating OEV-enabled data feeds can turn this fee previously being imposed on
 your users into a powerful economic incentive for your protocol. With the OEV
@@ -53,7 +99,6 @@ optimal market making protocol for apps that use oracles. Better market making
 from a dApps LPs creates a flywheel effect of drawing more liquidity to the
 application while being able to lower fees and list more assets, which then
 attracts more users and volume.
-
 
 ## Understanding the problem
 
