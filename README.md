@@ -5,7 +5,21 @@ This technical documentation is a fork of the official
 OEV-related documentation here privately then merge into the official repo when
 ready.
 
-## Firebase
+## Instructions
+
+To install deps:
+
+```sh
+pnpm install
+```
+
+and to run in dev mode:
+
+```sh
+pnpm run docs:dev
+```
+
+## Deployment
 
 Firebase is used to host the `oev-docs` technical documentation. A preview
 deployment is generated for every PR, while the main deployment is updated with
