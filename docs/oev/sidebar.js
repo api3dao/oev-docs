@@ -4,12 +4,7 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'Oracle Extractable Value ',
-        link: '/oev/overview/oracle-extractable-value',
-      },
-
-      {
-        text: 'OEV Capture',
+        text: 'Oracle Extractable Value',
         link: '/oev/',
       },
       {
