@@ -34,9 +34,6 @@ certain rules, which selects the winner. The winner must pay the announced
 amount and as a result is able to use the oracle update to capture the
 opportunity.
 
-For an in-depth understanding of OEV, we suggest reading the
-[OEV Litepaper](https://raw.githubusercontent.com/api3dao/oev-litepaper/main/oev-litepaper.pdf).
-
 ::: info
 
 **Basic Example**
@@ -69,6 +66,22 @@ The concept of OEV is not tailored to liquidations only, but can occur anywhere
 where price feed updates occur, such as arbitrage and many more.
 
 :::
+
+## Benefits of OEV
+
+OEV offers advantages to various stakeholders in the ecosystem:
+
+1. For dApps:
+
+   - Receive a major share of the value generated from their protocol's oracle
+     updates.
+   - Improved efficiency, stability and granularity of price feeds.
+
+2. For Searchers:
+
+   - Guaranteed exclusive update rights.
+   - Ability to pay lower gas fees due to lack of competition for a specific
+     update.
 
 ## Leveraging OEV alongside dAPIs
 
@@ -123,3 +136,20 @@ the bid amount.
 
 To learn more about the OEV Network, refer to the
 [OEV Network documentation](/oev/overview/oev-network).
+
+## Get Involved with OEV
+
+Ready to optimize your dApp's oracle updates and capture more value? Or looking
+to utilize OEV network and start searching? Here's how you can get started with
+OEV:
+
+<!-- TODO: Update discord and Twitter link -->
+
+1. Learn More: Dive deeper into OEV by reading the
+   [OEV Litepaper](https://raw.githubusercontent.com/api3dao/oev-litepaper/main/oev-litepaper.pdf).
+2. Explore Integration: Check out our [integration guide](/dapis/guides/) to see
+   how you can implement OEV in your dApp.
+3. Join the Community: Connect with other developers and OEV enthusiasts in our
+   [Discord channel](#).
+4. Stay Updated: Follow API3 on [Twitter](#) for the latest news and updates on
+   OEV.
