@@ -12,10 +12,6 @@ module.exports = [
         link: '/oev/overview/oev-network',
       },
       {
-        text: 'OEV Playground',
-        link: '/oev/overview/oev-playground',
-      },
-      {
         text: 'Auction Cycle',
         link: '/oev/overview/auction-cycle',
       },
