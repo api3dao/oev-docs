@@ -83,21 +83,6 @@ OEV offers advantages to various stakeholders in the ecosystem:
    - Ability to pay lower gas fees due to lack of competition for a specific
      update.
 
-<!-- TODO: Move this to the dApps section -->
-
-## Leveraging OEV alongside dAPIs
-
-The prerequisite to leveraging OEV is to use API3's decentralized APIs (dAPIs).
-To learn more about how dAPIs work, please refer to the
-[dAPIs documentation](/dapis/).
-
-Integrating OEV dAPIs requires no code changes to the protocol. This is
-accomplished by a [proxy contract](/oev/dapps/#proxy-contract). Searchers who
-win the auction are able to update the data feed to the up-to-date value, which
-can be read by the dApp through this proxy. There is a distinction between
-regular updates (performed by API3 push oracle) and the OEV updates (performed
-by the searcher).
-
 ### OEV proceeds distribution
 
 For a searcher to be able to update the data feed, they must pay the adequate
