@@ -124,6 +124,8 @@ MEV-Boost.
 We use a combination of OEV Network and OEV Auctioneer to power the OEV Auctions
 in a secure and transparent way.
 
+<!-- TODO: Mention audits -->
+
 To learn more about the OEV auctions, refer to the
 [OEV auctions documentation](/oev/overview/auction-cycle).
 
