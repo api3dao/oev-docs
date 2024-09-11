@@ -41,7 +41,7 @@ OEV Network can be added as a custom network to an EVM compatible wallet.
 | Block Explorer URL | https://oev.explorer.api3.org/ |
 | Bridge URL         | https://oev.bridge.api3.org/   |
 
-### Bridge
+## Bridging ETH
 
 Use the [OEV Network Bridge](https://oev.bridge.api3.org/) to bridge your ETH to
 the OEV Network. Bridging is only possible from ETH mainnet.
