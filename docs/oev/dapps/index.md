@@ -6,6 +6,8 @@ outline: deep
 
 <PageHeader/>
 
+<!-- TODO: Explain dApp ID -->
+
 # dApp Onboarding
 
 OEV auctions operate as a supplementary service to regular data feed operations,

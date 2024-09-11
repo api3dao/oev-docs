@@ -83,6 +83,8 @@ OEV offers advantages to various stakeholders in the ecosystem:
    - Ability to pay lower gas fees due to lack of competition for a specific
      update.
 
+<!-- TODO: Move this to the dApps section -->
+
 ## Leveraging OEV alongside dAPIs
 
 The prerequisite to leveraging OEV is to use API3's decentralized APIs (dAPIs).
@@ -114,29 +116,52 @@ which will be responsible for distributing the funds.
 
 <!-- TODO: Document auto BD here -->
 
-## The OEV components
+## How Auctions work?
 
 API3 has delivered a specialized Order Flow Auction (OFA) that maximizes the
 value returned to your dApp from OEV through a sealed bid on-chain auction
 process similar to the one you might be familiar with from Flashbots and
 MEV-Boost.
 
+<!-- TODO: Mention audits -->
+
 We use a combination of OEV Network and OEV Auctioneer to power the OEV Auctions
 in a secure and transparent way.
 
-<!-- TODO: Mention audits -->
+At a high level, auctions are running separately for each dApp. Auctions repeat
+indefinitely in "rounds", that take fixed amount of time. Participants place
+bids during these rounds and announce a bid amount they're willing to pay. When
+the auction ends, the highest bidder is announced as the winner of the auction
+round and provided a signature. The signature gives them exclusive rights to
+update any price feed(s) for the dApp for a limited amount of time. Each time an
+auction round ends, a new one is started and the same process repeats.
 
-To learn more about the OEV auctions, refer to the
-[OEV auctions documentation](/oev/overview/auction-cycle).
+After auction winner updates fulfill their duties by updating the price feed(s)
+and capturing the OEV, they need to report it back to OEV network. If they fail
+to do so, part of their collateral gets slashed. This is an important security
+aspect to prevent denying OEV recapture by withholding updates.
+
+### dApp IDs
+
+Each dApp that uses OEV feeds is assigned an unique ID, call "dApp ID". The
+granularity of auctions is at the dApp level. All of the dApp proxies use the
+same dApp ID.
+
+::: info
+
+The auction winner may update single, multiple or all proxies with the same dApp
+before capturing the OEV opportunity. The ID has no other meaning other than to
+group proxies of the same dApp together.
+
+:::
 
 ### OEV Network
 
-The OEV Network is an Arbitrum Nitro L2 hosting these auctions in a transparent
-way, ensuring any disputes can be resolved by looking at the on-chain data. All
-participants submit their bids on-chain, where the winner is announced and given
-the exclusive rights to execute the oracle update. All of the auction steps can
-be verified by looking at the on-chain data, ensuring honest and transparent
-auctions.
+The OEV Network is hosting auctions in a transparent way, ensuring any disputes
+can be resolved by looking at the on-chain data. All participants submit their
+bids on-chain, where the winner is announced and given the exclusive rights to
+execute the oracle update. All of the auction steps can be verified by looking
+at the on-chain data, ensuring honest and transparent auctions.
 
 To learn more about the OEV Network, refer to the
 [OEV Network documentation](/oev/overview/oev-network).

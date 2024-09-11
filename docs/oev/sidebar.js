@@ -8,16 +8,16 @@ module.exports = [
         link: '/oev/',
       },
       {
-        text: 'Auction Cycle',
-        link: '/oev/overview/auction-cycle',
-      },
-      {
         text: 'OEV Network',
         link: '/oev/overview/oev-network',
       },
       {
         text: 'OEV Auctioneer',
         link: '/oev/overview/oev-auctioneer',
+      },
+      {
+        text: 'Auction Cycle',
+        link: '/oev/overview/auction-cycle',
       },
     ],
   },
