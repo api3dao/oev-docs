@@ -96,7 +96,7 @@ can be read by the dApp through this proxy. There is a distinction between
 regular updates (performed by API3 push oracle) and the OEV updates (performed
 by the searcher).
 
-### Capturing OEV proceeds
+### OEV proceeds distribution
 
 For a searcher to be able to update the data feed, they must pay the adequate
 bid amount, which they announced in the auction. In return, they get exclusive
