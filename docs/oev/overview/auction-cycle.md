@@ -8,6 +8,8 @@ outline: deep
 
 # Auction Cycle
 
+TODO: Fix outdated content
+
 The OEV Network uses an on-chain auction mechanism to facilitate the
 distribution of conditional oracle updates. The condition embedded in the oracle
 update is the value that the searcher is willing to pay to for the update to the

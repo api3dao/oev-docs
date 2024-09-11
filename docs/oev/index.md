@@ -114,12 +114,20 @@ which will be responsible for distributing the funds.
 
 <!-- TODO: Document auto BD here -->
 
-## The OEV Network
+## The OEV components
 
 API3 has delivered a specialized Order Flow Auction (OFA) that maximizes the
 value returned to your dApp from OEV through a sealed bid on-chain auction
 process similar to the one you might be familiar with from Flashbots and
 MEV-Boost.
+
+We use a combination of OEV Network and OEV Auctioneer to power the OEV Auctions
+in a secure and transparent way.
+
+To learn more about the OEV auctions, refer to the
+[OEV auctions documentation](/oev/overview/auction-cycle).
+
+### OEV Network
 
 The OEV Network is an Arbitrum Nitro L2 hosting these auctions in a transparent
 way, ensuring any disputes can be resolved by looking at the on-chain data. All
@@ -128,14 +136,19 @@ the exclusive rights to execute the oracle update. All of the auction steps can
 be verified by looking at the on-chain data, ensuring honest and transparent
 auctions.
 
+To learn more about the OEV Network, refer to the
+[OEV Network documentation](/oev/overview/oev-network).
+
+### OEV Auctioneer
+
 A key component to OEV is an off-chain auction system that processes the
 auctions happening on the OEV network. We call this system the OEV Auctioneer,
-which is managed by the API3 DAO. The honesty of OEV Auctioneer is ensured by
+and it is managed by the API3 DAO. The honesty of OEV Auctioneer is ensured by
 using OEV Network for all important actions, such as announcing the winner and
 the bid amount.
 
-To learn more about the OEV Network, refer to the
-[OEV Network documentation](/oev/overview/oev-network).
+To learn more about the OEV Auctioneer, refer to the
+[OEV Auctioneer documentation](/oev/overview/oev-auctioneer).
 
 ## Get Involved with OEV
 
