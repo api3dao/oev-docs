@@ -11,17 +11,21 @@ outline: deep
 ![OEV Network image](/oev/overview/assets/oev-network.png)
 
 The OEV Network is an open marketplace designed to facilitate the distribution
-of oracle updates. Operating as an optimistic-rollup, the system ensures
-transparency and allows verification of auction process. In this marketplace,
-OEV searchers place bids for the exclusive opportunity to update a dAPIs for a
-short period of time.
+of oracle updates. Operating as an Arbitrum Nitro L2 optimistic-rollup, the
+system ensures transparency and allows verification of auction process. In this
+marketplace, OEV searchers place bids for the exclusive opportunity to update a
+dAPIs for a short period of time.
 
-An auction on the OEV Network signals two things: a dAPI's data suggests a
-potentially valuable action (such as a liquidation in a lending dApp) that has
-not yet been reflected on-chain, and an update has not yet occurred. By
-facilitating updates through this auction system, the OEV Network enhances the
-accuracy and responsiveness of dAPIs, ensuring that updates are made when most
-needed.
+By hosting the auctions on the on-chain, we address two of big issues:
+
+1. Scalability - The OEV network hosts auctions across different dApps across
+   multiple chains. The system needs to scale up with demand, especially during
+   the times of volatile markets where the activity is the highest. This is a
+   long-solved problem in blockchain through the gas fee.
+2. Transparency - Auctions are awarded via OEV Auctioneer off-chain, so it's
+   important to be able to reason about the correctness of auction outcomes.
+   Blockchains are the perfect tool for this, as all the data is public and
+   verifiable.
 
 To participate in auctions, you need to have sufficient amount of ETH bridged to
 the OEV network and interact with the [OevAuctionHouse](#oevauctionhouse)
@@ -66,6 +70,10 @@ hash) to the OEV Network. This proof is then validated and the reserved
 collateral of the searcher is released, while the
 [protocol fee](/oev/searchers/collateral-protocol-fee) is deducted.
 
+The contract is designed to work together with an off-chain component that can
+enforce a particular data encodings. This allows for great flexibility and
+easier migration process in case of an upgrade.
+
 This contract is the key component that powers OEV auctions. These include the
 following:
 
@@ -76,7 +84,8 @@ following:
 5. Update protocol and collateral fee
 6. Update the price feed proxies
 
-Refer to the [Auction Cycle](/oev/overview/auction-cycle) for details.
+Refer to the [Auction Cycle](/oev/overview/auction-cycle) and
+[OEV Auctioneer](/oev/overview/oev-auctioneer) for details.
 
 The support OEV auctions in the least privileged way, the contract defines a few
 special roles allowe to interact with the contract in an authorized way. These
