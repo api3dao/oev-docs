@@ -42,6 +42,7 @@ in the auctions.
 | COLLATERAL_REQUIREMENT_BUFFER_PERCENT | 5     | The additional percentage of the bidder's collateral to mitigate against price changes  |
 | BIDDING_PHASE_LENGTH_SECONDS          | 25    | The length of the bidding phase during which participants can place their bids.         |
 | REPORT_FULFILLMENT_PERIOD_SECONDS     | 86400 | The fulfillment period, during which the auction winner is able to report paid OEV bid. |
+| MINIMUM_BID_EXPIRING_SECONDS          | 15    | The minimum expiring time for a bid to be considered eligible for award.                |
 
 ### Auction round offset
 
@@ -126,7 +127,32 @@ adequate finality.
 
 ## Bid eligibility
 
-<!-- TODO: Document the rules about what bids are eligible -->
+Auction rounds are open for everyone. Participants intereact with
+OevAuctionHouse to place a bid, which enforces minimal restrictions. However,
+Auctioneer extends these on-chain restrictions, with the following:
+
+1. Ignore all bids that expired or are expiring within the next
+   `MINIMUM_BID_EXPIRING_SECONDS` period - This ensures that the awarded bid
+   will still be active when the transaction is submitted.
+2. Ensure the bidder has enough collateral to cover the bid amount along with
+   extra `COLLATERAL_REQUIREMENT_BUFFER_PERCENT` percent to account for price
+   fluctuations - This ensure that enough collateral can be reserved at award
+   time.
+3. Ensure the bidder has no active withdrawal - Prevents withdrawing the deposit
+   before award.
+
+Auctioneer checks the collateral and withdrawals by fetching this information
+from the OevAuctionHouse contract. In a rare case when Auctioneer fails to fetch
+eligibility for a bidder it will abort awarding the current auction round.
+
+::: info
+
+Notice, that the collateral is reserved at award time, not at bid time. However,
+the collateral and protocol fee is computed from the rates from the bid time.
+This allows the bidder to place multiple bids for different dApps, even if their
+collateral doesn't allow them to win all. This allows for greater flexibility.
+
+:::
 
 ## Auction resolution
 
@@ -164,18 +190,19 @@ report the fulfillment back to the OEV network to get part of their collateral
 released. Auctioneer periodically queries the OEV Network logs for such events,
 by doing the following:
 
-1. Fetch all logs regarding fulfillments - _AwardedBid_, _ReportedFulfillment_,
-_ConfirmedFulfillment_ and _ContradictedFulfillment_.
-<!-- TODO: Should we mention here 48h? It adds another constant, which needs explanation and is not greatly relevant -->
+1. Fetch all logs regarding fulfillments for sufficient time period -
+   AwardedBid, ReportedFulfillment, ConfirmedFulfillment and
+   ContradictedFulfillment.
 
-2. Contradict all _AwardedBid_ events that are
-   `REPORT_FULFILLMENT_PERIOD_SECONDS` old without a matching reported
-   fulfillment. Make no action for other _AwardedBid_ events, because they are
-   within the fulfillment period.
+<!-- NOTE: Being intentionally vague here, because it's not important to mention what block/time range we're fetching exactly.-->
 
-3. For all _ReportedFulfillment_ events without a matching
-   _ConfirmedFulfillment_ or _ContradictedFulfillment_ fetch the _PlacedBid_
-   event to determine which chain ID was the bid for.
+2. Contradict all AwardedBid events that are `REPORT_FULFILLMENT_PERIOD_SECONDS`
+   old without a matching reported fulfillment. Make no action for other
+   AwardedBid events, because they are within the fulfillment period.
+
+3. For all ReportedFulfillment events without a matching ConfirmedFulfillment or
+   ContradictedFulfillment fetch the PlacedBid event to determine which chain ID
+   was the bid for.
 
 4. Verify that the reported fulfillment paid for the OEV bid on the target
    chain.

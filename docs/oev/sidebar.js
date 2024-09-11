@@ -27,8 +27,7 @@ module.exports = [
     items: [
       {
         text: 'Submitting Bids for Oracle updates',
-        // TODO: Rename to /oev/searchers/ and to be consistent
-        link: '/oev/searchers/submit-bids',
+        link: '/oev/searchers/',
       },
       {
         text: 'Argument and Constants',
