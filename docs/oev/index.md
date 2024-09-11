@@ -145,11 +145,10 @@ OEV:
 
 <!-- TODO: Update discord and Twitter link -->
 
-1. Learn More: Dive deeper into OEV by reading the
+1. Dive deeper into OEV by reading the
    [OEV Litepaper](https://raw.githubusercontent.com/api3dao/oev-litepaper/main/oev-litepaper.pdf).
-2. Explore Integration: Check out our [integration guide](/dapis/guides/) to see
-   how you can implement OEV in your dApp.
-3. Join the Community: Connect with other developers and OEV enthusiasts in our
+2. Check out our [integration guide](/dapis/guides/) to see how you can
+   implement OEV in your dApp.
+3. Connect with other developers and OEV enthusiasts in our
    [Discord channel](#).
-4. Stay Updated: Follow API3 on [Twitter](#) for the latest news and updates on
-   OEV.
+4. Follow API3 on [Twitter](#) for the latest news and updates on OEV.
