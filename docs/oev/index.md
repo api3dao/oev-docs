@@ -143,12 +143,14 @@ Ready to optimize your dApp's oracle updates and capture more value? Or looking
 to utilize OEV network and start searching? Here's how you can get started with
 OEV:
 
-<!-- TODO: Update discord and Twitter link -->
+<!-- TODO: Update discord and Twitter links -->
 
 1. Dive deeper into OEV by reading the
    [OEV Litepaper](https://raw.githubusercontent.com/api3dao/oev-litepaper/main/oev-litepaper.pdf).
-2. Check out our [integration guide](/dapis/guides/) to see how you can
+2. Check out our [dApp onboarding guide](/oev/dapps/) to see how you can
    implement OEV in your dApp.
-3. Connect with other developers and OEV enthusiasts in our
+3. Check out our [searchers guide](/oev/searchers/) to see how to start
+   searching.
+4. Connect with other developers and OEV enthusiasts in our
    [Discord channel](#).
-4. Follow API3 on [Twitter](#) for the latest news and updates on OEV.
+5. Follow API3 on [Twitter](#) for the latest news and updates on OEV.
