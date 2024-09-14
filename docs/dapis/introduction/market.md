@@ -20,7 +20,7 @@ feeds, known as dAPIs. Use the [API3 Market](https://market.api3.org) to search
 for dAPIs, activate feeds, obtain dAPI proxy contract addresses, and monitor
 dAPIs.
 
-<img src="../assets/images/API3_market_march2023_v1.png" style="width:1200px">
+<img src="../assets/images/API3_market_september2024.png" style="width:1200px">
 
 From the API3 Market developers will manage all data feed subscriptions. Once
 the dAPI interface has been imported to a dApps contract, upgrading a data feed
@@ -43,21 +43,3 @@ Users of dAPIs can independently activate and read an decentralized price oracle
 through the API3 Market.
 
 :::
-
-<!--### Get started with self-funded dAPIs
-
-Currently, self-funded dAPIs can be accessed through a quick and simple process:
-
-1. Explore and select your data feed
-2. Fund a sponsor wallet
-3. Access data feed through a proxy
-
-<img src="../assets/images/self_funded_market_process_notext.png" style="width:500px">
-
-Self-funded data feeds are currently accessible at the
-[API3 Market](https://market.api3.org), with managed data feeds launching in the
-coming months.
-
-While the API3 Market UI is intuitive, follow this
-[simple guide](/dapis/guides/subscribing-self-funded-dapis/) to sponsor,
-activate and read a self-funded dAPI.-->
