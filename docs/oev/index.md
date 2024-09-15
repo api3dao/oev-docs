@@ -113,12 +113,12 @@ auctions in a secure and transparent way.
 
 At a high level, auctions repeat continuously and indefinitely. There is a
 separate auction for each dApp. Each auction takes a fixed amount of time.
-Participants place bids during an auction and announce a bid amount they're
-willing to pay. When the auction ends, the highest bidder is announced as the
-winner of the auction and provided a cryptographic signature. The signature
-gives them exclusive rights to update any price feed(s) for the dApp for a
-limited amount of time. Each time an auction ends, a new one is started and the
-same process repeats.
+Searchers place bids during an auction and announce a bid amount they're willing
+to pay. When the auction ends, the highest bidder is announced as the winner of
+the auction and provided a cryptographic signature. The signature gives them
+exclusive rights to update any price feed(s) for the dApp for a limited amount
+of time. Each time an auction ends, a new one is started and the same process
+repeats.
 
 After auction winner fulfills their duties by paying the pre-announced bid
 amount, they need to report this back to OEV network. If they fail to do so,
@@ -142,8 +142,8 @@ meaning other than to group proxies of the same dApp together.
 ### OEV Network
 
 The OEV Network is hosting auctions in a transparent way, ensuring any disputes
-can be resolved by looking at the on-chain data. All participants submit their
-bids on-chain, where the winner is announced and given the exclusive rights to
+can be resolved by looking at the on-chain data. Searchers submit their bids
+on-chain, where the winner is announced and given the exclusive rights to
 execute the oracle update. All of the auction steps can be verified by looking
 at the on-chain data, ensuring honest and transparent auctions.
 
