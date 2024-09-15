@@ -53,7 +53,7 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'dApp Onboarding',
+        text: 'dApps',
         link: '/oev/dapps/',
       },
     ],
