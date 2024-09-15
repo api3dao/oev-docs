@@ -54,8 +54,8 @@ collateral doesn't get locked until the bid is awarded.
 
 5. <b>Start of a new Auction Round</b>
 
-An auction rounds starts when the auctioneer receives a dAPI value update from
-Airnodes (eg: ETH/USD = 2000) or new blocks are produced on the OEV Network.
+An auction starts when the auctioneer receives a dAPI value update from Airnodes
+(eg: ETH/USD = 2000) or new blocks are produced on the OEV Network.
 
 :::info Auction Rounds
 
@@ -64,19 +64,18 @@ Airnodes (eg: ETH/USD = 2000) or new blocks are produced on the OEV Network.
   satisfies the conditions of any of the bids on the OevAuctionHouse contract.
   If no bids are satisfied, the auctioneer waits for the next dAPI value change
   or new bids being placed. If a bid has just won an auction, the auctioneer
-  waits for 60 seconds before starting the next auction round for that dAPI
-  proxy.
+  waits for 60 seconds before starting the next auction for that dAPI proxy.
 
 - In addition to fetching dAPI values, the auctioneer also fetches new blocks on
   the OEV Network periodically. The auctioneer checks if new bids have been
   placed and if any of the bids are satisfied by the current dAPI value. If no
   bids are satisfied, the auctioneer waits for the next block or dAPI value
   change. If a bid has just won an auction, the auctioneer waits for 60 seconds
-  before starting the next auction round for that dAPI proxy.
+  before starting the next auction for that dAPI proxy.
 
 :::
 
-6. <b>Check for bid conditions </b>
+1. <b>Check for bid conditions </b>
 
 The auctioneer checks the current dAPI value against bids received from the
 OevAuctionHouse contract to determine if any of the bid's conditions have been
