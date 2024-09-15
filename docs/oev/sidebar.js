@@ -26,7 +26,7 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'Submitting Bids for Oracle updates',
+        text: 'Searchers',
         link: '/oev/searchers/',
       },
       {

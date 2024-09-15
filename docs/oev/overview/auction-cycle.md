@@ -8,129 +8,120 @@ outline: deep
 
 # Auction Cycle
 
-TODO: Fix outdated content
+We already explored how API3 OEV solution works at a high level and peaked into
+details of the OEV Network and OEV Auctioneer. In this section, we're going to
+walk through the auction cycle in depth, detailing the steps involved in the
+auction process.
 
-The OEV Network uses an on-chain auction mechanism to facilitate the
-distribution of conditional oracle updates. The condition embedded in the oracle
-update is the value that the searcher is willing to pay to for the update to the
-beneficiary of the dAPI proxy.
+## Searching work
 
-To fully understand the auction mechanism let's break down the auction cycle
-using the following sequence diagram:
+Before we dive into the auction cycle, let's quickly summarize the work of
+searchers. The searcher needs to fund an EoA (Externally Owned Account) and
+deposit collateral on it's behalf. It needs to monitor the off-chain Signed APIs
+and monitor the dApp's state for profitable opportunities.
 
-![Auction Cycle](/oev/overview/assets/oev-auction-sequence.png){data-zoomable}
+<!-- TODO: Link to explain how Signed APIs work and their role in OEV. -->
 
-The auction cycle consists of the following steps:
+For the purpose of this guide, we assume a searcher who implemented all of the
+above and knows how to capture the OEV given they won the auction. If you're
+looking into OEV searching, refer to the the [Searchers](/oev/searchers/)
+details.
 
-1. <b> Bridging to the OEV Network</b>
+## The auction process
 
-In order to interact with the OEV Network and participate in the auction the
-searcher needs to [bridge](/oev/overview/bridge-oev-network.md) their ETH to the
-OEV Network and deposit ETH into the
-[OevAuctionHouse](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/OevAuctionHouse.sol)
-contract.
+Assuming there is a dApp with OEV integration and there are active OEV
+searchers, the following is a typical auction process.
 
-2. <b> Update searcher balance in OevAuctionHouse </b>
+### Start of the bidding phase
 
-Depositing ETH updates the searcher's balance in the OevAuctionHouse contract.
-The deposited ETH serves as
-[Collateral](/oev/searchers/collateral-protocol-fee.md) which is needed to be
-able to win in the auction. The amount of Collateral needed is a percentage of
-the bid amount.
+Auctions run in two phases. The bidding phase and the award phase. During the
+bidding phase, searchers can look for OEV opportunities for the particular dApp
+and place their bids.
 
-3. <b>Identify profitable oracle update</b>
+### Find OEV opportunity
 
-The searcher identifies conditions for an oracle update that would be valuable,
-for example a liquidation event if the price of ETH falls below 2000.
+Say the searcher identifies a possible OEV opportunity with the data from the
+off-chain Signed APIs. The searcher wants to obtain exclusive rights to update
+the data feed(s) with this data, before this data is opened to the public.
 
-4. <b>Submitting a bid</b>
+<!-- TODO: Link to explain how Signed APIs work and their role in OEV. -->
 
-The searcher would then submit a bid to the OevAuctionHouse contract with the
-specified conditions to receive the price update, i.e. price of ETH <= 2000. In
-order to submit a bid, the searcher doesn't need to have collateral deposited in
-the OevAuctionHouse contract. However for a bid to be eligible to win an
-auction, a collateral deposit in the OevAuctionHouse contract is required. The
-collateral doesn't get locked until the bid is awarded.
+### Bid submission
 
-5. <b>Start of a new Auction Round</b>
+The searcher would then submit a bid to the OevAuctionHouse contract. The
+auction is identified solely by the bid topic. As part of the bid details, the
+searcher specifies the bid amount they are willing to pay in order to obtain the
+exclusive update rights. For their bid to be eligible, they need to have enough
+collateral locked in the OevAuctionHouse contract at the time of award.
 
-An auction starts when the auctioneer receives a dAPI value update from Airnodes
-(eg: ETH/USD = 2000) or new blocks are produced on the OEV Network.
+### Start of the award phase
 
-:::info Auction Rounds
+The award phase starts immediately after the end of the bidding phase. Now, the
+Auctioneer needs to determine the auction winner and award them a signature
+giving them the exclusive rights.
 
-- Off-chain Airnodes stream dAPI values to the auctioneer. Whenever there is a
-  change in the dAPI value, the auctioneer would check if the new dAPI value
-  satisfies the conditions of any of the bids on the OevAuctionHouse contract.
-  If no bids are satisfied, the auctioneer waits for the next dAPI value change
-  or new bids being placed. If a bid has just won an auction, the auctioneer
-  waits for 60 seconds before starting the next auction for that dAPI proxy.
+Performance is critical here as the more time it takes to award the bid, the
+less time the auction winner has to capture the OEV. The phase periods are
+chosen with this in mind to allow both Auctioneer and the winner enough time.
 
-- In addition to fetching dAPI values, the auctioneer also fetches new blocks on
-  the OEV Network periodically. The auctioneer checks if new bids have been
-  placed and if any of the bids are satisfied by the current dAPI value. If no
-  bids are satisfied, the auctioneer waits for the next block or dAPI value
-  change. If a bid has just won an auction, the auctioneer waits for 60 seconds
-  before starting the next auction for that dAPI proxy.
+### Find the winning bid
 
-:::
+If there are multiple eligible bids, the Auctioneer selects the one with the
+highest bid amount. More details on how the auctioneer selects the winning bid
+can be found in the
+[Auction resolution](/oev/overview/oev-auctioneer.html#auction-resolution)
+section.
 
-1. <b>Check for bid conditions </b>
+### Award the winning bid
 
-The auctioneer checks the current dAPI value against bids received from the
-OevAuctionHouse contract to determine if any of the bid's conditions have been
-met.
+After a winning bid is determined, the Auctioneer creates a cryptographic
+signature and submits in on the OEV Network. The signature is to be used on the
+target chain when capturing the OEV opportunity. To understand the properties of
+this signature and how it's computed, refer to the [TODO](#).
 
-7. <b>Finding the winning bid</b>
+<!-- TODO: Link to the target chain docs -->
 
-If there are multiple bids that are satisfied, the auctioneer finds the winning
-bid by selecting the one with the highest bid amount. More details on how the
-auctioneer selects the winning bid can be found in the
-[Understanding Auctioneer](/oev/searchers/understanding-auctioneer.md#parallel-auctions)
-page.
+### Poll for awarded bid
 
-8. <b> Sign the winning bid</b>
+The winning searcher should monitor the OEV Network for the winning bid
+transaction frequently and make use of the award as soon as the transaction is
+mined.
 
-The winning bid is sent to the Airnodes to obtain a signature allowing the
-searcher to update the dAPI value for the given proxy. These signatures are then
-processed by Auctioneer to prepare the update transaction calldata for
-searchers' convenience.
+### Capture the OEV opportunity
 
-9. <b> Fetch the signatures for the awarded bid from the airnodes</b>
+The searcher can use the winning signature to pay for the OEV bid on the target
+chain by making a transaction. They need to pay the bid amount announced in the
+bid submission. This payment will be forwarded to the dApp. The signature
+ensures that only the auction winner can do so.
 
-The auctioneer fetches airnode signatures for the data feed update. These
-signatures are verified on-chain by the Api3ServerV1 contract to ensure that the
-update is valid and is triggered by the searcher who won the auction.
+After they made the payment, the contract allows them to use perform the data
+feed updates with exclusive rights. Note, that API3 feeds guarantee very strong
+properties via on-chain aggregation and timestamp checks so the searcher is
+forced to use valid data. To learn more about the dAPI guarantees, see the
+[dAPI documentation](/oev/dapis/).
 
-10. <b> Award the winning bid</b>
+<!-- TODO: Change the link to some better place -->
 
-The auctioneer publishes the winning bid along with the encoded calldata
-together with signatures to the OevAuctionHouse contract. The collateral of the
-winning bid is locked in the OevAuctionHouse contract in the same transaction
-that the winning bid is awarded.
+Finally, the after updating the data feed values, the searcher is able to
+capture the OEV opportunity. It is assumed that the searcher does these steps
+atomically in a single transaction.
 
-11. <b> Fetch the awarded bid transaction</b>
+### Report fulfillment
 
-The searcher fetches the awarded bid transaction from the OEV Network. This
-transaction contains the encoded calldata. The searcher has 60 second window of
-exclusivity period to trigger the oracle update.
+After paying for the OEV bid, the searcher needs to report the fulfillment back
+to the OEV network. They do so by submitting the transaction hash in which
+they've paid for the winning bid.
 
-12. <b>Triggering the oracle update</b>
+The searcher is given a sufficiently long period to report the fulfillment. It's
+advised to submit the fulfillment only once the transaction on the target chain
+has reached enough finality.
 
-The searcher can then use the encoded calldata to trigger the oracle update on
-the dAPI proxy and trigger the liquidation event atomically in a multicall
-transaction. The searcher can only do the price update if they transfer the bid
-amount to the beneficiary of the dAPI proxy.
+### Fulfillment verification
 
-13. <b> Submit fulfillment transaction hash to OevAuctionHouse</b>
+Once the fulfillment is submitted, Auctioneer verifies it and there are two
+possibilities on what can happen:
 
-The searcher submits the fulfillment transaction hash to the OevAuctionHouse
-contract to confirm that the oracle update has been triggered. The searcher has
-a 24 hour window to submit the fulfillment transaction hash. In the event that
-the searcher does not submit the fulfillment transaction hash, the collateral of
-the winning bid is slashed.
-
-14. <b> Release collateral and charge protocol fee</b>
-
-Once the fulfillment transaction hash is submitted, the collateral of the
-winning bid is released and the protocol fee is charged.
+1. The fulfillment is confirmed - The collateral for this bid is released and
+   the protocol fee is charged.
+2. The fulfillment is contradicted - The full collateral for this bid is
+   slashed.
