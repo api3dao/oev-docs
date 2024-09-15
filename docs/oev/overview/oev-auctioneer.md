@@ -29,9 +29,8 @@ scaling to ensure auctions can be processed in a timely manner.
 
 ## Enforced conventions
 
-Auctioneer enforces a few conventions. These are important for auction
-participants to understand and comply with in order to successfully participate
-in the auctions.
+Auctioneer enforces a few conventions. These are important for searchers to
+understand and comply with in order to successfully participate in the auctions.
 
 ### Constants
 
@@ -40,7 +39,7 @@ in the auctions.
 | AUCTION_LENGTH_SECONDS                | 30    | How long does an auction last.                                                          |
 | MAJOR_VERSION                         | 1     | Increased when the Auctioneer releases a breaking change.                               |
 | COLLATERAL_REQUIREMENT_BUFFER_PERCENT | 5     | The additional percentage of the bidder's collateral to mitigate against price changes  |
-| BIDDING_PHASE_LENGTH_SECONDS          | 25    | The length of the bidding phase during which participants can place their bids.         |
+| BIDDING_PHASE_LENGTH_SECONDS          | 25    | The length of the bidding phase during which searchers can place their bids.            |
 | REPORT_FULFILLMENT_PERIOD_SECONDS     | 86400 | The fulfillment period, during which the auction winner is able to report paid OEV bid. |
 | MINIMUM_BID_EXPIRING_SECONDS          | 15    | The minimum expiring time for a bid to be considered eligible for award.                |
 
@@ -127,7 +126,7 @@ adequate finality.
 
 ## Bid eligibility
 
-Auctions are open for everyone. Participants interact with the OevAuctionHouse
+Auctions are open for everyone. Searchers interact with the OevAuctionHouse
 contract when placing a bid, which enforces a few restrictions. Apart from the
 on-chain restrictions, Auctioneer adds a few other ones:
 
@@ -158,8 +157,8 @@ collateral doesn't allow them to win all. This allows for greater flexibility.
 
 Each auction is split into two phases:
 
-1. Bidding phase - During this phase, auction participants are free to submit
-   their bids. This phase takes `BIDDING_PHASE_LENGTH_SECONDS`.
+1. Bidding phase - During this phase, searchers are free to submit their bids.
+   This phase takes `BIDDING_PHASE_LENGTH_SECONDS`.
 2. Awarding phase - During this phase, Auctioneer determines and awards the
    winner. Bids placed during this period are ignored. This phase takes the
    remainder of the auction length, that is
@@ -172,14 +171,15 @@ the winner as soon as possible. The following happens under the hood:
 2. Fetch the current block on the OEV Network. Under rare circumstances when the
    OEV Network block can't be fetched - abort awarding this auction.
 3. Fetch the bids placed during the bidding phase up to the given block.
-4. Filter out all eligible bids and select the bidder with highest bid amount.
-5. Prepare and submit the award for the auction winner on OEV network.
+4. Filter out all eligible bids.
+5. Select the bidder with highest bid amount.
+6. Prepare and submit the award for the auction winner on OEV network.
 
 ::: info
 
 There is a theoretical possibility that before we fetch the OEV Network block a
 new bid is placed, after the bidding phase is over. In that case Auctioneer will
-also consider this bid. Auction participants should not rely on this behaviour.
+also consider this bid. Searchers should not rely on this behaviour.
 
 :::
 
@@ -210,10 +210,9 @@ queries the OEV Network logs for such events, by doing the following:
 
 In case there is a failure during the any of the steps above, the Auctioneer
 tries to process the fulfillment later. Its upmost priority is to avoid slashing
-honest auction participants. That said, once the Auctioneer disproves the
-fulfillment, it will promptly slash. Auction winners are advised to wait
-sufficient time for the transaction to reach enough finality on the target
-chain.
+honest searchers. That said, once the Auctioneer disproves the fulfillment, it
+will promptly slash. Auction winners are advised to wait sufficient time for the
+transaction to reach enough finality on the target chain.
 
 ::: info
 
