@@ -16,6 +16,10 @@ module.exports = [
         link: '/oev/overview/oev-auctioneer',
       },
       {
+        text: 'dAPIs',
+        link: '/oev/overview/dapis',
+      },
+      {
         text: 'Auction Cycle',
         link: '/oev/overview/auction-cycle',
       },
