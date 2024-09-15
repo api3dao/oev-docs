@@ -23,8 +23,8 @@ and the searcher who realized the opportunity.
 
 OEV aims to solve this problem by auctioning off the exclusive rights to execute
 the oracle update(s), allowing the winner to atomically update the price feed(s)
-and capture the opportunity on the market. Because of the exclusive rights for
-updating the price feed, the searcher is able to pay smaller gas fees, because
+and capture the opportunity on the market. Because of the exclusive rights to
+update the price feed, the searcher is able to pay smaller gas fees, because
 there is no competition. On the other hand, the auction proceeds are distributed
 back to the dApp which created this opportunity.
 
@@ -50,11 +50,11 @@ positions and the protocol remains healthy. However, say in time there is a
 price drop that causes many of the positions which used that asset as collateral
 to get close to the 90% liquidation threshold.
 
-The price update that causes a position to become unhealthy has some intrinsic
-value. From the protocol's perspective, this affects its solvency and presents a
-threat. On the other hand, for a searcher this poses a profitable opportunity.
-The intrinsic value of the price update is equal to the profit the searcher can
-make - the liquidation incentive minus the operational gas costs.
+The next price update that causes a position to become unhealthy has some
+intrinsic value. From the protocol's perspective, this affects its solvency and
+presents a threat. On the other hand, for a searcher this poses a profitable
+opportunity. The intrinsic value of the price update is equal to the profit the
+searcher can make - the liquidation incentive minus the operational gas costs.
 
 A searcher monitors the dApp and sees that this opportunity is soon to become
 unhealthy. They announce that they want to execute the price feed update and pay
@@ -78,9 +78,8 @@ OEV offers advantages to various stakeholders in the ecosystem:
 
 2. For Searchers:
 
+   - Lower gas fees and in general, higher profits.
    - Guaranteed exclusive update rights.
-   - Ability to pay lower gas fees due to lack of competition for a specific
-     update.
 
 ### OEV proceeds distribution
 
@@ -110,20 +109,21 @@ MEV-Boost.
 <!-- TODO: Mention audits -->
 
 We use a combination of the OEV Network and the OEV Auctioneer to power the OEV
-Auctions in a secure and transparent way.
+auctions in a secure and transparent way.
 
-At a high level, auctions are running separately for each dApp. Auctions repeat
-indefinitely in "rounds", that take fixed amount of time. Participants place
-bids during these rounds and announce a bid amount they're willing to pay. When
-the auction ends, the highest bidder is announced as the winner of the auction
-round and provided a signature. The signature gives them exclusive rights to
-update any price feed(s) for the dApp for a limited amount of time. Each time an
-auction round ends, a new one is started and the same process repeats.
+At a high level, auctions repeat continuously and indefinitely. There is a
+separate auction for each dApp. Each auction takes a fixed amount of time.
+Participants place bids during an auction and announce a bid amount they're
+willing to pay. When the auction ends, the highest bidder is announced as the
+winner of the auction and provided a cryptographic signature. The signature
+gives them exclusive rights to update any price feed(s) for the dApp for a
+limited amount of time. Each time an auction ends, a new one is started and the
+same process repeats.
 
-After auction winner updates fulfill their duties by updating the price feed(s)
-and capturing the OEV, they need to report it back to OEV network. If they fail
-to do so, part of their collateral gets slashed. This is an important security
-aspect to prevent denying OEV recapture by withholding updates.
+After auction winner fulfills their duties by paying the pre-announced bid
+amount, they need to report this back to OEV network. If they fail to do so,
+part of their collateral gets slashed. This is an important security aspect to
+prevent denying OEV recapture by withholding auction updates.
 
 ### dApp IDs
 
@@ -133,9 +133,9 @@ same dApp ID.
 
 ::: info
 
-The auction winner may update single, multiple or all proxies with the same dApp
-before capturing the OEV opportunity. The ID has no other meaning other than to
-group proxies of the same dApp together.
+The auction winner may update single, multiple or all proxies associated with
+the same dApp ID before capturing the OEV opportunity. The ID has no other
+meaning other than to group proxies of the same dApp together.
 
 :::
 

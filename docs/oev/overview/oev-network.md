@@ -74,7 +74,7 @@ The contract is designed to work together with an off-chain component that can
 enforce a particular data encodings. This allows for great flexibility and
 easier migration process in case of an upgrade.
 
-This contract is the key component that powers OEV auctions. These include the
+This contract is the key component that powers OEV auctions. This includes the
 following:
 
 1. Deposit and withdraw collateral
@@ -88,7 +88,7 @@ Refer to the [Auction Cycle](/oev/overview/auction-cycle) and
 [OEV Auctioneer](/oev/overview/oev-auctioneer) for details.
 
 The support OEV auctions in the least privileged way, the contract defines a few
-special roles allowe to interact with the contract in an authorized way. These
+special roles allowed to interact with the contract in an authorized way. These
 roles are:
 
 1. Proxy setter - This role allows the caller to change the dAPI proxy used for
@@ -97,3 +97,6 @@ roles are:
    contradict fulfillments.
 3. Withdrawer - This role allows the caller to withdraw the protocol fee and
    slashed amount collected by the contract.
+
+For tech savvy users, it's recommended to take a look at the contract source to
+understand how the contract works in depth.
