@@ -21,18 +21,17 @@ majority of the exposed value to block validators in the process. This dynamic
 is unhealthy, because the majority of the value should be split between the dApp
 and the searcher who realized the opportunity.
 
-OEV aims to solve this problem by auctioning off the exclusive right to execute
+OEV aims to solve this problem by auctioning off the exclusive rights to execute
 the oracle update(s), allowing the winner to atomically update the price feed(s)
-and capture the opportunity on the market. The searcher can pay small gas fees,
-because they are guaranteed the exclusive update rights. On the other hand, the
-auction proceeds are distributed back to the dApp which created this
-opportunity.
+and capture the opportunity on the market. Because of the exclusive rights for
+updating the price feed, the searcher is able to pay smaller gas fees, because
+there is no competition. On the other hand, the auction proceeds are distributed
+back to the dApp which created this opportunity.
 
 With OEV, the searcher can announce the desire for a particular oracle update
 along with the amount willing to pay for it. There is an open auction, bound by
-certain rules, which selects the winner. The winner must pay the announced
-amount and as a result is able to use the oracle update to capture the
-opportunity.
+certain rules, which selects a winner. The winner must pay the announced amount
+and as a result is able to use the oracle update to capture the opportunity.
 
 ::: info
 
@@ -110,8 +109,8 @@ MEV-Boost.
 
 <!-- TODO: Mention audits -->
 
-We use a combination of OEV Network and OEV Auctioneer to power the OEV Auctions
-in a secure and transparent way.
+We use a combination of the OEV Network and the OEV Auctioneer to power the OEV
+Auctions in a secure and transparent way.
 
 At a high level, auctions are running separately for each dApp. Auctions repeat
 indefinitely in "rounds", that take fixed amount of time. Participants place
