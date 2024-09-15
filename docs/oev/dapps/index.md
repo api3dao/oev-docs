@@ -1,63 +1,35 @@
 ---
-title: dApp Onboarding
+title: dApps
 pageHeader: OEV -> dApps
 outline: deep
 ---
 
 <PageHeader/>
 
-<!-- TODO: Explain dApp ID and how it relates to onboarding -->
+# dApps
 
-# dApp Onboarding
+OEV is a very interesting concept for dApps, because it's a way to increase the
+revenue with minimal effort once using API3's decentralized APIs (dAPIs). There
+are no protocol change required - the dApp needs to only change the oracle
+source. This is because the dAPIs are built with OEV in mind and opting to OEV
+is a matter of changing to a different proxy - one which supports OEV. To read
+more about dAPIs, read [dAPIs documentation](/dapis/).
 
-OEV auctions operate as a supplementary service to regular data feed operations,
-ensuring that updates persist through the oracle even during OEV Network
-downtime or periods with limited OEV opportunities.
+The dAPIs with OEV inherit all the same security guarantees as the non-OEV
+dAPIs. Moreover, because of OEV dApps are guaranteed to have the most up-to-date
+data available when it matters because of the searchers. There is no distinction
+between regular updates (performed by API3 push oracle) and the OEV updates
+(performed by the searcher). This maximizes the revenue and security for the
+protocol with increased decentralization.
 
 ## Leveraging OEV alongside dAPIs
 
-The prerequisite to leveraging OEV is to use API3's decentralized APIs (dAPIs).
-To learn more about how dAPIs work, please refer to the
-[dAPIs documentation](/dapis/).
+The prerequisite to leveraging OEV is to use API3's dAPIs. To learn more about
+how dAPIs work, please refer to the [dAPIs documentation](/dapis/).
 
 Integrating OEV dAPIs requires no code changes to the protocol. This is
 accomplished by a [proxy contract](/oev/dapps/#proxy-contract). Searchers who
 win the auction are able to update the data feed to the up-to-date value, which
-can be read by the dApp through this proxy. There is a distinction between
-regular updates (performed by API3 push oracle) and the OEV updates (performed
-by the searcher).
+can be read by the dApp through this proxy.
 
-## Integration
-
-Integration involves reading from a proxy contract visible on the
-[API3 Market](https://market.api3.org).
-
-All the dAPIs on over 35+ chains have their own proxy addresses listed on the
-market.
-
-<div>
-  <img src="/oev/dapps/assets/market.png" />
-</div>
-
-## Proxy Contract
-
-<div>
-  <img src="/dapis/assets/images/dAPI_explainer.png" />
-</div>
-
-Searchers use signed data from Airnodes to update the proxy contract with the
-latest data point. However, if [`Api3ServerV1`](/dapis/reference/understand/)
-has a more recent timestamp than the last searcher update, the data point from
-`Api3ServerV1` will be displayed.
-
-::: tip
-
-Please refer to the following guide on how to read from a proxy contract:
-
-- [Reading a dAPI Proxy](/dapis/guides/read-a-dapi/index.md)
-
-:::
-
-By integrating OEV auctions as a supplementary service, developers can ensure a
-seamless transition between oracle updates and OEV opportunities while
-maintaining the desired distribution of proceeds.
+<!-- TODO: Explain how will the dApp onboarding work -->
