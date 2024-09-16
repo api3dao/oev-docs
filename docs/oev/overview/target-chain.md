@@ -14,6 +14,7 @@ extraction work on the target chain. We need to understand:
 
 1. How dAPIs work in combination with OEV.
 2. How to use the auction award to update the dAPIs.
+3. How does a dApp read the OEV updated value.
 
 This section is more technical and interesting mainly for dApp developers and
 searchers.
@@ -171,8 +172,8 @@ For example, see the
 ## Using Auction Award
 
 The logic for the base feed updates is dictated by the
-[Api3ServerV1 contract](https://github.com/api3dao/contracts-qs/blob/main/contracts/api3-server-v1/Api3ServerV1.sol).
-Specifically, anyone can use the signed data and call
+[Api3ServerV1](https://github.com/api3dao/contracts-qs/blob/main/contracts/api3-server-v1/Api3ServerV1.sol)
+contract. Specifically, anyone can use the signed data and call
 `updateBeaconWithSignedData` function. Similarly, anyone can call
 `updateBeaconSetWithBeacons` function to aggregate the beacon values and update
 the dAPIs.
@@ -268,3 +269,15 @@ timestamp of the base feed beacon. The data feed value after aggregating OEV
 beacons must be fresher than the base feed value. This enforces time
 monotonicity at the contract level, making sure OEV updates provide only the
 freshest data.
+
+### Api3ReaderProxyV1
+
+The
+[Api3ReaderProxyV1](https://github.com/api3dao/contracts-qs/blob/main/contracts/api3-server-v1/proxies/Api3ReaderProxyV1.sol)
+contract is a ChainLink compatible proxy with OEV built-in internally. There are
+no changes required from the dApp's perspective, which reads the value via the
+`read` function.
+
+Internally, this proxy uses the `Api3ServerV1` and `Api3ServerV1OevExtension`
+contracts to read the base feed and OEV value respectively and prefers the
+fresher out of the two.
