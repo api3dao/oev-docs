@@ -31,5 +31,3 @@ Integrating OEV dAPIs requires no code changes to the protocol. This is
 accomplished by a [proxy contract](/oev/dapps/#proxy-contract). Searchers who
 win the auction are able to update the data feed to the up-to-date value, which
 can be read by the dApp through this proxy.
-
-<!-- TODO: Explain how will the dApp onboarding work -->

@@ -4,8 +4,6 @@ pageHeader: OEV → Overview
 outline: deep
 ---
 
-<!-- TODO: Update all pageHeader -->
-
 <PageHeader/>
 
 # OEV Auctioneer
@@ -87,12 +85,27 @@ ethers.utils.keccak256(
 
 Let's break down the components of the bid topic:
 
-1. `majorVersion` - The major version of the auctioneer. Refer to the current
-   value of `MAJOR_VERSION` constant.
+1. `majorVersion` - The major version of the auctioneer. Any breaking change in
+   the behavior of the auctioneer, which can involve changes in auction rules or
+   off-chain protocol specs, is denoted by this major version being incremented
+   Refer to the current value of `MAJOR_VERSION` constant.
 2. `dappId` - The dApp ID for which the auction is being held.
-3. `startTimestamp` - The timestamp at which the auction starts.
-4. `endTimestamp` - The timestamp at which the auction ends. This should be set
-   to `startTimestamp + AUCTION_LENGTH_SECONDS`.
+3. `startTimestamp` - The start timestamp of the bid phase during which the
+   bidder wants to execute OEV updates. Searchers are executing OEV updates
+   during the next bidding phase, so this value should be set to
+   `currentBidPhaseStartTimestamp + AUCTION_LENGTH_SECONDS`.
+4. `endTimestamp` - The end timestamp of the bid phase during which the bidder
+   wants to execute OEV updates. This value should be set to
+   `startTimestamp + BIDDING_PHASE_LENGTH_SECONDS`.
+
+::: info
+
+The `startTimestamp` and `endTimestamp` form an update allowance period. Only
+during this period the auction winner is able to update data feeds. Searchers
+are required to supply these parameters in the bid topic to prevent confusion
+and to help resolve potential disputes.
+
+:::
 
 ### Bid details
 

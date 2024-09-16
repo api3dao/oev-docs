@@ -4,9 +4,6 @@ pageHeader: OEV → Searchers
 outline: deep
 ---
 
-<!-- TODO: Explain how the proxy works: https://docs.google.com/document/d/1gQwgcHMHYqKOoakuJH5LjlFUww7JeGCu0oe0_SYXL1M/edit#heading=h.9s6mu21rnf5x -->
-<!-- TODO: Explain how Signed data works -->
-
 <PageHeader/>
 
 # Argument and Constants
