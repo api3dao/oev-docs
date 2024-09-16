@@ -58,6 +58,15 @@ Metamask wallet.
 Confirm the transaction in your wallet. Wait for it to bridge and you will see
 your ETH on OEV Network.
 
+## Contracts
+
+These are the relevant contracts deployed on OEV Network:
+
+| Contract name   | Address                                                                                                                        |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Api3ServerV1    | [0x709944a48cAf83535e43471680fDA4905FB3920a](https://oev.explorer.api3.org/address/0x709944a48cAf83535e43471680fDA4905FB3920a) |
+| OevAuctionHouse | [0x34f13A5C0AD750d212267bcBc230c87AEFD35CC5](https://oev.explorer.api3.org/address/0x34f13A5C0AD750d212267bcBc230c87AEFD35CC5) |
+
 ## OevAuctionHouse
 
 The implementation of the audited OevAuctionHouse contract is publicly available
@@ -98,5 +107,7 @@ roles are:
 3. Withdrawer - This role allows the caller to withdraw the protocol fee and
    slashed amount collected by the contract.
 
-For tech savvy users, it's recommended to take a look at the contract source to
-understand how the contract works in depth.
+For tech savvy users, it's recommended to take a look at the contract source.
+The logic of the OevAuctionHouse contract is especially important for searchers,
+which have their dedicated section for
+[OEV Searching](/oev/searchers/#oev-searching-1).
