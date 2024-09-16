@@ -6,7 +6,7 @@ outline: deep
 
 <PageHeader/>
 
-# dApps
+# OEV and dApps
 
 OEV is a very interesting concept for dApps, because it's a way to increase the
 revenue with minimal effort once using API3's decentralized APIs (dAPIs). There
