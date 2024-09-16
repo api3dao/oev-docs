@@ -14,33 +14,34 @@ extraction work on the target chain. We need to understand:
 
 1. How dAPIs work in combination with OEV.
 2. How to use the auction award to update the dAPIs.
-3. How does a dApp read the OEV updated value.
+3. How does a dApp read the updated OEV value.
 
 This section is more technical and interesting mainly for dApp developers and
 searchers.
 
 ## dAPIs
 
-We assume the reader is already familiar with [API3 dAPIs](/dapis/). This
+We assume the reader is already familiar with API3 [dAPIs](/dapis/). This
 section is dedicated to the role of the dAPIs in the OEV extraction.
 
 Searchers need a way to monitor the actual off-chain prices to find profitable
 opportunities. Normally, searchers need to buy API subscriptions of the
-underlying oracle sources creating additional friction. API3 simplifies this
-process by providing to the same data that is used for updating the dAPIs to the
-searchers - transparently and without cost.
+underlying oracle sources, creating additional friction in the process. API3
+simplifies this process by providing the same data that is used for updating the
+dAPIs to the searchers publicly - and without cost.
 
 ### Signed APIs
 
 The heart of dAPIs are the first-party data feeds, powered by the owners of the
 data themselves. These data source owners operate an Airnode - a small
-abstraction that takes there data and cryptographically signs it. The signer
-wallet never leaves the owner control, and anyone can verify that a particular
+abstraction that takes their data and cryptographically signs it. The signer
+wallet never leaves the owner's control, and anyone can verify that a particular
 signed data was signed by the respective data source. Airnodes periodically push
 the signed data to Signed APIs.
 
 Signed APIs store the data pushed by Airnodes and expose them to the public via
-API. This allows various use cases, out of which the two most important are:
+an API. This allows for various use cases, out of which the two most important
+are:
 
 1. Regular dAPIs updates
 2. OEV dAPIs updates
@@ -51,8 +52,8 @@ transparency and security of the process.
 
 #### Regular dAPI updates
 
-API3 dAPIs are updated via Airseeker, a push oracle that updates the dAPIs based
-on deviation treshold parameters and heartbeat parameters. This tool is also
+dAPIs are updated via Airseeker, a push oracle that updates the dAPIs based on
+deviation treshold parameters and heartbeat parameters. This tool is also
 [open-sourced](https://github.com/api3dao/airseeker) to increase the
 transparency and security of the process.
 
@@ -63,9 +64,10 @@ matters. This activity also increases the decentralization of the data source.
 
 #### OEV Signed Data
 
-OEV signed data provide the real-time values for the dAPIs for the searchers.
-This data is useless for base feed updates. Only the OEV auction winner can
-effectively use this data to update the dAPIs as dictated by the contract logic.
+OEV signed data provide the real-time dAPI values for the searchers. This data
+is useless for base feed updates. Only the OEV auction winner can effectively
+use this data, by updating the dAPIs provided they present the correct
+signature.
 
 #### OEV Beacons
 
@@ -79,8 +81,8 @@ original one by hashing the template ID using `keccak256`. Each Airnode signs
 two beacon values - one for the base feed beacon and one for the OEV one.
 
 The OEV beacons will have different beacon IDs and are essentially unused
-(because there is no dAPI using them), but they are valuable for searchers to
-monitor the real-time off-chain data feed values. The auction winner can use
+(because there is no dAPI using them), but they are valuable to searchers for
+monitoring the real-time, off-chain data feed values. The auction winner can use
 this data to update the dAPI value for a particular dApp.
 
 ::: info
@@ -105,7 +107,7 @@ ethers.utils.solidityKeccak256(
 // Output: 0xbc7896315bfd4b1186a05f219ec71a95def0d038617e7ae534075317866bfd1b
 ```
 
-Which gives us the OEV beacon:
+Which gives us the following OEV beacon:
 
 ```json
 "0x154ca7c81eb1ed9ce151d5b6ad894c5ab79d19bee20d89eb061aaf24f788221f": {
@@ -124,8 +126,10 @@ Signed APIs are also open sourced for anyone to use. This is yet another step
 towards more decentralization, because even if API3 oracle service is down,
 anyone can use these existing Signed APIs to do the updates instead.
 
-API3 runs two independent Signed API services, deployed on two different regions
-and service providers to ensure maximum uptime and reliability.
+API3 partners with Nodary to run two independent Signed API services, deployed
+on two different regions and service providers to ensure maximum uptime and
+reliability. They share the open source implementation, but are otherwise
+completely independent.
 
 The endpoint path of a Signed API has the following shape:
 
@@ -148,7 +152,7 @@ The following are the endpoints that are publicly available:
 1. `https://signed-api.api3.org/public/<AIRNODE_ADDRESS>` - The official API3
    Signed APIs used by the push oracle to update the base feeds.
 2. `https://signed-api.nodary.io/public/<AIRNODE_ADDRESS>` - The unofficial
-   Signed APIs maintained by Nodary collective.
+   Signed APIs maintained by the Nodary collective.
 
 For example, see the
 [API3 response for Nodary Airnode](https://signed-api.api3.org/public/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
@@ -193,23 +197,22 @@ requires the following parameters:
 
 The signature is crafted for a specific dApp ID and update allowance. If the
 searcher provides incorrect values, the signature verification will fail,
-causing the transaction to revert.
-
-If the signature is valid, the contract allows the sender to update the data
-feed values until the end of update allowance period.
+causing the transaction to revert. If the signature is valid, the contract
+allows the sender to update the data feed values until the end of update
+allowance period.
 
 ### Update the Data Feed
 
 To update the data feed values, call the `updateDappOevDataFeed` function. This
-requires the sender to be whitelisted by paying for the OEV bid first. THe
+requires the sender to be whitelisted by paying for the OEV bid first. The
 function requires the following parameters:
 
 1. `uint256 dappId` - The ID of the dApp that the searcher wants to update.
 2. `bytes[] calldata signedData` - The ABI encoded signed data that the searcher
    wants to update the dAPI with. The contract decodes the following fields:
    - `address airnode` - The address of the Airnode.
-   - `bytes32 templateId` - The template ID of the base beacon - not the OEV
-     template ID.
+   - `bytes32 templateId` - The template ID of the base beacon - **not** the
+     template ID of the OEV beacon.
    - `uint256 timestamp` - The timestamp of the data.
    - `bytes memory data` - The encoded value.
    - `bytes memory signature` - The signature for this signed data - signed for
@@ -220,11 +223,12 @@ function requires the following parameters:
 **Important**
 
 It might be a bit surprising to pass the template ID of the base feed beacon,
-because the data and the signature are supplied for the OEV template ID.
-However, the contract needs to know both. However, "un-hashing" the base feed
-template ID from the OEV template ID is not possible.
+because the data and the signature are supplied for the OEV beacon. However, the
+contract needs to know both. While hasing the base feed template ID to obtain
+the template ID of the OEV beacon is possible - "un-hashing" the base feed
+template ID from the OEV template ID is not.
 
-If the searcher wants to update a beacon with template ID
+Say, the searcher wants to update the value of base feed beacon with template ID
 `0x1bb9efc88ac9d910a9edc28e8cad8959d196a551e15c9af3af21247f1605873f` and they
 want to use the following signed data for the OEV beacon:
 
@@ -259,18 +263,18 @@ The auction winner can update the data feed multiple times throughout their
 update allowance period. However, the contract enforces tight security measures.
 The timestamp of the signed data for OEV beacon must be greater or equal to the
 timestamp of the base feed beacon. The data feed value after aggregating OEV
-beacons must be fresher than the base feed value. This enforces time
-monotonicity at the contract level, making sure OEV updates provide only the
-freshest data.
+beacons must change the base feed - either increase the timestamp or change the
+aggregated value. This enforces time monotonicity at the contract level, making
+sure OEV updates provide only the freshest data.
 
 ### Api3ReaderProxyV1
 
 The
 [Api3ReaderProxyV1](https://github.com/api3dao/contracts-qs/blob/main/contracts/api3-server-v1/proxies/Api3ReaderProxyV1.sol)
 contract is a ChainLink compatible proxy with OEV built-in internally. There are
-no changes required from the dApp's perspective, which reads the value via the
-`read` function.
+no changes required from the dApp's perspective to integrate OEV, which reads
+the value via the `read` function.
 
 Internally, this proxy uses the `Api3ServerV1` and `Api3ServerV1OevExtension`
-contracts to read the base feed and OEV value respectively and prefers the
+contracts to read the base feed and OEV value respectively, and prefers the
 fresher out of the two.

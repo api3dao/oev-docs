@@ -16,7 +16,7 @@ searching community to OEV.
 ## OEV dApps catalog
 
 We maintain an open source list with all dApps which integrated API3 feeds as
-part of [dApp registry](https://github.com/api3dao/dapp-registry). However, not
+part of [dApp Registry](https://github.com/api3dao/dapp-registry). However, not
 all dApps opted-in to OEV yet, so we provide a separate list of OEV dApps are
 currently good candidates for searching:
 
@@ -27,8 +27,8 @@ currently good candidates for searching:
 ## From MEV searching
 
 MEV searching has a huge community and expertize securing health and stability
-across many dApps and chains. We want to make use of this community by outlining
-the steps to transition from MEV to OEV searching.
+across many dApps and chains. We want to motivate this community to join OEV by
+outlining the steps to transition from MEV to OEV searching.
 
 ::: info
 
@@ -37,10 +37,10 @@ MEV bot you can verify the understanding of the protocol and liquidation logic.
 
 :::
 
-First, let me mention that the MEV searchers can still use their existing
-infrastructure and searching bots - OEV does not prevent MEV. It should be
-treated as an optional extensions that searchers can capitalize on. Integrating
-OEV increases their profits by outperforming the competition and paying less to
+Let's emphasize that the MEV searchers can still use their existing
+infrastructure and searching bots even when opting to OEV. OEV should be treated
+as an optional extension that searchers can capitalize on. Integrating OEV
+increases their profits by outperforming the competition and paying less to
 block validators.
 
 All of the searching logic related to position tracking, using flashloans and
@@ -54,11 +54,12 @@ swapping assets remains the same. What's left is:
    opportunities.
 5. Place bid on the OEV Network.
 6. Wait for auction award.
-7. Use the award to update the data feed on-chain and capture the OEV.
+7. Use the award to update the on-chain data feed on target chain and capture
+   the OEV.
 
 Most of these steps require small additions to the existing MEV bot, but it's
 required to understand the mental model behind OEV. Because of that, we
-recommend starting with an in-between solution we call "signed data MEV".
+recommend starting with an in-between solution we call "MEV with Signed APIs".
 
 ### MEV with Signed APIs
 
@@ -67,14 +68,14 @@ One step closer to OEV searching, is to extend MEV bots to utilize the public
 These endpoints are public, and also used by API3 DAO push oracle - so there is
 tight competition - something which searchers are already used to.
 
-The existing MEV bot can utilize this off-chain open source data and making a
-base feed update on-chain whenever there is OEV to be captured. Refer to
+The existing MEV bot can utilize this off-chain open source data and make a base
+feed update on-chain whenever there is OEV to be captured. Refer to
 [dAPIs Reference](/dapis/reference/understand/#dapis) for more details.
 
 One advantage of using this data is that searchers can easily simulate the data
 feed update (which is permissionless for base feeds) and to more easily
 determine the liquidation opportunities. This is a direct improvement over
-monitoring values of the data sources and predicting the next oracle update.
+monitoring data source values and predicting the next oracle update.
 
 This solution is also a perfect backup in case OEV is down or in maintenance,
 because dAPIs are decentralized with great uptime.
@@ -100,8 +101,9 @@ latter allows you to deposit the collateral on behalf of another address.
 
 Searchers should periodically call the public
 [OEV Endpoints](/oev/overview/target-chain.html#oev-endpoints) to get the
-real-time values for the dAPIs used by the dApp. The dApp will use the a proxy
-to read the dAPI value.
+real-time values for the dAPIs used by the dApp. The dApp will use a proxy to
+read the dAPI value, which prefers the fresher out of the base feed updates and
+OEV updates.
 
 #### Obtain dAPI beacons
 
@@ -254,22 +256,30 @@ OEV auctions provide exclusivity guarantees only for data points with timestamps
 within the bidding phase, which are submitted during the allowance period.
 Moreover, it's not possible to use data fresher than the end of the bidding
 phase. This is to ensure the same guarantees apply for the subsequent auction
-winner. This means that there is little reason to store data for longer than a
+winner. This means, that there is little reason to store data for longer than a
 single auction.
+
+::: info
+
+Allowance period is the period that spans the award phase of the current auction
+and bidding phase of the next auction.
+
+:::
 
 #### Simulating data feed update
 
 Compared to the base feed updates, OEV updates are permissioned - allowing only
-the auction winner to update the data feed. However, simulating the data feed
-updates on chain is really powerful because searchers don't need to replicate
+the auction winner to update the data feed. This makes the OEV updates
+impossible to simulate on-chain. However, simulating the data feed updates on
+chain is a really powerful concept because searchers don't need to replicate
 complex on-chain logic off-chain, but instead attempt to update the feed(s) and
 see how it affects the dApp (without actually making any state changes).
 
-This works via `simulateDappOevDataFeedUpdate` and `simulateExternalCall`
-function, which can be called only with `address(0)`. The only way to
-impersonate a zero address is during staticcall simulation. The intended usage
-is to do a multicall that simulates the data feed update(s) then makes arbitrary
-number external calls.
+This is built in to the protocol and works via `simulateDappOevDataFeedUpdate`
+and `simulateExternalCall` functions, which can be called only with
+`address(0)`. The only way to impersonate a zero address is during staticcall
+simulation. The intended usage is to do a multicall that simulates the data feed
+update(s) then makes arbitrary number external calls.
 
 To understand how to construct the payload for data feed simulation, refer to
 [Update the Data Feed](/oev/overview/target-chain.html#update-the-data-feed)

@@ -16,16 +16,16 @@ system ensures transparency and allows verification of auction process. In this
 marketplace, OEV searchers place bids for the exclusive opportunity to update a
 dAPIs for a short period of time.
 
-By hosting the auctions on the on-chain, we address two of big issues:
+By hosting the auctions on the on-chain, we address two big issues:
 
 1. Scalability - The OEV network hosts auctions across different dApps across
    multiple chains. The system needs to scale up with demand, especially during
    the times of volatile markets where the activity is the highest. This is a
    long-solved problem in blockchain through the gas fee.
-2. Transparency - Auctions are awarded via OEV Auctioneer off-chain, so it's
-   important to be able to reason about the correctness of auction outcomes.
-   Blockchains are the perfect tool for this, as all the data is public and
-   verifiable.
+2. Transparency - Auctions are awarded via off-chain system, called OEV
+   Auctioneer, so it's important to be able to reason about the correctness of
+   auction outcomes. Blockchains are the perfect tool for this, as all the data
+   is public and verifiable.
 
 To participate in auctions, you need to have sufficient amount of ETH bridged to
 the OEV network and interact with the [OevAuctionHouse](#oevauctionhouse)
@@ -53,10 +53,9 @@ the OEV Network. Bridging is only possible from ETH mainnet.
 ![OEV Network Bridge](/oev/overview/assets/oev-bridge.png)
 
 Clicking on `Transfer Tokens` will automatically add the OEV Network to your
-Metamask wallet.
-
-Confirm the transaction in your wallet. Wait for it to bridge and you will see
-your ETH on OEV Network.
+Metamask wallet. To bridge, confirm the transaction in your wallet and wait form
+confirmation. After the transaction is confirmed, you should see your ETH on OEV
+Network.
 
 ## Contracts
 
@@ -67,16 +66,25 @@ These are the relevant contracts deployed on OEV Network:
 | Api3ServerV1    | [0x709944a48cAf83535e43471680fDA4905FB3920a](https://oev.explorer.api3.org/address/0x709944a48cAf83535e43471680fDA4905FB3920a) |
 | OevAuctionHouse | [0x34f13A5C0AD750d212267bcBc230c87AEFD35CC5](https://oev.explorer.api3.org/address/0x34f13A5C0AD750d212267bcBc230c87AEFD35CC5) |
 
-## OevAuctionHouse
+### Api3ServerV1
+
+The Api3ServerV1 contract powers dAPIs on the OEV Network, which are used in
+OevAuctionHouse to compute collateral and protocol fee from the bid amounts.
+Note, that this chain is not listed on the API3 market, because OEV Network is
+primarily intended to be used for the OEV auctions.
+
+### OevAuctionHouse
 
 The implementation of the audited OevAuctionHouse contract is publicly available
 [here](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/OevAuctionHouse.sol).
 
-Winners of OEV auctions must include their payment within the transaction that
-updates the data feed, ensuring immediate value return to the dApp. After the
-feed is updated, the winner needs to post a proof of doing so (the transaction
-hash) to the OEV Network. This proof is then validated and the reserved
-collateral of the searcher is released, while the
+Winners of OEV auctions must submit their payment before updating the data feed
+and capturing OEV. In practice, searchers are expected to do these steps
+atomically, ensuring immediate value return to the dApp.
+
+After making the payment, the winner needs to post a proof of doing so (the
+transaction hash) to the OEV Network. This proof is then validated and the
+reserved collateral of the searcher is released, while the
 [protocol fee](/oev/searchers/collateral-protocol-fee) is deducted.
 
 The contract is designed to work together with an off-chain component that can
@@ -107,7 +115,7 @@ roles are:
 3. Withdrawer - This role allows the caller to withdraw the protocol fee and
    slashed amount collected by the contract.
 
-For tech savvy users, it's recommended to take a look at the contract source.
+For tech savvy users, it's recommended to take a look at the contract's source.
 The logic of the OevAuctionHouse contract is especially important for searchers,
-which have their dedicated section for
+for which we have a dedicated section
 [OEV Searching](/oev/searchers/#oev-searching-1).

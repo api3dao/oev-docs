@@ -23,12 +23,12 @@ and the searcher who realized the opportunity.
 
 OEV aims to solve this problem by auctioning off the exclusive rights to execute
 the oracle update(s), allowing the winner to atomically update the price feed(s)
-and capture the opportunity on the market. Because of the exclusive rights to
-update the price feed, the searcher is able to pay smaller gas fees, because
-there is no competition. On the other hand, the auction proceeds are distributed
-back to the dApp which created this opportunity.
+and capture the opportunity on the market. Because of the exclusive update
+rights, searchers pay smaller gas fees, because there is no competition. On the
+other hand, the auction proceeds are distributed back to the dApp which created
+this opportunity.
 
-With OEV, the searcher can announce the desire for a particular oracle update
+With OEV, searchers announce the desire to do the oracle updates themselves
 along with the amount willing to pay for it. There is an open auction, bound by
 certain rules, which selects a winner. The winner must pay the announced amount
 and as a result is able to use the oracle update to capture the opportunity.
@@ -38,13 +38,13 @@ and as a result is able to use the oracle update to capture the opportunity.
 **Basic Example**
 
 Imagine a basic overcollateralized lending platform, which uses an oracle for
-its price feeds to ensure the price remains up-to-date. Borrowers of the
-protocol can be liquidated with some incentive if their position becomes
-unhealthy to ensure the protocol remains solvent. Say liquidations can occur if
-the loan-to-value ratio is over 90%. Let's look at what happens with the
-protocol's health over time.
+its price feeds to ensure prices remains up-to-date. Borrowers of the protocol
+can be liquidated with some incentive whenever their position becomes unhealthy
+to ensure the protocol remains solvent. Say liquidations can occur if the
+loan-to-value ratio is over 90%. Let's look at what happens with the protocol's
+health over time.
 
-Assume that initially there are no unhealthy positions. Many of the price feed
+Assume, that initially there are no unhealthy positions. Many of the price feed
 updates that happen are "unnecessary", because they don't expose any unhealthy
 positions and the protocol remains healthy. However, say in time there is a
 price drop that causes many of the positions which used that asset as collateral
@@ -54,15 +54,17 @@ The next price update that causes a position to become unhealthy has some
 intrinsic value. From the protocol's perspective, this affects its solvency and
 presents a threat. On the other hand, for a searcher this poses a profitable
 opportunity. The intrinsic value of the price update is equal to the profit the
-searcher can make - the liquidation incentive minus the operational gas costs.
+searcher can make. The profit is simply the liquidation incentive minus the
+operational gas costs.
 
 A searcher monitors the dApp and sees that this opportunity is soon to become
 unhealthy. They announce that they want to execute the price feed update and pay
-X in return. They win the auction, pay X and make the oracle update and
-liquidation atomically.
+X in return. They win the auction, pay X to the dApp and make the oracle update
+and liquidation atomically.
 
-The concept of OEV is not tailored to liquidations only, but can occur anywhere
-where price feed updates occur, such as arbitrage and many more.
+The concept of OEV is not tailored only to liquidations, but can occur anywhere
+where price feed updates potentially expose profitable opportunities, such as
+arbitrage and many more.
 
 :::
 
@@ -83,10 +85,10 @@ OEV offers advantages to various stakeholders in the ecosystem:
 
 ### OEV proceeds distribution
 
-For a searcher to be able to update the data feed, they must pay the adequate
-bid amount, which they announced in the auction. In return, they get exclusive
+To be able to update the data feed, the auction winner must pay the adequate bid
+amount, which they announced during the auction. In return, they get exclusive
 rights to capture the OEV. Searchers are compensated for this activity by the
-liquidation incentive, which is proven to be enough.
+liquidation incentive.
 
 At API3, we believe those operating the protocol should be compensated much
 more - after all, they are the ones who created the opportunity. As such, all of
@@ -111,11 +113,10 @@ have been audited by Quantstamp.
 At a high level, auctions repeat continuously and indefinitely. There is a
 separate auction for each dApp. Each auction takes a fixed amount of time.
 Searchers place bids during an auction and announce a bid amount they're willing
-to pay. When the auction ends, the highest bidder is announced as the winner of
-the auction and provided a cryptographic signature. The signature gives them
-exclusive rights to update any price feed(s) for the dApp for a limited amount
-of time. Each time an auction ends, a new one is started and the same process
-repeats.
+to pay. When the auction ends, the highest bidder is announced as the winner and
+provided a cryptographic signature. The signature gives them exclusive rights to
+update any price feed(s) for the dApp for a limited amount of time. Each time an
+auction ends, a new one is started and the same process repeats.
 
 After auction winner fulfills their duties by paying the pre-announced bid
 amount, they need to report this back to OEV network. If they fail to do so,
@@ -139,21 +140,20 @@ meaning other than to group proxies of the same dApp together.
 ### OEV Network
 
 The OEV Network is hosting auctions in a transparent way, ensuring any disputes
-can be resolved by looking at the on-chain data. Searchers submit their bids
+can be resolved analyzing the on-chain data. Searchers submit their bids
 on-chain, where the winner is announced and given the exclusive rights to
-execute the oracle update. All of the auction steps can be verified by looking
-at the on-chain data, ensuring honest and transparent auctions.
+execute the oracle update.
 
 To learn more about the OEV Network, refer to the
 [OEV Network documentation](/oev/overview/oev-network).
 
 ### OEV Auctioneer
 
-A key component to OEV is an off-chain auction system that processes the
+A key component of OEV is an off-chain auction system that processes the
 auctions happening on the OEV network. We call this system the OEV Auctioneer,
 and it is managed by the API3 DAO. The honesty of OEV Auctioneer is ensured by
-using OEV Network for all important actions, such as announcing the winner and
-the bid amount.
+using OEV Network for all important actions, such as announcing the auction
+winner.
 
 To learn more about the OEV Auctioneer, refer to the
 [OEV Auctioneer documentation](/oev/overview/oev-auctioneer).
@@ -161,8 +161,7 @@ To learn more about the OEV Auctioneer, refer to the
 ## Get Involved with OEV
 
 Ready to optimize your dApp's oracle updates and capture more value? Or looking
-to utilize OEV network and start searching? Here's how you can get started with
-OEV:
+to utilize OEV network to searching? Here's how you can get started with OEV:
 
 1. Dive deeper into OEV by reading the
    [OEV Litepaper](https://raw.githubusercontent.com/api3dao/oev-litepaper/main/oev-litepaper.pdf).
