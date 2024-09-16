@@ -16,8 +16,8 @@ module.exports = [
         link: '/oev/overview/oev-auctioneer',
       },
       {
-        text: 'dAPIs',
-        link: '/oev/overview/dapis',
+        text: 'Target chain',
+        link: '/oev/overview/target-chain',
       },
       {
         text: 'Auction Cycle',
