@@ -95,9 +95,7 @@ the bid amounts paid are distributed back to the dApp.
 The bid amount payments happen on the target chain of the protocol. The
 accumulated payment amount can be easily computed from on-chain events, so there
 is absolute transparency in the process. The funds are withdrawable by API3 DAO,
-which will be responsible for distributing the funds.
-
-<!-- TODO: Document auto BD here -->
+which will be responsible for distributing the funds back to the dApps.
 
 ## How Auctions work?
 
@@ -106,10 +104,9 @@ value returned to your dApp from OEV through a sealed bid on-chain auction
 process similar to the one you might be familiar with from Flashbots and
 MEV-Boost.
 
-<!-- TODO: Mention audits -->
-
 We use a combination of the OEV Network and the OEV Auctioneer to power the OEV
-auctions in a secure and transparent way.
+auctions in a secure and transparent way. The contracts and the auction flow
+have been audited by Quantstamp.
 
 At a high level, auctions repeat continuously and indefinitely. There is a
 separate auction for each dApp. Each auction takes a fixed amount of time.
@@ -167,14 +164,13 @@ Ready to optimize your dApp's oracle updates and capture more value? Or looking
 to utilize OEV network and start searching? Here's how you can get started with
 OEV:
 
-<!-- TODO: Update discord and Twitter links -->
-
 1. Dive deeper into OEV by reading the
    [OEV Litepaper](https://raw.githubusercontent.com/api3dao/oev-litepaper/main/oev-litepaper.pdf).
 2. Check out our [dApp onboarding guide](/oev/dapps/) to see how you can
    implement OEV in your dApp.
-3. Check out our [searchers guide](/oev/searchers/) to see how to start
+3. Check out our [Searchers guide](/oev/searchers/) to see how to start
    searching.
 4. Connect with other developers and OEV enthusiasts in our
-   [Discord channel](#).
-5. Follow API3 on [Twitter](#) for the latest news and updates on OEV.
+   [Discord channel](https://discord.com/channels/758003776174030948/1062909222347603989).
+5. Follow API3 on [Twitter](https://twitter.com/API3DAO) for the latest news and
+   updates on OEV.

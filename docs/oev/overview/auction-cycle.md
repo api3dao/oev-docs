@@ -17,10 +17,9 @@ auction process.
 
 Before we dive into the auction cycle, let's quickly summarize the work of
 searchers. The searcher needs to fund an EoA (Externally Owned Account) and
-deposit collateral on it's behalf. It needs to monitor the off-chain Signed APIs
-and monitor the dApp's state for profitable opportunities.
-
-<!-- TODO: Link to explain how Signed APIs work and their role in OEV. -->
+deposit collateral on it's behalf. It needs to monitor the off-chain
+[Signed APIs](/oev/overview/target-chain.html#oev-signed-data) and monitor the
+dApp's state for profitable opportunities.
 
 For the purpose of this guide, we assume a searcher who implemented all of the
 above and knows how to capture the OEV given they won the auction. If you're
@@ -43,8 +42,6 @@ and place their bids.
 Say the searcher identifies a possible OEV opportunity with the data from the
 off-chain Signed APIs. The searcher wants to obtain exclusive rights to update
 the data feed(s) with this data, before this data is opened to the public.
-
-<!-- TODO: Link to explain how Signed APIs work and their role in OEV. -->
 
 ### Bid submission
 
@@ -77,9 +74,8 @@ section.
 After a winning bid is determined, the Auctioneer creates a cryptographic
 signature and submits in on the OEV Network. The signature is to be used on the
 target chain when capturing the OEV opportunity. To understand the properties of
-this signature and how it's computed, refer to the [TODO](#).
-
-<!-- TODO: Link to the target chain docs -->
+this signature and how it's computed, refer to the docs section about how to
+[Pay for the OEV Bid](/oev/overview/target-chain.html#pay-for-the-oev-bid).
 
 ### Poll for awarded bid
 
@@ -97,10 +93,7 @@ ensures that only the auction winner can do so.
 After they made the payment, the contract allows them to use perform the data
 feed updates with exclusive rights. Note, that API3 feeds guarantee very strong
 properties via on-chain aggregation and timestamp checks so the searcher is
-forced to use valid data. To learn more about the dAPI guarantees, see the
-[dAPI documentation](/oev/dapis/).
-
-<!-- TODO: Change the link to some better place -->
+forced to use valid and up-to-date data.
 
 Finally, the after updating the data feed values, the searcher is able to
 capture the OEV opportunity. It is assumed that the searcher does these steps

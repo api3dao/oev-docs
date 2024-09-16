@@ -32,8 +32,6 @@ searchers - transparently and without cost.
 
 ### Signed APIs
 
-<!-- TODO: This should be moved to the dAPIs docs. This OEV dAPIs section should just link there. -->
-
 The heart of dAPIs are the first-party data feeds, powered by the owners of the
 data themselves. These data source owners operate an Airnode - a small
 abstraction that takes there data and cryptographically signs it. The signer
@@ -53,8 +51,6 @@ transparency and security of the process.
 
 #### Regular dAPI updates
 
-<!-- TODO: This should be moved to the dAPIs docs. This OEV dAPIs section should just link there. -->
-
 API3 dAPIs are updated via Airseeker, a push oracle that updates the dAPIs based
 on deviation treshold parameters and heartbeat parameters. This tool is also
 [open-sourced](https://github.com/api3dao/airseeker) to increase the
@@ -64,8 +60,6 @@ To support OEV seamlessly, these regular (or "base feed") updates use a Signed
 API endpoint that provides data with a small delay. This delay is negligible in
 practice, because the OEV searchers will keep the dAPIs up-to-date when it
 matters. This activity also increases the decentralization of the data source.
-
-<!-- TODO: Shall we mention the delay explicitly? -->
 
 #### OEV Signed Data
 
@@ -183,20 +177,19 @@ The OEV capabilities are enabled by the
 This contract allows the auction winner to pay for the winning bid and update
 the data feed values.
 
-<!-- TODO: Update links above to the open-sourced repo once the audit is finalized. -->
-
 ### Pay for the OEV Bid
 
 To pay for the winning bid, call the `payOevBid` function. This function
 requires the following parameters:
 
-1. `uint256 dappId` - The ID of the dApp that the searcher wants to update.
+1. `uint256 dappId` - The ID of the dApp that the searcher wants to update. This
+   is the same dApp ID which they use in the bid topic.
 2. `uint32 updateAllowanceEndTimestamp` - The timestamp until which the searcher
-   can update the dApp.
+   can update the dApp. This is the end timestamp of the update allowance
+   period, which they use in the bid topic.
 3. `bytes calldata signature` - The signature that the auction winner received
-   as an award.
-
-<!-- TODO: How to set updateAllowanceEndTimestamp correctly? See: https://api3workspace.slack.com/archives/C06A83ZN30D/p1726471835011049?thread_ts=1723104727.972439&cid=C06A83ZN30D -->
+   as an award. This is obtained from the event emitted on the OEV Network after
+   Auctioneer awarded the bid.
 
 The signature is crafted for a specific dApp ID and update allowance. If the
 searcher provides incorrect values, the signature verification will fail,
