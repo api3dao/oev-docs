@@ -306,12 +306,12 @@ const simulationResult = await api3ServerV1OevExtensionImpersonated.multicall.st
 
 ### Placing bid
 
-TODO:
+https://github.com/api3dao/oev-docs/issues/57
 
 ### Waiting for auction award
 
-TODO:
+https://github.com/api3dao/oev-docs/issues/57
 
 ### Capturing OEV
 
-TODO:
+https://github.com/api3dao/oev-docs/issues/57
