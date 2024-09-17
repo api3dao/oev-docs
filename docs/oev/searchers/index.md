@@ -38,7 +38,7 @@ MEV bot you can verify the understanding of the protocol and liquidation logic.
 :::
 
 Let's emphasize that the MEV searchers can still use their existing
-infrastructure and searching bots even when opting to OEV. OEV should be treated
+infrastructure and searching bots even when opting in OEV. OEV should be treated
 as an optional extension that searchers can capitalize on. Integrating OEV
 increases their profits by outperforming the competition and paying less to
 block validators.
@@ -112,13 +112,13 @@ proxy is using. The dApps are in full control to change their proxies, so it's
 best to refer to their documentation or inspect their contracts.
 
 Then, determine the underlying beacons used by the dAPI. This information is
-fully on-chain and can be read from AirseekerRegistry contract.
+fully on-chain and can be read from the AirseekerRegistry contract.
 
 ::: info
 
 **Example:**
 
-Say, there is a dApp which uses the `ETH/USD` dAPI. We can compute the details
+Say there is a dApp which uses the `ETH/USD` dAPI. We can compute the details
 for this dAPI by:
 
 ```js
@@ -140,7 +140,7 @@ const dataFeedId =
 ```
 
 To determine the data feed details, use the `dataFeedIdToDetails` function on
-AirseekerRegistry contract:
+the AirseekerRegistry contract:
 
 ```js
 const airseekerRegistry = new ethers.Contract(
@@ -245,9 +245,9 @@ APIs.
 #### Query Signed APIs
 
 For each tracked beacon, searchers need to derive the corresponding
-[OEV Beacon](http://localhost:5173/oev/overview/target-chain.html#oev-beacons).
+[OEV Beacon](/oev/overview/target-chain.html#oev-beacons).
 
-Then, simply call the OEV Signed API endpoints for different Airnodes and pick
+Then, simply call the OEV Signed API endpoints for the various Airnodes and pick
 the signed data for the required OEV beacons. It's necessary to persist these
 values for a brief period of time - in case they win the auction and need to
 update the data feed.
@@ -256,17 +256,17 @@ OEV auctions provide exclusivity guarantees only for data points with timestamps
 within the bidding phase, which are submitted during the allowance period.
 Moreover, it's not possible to use data fresher than the end of the bidding
 phase. This is to ensure the same guarantees apply for the subsequent auction
-winner. This means, that there is little reason to store data for longer than a
+winner. This means that there is little reason to store data for longer than a
 single auction.
 
 ::: info
 
-Allowance period is the period that spans the award phase of the current auction
-and bidding phase of the next auction.
+The allowance period is the period that spans the award phase of the current
+auction and bidding phase of the next auction.
 
 :::
 
-#### Simulating data feed update
+#### Simulating a Data Feed Update
 
 Compared to the base feed updates, OEV updates are permissioned - allowing only
 the auction winner to update the data feed. This makes the OEV updates

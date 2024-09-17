@@ -8,11 +8,11 @@ outline: deep
 
 # OEV Auctioneer
 
-OEV Auctioneer is the off-chain system managed by API3 DAO to process auctions
-that happen on the OEV network. This off-chain component is necessary, because
-hosting auctions fully on-chain would be extremely gas intensive and wouldn't
-scale performance wise. The correctness and honesty of OEV Auctioneer can be
-verified on-chain, because the logic is based solely on the
+OEV Auctioneer is the off-chain system managed by the API3 DAO to process
+auctions that happen on the OEV network. This off-chain component is necessary,
+because hosting auctions fully on-chain would be extremely gas intensive and
+wouldn't scale performance wise. The correctness and honesty of OEV Auctioneer
+can be verified on-chain, because the logic is based solely on the
 [OevAuctionHouse](/oev/overview/oev-network#oevauctionhouse) contract state and
 events at a given time.
 
@@ -126,7 +126,7 @@ The arguments are:
 
 ### Award details
 
-The award details contains a
+The award details contain a
 [signature](https://github.com/api3dao/contracts-qs/blob/a5a11d929d8dae54fd586986d65513f8bc5a14b4/contracts/api3-server-v1/Api3ServerV1OevExtension.sol#L106)
 that the auction winner uses to pay the OEV bid, which allows them to update the
 price feeds.
@@ -134,7 +134,7 @@ price feeds.
 ### Fulfillment details
 
 The fulfillment details is a single `bytes32` value that represents the
-transaction hash on the target chain in which the auction winner payed for the
+transaction hash on the target chain in which the auction winner paid for the
 OEV bid.
 
 ## Bid eligibility
@@ -144,14 +144,14 @@ contract when placing a bid, which enforces a few restrictions. Apart from the
 on-chain restrictions, Auctioneer adds a few more:
 
 1. Ignore all bids that expired or are expiring within the next
-   `MINIMUM_BID_EXPIRING_SECONDS` period - This ensures that the awarded bid
-   will still be active when the transaction is mined.
+   `MINIMUM_BID_EXPIRING_SECONDS` period. This ensures that the awarded bid will
+   still be active when the transaction is mined.
 2. Ensure the bidder has enough collateral to cover the bid amount along with
    extra `COLLATERAL_REQUIREMENT_BUFFER_PERCENT` percent to account for price
-   fluctuations - This ensures that enough collateral can be reserved at award
+   fluctuations. This ensures that enough collateral can be reserved at award
    time.
-3. Ensure the bidder has no active withdrawal - Prevents withdrawing the deposit
-   just before the bid award.
+3. Ensure the bidder has no active withdrawal. This prevents withdrawing the
+   deposit just before the bid award.
 
 Auctioneer fetches the required information from the OevAuctionHouse contract.
 In a rare case when Auctioneer fails to fetch eligibility for a bidder, it will
@@ -174,7 +174,7 @@ Each auction is split into two phases:
    This phase takes `BIDDING_PHASE_LENGTH_SECONDS`.
 2. Awarding phase - During this phase, Auctioneer determines and awards the
    winner. Bids placed during this period are ignored. This phase takes the
-   remainder of the auction length, that is
+   remainder of the auction length, which is
    `AUCTION_LENGTH_SECONDS - BIDDING_PHASE_LENGTH_SECONDS`.
 
 As soon as the bidding phase is over, Auctioneer attempts to resolve the auction
@@ -183,21 +183,22 @@ as soon as possible. The following happens under the hood:
 1. Compute the bid topic for the current auction.
 2. Fetch the current block on the OEV Network.
 3. Fetch the bids placed during the bidding phase up to the given block.
-4. Filter out all eligible bids.
+4. Discard all ineligible bids.
 5. Select the bidder with highest bid amount.
 6. Prepare and submit the award for the auction winner on OEV network.
 
-Under rare circumstances when Auctioneer is unable to fetch the block on the OEV
-Network the auction is aborted and no winner is chosen. Similarly, if the
-auction award transaction fails, there is no retry. Retrying in case of an award
-failure would be unsafe, because the award signature was already exposed
-publicly.
+Under rare circumstances, when Auctioneer is unable to fetch the block on the
+OEV Network, the auction will be aborted and no winner is chosen. Similarly, if
+the auction award transaction fails, there will be no retry. Retrying in the
+case of an award failure would be unsafe, because the award signature was
+already exposed publicly.
 
 ::: info
 
-There is a theoretical possibility that before we fetch the OEV Network block a
-new bid is placed, after the bidding phase is over. In that case, Auctioneer
-will also consider this bid. Searchers should not rely on this behaviour.
+There is a possibility that after the bidding phase ends, there is a new bid
+placed before Auctioneer fetches the block on the OEV Network. In that case,
+Auctioneer will also consider this particular bid. Searchers should not rely on
+this behaviour.
 
 :::
 
@@ -224,7 +225,8 @@ queries the OEV Network logs for such events, by doing the following:
    was the bid for.
 
 4. Verify that the reported fulfillment is valid. It needed to be paid through
-   the correct contract, with correct amount and on the correct target chain.
+   the correct contract, with the correct amount and on the correct target
+   chain.
 
 In case there is a failure during the any of the steps above, the Auctioneer
 tries to process the fulfillment later. Its upmost priority is to avoid slashing
@@ -234,11 +236,11 @@ transaction to reach enough finality on the target chain.
 
 ::: info
 
-Note, that the auction winner may choose not to update the price feed when they
+Note that the auction winner may choose not to update the price feed when they
 pay for the awarded bid. This is an allowed way to withhold the updates, because
 the auction winner is losing money by being slashed, making it financially
 infeasible. As a note, the data feed security remains unchanged, because it will
-be eventually updated by a API3 push oracle when its deviation exceeds the
+be eventually updated by an API3 push oracle when its deviation exceeds the
 threshold.
 
 :::

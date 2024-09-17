@@ -29,18 +29,19 @@ other hand, the auction proceeds are distributed back to the dApp which created
 this opportunity.
 
 With OEV, searchers announce the desire to do the oracle updates themselves
-along with the amount willing to pay for it. There is an open auction, bound by
-certain rules, which selects a winner. The winner must pay the announced amount
-and as a result is able to use the oracle update to capture the opportunity.
+along with the amount they are willing to pay for it. The process is facilitated
+by open auctions, bound by certain rules. The winner of an auction must pay the
+winning bid amount, which allows them to use the oracle update and capture
+profitable opportunities.
 
 ::: info
 
 **Basic Example**
 
-Imagine a basic overcollateralized lending platform, which uses an oracle for
-its price feeds to ensure prices remains up-to-date. Borrowers of the protocol
-can be liquidated with some incentive whenever their position becomes unhealthy
-to ensure the protocol remains solvent. Say liquidations can occur if the
+Imagine an overcollateralized lending platform, which uses an oracle for its
+price feeds to ensure prices remains up-to-date. Borrowers of the protocol can
+be liquidated with some incentive whenever their position becomes unhealthy to
+ensure the protocol remains solvent. Say liquidations can occur if the
 loan-to-value ratio is over 90%. Let's look at what happens with the protocol's
 health over time.
 
@@ -50,12 +51,12 @@ positions and the protocol remains healthy. However, say in time there is a
 price drop that causes many of the positions which used that asset as collateral
 to get close to the 90% liquidation threshold.
 
-The next price update that causes a position to become unhealthy has some
-intrinsic value. From the protocol's perspective, this affects its solvency and
-presents a threat. On the other hand, for a searcher this poses a profitable
-opportunity. The intrinsic value of the price update is equal to the profit the
-searcher can make. The profit is simply the liquidation incentive minus the
-operational gas costs.
+In this scenario, the next price update that causes a position to become
+unhealthy has some intrinsic value. From the protocol's perspective, this
+affects its solvency and presents a threat. On the other hand, for a searcher
+this poses a profitable opportunity. The intrinsic value of the price update is
+equal to the profit the searcher can make. The profit is simply the liquidation
+incentive minus the operational gas costs.
 
 A searcher monitors the dApp and sees that this opportunity is soon to become
 unhealthy. They announce that they want to execute the price feed update and pay
@@ -85,21 +86,21 @@ OEV offers advantages to various stakeholders in the ecosystem:
 
 ### OEV proceeds distribution
 
-To be able to update the data feed, the auction winner must pay the adequate bid
-amount, which they announced during the auction. In return, they get exclusive
-rights to capture the OEV. Searchers are compensated for this activity by the
-liquidation incentive.
+To be able to update the data feed, the auction winner must pay the bid amount
+of the winning bid, which they've announced during the auction. In return, they
+get exclusive rights to capture the OEV. Searchers are compensated for this
+activity by the liquidation incentive.
 
-At API3, we believe those operating the protocol should be compensated much
+At API3, we believe that those operating the protocol should be compensated much
 more - after all, they are the ones who created the opportunity. As such, all of
 the bid amounts paid are distributed back to the dApp.
 
-The bid amount payments happen on the target chain of the protocol. The
+As the bid amount payments are made on the target chain of the protocol, the
 accumulated payment amount can be easily computed from on-chain events, so there
 is absolute transparency in the process. The funds are withdrawable by API3 DAO,
 which will be responsible for distributing the funds back to the dApps.
 
-## How Auctions work?
+## How do auctions work?
 
 API3 has delivered a specialized Order Flow Auction (OFA) that maximizes the
 value returned to your dApp from OEV through a sealed bid on-chain auction
@@ -118,14 +119,14 @@ provided a cryptographic signature. The signature gives them exclusive rights to
 update any price feed(s) for the dApp for a limited amount of time. Each time an
 auction ends, a new one is started and the same process repeats.
 
-After auction winner fulfills their duties by paying the pre-announced bid
-amount, they need to report this back to OEV network. If they fail to do so,
-part of their collateral gets slashed. This is an important security aspect to
-prevent denying OEV recapture by withholding auction updates.
+After an auction winner fulfills their duties by paying for the winning bid,
+they need to report this back to OEV network. If they fail to do so, part of
+their collateral gets slashed. This is an important security aspect to prevent
+denying OEV recapture by withholding auction updates.
 
 ### dApp IDs
 
-Each dApp that uses OEV feeds is assigned an unique ID, call "dApp ID". The
+Each dApp that uses OEV feeds is assigned a unique ID, called the "dApp ID". The
 granularity of auctions is at the dApp level. All of the dApp proxies use the
 same dApp ID.
 
@@ -139,8 +140,8 @@ meaning other than to group proxies of the same dApp together.
 
 ### OEV Network
 
-The OEV Network is hosting auctions in a transparent way, ensuring any disputes
-can be resolved analyzing the on-chain data. Searchers submit their bids
+The OEV Network hosts auctions in a transparent way, ensuring any disputes can
+be resolved by analyzing the on-chain data. Searchers submit their bids
 on-chain, where the winner is announced and given the exclusive rights to
 execute the oracle update.
 
@@ -152,7 +153,7 @@ To learn more about the OEV Network, refer to the
 A key component of OEV is an off-chain auction system that processes the
 auctions happening on the OEV network. We call this system the OEV Auctioneer,
 and it is managed by the API3 DAO. The honesty of OEV Auctioneer is ensured by
-using OEV Network for all important actions, such as announcing the auction
+using the OEV Network for all important actions, such as announcing the auction
 winner.
 
 To learn more about the OEV Auctioneer, refer to the

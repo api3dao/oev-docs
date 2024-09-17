@@ -50,7 +50,7 @@ The Auctioneer runs auctions in parallel for each proxy address and chain listed
 on the [API3 Market](https://market.api3.org/).
 
 For each proxy there is a separate auction that takes place. The auction is
-documented in the [Auction Cycle](/oev/overview/auction-cycle.md) page but there
+documented on the [Auction Cycle](/oev/overview/auction-cycle.md) page but there
 are some nuances in the auctioneer state that are noted here.
 
 For each proxy the following checks are done by auctioneer during an auction to

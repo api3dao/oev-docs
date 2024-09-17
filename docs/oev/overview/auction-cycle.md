@@ -8,9 +8,9 @@ outline: deep
 
 # Auction Cycle
 
-We already explored how API3 OEV solution works at a high level and peaked into
-details of the OEV Network and OEV Auctioneer. In this section, we're going to
-walk through the auction cycle in depth, detailing the steps involved in the
+We already explored how the API3 OEV solution works at a high level and peaked
+into details of the OEV Network and OEV Auctioneer. In this section, we're going
+to walk through the auction cycle in depth, detailing the steps involved in the
 auction process.
 
 ## Searching work
@@ -21,10 +21,10 @@ deposit collateral on it's behalf. It needs to monitor the off-chain
 [Signed APIs](/oev/overview/target-chain.html#oev-signed-data) and monitor the
 dApp's state for profitable opportunities.
 
-For the purpose of this guide, we assume a searcher who implemented all of the
-above and knows how to capture the OEV given they won the auction. If you're
-looking into OEV searching, refer to the the [Searchers](/oev/searchers/)
-details.
+For the purposes of this guide, we assume there is a searcher that implemented
+all of the above and knows how to capture the OEV once they've won an auction.
+If you're looking into OEV searching, refer to the the
+[Searchers](/oev/searchers/) details.
 
 ## The auction process
 
@@ -37,30 +37,29 @@ Auctions run in two phases. The bidding phase and the award phase. During the
 bidding phase, searchers can look for OEV opportunities for the particular dApp
 and place their bids.
 
-### Find OEV opportunity
+### Find an OEV opportunity
 
-Say, a searcher identifies a possible OEV opportunity with the data from the
+Say a searcher identifies a possible OEV opportunity with the data from the
 off-chain Signed APIs. The searcher wants to obtain exclusive rights to update
 the data feed(s) with this data, before this data is opened to the public.
 
 ### Bid submission
 
-The searcher would then submit a bid via the OevAuctionHouse contract on the OEV
-Network. The auction is identified solely by the bid topic. As part of the bid
-details, the searcher specifies the bid amount they are willing to pay in order
-to obtain the exclusive update rights. For their bid to be eligible, they need
-to have enough collateral locked in the OevAuctionHouse contract at the time of
-award.
+The searcher submits a bid via the OevAuctionHouse contract on the OEV Network.
+The auction is identified solely by the bid topic. As part of the bid details,
+the searcher specifies the bid amount they are willing to pay in order to obtain
+the exclusive update rights. For their bid to be eligible, they need to have
+enough collateral locked in the OevAuctionHouse contract at the time of award.
 
 ### Start of the award phase
 
-The award phase starts immediately after the end of the bidding phase. Now, the
-Auctioneer needs to determine the auction winner and award them a signature
-giving them the exclusive rights.
+The award phase starts immediately after the end of the bidding phase.
+Auctioneer determines the auction winner and awards them a signature giving them
+the exclusive rights.
 
-Performance is critical here as the more time it takes to award the bid, the
-less time the auction winner has to capture the OEV. The phase periods are
-chosen with this in mind, allowing both Auctioneer and the winner enough time.
+Performance is critical here as the longer it takes to award the bid, the less
+time the auction winner has to capture the OEV. The phase periods are chosen
+with this in mind, allowing both Auctioneer and the winner enough time.
 
 ### Find the winning bid
 
@@ -72,14 +71,14 @@ section.
 
 ### Award the winning bid
 
-After a winning bid is determined, the Auctioneer creates a cryptographic
-signature and submits in on the OEV Network. The signature is to be used on the
-target chain when capturing the OEV opportunity by the auction winner.
+After the winning bid is determined, the Auctioneer creates a cryptographic
+signature and submits it in on the OEV Network. The signature is to be used on
+the target chain when capturing the OEV opportunity by the auction winner.
 
 ### Poll for awarded bid
 
-Searchers should monitor the OEV Network for the winning bid transaction
-frequently to make use of the award as soon as the transaction is mined.
+Searchers should monitor the OEV Network for the winning bid transaction to make
+use of the award as soon as possible.
 
 ### Capture the OEV opportunity
 
@@ -88,8 +87,8 @@ chain by making a transaction. They need to pay the bid amount announced in the
 bid submission. This payment will be forwarded to the dApp. The signature
 ensures that only the auction winner can do so.
 
-After they made the payment, the contract allows them to perform the data feed
-updates with exclusive rights. Note, that API3 feeds guarantee very strong
+After they've made the payment, the contract allows them to perform the data
+feed updates with exclusive rights. Note that API3 feeds guarantee very strong
 properties via on-chain aggregation and timestamp checks so the searcher is
 forced to use valid and up-to-date data.
 

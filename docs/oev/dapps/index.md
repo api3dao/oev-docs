@@ -8,12 +8,12 @@ outline: deep
 
 # OEV and dApps
 
-OEV is a very interesting concept for dApps, because it's a way to increase
-their revenue with minimal effort once using API3's decentralized APIs (dAPIs).
-There are no protocol changes required - the dApp needs to only change the
-oracle source. This is because the dAPIs are built with OEV in mind and
-opting-in to OEV is a matter of changing to a different proxy, the one with OEV
-support. To read more about dAPIs, read [dAPIs documentation](/dapis/).
+OEV is an interesting concept for dApps, because it's a way to increase their
+revenue with minimal effort once using API3's decentralized APIs (dAPIs). There
+are no protocol changes required - the dApp only needs to change the oracle
+source. This is because the dAPIs are built with OEV in mind and opting-in to
+OEV is a matter of changing to a different proxy, the one with OEV support. To
+read more about dAPIs, read [dAPIs documentation](/dapis/).
 
 The dAPIs with OEV inherit all the same security guarantees as the non-OEV
 dAPIs. Moreover, because of OEV, dApps are guaranteed to have the most

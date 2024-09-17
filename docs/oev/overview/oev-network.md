@@ -12,23 +12,23 @@ outline: deep
 
 The OEV Network is an open marketplace designed to facilitate the distribution
 of oracle updates. Operating as an Arbitrum Nitro L2 optimistic-rollup, the
-system ensures transparency and allows verification of auction process. In this
-marketplace, OEV searchers place bids for the exclusive opportunity to update a
-dAPIs for a short period of time.
+system ensures transparency and allows verification of the auction process. In
+this marketplace, OEV searchers place bids for the exclusive opportunity to
+update a dAPIs for a short period of time.
 
-By hosting the auctions on the on-chain, we address two big issues:
+By hosting auctions on on-chain, we address two big issues:
 
 1. Scalability - The OEV network hosts auctions across different dApps across
    multiple chains. The system needs to scale up with demand, especially during
-   the times of volatile markets where the activity is the highest. This is a
-   long-solved problem in blockchain through the gas fee.
-2. Transparency - Auctions are awarded via off-chain system, called OEV
+   periods of market volatility where the activity is the highest. This is a
+   long-solved problem in blockchains through the gas fees.
+2. Transparency - Auctions are awarded via an off-chain system, called OEV
    Auctioneer, so it's important to be able to reason about the correctness of
    auction outcomes. Blockchains are the perfect tool for this, as all the data
    is public and verifiable.
 
-To participate in auctions, you need to have sufficient amount of ETH bridged to
-the OEV network and interact with the [OevAuctionHouse](#oevauctionhouse)
+To participate in auctions, you need to have a sufficient amount of ETH bridged
+to the OEV network and interact with the [OevAuctionHouse](#oevauctionhouse)
 contract.
 
 ## Using the OEV Network
@@ -53,13 +53,13 @@ the OEV Network. Bridging is only possible from ETH mainnet.
 ![OEV Network Bridge](/oev/overview/assets/oev-bridge.png)
 
 Clicking on `Transfer Tokens` will automatically add the OEV Network to your
-Metamask wallet. To bridge, confirm the transaction in your wallet and wait form
-confirmation. After the transaction is confirmed, you should see your ETH on OEV
-Network.
+Metamask wallet. To bridge, confirm the transaction in your wallet and wait for
+confirmation. After the transaction is confirmed, you should see your ETH on the
+OEV Network.
 
 ## Contracts
 
-These are the relevant contracts deployed on OEV Network:
+These are the relevant contracts deployed on the OEV Network:
 
 | Contract name   | Address                                                                                                                        |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -69,8 +69,8 @@ These are the relevant contracts deployed on OEV Network:
 ### Api3ServerV1
 
 The Api3ServerV1 contract powers dAPIs on the OEV Network, which are used in
-OevAuctionHouse to compute collateral and protocol fee from the bid amounts.
-Note, that this chain is not listed on the API3 market, because OEV Network is
+OevAuctionHouse to compute collateral and protocol fees from the bid amounts. N
+that this chain is not listed on the API3 market, because the OEV Network is
 primarily intended to be used for the OEV auctions.
 
 ### OevAuctionHouse
@@ -88,7 +88,7 @@ reserved collateral of the searcher is released, while the
 [protocol fee](/oev/searchers/collateral-protocol-fee) is deducted.
 
 The contract is designed to work together with an off-chain component that can
-enforce a particular data encodings. This allows for great flexibility and
+enforce particular data encodings. This allows for great flexibility and an
 easier migration process in case of an upgrade.
 
 This contract is the key component that powers OEV auctions. This includes the
@@ -104,7 +104,7 @@ following:
 Refer to the [Auction Cycle](/oev/overview/auction-cycle) and
 [OEV Auctioneer](/oev/overview/oev-auctioneer) for details.
 
-The support OEV auctions in the least privileged way, the contract defines a few
+To support OEV auctions in the least privileged way, the contract defines a few
 special roles allowed to interact with the contract in an authorized way. These
 roles are:
 
