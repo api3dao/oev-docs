@@ -228,8 +228,8 @@ queries the OEV Network logs for such events, by doing the following:
    the correct contract, with the correct amount and on the correct target
    chain.
 
-In case there is a failure during the any of the steps above, the Auctioneer
-tries to process the fulfillment later. Its upmost priority is to avoid slashing
+In case there is a failure during any of the steps above, the Auctioneer tries
+to process the fulfillment later. Its upmost priority is to avoid slashing
 honest searchers. That said, once the Auctioneer disproves the fulfillment, it
 will promptly slash. Auction winners are advised to wait sufficient time for the
 transaction to reach enough finality on the target chain.

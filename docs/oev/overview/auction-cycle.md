@@ -17,7 +17,7 @@ auction process.
 
 Before we dive into the auction cycle, let's quickly summarize the work of
 searchers. The searcher needs to fund an EoA (Externally Owned Account) and
-deposit collateral on it's behalf. It needs to monitor the off-chain
+deposit collateral on its behalf. It needs to monitor the off-chain
 [Signed APIs](/oev/overview/target-chain.html#oev-signed-data) and monitor the
 dApp's state for profitable opportunities.
 

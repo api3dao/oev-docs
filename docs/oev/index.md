@@ -140,8 +140,8 @@ meaning other than to group proxies of the same dApp together.
 
 ### OEV Network
 
-The OEV Network hosts auctions in a transparent way, ensuring any disputes can
-be resolved by analyzing the on-chain data. Searchers submit their bids
+The OEV Network hosts auctions in a transparent way, ensuring that any disputes
+can be resolved by analyzing the on-chain data. Searchers submit their bids
 on-chain, where the winner is announced and given the exclusive rights to
 execute the oracle update.
 
@@ -151,10 +151,10 @@ To learn more about the OEV Network, refer to the
 ### OEV Auctioneer
 
 A key component of OEV is an off-chain auction system that processes the
-auctions happening on the OEV network. We call this system the OEV Auctioneer,
-and it is managed by the API3 DAO. The honesty of OEV Auctioneer is ensured by
-using the OEV Network for all important actions, such as announcing the auction
-winner.
+auctions taking place on the OEV network. We call this system the OEV
+Auctioneer, and it is managed by the API3 DAO. The honesty of OEV Auctioneer is
+ensured by using the OEV Network for all important actions, such as announcing
+the auction winner.
 
 To learn more about the OEV Auctioneer, refer to the
 [OEV Auctioneer documentation](/oev/overview/oev-auctioneer).
