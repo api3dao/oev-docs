@@ -49,7 +49,7 @@ offset based on the the dApp ID.
 
 ```js
 const offset = ethers.BigNumber.from(
-  ethers.utils.keccak256(ethers.utils.solidityPack(['uint32'], [dAppId]))
+  ethers.utils.keccak256(ethers.utils.solidityPack(['uint256'], [dAppId]))
 ).mod(AUCTION_LENGTH_SECONDS);
 ```
 
