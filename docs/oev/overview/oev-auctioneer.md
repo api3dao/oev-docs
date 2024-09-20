@@ -196,7 +196,9 @@ as soon as possible. The following happens under the hood:
 2. Fetch the current block on the OEV Network.
 3. Fetch the bids placed during the bidding phase up to the given block.
 4. Discard all ineligible bids.
-5. Select the bidder with highest bid amount.
+5. Select the bidder with highest bid amount. In case there are multiple
+   eligible bids with the same amount, the bidder with the earliest bid is
+   selected.
 6. Prepare and submit the award for the auction winner on OEV network.
 
 Under rare circumstances, when Auctioneer is unable to fetch the block on the
