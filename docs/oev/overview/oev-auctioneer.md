@@ -262,3 +262,10 @@ be eventually updated by an API3 push oracle when its deviation exceeds the
 threshold.
 
 :::
+
+## Maintenance
+
+Auctioneer is maintained by the API3 DAO, which is responsible for its uptime
+and reliable auction processing. In case of a planned migration or maintenance,
+there will be an announcement shared in advance. It's expected that maintenance
+periods will be very rare and short.
