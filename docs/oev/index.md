@@ -22,11 +22,11 @@ is unhealthy, because the majority of the value should be split between the dApp
 and the searcher who realized the opportunity.
 
 OEV aims to solve this problem by auctioning off the exclusive rights to execute
-the oracle update(s), allowing the winner to atomically update the price feed(s)
-and capture the opportunity on the market. Because of the exclusive update
-rights, searchers pay smaller gas fees, because there is no competition. On the
-other hand, the auction proceeds are distributed back to the dApp which created
-this opportunity.
+the oracle update(s), allowing the searcher to atomically update the price
+feed(s) and capture the opportunity on the market. Because of the exclusive
+update rights, searchers pay smaller gas fees, because there is no competition.
+On the other hand, the auction proceeds are distributed back to the dApp which
+created this opportunity.
 
 With OEV, searchers announce the desire to do the oracle updates themselves
 along with the amount they are willing to pay for it. The process is facilitated
@@ -73,13 +73,13 @@ arbitrage and many more.
 
 OEV offers advantages to various stakeholders in the ecosystem:
 
-1. For dApps:
+1. For dApps and their users:
 
    - Receive a major share of the value generated from their protocol's oracle
      updates.
-   - Improved efficiency, stability and granularity of price feeds.
+   - Improved efficiency, granularity and decentralization of price feeds.
 
-2. For Searchers:
+2. For searchers:
 
    - Lower gas fees and in general, higher profits.
    - Guaranteed exclusive update rights.
@@ -122,7 +122,7 @@ auction ends, a new one is started and the same process repeats.
 After an auction winner fulfills their duties by paying for the winning bid,
 they need to report this back to OEV network. If they fail to do so, part of
 their collateral gets slashed. This is an important security aspect to prevent
-denying OEV recapture by withholding auction updates.
+denying OEV recapture by withholding auction payments.
 
 ### dApp IDs
 

@@ -77,8 +77,8 @@ Auctioneer uses the following convention for the bid topic:
 ```js
 ethers.utils.keccak256(
   ethers.utils.solidityPack(
-    ['uint256', 'uint256', 'uint256', 'uint256'],
-    [majorVersion, dappId, startTimestamp, endTimestamp]
+    ['uint256', 'uint256', 'uint32', 'uint32'],
+    [majorVersion, dappId, auctionLength, signedDataTimestampCutoff]
   )
 );
 ```
@@ -90,20 +90,32 @@ Let's break down the components of the bid topic:
    off-chain protocol specs, is denoted by this major version being incremented.
    Refer to the current value of `MAJOR_VERSION` constant.
 2. `dappId` - The dApp ID for which the auction is being held.
-3. `startTimestamp` - The start timestamp of the bid phase during which the
-   bidder wants to execute OEV updates. Searchers are executing OEV updates
-   during the next bidding phase, so this value should be set to
-   `currentBidPhaseStartTimestamp + AUCTION_LENGTH_SECONDS`.
-4. `endTimestamp` - The end timestamp of the bid phase during which the bidder
-   wants to execute OEV updates. This value should be set to
-   `startTimestamp + BIDDING_PHASE_LENGTH_SECONDS`.
+3. `auctionLength` - The length of the auction. This parameter must to be set to
+   `AUCTION_LENGTH_SECONDS`. It is one of the most important parameters, so
+   we're explicitly including it in the bid topic to highlight its importance.
+4. `signedDataTimestampCutoff` - The cutoff timestamp of the signed data. Only
+   signed data with timestamp smaller or equal to this value are permitted to
+   update the data feed. It is equal to the end of the bidding phase of the
+   auction, that is `startTimestamp + BIDDING_PHASE_LENGTH_SECONDS`.
 
 ::: info
 
-The `startTimestamp` and `endTimestamp` form an update allowance period. Only
-during this period the auction winner is able to update data feeds. Searchers
-are required to supply these parameters in the bid topic to prevent confusion
-and to help resolve potential disputes retrospectively.
+Auctions repeat continuously and indefinitely. To calculate the
+`signedDataTimestampCutoff` that is to be specified in the bid topic, one needs
+to calculate the `startTimestamp` of the auction. This depends on the auction
+offset and `BIDDING_PHASE_LENGTH_SECONDS`.
+
+For example, dApp with ID `13` has an auction offset of `6`. With
+`AUCTION_LENGTH_SECONDS=30` and `BIDDING_PHASE_LENGTH_SECONDS=25` this gives the
+following sequence of auctions:
+
+| `startTimestamp` | `signedDataTimestampCutoff` | End of award phase |
+| ---------------- | --------------------------- | ------------------ |
+| 6                | 31                          | 36                 |
+| 36               | 61                          | 66                 |
+| 66               | 91                          | 96                 |
+
+and so on...
 
 :::
 
@@ -193,14 +205,18 @@ the auction award transaction fails, there will be no retry. Retrying in the
 case of an award failure would be unsafe, because the award signature was
 already exposed publicly.
 
-::: info
+### Bidding phase guarantee
 
-There is a possibility that after the bidding phase ends, there is a new bid
-placed before Auctioneer fetches the block on the OEV Network. In that case,
-Auctioneer will also consider this particular bid. Searchers should not rely on
-this behaviour.
+Auctioneer guarantees that any bid placed during the bidding phase will be
+processed. The timestamp of the placed bid is determined by the block timestamp
+in which the transaction is included. Searchers need to be mindful of that and
+of the block time of OEV Network and make sure to place their bids in time.
 
-:::
+That said, Auctioneer may also include bids placed before or slightly after the
+bidding phase. That is because Auctioneer fetches the logs from OEV Network some
+time in the award phase. It fetches logs from sufficient block range with some
+buffer to ensure the full bidding phase is included. This behaviour might change
+in time and searchers should not rely on it.
 
 ## Processing fulfillments
 

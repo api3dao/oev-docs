@@ -187,19 +187,19 @@ To pay for the winning bid, call the `payOevBid` function. This function
 requires the following parameters:
 
 1. `uint256 dappId` - The ID of the dApp that the searcher wants to update. This
-   is the same dApp ID which they've used in the bid topic.
-2. `uint32 updateAllowanceEndTimestamp` - The timestamp until which the searcher
-   can update the dApp. This is the end timestamp of the update allowance
-   period, which they've used in the bid topic.
+   is the same value which they've used in the bid topic.
+2. `uint32 signedDataTimestampCutoff` - The signed data timestamp cutoff period.
+   This is the same value, which they've used in the bid topic.
 3. `bytes calldata signature` - The signature that the auction winner received
    as an award. This is obtained from the event emitted on the OEV Network after
    Auctioneer awarded the bid.
 
-The signature is crafted for a specific dApp ID and update allowance. If the
-searcher provides incorrect values, the signature verification will fail,
-causing the transaction to revert. If the signature is valid, the contract
-allows the sender to update the data feed values until the end of update
-allowance period.
+The signature is crafted for a specific dApp ID and signed data timestamp
+cutoff. If the searcher provides incorrect values, the signature verification
+will fail, causing the transaction to revert. If the signature is valid, the
+contract allows the sender to update the data feed. Due to exclusivity
+guarantees, the winner is guaranteed to be who can update the feed with the data
+from within the bidding phase of the respective auction.
 
 ### Update the Data Feed
 
@@ -259,9 +259,9 @@ ethers.utils.defaultAbiCoder.encode(
 
 :::
 
-The auction winner can update the data feed multiple times throughout their
-update allowance period. However, the contract enforces tight security measures.
-The timestamp of the signed data for OEV beacon must be greater or equal to the
+The auction winner can update the data feed multiple times and in multiple
+transactions. However, the contract enforces tight security measures. The
+timestamp of the signed data for OEV beacon must be greater or equal to the
 timestamp of the base feed beacon. The data feed value after aggregating OEV
 beacons must change the base feed - either increase the timestamp or change the
 aggregated value. This enforces time monotonicity at the contract level, making

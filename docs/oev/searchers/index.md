@@ -253,18 +253,11 @@ values for a brief period of time - in case they win the auction and need to
 update the data feed.
 
 OEV auctions provide exclusivity guarantees only for data points with timestamps
-within the bidding phase, which are submitted during the allowance period.
-Moreover, it's not possible to use data fresher than the end of the bidding
-phase. This is to ensure the same guarantees apply for the subsequent auction
-winner. This means that there is little reason to store data for longer than a
-single auction.
-
-::: info
-
-The allowance period is the period that spans the award phase of the current
-auction and bidding phase of the next auction.
-
-:::
+within the bidding phase. Note, that for older signed data, there may be
+previous auction winner who can also use them to update the feed. Moreover, it's
+not possible to use data fresher than the end of the bidding phase. This is to
+ensure the same guarantees apply for the subsequent auction winner. This means
+that there is little reason to store data for longer than a single auction.
 
 #### Simulating a Data Feed Update
 

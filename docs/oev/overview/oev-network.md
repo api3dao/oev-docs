@@ -68,6 +68,9 @@ These are the relevant contracts deployed on the OEV Network:
 
 ### Api3ServerV1
 
+The implementation of the audited Api3ServerV1 contract is publicly available
+[here](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1.sol).
+
 The Api3ServerV1 contract powers dAPIs on the OEV Network, which are used in
 OevAuctionHouse to compute collateral and protocol fees from the bid amounts. N
 that this chain is not listed on the API3 market, because the OEV Network is
