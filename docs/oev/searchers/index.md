@@ -24,95 +24,14 @@ currently good candidates for searching:
 2. [Hana Finance](https://www.hana.finance/)
 3. [Init Capital](https://init.capital/)
 
-## From MEV searching
-
-MEV searching has a huge community and expertize securing health and stability
-across many dApps and chains. We want to motivate this community to join OEV by
-outlining the steps to transition from MEV to OEV searching.
-
-::: info
-
-MEV searching is the the recommended starting point for OEV integration. With
-MEV bot you can verify the understanding of the protocol and liquidation logic.
-
-:::
-
-Let's emphasize that the MEV searchers can still use their existing
-infrastructure and searching bots even when opting in OEV. OEV should be treated
-as an optional extension that searchers can capitalize on. Integrating OEV
-increases their profits by outperforming the competition and paying less to
-block validators.
-
-All of the searching logic related to position tracking, using flashloans and
-swapping assets remains the same. What's left is:
-
-1. [Bridge funds](/oev/overview/oev-network.html#bridging-eth) to the OEV
-   network.
-2. Deposit funds to the OevAuctionHouse contract.
-3. Monitor off-chain signed data for dAPIs used by the dApp.
-4. (Optional) Simulate the data feed update on-chain to determine liquidation
-   opportunities.
-5. Place bid on the OEV Network.
-6. Wait for auction award.
-7. Use the award to update the on-chain data feed on target chain and capture
-   the OEV.
-
-Most of these steps require small additions to the existing MEV bot, but it's
-required to understand the mental model behind OEV. Because of that, we
-recommend starting with an in-between solution we call "MEV with Signed APIs".
-
-### MEV with Signed APIs
-
-One step closer to OEV searching, is to extend MEV bots to utilize the public
-[Base Feed Endpoints](/oev/overview/target-chain.html#base-feed-endpoints).
-These endpoints are public, and also used by API3 DAO push oracle - so there is
-tight competition - something which searchers are already used to.
-
-The existing MEV bot can utilize this off-chain open source data and make a base
-feed update on-chain whenever there is OEV to be captured. Refer to
-[dAPIs Reference](/dapis/reference/understand/#dapis) for more details.
-
-One advantage of using this data is that searchers can easily simulate the data
-feed update (which is permissionless for base feeds) and to more easily
-determine the liquidation opportunities. This is a direct improvement over
-monitoring data source values and predicting the next oracle update.
-
-This solution is also a perfect backup in case OEV is down or in maintenance,
-because dAPIs are decentralized with great uptime.
-
-## OEV Searching
-
-We assume that a searcher has an MEV bot and is familiar with API3 OEV solution.
-Let's detail the steps to transition from MEV to OEV searching.
-
-### Deposit funds
-
-To be eligible to win OEV auctions, searchers need to have enough collateral
-deposited in the OevAuctionHouse contract. See
-[Bid Eligibility](/oev/overview/oev-auctioneer.html#bid-eligibility) for more
-details.
-
-We recommend using the same hot wallet for the bot on the OEV network (to
-participate in auctions) and the target chain (to capture the OEV). To deposit
-funds, you can use either the `deposit` or `depositForBidder` functions. The
-latter allows you to deposit the collateral on behalf of another address.
-
-### Monitor signed data
-
-Searchers should periodically call the public
-[OEV Endpoints](/oev/overview/target-chain.html#oev-endpoints) to get the
-real-time values for the dAPIs used by the dApp. The dApp will use a proxy to
-read the dAPI value, which prefers the fresher out of the base feed updates and
-OEV updates.
-
-#### Obtain dAPI beacons
+## Obtain dAPI beacons
 
 Searchers need to know the proxy address and the underlying dAPI name that the
 proxy is using. The dApps are in full control to change their proxies, so it's
 best to refer to their documentation or inspect their contracts.
 
-Then, determine the underlying beacons used by the dAPI. This information is
-fully on-chain and can be read from the AirseekerRegistry contract.
+To determine the underlying beacons used by the dAPI, you can use the
+AirseekerRegistry contract on the target chain.
 
 ::: info
 
@@ -242,6 +161,103 @@ APIs.
 
 :::
 
+## From MEV searching
+
+MEV searching has a huge community and expertize securing health and stability
+across many dApps and chains. We want to motivate this community to join OEV by
+outlining the steps to transition from MEV to OEV searching.
+
+::: info
+
+MEV searching is the the recommended starting point for OEV integration. With
+MEV bot you can verify the understanding of the protocol and liquidation logic.
+
+:::
+
+Let's emphasize that the MEV searchers can still use their existing
+infrastructure and searching bots even when opting in OEV. OEV should be treated
+as an optional extension that searchers can capitalize on. Integrating OEV
+increases their profits by outperforming the competition and paying less to
+block validators.
+
+All of the searching logic related to position tracking, using flashloans and
+swapping assets remains the same. What's left is:
+
+1. [Bridge funds](/oev/overview/oev-network.html#bridging-eth) to the OEV
+   network.
+2. Deposit funds to the OevAuctionHouse contract.
+3. Monitor off-chain signed data for dAPIs used by the dApp.
+4. (Optional) Simulate the data feed update on-chain to determine liquidation
+   opportunities.
+5. Place bid on the OEV Network.
+6. Wait for auction award.
+7. Use the award to update the on-chain data feed on target chain and capture
+   the OEV.
+
+Most of these steps require small additions to the existing MEV bot, but it's
+required to understand the mental model behind OEV. Because of that, we
+recommend starting with an in-between solution we call "MEV with Signed APIs".
+
+### MEV with Signed APIs
+
+One step closer to OEV searching, is to extend MEV bots to utilize the public
+[Base Feed Endpoints](/oev/overview/target-chain.html#base-feed-endpoints).
+These endpoints are public, and also used by API3 DAO push oracle - so there is
+tight competition - something which searchers are already used to.
+
+The existing MEV bot can utilize this off-chain open source data and make a base
+feed update on-chain whenever there is OEV to be captured. Refer to
+[dAPIs Reference](/dapis/reference/understand/#dapis) for more details.
+
+One advantage of using this data is that searchers can easily simulate the data
+feed update (which is permissionless for base feeds) and to more easily
+determine the liquidation opportunities. This is a direct improvement over
+monitoring data source values and predicting the next oracle update.
+
+This solution is also a perfect backup in case OEV is down or in maintenance,
+because dAPIs are decentralized with great uptime.
+
+#### Query Base Feed Endpoints
+
+TODO:
+
+#### Simulate a Data Feed Update
+
+::: info
+
+TODO:
+
+:::
+
+#### Capture MEV
+
+TODO:
+
+## OEV Searching
+
+We assume that a searcher has an MEV bot and is familiar with API3 OEV solution.
+Let's detail the steps to transition from MEV to OEV searching.
+
+### Deposit funds
+
+To be eligible to win OEV auctions, searchers need to have enough collateral
+deposited in the OevAuctionHouse contract. See
+[Bid Eligibility](/oev/overview/oev-auctioneer.html#bid-eligibility) for more
+details.
+
+We recommend using the same hot wallet for the bot on the OEV network (to
+participate in auctions) and the target chain (to capture the OEV). To deposit
+funds, you can use either the `deposit` or `depositForBidder` functions. The
+latter allows you to deposit the collateral on behalf of another address.
+
+### Monitor signed data
+
+Searchers should periodically call the public
+[OEV Endpoints](/oev/overview/target-chain.html#oev-endpoints) to get the
+real-time values for the dAPIs used by the dApp. The dApp will use a proxy to
+read the dAPI value, which prefers the fresher out of the base feed updates and
+OEV updates.
+
 #### Query Signed APIs
 
 For each tracked beacon, searchers need to derive the corresponding
@@ -259,7 +275,7 @@ not possible to use data fresher than the end of the bidding phase. This is to
 ensure the same guarantees apply for the subsequent auction winner. This means
 that there is little reason to store data for longer than a single auction.
 
-#### Simulating a Data Feed Update
+#### Simulate a Data Feed Update
 
 Compared to the base feed updates, OEV updates are permissioned - allowing only
 the auction winner to update the data feed. This makes the OEV updates
