@@ -31,3 +31,13 @@ Integrating OEV dAPIs requires no code changes to the protocol. This is
 accomplished by a [proxy contract](/oev/dapps/#proxy-contract). Searchers who
 win the auction are able to update the data feed to the up-to-date value, which
 can be read by the dApp through this proxy.
+
+If you're a dApp interested in leveraging OEV, please reach out to us in
+[OEV Discord Channel](https://discord.com/channels/758003776174030948/1062909222347603989).
+
+## Payouts
+
+Currently, the dApps are paid manually by inspecting the logs of the PaidOevBid
+event emitted by the `payOevBid` function. Payouts happen monthly and the payout
+amount is calculated by accumulating all the amounts from the event logs and
+taking an 80% cut of it. The remaining 20% is used as a revenue for API3 DAO.
