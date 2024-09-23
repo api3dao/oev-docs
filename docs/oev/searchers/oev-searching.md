@@ -35,6 +35,35 @@ needs to do the following:
 The withdrawal process is implemented this way to prevent denying service by
 frontrunning the award transaction by withdrawing the collateral.
 
+## Collateral and Protocol Fee
+
+For a searcher to win an auction, they are required to have enough ETH deposited
+in the OevAuctionHouse contract. Similarly, the value the searcher can win is
+limited by the amount they have deposited. Refer to
+[Bid Eligibility](/oev/overview/oev-auctioneer.html#bid-eligibility) for
+details.
+
+The collateral and protocol fee rates are configurable parameters within the
+OevAuctionHouse contract and are configured by the API3 DAO. These values are
+set in "basis points", which are 1/100th of a percentage point. For example, a
+value of 1000 is equivalent to 10%.
+
+| Parameter                | Value |
+| ------------------------ | ----- |
+| collateralInBasisPoints  | 1000  |
+| protocolFeeInBasisPoints | 0     |
+
+The collateral and the protocol fee are calculated using the price feed values
+at the time of the bid placement. However, the collateral is reserved at award
+time. This allows the bidder to place multiple bids for different dApps, even if
+their collateral doesn't allow them to win all. This allows for greater
+flexibility.
+
+If the auction winner pays for the bid on the OEV Network and report the
+fulfillment, their collateral is released and the protocol fee is deducted. If
+the auction winner doesn't pay for the award or fails to report the fulfillment,
+their collateral is slashed.
+
 ## Monitor signed data
 
 Searchers should periodically call the public
@@ -112,7 +141,29 @@ const simulationResult = await api3ServerV1OevExtensionImpersonated.multicall.st
 
 <!-- TODO: Link to http://localhost:5173/oev/overview/oev-network.html#properties -->
 
-https://github.com/api3dao/oev-docs/issues/57
+After a profitable opportunity is identified, the searcher needs to place a bid
+to obtain a signature that allows them to perform the update for real. To place
+a bid, call `placeBidWithExpiration` or `placeBid`. The latter is just a
+convenience function which places a bid with maximum expiration time. It's
+recommended to call `placeBidWithExpiration` and set the expiration time to the
+end of the next bidding phase.
+
+The `placeBidWithExpiration` accepts the following parameters:
+
+| Argument             | Type    | Description                                                                                                                                                                                                                  |
+| -------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bidTopic             | bytes32 | The [Bid Topic](/oev/overview/oev-auctioneer.html#bid-topic) of the current auction.                                                                                                                                         |
+| chainId              | uint256 | The chain ID of the target chain.                                                                                                                                                                                            |
+| bidAmount            | uint256 | The amount of the bid in the native currency of the target chain. At award time, a respective percentage fo this amount is reserved as collateral and the winner is expected to pay the full bid amount on the target chain. |
+| bidDetails           | bytes   | The [Bid details](./arguments.md#biddetails-bytes) of the bid.                                                                                                                                                               |
+| maxCollateralAmount  | uint256 | The maximum collateral amount that the bidder is willing to lock up. This is to prevent unwanted slippage in case of a large price change before the transaction is mined.                                                   |
+| maxProtocolFeeAmount | uint256 | The maximum protocol fee amount that the bidder is willing to pay. This is to prevent unwanted slippage in case of a large price change before the transaction is mined.                                                     |
+| expirationTimestamp  | uint32  | The timestamp until which the bid is valid. The timestamp is checked against the `block.timestamp` at the bid placement time. Minimum is 15 seconds and maximum 24 hours.                                                    |
+
+The most intuitive way to place the bid is follow the recommendations above and
+as a bid amount provide a percentage of the profit. Note, that the searcher
+needs to be mindful of all the gas costs on both the target chain and OEV
+Network, the paid bid amount and the respective collateral and protocol fee.
 
 ## Waiting for auction award
 

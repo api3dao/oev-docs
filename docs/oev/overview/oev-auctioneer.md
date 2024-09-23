@@ -171,15 +171,6 @@ Auctioneer fetches the required information from the OevAuctionHouse contract.
 In a rare case when Auctioneer fails to fetch eligibility for a bidder, it will
 abort awarding the current auction.
 
-::: info
-
-Notice, that the collateral is reserved at award time, not at bid time. However,
-the collateral and protocol fee is computed from the rates at bid time. This
-allows the bidder to place multiple bids for different dApps, even if their
-collateral doesn't allow them to win all. This allows for greater flexibility.
-
-:::
-
 ## Auction resolution
 
 Each auction is split into two phases:
