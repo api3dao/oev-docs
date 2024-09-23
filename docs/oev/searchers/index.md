@@ -309,6 +309,8 @@ const simulationResult = await api3ServerV1OevExtensionImpersonated.multicall.st
 
 ### Placing bid
 
+<!-- TODO: Link to http://localhost:5173/oev/overview/oev-network.html#properties -->
+
 https://github.com/api3dao/oev-docs/issues/57
 
 ### Waiting for auction award

@@ -45,6 +45,22 @@ OEV Network can be added as a custom network to an EVM compatible wallet.
 | Block Explorer URL | https://oev.explorer.api3.org/ |
 | Bridge URL         | https://oev.bridge.api3.org/   |
 
+## Properties
+
+Here are some of the key properties of the OEV Network:
+
+1. Block time - Under high load, the block time of the network can be as fast as
+   250ms. Note that the OEV Network only produces blocks when there are
+   transactions.
+2. Gas fees - The gas fees are paid in ETH, and because the network is an
+   optimistic L2 rollup the gas fees are low.
+3. Using Anytrust - By using AnyTrust DAC, the OEV Network achieves further cost
+   decrease.
+
+See [Arbitrum Nitro details](https://docs.caldera.xyz/about/nitro#benefits) and
+[AnyTrust details](https://docs.caldera.xyz/about/nitro#anytrust) for more
+information.
+
 ## Bridging ETH
 
 Use the [OEV Network Bridge](https://oev.bridge.api3.org/) to bridge your ETH to
