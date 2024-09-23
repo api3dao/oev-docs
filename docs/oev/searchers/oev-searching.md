@@ -8,8 +8,8 @@ outline: deep
 
 # OEV Searching
 
-We assume that a searcher has an MEV bot and is familiar with API3 OEV solution.
-Let's detail the steps to transition from MEV to OEV searching.
+We assume that a searcher has an existing MEV bot and is familiar with API3 OEV
+solution. Let's detail the steps to transition from MEV to OEV searching.
 
 ## Deposit funds
 
