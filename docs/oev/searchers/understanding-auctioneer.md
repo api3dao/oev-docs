@@ -49,12 +49,12 @@ every time the auctioneer fetches a new off-chain data point of a dAPI.
 The Auctioneer runs auctions in parallel for each proxy address and chain listed
 on the [API3 Market](https://market.api3.org/).
 
-For each proxy there is a separate auction round that takes place. The auction
-round is documented in the [Auction Cycle](/oev/overview/auction-cycle.md) page
-but there are some nuances in the auctioneer state that are noted here.
+For each proxy there is a separate auction that takes place. The auction is
+documented on the [Auction Cycle](/oev/overview/auction-cycle.md) page but there
+are some nuances in the auctioneer state that are noted here.
 
-For each proxy the following checks are done by auctioneer during an auction
-round to filter out non-qualifying bids:
+For each proxy the following checks are done by auctioneer during an auction to
+filter out non-qualifying bids:
 
 - If there is no transaction count in the state, drop all the bids.
 - Drop all inactive bids. These are bids that have already been awarded or lost
@@ -76,14 +76,14 @@ selects the winning bids based on the following criteria:
 
   - The bidder does not have a pending withdrawal
   - The bidder has enough collateral
-  - A different bid has not been awarded in this auction round
+  - A different bid has not been awarded in this auction
 
   As a note, if there are multiple bids with the same collateral requirement,
   the Auctioneer does not specify which bid will be considered first.
 
-The first bid that satisfies all of the above criteria for an auction round is
+The first bid that satisfies all of the above criteria for an auction is
 awarded. The bidder's collateral balance is deducted and the bid is marked as
-"awarded" for that auction round.
+"awarded" for that auction.
 
 The auctioneer then prepares the encoded OEV update transaction for each awarded
 bid by having the airnodes of the dAPIs sign the winning bid and returning the
@@ -105,10 +105,10 @@ enough for practical purposes.
 
 :::
 
-The auctioneer caches the bids and timestamp for all the auction rounds at the
-end of the run. This is used to filter out the bids that have already been
-awarded in the next auction round and to ensure that the auction only starts
-after the required delay has passed.
+The auctioneer caches the bids and timestamp for all the auctions at the end of
+the run. This is used to filter out the bids that have already been awarded in
+the next auction and to ensure that the auction only starts after the required
+delay has passed.
 
 ## Fulfillment and Contradiction of Bids
 

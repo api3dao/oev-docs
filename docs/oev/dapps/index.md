@@ -1,48 +1,33 @@
 ---
-title: dApp Onboarding
+title: dApps
 pageHeader: OEV -> dApps
 outline: deep
 ---
 
 <PageHeader/>
 
-# dApp Onboarding
+# OEV and dApps
 
-OEV auctions operate as a supplementary service to regular data feed operations,
-ensuring that updates persist through the oracle even during OEV Network
-downtime or periods with limited OEV opportunities.
+OEV is an interesting concept for dApps, because it's a way to increase their
+revenue with minimal effort once using API3's decentralized APIs (dAPIs). There
+are no protocol changes required - the dApp only needs to change the oracle
+source. This is because the dAPIs are built with OEV in mind and opting-in to
+OEV is a matter of changing to a different proxy, the one with OEV support. To
+read more about dAPIs, read [dAPIs documentation](/dapis/).
 
-## Integration
+The dAPIs with OEV inherit all the same security guarantees as the non-OEV
+dAPIs. Moreover, because of OEV, dApps are guaranteed to have the most
+up-to-date data available when it matters because of the searchers. There is no
+distinction between regular updates (performed by API3 push oracle) and the OEV
+updates (performed by the searcher). This maximizes the revenue and security for
+the protocol with increased decentralization.
 
-Integration involves reading from a proxy contract visible on the
-[API3 Market](https://market.api3.org).
+## Leveraging OEV alongside dAPIs
 
-All the dAPIs on over 35+ chains have their own proxy addresses listed on the
-market.
+The prerequisite to leveraging OEV is to use API3's dAPIs. To learn more about
+how dAPIs work, please refer to the [dAPIs documentation](/dapis/).
 
-<div>
-  <img src="/oev/dapps/assets/market.png" />
-</div>
-
-## Proxy Contract
-
-<div>
-  <img src="/dapis/assets/images/dAPI_explainer.png" />
-</div>
-
-Searchers use signed data from Airnodes to update the proxy contract with the
-latest data point. However, if [`Api3ServerV1`](/dapis/reference/understand/)
-has a more recent timestamp than the last searcher update, the data point from
-`Api3ServerV1` will be displayed.
-
-::: tip
-
-Please refer to the following guide on how to read from a proxy contract:
-
-- [Reading a dAPI Proxy](/dapis/guides/read-a-dapi/index.md)
-
-:::
-
-By integrating OEV auctions as a supplementary service, developers can ensure a
-seamless transition between oracle updates and OEV opportunities while
-maintaining the desired distribution of proceeds.
+Integrating OEV dAPIs requires no code changes to the protocol. This is
+accomplished by a [proxy contract](/oev/dapps/#proxy-contract). Searchers who
+win the auction are able to update the data feed to the up-to-date value, which
+can be read by the dApp through this proxy.

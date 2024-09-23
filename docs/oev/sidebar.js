@@ -4,12 +4,7 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'Oracle Extractable Value ',
-        link: '/oev/overview/oracle-extractable-value',
-      },
-
-      {
-        text: 'OEV Capture',
+        text: 'OEV',
         link: '/oev/',
       },
       {
@@ -17,16 +12,16 @@ module.exports = [
         link: '/oev/overview/oev-network',
       },
       {
-        text: 'OEV Playground',
-        link: '/oev/overview/oev-playground',
+        text: 'OEV Auctioneer',
+        link: '/oev/overview/oev-auctioneer',
+      },
+      {
+        text: 'Target chain',
+        link: '/oev/overview/target-chain',
       },
       {
         text: 'Auction Cycle',
         link: '/oev/overview/auction-cycle',
-      },
-      {
-        text: 'Bridging to the OEV Network',
-        link: '/oev/overview/bridge-oev-network',
       },
     ],
   },
@@ -35,25 +30,8 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'Submitting Bids for Oracle updates',
-        link: '/oev/searchers/submit-bids',
-      },
-      {
-        text: 'Argument and Constants',
-        link: '/oev/searchers/arguments',
-      },
-
-      {
-        text: 'Collateral and Protocol Fee',
-        link: '/oev/searchers/collateral-protocol-fee',
-      },
-      {
-        text: 'Understanding Auctioneer',
-        link: '/oev/searchers/understanding-auctioneer',
-      },
-      {
-        text: 'Example Searcher Bot',
-        link: '/oev/searchers/example-searcher-bot',
+        text: 'Searchers',
+        link: '/oev/searchers/',
       },
     ],
   },
@@ -62,7 +40,7 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'dApp Onboarding',
+        text: 'dApps',
         link: '/oev/dapps/',
       },
     ],
