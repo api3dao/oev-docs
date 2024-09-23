@@ -45,6 +45,10 @@ module.exports = [
         text: 'OEV Searching',
         link: '/oev/searchers/oev-searching',
       },
+      {
+        text: 'OEV Playground',
+        link: '/oev/searchers/oev-playground',
+      },
     ],
   },
   {
