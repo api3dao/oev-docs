@@ -173,7 +173,7 @@ The response of the Signed API is a JSON object with the following fields:
 
 1. `count` - The number of signed data entries.
 2. `data` - An object with the signed data entries. The keys are the beacon IDs
-   and the values are the signed data objects for the particular beacon.
+   and the values are the signed data objects for the particular beacon(s).
 
 For example:
 

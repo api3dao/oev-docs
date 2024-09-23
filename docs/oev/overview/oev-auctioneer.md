@@ -164,7 +164,7 @@ on-chain restrictions, Auctioneer adds a few more:
    time.
 3. Ensure the bidder has not initiated a withdrawal. This prevents withdrawing
    the deposit just before the bid award. Note that it does not matter if the
-   bid was placed before the withdrawal. If there is a withdraw initiated all
+   bid was placed before the withdrawal - if there is a withdraw initiated all
    bidder's bids are ignored.
 
 Auctioneer fetches the required information from the OevAuctionHouse contract.
