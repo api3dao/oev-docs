@@ -162,21 +162,14 @@ on-chain restrictions, Auctioneer adds a few more:
    extra `COLLATERAL_REQUIREMENT_BUFFER_PERCENT` percent to account for price
    fluctuations. This ensures that enough collateral can be reserved at award
    time.
-3. Ensure the bidder has no active withdrawal. This prevents withdrawing the
-   deposit just before the bid award.
+3. Ensure the bidder has not initiated a withdrawal. This prevents withdrawing
+   the deposit just before the bid award. Note that it does not matter if the
+   bid was placed before the withdrawal - if there is a withdraw initiated all
+   bidder's bids are ignored.
 
 Auctioneer fetches the required information from the OevAuctionHouse contract.
 In a rare case when Auctioneer fails to fetch eligibility for a bidder, it will
 abort awarding the current auction.
-
-::: info
-
-Notice, that the collateral is reserved at award time, not at bid time. However,
-the collateral and protocol fee is computed from the rates at bid time. This
-allows the bidder to place multiple bids for different dApps, even if their
-collateral doesn't allow them to win all. This allows for greater flexibility.
-
-:::
 
 ## Auction resolution
 
