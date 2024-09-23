@@ -139,8 +139,6 @@ const simulationResult = await api3ServerV1OevExtensionImpersonated.multicall.st
 
 ## Placing bid
 
-<!-- TODO: Link to http://localhost:5173/oev/overview/oev-network.html#properties -->
-
 After a profitable opportunity is identified, the searcher needs to place a bid
 to obtain a signature that allows them to perform the update for real. To place
 a bid, call `placeBidWithExpiration` or `placeBid`. The latter is just a
@@ -165,10 +163,73 @@ as a bid amount provide a percentage of the profit. Note, that the searcher
 needs to be mindful of all the gas costs on both the target chain and OEV
 Network, the paid bid amount and the respective collateral and protocol fee.
 
+For a bid to be valid, it needs to use the correct arguments. Out of these, the
+most important is the bid topic, which also identifies the auction. For the bid
+to be considered, the place bid transaction needs to be mined during the bidding
+phase. Searchers should be mindful of the block time on the OEV Network to make
+sure their transaction is mined in time. Refer to
+[OEV Network Properties](/oev/overview/oev-network.html#properties) for details.
+
 ## Waiting for auction award
 
-https://github.com/api3dao/oev-docs/issues/57
+Immediately after the bidding phase is over, Auctioneer enters the award phase
+and determines the highest bidder and submits the `awardBid` transaction, which
+emits AwardedBid event. This event indexes the the three most important
+arguments:
+
+- `bidder` - The auction winner.
+- `bidTopic` - The bid topic of the auction.
+- `bidId` - The bid ID of the auction.
+
+Searchers can create an event filter to query for all their awarded bids by
+filtering for particular bidder(s) or they could create event filter for
+specific auction or simply query for their bid. The most idiomatic way is to
+poll the AwardedBid with a particular bid topic. After the event is received,
+searchers can check the bidder to see if they are the winner or not. It's
+recommended to use a small polling interval to obtain the result as soon as
+possible.
+
+Auctioneer should in practice award the bid during the award phase, but
+searchers are recommended to poll longer. In case Auctioneer does not even
+within the next bidding phase - there is likely something wrong. Whether the
+issue is caused by Auctioneer or the searcher can be determined by looking at
+the OEV Network. In case, the issue was caused by Auctioneer, the searcher can
+open a dispute.
+
+::: info
+
+Searchers can monitor the auction in real-time and can determine the auction
+winner themselves (or even attempt to increase their bid).
+
+:::
 
 ## Capturing OEV
 
-https://github.com/api3dao/oev-docs/issues/57
+After the bid is awarded, the searcher needs to do the following:
+
+1. Pay for the awarded bid.
+2. Update any of the dApp's data feed(s).
+3. Capture any OEV opportunities exposed by the data feed update(s).
+
+It's expected that searchers do all of these steps atomically. However, the
+contract allows searcher to repeat steps 2. and 3. as many times as they want.
+However, each update has to increase the timestamp of the OEV Beacon(s).
+
+Refer to
+[Using an Auction Award](/oev/overview/target-chain.html#using-an-auction-award)
+for details how to execute the first two steps. To execute the OEV capture,
+searchers can use the same calldata they've used during simulation.
+
+## Handling disputes
+
+In case of a dispute, the OEV Network is considered source-of-truth and can be
+used to resolve it. This may include Auctioneer awarding the wrong bidder or
+being inconsistent to its pre-announced rules.
+
+Note, that any dispute that can't be proven or disproved on-chain is
+non-applicable. This may include searchers complaints about the RPC connection
+or similar off-chain problems.
+
+To open a dispute head out to the
+[OEV Discord Channel](https://discord.com/channels/758003776174030948/1062909222347603989)
+and create a post with the description of the dispute.
