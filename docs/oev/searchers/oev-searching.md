@@ -23,6 +23,18 @@ participate in auctions) and the target chain (to capture the OEV). To deposit
 funds, you can use either the `deposit` or `depositForBidder` functions. The
 latter allows you to deposit the collateral on behalf of another address.
 
+## Withdraw funds
+
+To withdraw the deposited collateral from OevAuctionHouse contract, the searcher
+needs to do the following:
+
+1. Call `initiateWithdrawal` function on the OevAuctionHouse contract.
+2. Wait for the withdrawal period to pass. The period is 15 seconds.
+3. Call `withdraw` function on the OevAuctionHouse contract.
+
+The withdrawal process is implemented this way to prevent denying service by
+frontrunning the award transaction by withdrawing the collateral.
+
 ## Monitor signed data
 
 Searchers should periodically call the public
