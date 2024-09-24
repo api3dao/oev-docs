@@ -13,7 +13,7 @@ into details of the OEV Network and OEV Auctioneer. In this section, we're going
 to walk through the auction cycle in depth, detailing the steps involved in the
 auction process.
 
-## Searching work
+## Searching
 
 Before we dive into the auction cycle, let's quickly summarize the work of
 searchers. The searcher needs to fund an EoA (Externally Owned Account) and
@@ -26,24 +26,24 @@ all of the above and knows how to capture the OEV once they've won an auction.
 If you're looking into OEV searching, refer to the the
 [Searchers](/oev/searchers/) details.
 
-## The auction process
+## The Auction Process
 
 Assuming there is a dApp with OEV integration and there are active OEV
 searchers, the following is a typical auction process.
 
-### Start of the bidding phase
+### Start of the Bidding Phase
 
 Auctions run in two phases. The bidding phase and the award phase. During the
 bidding phase, searchers can look for OEV opportunities for the particular dApp
 and place their bids.
 
-### Find an OEV opportunity
+### Find an OEV Opportunity
 
 Say a searcher identifies a possible OEV opportunity with the data from the
 off-chain Signed APIs. The searcher wants to obtain exclusive rights to update
 the data feed(s) with this data, before this data is opened to the public.
 
-### Bid submission
+### Bid Submission
 
 The searcher submits a bid via the OevAuctionHouse contract on the OEV Network.
 The auction is identified solely by the bid topic. As part of the bid details,
@@ -51,7 +51,7 @@ the searcher specifies the bid amount they are willing to pay in order to obtain
 the exclusive update rights. For their bid to be eligible, they need to have
 enough collateral locked in the OevAuctionHouse contract at the time of award.
 
-### Start of the award phase
+### Start of the Award Phase
 
 The award phase starts immediately after the end of the bidding phase.
 Auctioneer determines the auction winner and awards them a signature giving them
@@ -61,26 +61,26 @@ Performance is critical here as the longer it takes to award the bid, the less
 time the auction winner has to capture the OEV. The phase periods are chosen
 with this in mind, allowing both Auctioneer and the winner enough time.
 
-### Find the winning bid
+### Finding the Winning Bid
 
-If there are multiple eligible bids, the Auctioneer selects the one with the
-highest bid amount. More details on how the auctioneer selects the winning bid
-can be found in the
+If there are multiple eligible bids, Auctioneer selects the one with the highest
+bid amount. More details on how Auctioneer selects the winning bid can be found
+in the
 [Auction resolution](/oev/overview/oev-auctioneer.html#auction-resolution)
 section.
 
-### Award the winning bid
+### Awarding the Winning Bid
 
-After the winning bid is determined, the Auctioneer creates a cryptographic
+After the winning bid is determined, Auctioneer creates a cryptographic
 signature and submits it in on the OEV Network. The signature is to be used on
 the target chain when capturing the OEV opportunity by the auction winner.
 
-### Poll for awarded bid
+### Polling for Awarded Bid
 
 Searchers should monitor the OEV Network for the winning bid transaction to make
 use of the award as soon as possible.
 
-### Capture the OEV opportunity
+### Capturing the OEV Opportunity
 
 The searcher can use the winning signature to pay for the OEV bid on the target
 chain by making a transaction. They need to pay the bid amount announced in the
@@ -96,7 +96,7 @@ Finally, the after updating the data feed values, the searcher is able to
 capture the OEV opportunity. It is assumed that the searcher does all of these
 steps atomically in a single transaction.
 
-### Report fulfillment
+### Reporting Fulfillment
 
 After paying for the OEV bid, the searcher needs to report the fulfillment back
 to the OEV network. They do so by submitting the transaction hash in which
@@ -106,7 +106,7 @@ The searcher is given a sufficiently long period to report the fulfillment. It's
 advised to submit the fulfillment only once the transaction on the target chain
 has reached enough finality.
 
-### Fulfillment verification
+### Fulfillment Verification
 
 Once the fulfillment is submitted, Auctioneer verifies it and there are two
 possibilities on what can happen:

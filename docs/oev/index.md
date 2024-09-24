@@ -69,6 +69,14 @@ arbitrage and many more.
 
 :::
 
+## Security
+
+Because OEV is an extension of API3 feeds, it inherits the same guarantees that
+the base feeds provide. Furthermore, our contracts and off-chain components
+undergone multiple security audits from multiple auditors. Refer to the
+[contract's security on GitHub](https://github.com/api3dao/contracts/blob/main/README.md#security)
+for details.
+
 ## Benefits of OEV
 
 OEV offers advantages to various stakeholders in the ecosystem:
@@ -84,7 +92,7 @@ OEV offers advantages to various stakeholders in the ecosystem:
    - Lower gas fees and in general, higher profits.
    - Guaranteed exclusive update rights.
 
-### OEV proceeds distribution
+### OEV Proceeds Distribution
 
 To be able to update the data feed, the auction winner must pay the bid amount
 of the winning bid, which they've announced during the auction. In return, they
@@ -100,7 +108,7 @@ accumulated payment amount can be easily computed from on-chain events, so there
 is absolute transparency in the process. The funds are withdrawable by API3 DAO,
 which will be responsible for distributing the funds back to the dApps.
 
-## How do auctions work?
+## How do Auctions Work?
 
 API3 has delivered a specialized Order Flow Auction (OFA) that maximizes the
 value returned to your dApp from OEV through a sealed bid on-chain auction
@@ -151,12 +159,12 @@ To learn more about the OEV Network, refer to the
 ### OEV Auctioneer
 
 A key component of OEV is an off-chain auction system that processes the
-auctions taking place on the OEV network. We call this system the OEV
-Auctioneer, and it is managed by the API3 DAO. The honesty of OEV Auctioneer is
-ensured by using the OEV Network for all important actions, such as announcing
-the auction winner.
+auctions taking place on the OEV network. We call this system OEV Auctioneer,
+and it is managed by the API3 DAO. The honesty of OEV Auctioneer is ensured by
+using the OEV Network for all important actions, such as announcing the auction
+winner.
 
-To learn more about the OEV Auctioneer, refer to the
+To learn more about OEV Auctioneer, refer to the
 [OEV Auctioneer documentation](/oev/overview/oev-auctioneer).
 
 ## Get Involved with OEV

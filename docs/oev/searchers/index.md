@@ -13,7 +13,7 @@ works and scratched the surface behind the complexity of searching. We aim to
 provide basic searching strategies to simplify onboarding of the existing MEV
 searching community to OEV.
 
-## OEV dApps catalog
+## OEV dApps Catalog
 
 We maintain an open source list with all dApps which integrated API3 feeds as
 part of [dApp Registry](https://github.com/api3dao/dapp-registry). However, not
@@ -24,7 +24,7 @@ currently good candidates for searching:
 2. [Hana Finance](https://www.hana.finance/)
 3. [Init Capital](https://init.capital/)
 
-## From MEV searching
+## From MEV Searching
 
 MEV searching has a huge community and expertize securing health and stability
 across many dApps and chains. We want to motivate this community to join OEV by

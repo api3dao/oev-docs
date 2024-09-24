@@ -1,12 +1,12 @@
 ---
-title: Obtain dAPI Beacons
+title: Obtaining dAPI Beacons
 pageHeader: OEV → Searchers
 outline: deep
 ---
 
 <PageHeader/>
 
-# Obtain dAPI beacons
+# Obtaining dAPI beacons
 
 Searchers need to know the proxy address and the underlying dAPI name that the
 proxy is using. The dApps are in full control to change their proxies, so it's
@@ -24,7 +24,8 @@ actual data feed details.
 
 Encoding or decoding data feed details is simple, but depends on whether the
 feed is a beacon (single source) or a beacon set (multi sources). Assume we have
-encoded `dataFeedDetails` and we need to decode it.
+encoded `dataFeedDetails` and we need to decode it. Note, the encoding follows a
+similar principle.
 
 The decoding of a beacon:
 
@@ -52,7 +53,7 @@ length depends on the number of beacons encoded.
 ## Example
 
 Say there is a dApp which uses the `ETH/USD` dAPI. We can compute the details
-for this dAPI by:
+for this dAPI off-chain by:
 
 ```js
 const encodedDapiName = ethers.utils.formatBytes32String('ETH/USD'); // 0x4554482f55534400000000000000000000000000000000000000000000000000
