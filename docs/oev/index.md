@@ -69,6 +69,14 @@ arbitrage and many more.
 
 :::
 
+## Security
+
+Because OEV is an extension of API3 feeds, it inherits the same guarantees that
+the base feeds provide. Furthermore, our contracts and off-chain components
+undergone multiple security audits from multiple auditors. Refer to the
+[contract's security on GitHub](https://github.com/api3dao/contracts/blob/main/README.md#security)
+for details.
+
 ## Benefits of OEV
 
 OEV offers advantages to various stakeholders in the ecosystem:
