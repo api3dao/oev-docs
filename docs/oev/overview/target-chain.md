@@ -211,7 +211,7 @@ The OEV capabilities are enabled by the
 This contract allows the auction winner to pay for the winning bid and update
 the data feed values.
 
-### Pay for the OEV Bid
+### Paying for the OEV Bid
 
 To pay for the winning bid, call the `payOevBid` function. This function
 requires the following parameters:
@@ -231,7 +231,7 @@ contract allows the sender to update the data feed. Due to exclusivity
 guarantees, the winner is guaranteed to be who can update the feed with the data
 from within the bidding phase of the respective auction.
 
-### Update the Data Feed
+### Updating the Data Feed
 
 To update the data feed values, call the `updateDappOevDataFeed` function. This
 requires the sender to be whitelisted by paying for the OEV bid first. The

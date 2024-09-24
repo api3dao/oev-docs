@@ -1,12 +1,12 @@
 ---
-title: Obtain dAPI Beacons
+title: Obtaining dAPI Beacons
 pageHeader: OEV → Searchers
 outline: deep
 ---
 
 <PageHeader/>
 
-# Obtain dAPI beacons
+# Obtaining dAPI beacons
 
 Searchers need to know the proxy address and the underlying dAPI name that the
 proxy is using. The dApps are in full control to change their proxies, so it's

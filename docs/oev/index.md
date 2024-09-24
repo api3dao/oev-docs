@@ -92,7 +92,7 @@ OEV offers advantages to various stakeholders in the ecosystem:
    - Lower gas fees and in general, higher profits.
    - Guaranteed exclusive update rights.
 
-### OEV proceeds distribution
+### OEV Proceeds Distribution
 
 To be able to update the data feed, the auction winner must pay the bid amount
 of the winning bid, which they've announced during the auction. In return, they
@@ -108,7 +108,7 @@ accumulated payment amount can be easily computed from on-chain events, so there
 is absolute transparency in the process. The funds are withdrawable by API3 DAO,
 which will be responsible for distributing the funds back to the dApps.
 
-## How do auctions work?
+## How do Auctions Work?
 
 API3 has delivered a specialized Order Flow Auction (OFA) that maximizes the
 value returned to your dApp from OEV through a sealed bid on-chain auction

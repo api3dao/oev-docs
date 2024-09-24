@@ -25,7 +25,7 @@ monitoring data source values and predicting the next oracle update.
 This solution is also a perfect backup in case OEV is down or in maintenance,
 because dAPIs are decentralized with great uptime.
 
-## Simulate a Data Feed Update
+## Simulating a Data Feed Update
 
 Assuming a searcher calls the Signed APIs and has a valid data to update the
 base feed, they can use them to simulate the data feed update on-chain followed

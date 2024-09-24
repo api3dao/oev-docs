@@ -11,7 +11,7 @@ outline: deep
 We assume that a searcher has an existing MEV bot and is familiar with API3 OEV
 solution. Let's detail the steps to transition from MEV to OEV searching.
 
-## Deposit funds
+## Depositing Funds
 
 To be eligible to win OEV auctions, searchers need to have enough collateral
 deposited in the OevAuctionHouse contract. See
@@ -23,7 +23,7 @@ participate in auctions) and the target chain (to capture the OEV). To deposit
 funds, you can use either the `deposit` or `depositForBidder` functions. The
 latter allows you to deposit the collateral on behalf of another address.
 
-## Withdraw funds
+## Withdrawing Funds
 
 To withdraw the deposited collateral from OevAuctionHouse contract, the searcher
 needs to do the following:
@@ -64,7 +64,7 @@ fulfillment, their collateral is released and the protocol fee is deducted. If
 the auction winner doesn't pay for the award or fails to report the fulfillment,
 their collateral is slashed.
 
-## Monitor signed data
+## Monitoring Signed Data
 
 Searchers should periodically call the public
 [OEV Endpoints](/oev/overview/target-chain.html#oev-endpoints) to get the
@@ -72,7 +72,7 @@ real-time values for the dAPIs used by the dApp. The dApp will use a proxy to
 read the dAPI value, which prefers the fresher out of the base feed updates and
 OEV updates.
 
-### Query Signed APIs
+### Querying Signed APIs
 
 For each tracked beacon, searchers need to derive the corresponding
 [OEV Beacon](/oev/overview/target-chain.html#oev-beacons).
@@ -89,7 +89,7 @@ not possible to use data fresher than the end of the bidding phase. This is to
 ensure the same guarantees apply for the subsequent auction winner. This means
 that there is little reason to store data for longer than a single auction.
 
-### Simulate a Data Feed Update
+### Simulating a Data Feed Update
 
 Compared to the base feed updates, OEV updates are permissioned - allowing only
 the auction winner to update the data feed. This makes the OEV updates
@@ -137,7 +137,7 @@ const simulationResult = await api3ServerV1OevExtensionImpersonated.multicall.st
 );
 ```
 
-## Placing bid
+## Placing a Bid
 
 After a profitable opportunity is identified, the searcher needs to place a bid
 to obtain a signature that allows them to perform the update for real. To place
@@ -170,7 +170,7 @@ phase. Searchers should be mindful of the block time on the OEV Network to make
 sure their transaction is mined in time. Refer to
 [OEV Network Properties](/oev/overview/oev-network.html#properties) for details.
 
-## Waiting for auction award
+## Waiting for Auction Award
 
 Immediately after the bidding phase is over, Auctioneer enters the award phase
 and determines the highest bidder and submits the `awardBid` transaction, which
@@ -220,7 +220,7 @@ Refer to
 for details how to execute the first two steps. To execute the OEV capture,
 searchers can use the same calldata they've used during simulation.
 
-## Handling disputes
+## Handling Disputes
 
 In case of a dispute, the OEV Network is considered source-of-truth and can be
 used to resolve it. This may include Auctioneer awarding the wrong bidder or

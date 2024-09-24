@@ -25,7 +25,7 @@ Each dApp which uses OEV feeds is served by some Auctioneer instance.
 Internally, API3 DAO may run multiple Auctioneers as a form of horizontal
 scaling to ensure auctions can be processed in a timely manner.
 
-## Enforced conventions
+## Enforced Conventions
 
 Auctioneer enforces a few conventions. These are important for searchers to
 understand and comply with in order to successfully participate in auctions.
@@ -42,7 +42,7 @@ understand and comply with in order to successfully participate in auctions.
 | MINIMUM_BID_EXPIRING_SECONDS          | 15    | The minimum expiring time for a bid to be considered eligible for award.                           |
 | PLACED_BIDS_BLOCK_RANGE               | 300   | The number of blocks queried for placed bids during award phase.                                   |
 
-### Auction offset
+### Auction Offset
 
 Auctions repeat indefinitely and take a fixed amount of time. The first auction
 starts at the UNIX timestamp 0 (midnight UTC on 1st of January 1970) plus an
@@ -120,7 +120,7 @@ and so on...
 
 :::
 
-### Bid details
+### Bid Details
 
 The bid details have the following convention:
 
@@ -137,20 +137,20 @@ The arguments are:
    update the data feed, if the bid wins the auction.
 2. `nonce` - A random nonce to prevent bid ID conflicts.
 
-### Award details
+### Award Details
 
 The award details contain a
 [signature](https://github.com/api3dao/contracts-qs/blob/a5a11d929d8dae54fd586986d65513f8bc5a14b4/contracts/api3-server-v1/Api3ServerV1OevExtension.sol#L106)
 that the auction winner uses to pay the OEV bid, which allows them to update the
 price feeds.
 
-### Fulfillment details
+### Fulfillment Details
 
 The fulfillment details is a single `bytes32` value that represents the
 transaction hash on the target chain in which the auction winner paid for the
 OEV bid.
 
-## Bid eligibility
+## Bid Eligibility
 
 Auctions are open for everyone. Searchers interact with the OevAuctionHouse
 contract when placing a bid, which enforces a few restrictions. Apart from the
@@ -172,7 +172,7 @@ Auctioneer fetches the required information from the OevAuctionHouse contract.
 In a rare case when Auctioneer fails to fetch eligibility for a bidder, it will
 abort awarding the current auction.
 
-## Auction resolution
+## Auction Resolution
 
 Each auction is split into two phases:
 
@@ -201,7 +201,7 @@ the auction award transaction fails, there will be no retry. Retrying in the
 case of an award failure would be unsafe, because the award signature was
 already exposed publicly.
 
-### Bidding phase guarantee
+### Bidding Phase Guarantee
 
 Auctioneer guarantees that any bid placed during the bidding phase will be
 processed. The timestamp of the placed bid is determined by the block timestamp
@@ -214,7 +214,7 @@ time in the award phase. It fetches logs from sufficient block range with some
 buffer to ensure the full bidding phase is included. This behaviour might change
 in time and searchers should not rely on it.
 
-## Processing fulfillments
+## Processing Fulfillments
 
 After the auction winner is awarded, they are expected to fulfill their duties
 by paying for the awarded OEV bid. After they've made the transaction on the

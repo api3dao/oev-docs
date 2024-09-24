@@ -43,7 +43,7 @@ Refer to this table for dApp's details:
 | [cbETH address](https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22#code)  | The address of the cbETH token.         |
 | [wstETH address](https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452#code) | The address of the wstETH token.        |
 
-## The OEV bot
+## The OEV Bot
 
 See the [GitHub implementation](https://github.com/api3dao/oev-v1-compound-bot)
 for details.

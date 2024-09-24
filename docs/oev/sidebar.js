@@ -34,8 +34,8 @@ module.exports = [
         link: '/oev/searchers/',
       },
       {
-        text: 'Obtain dAPI Beacons',
-        link: '/oev/searchers/obtain-dapi-beacons',
+        text: 'Obtaining dAPI Beacons',
+        link: '/oev/searchers/obtaining-dapi-beacons',
       },
       {
         text: 'MEV with Signed APIs',
