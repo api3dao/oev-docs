@@ -100,10 +100,8 @@ Say we have the following base feed beacon:
 
 To derive the template ID of the OEV beacon, we hash it's template ID:
 
-```js
-ethers.utils.solidityKeccak256(
-  '0x1bb9efc88ac9d910a9edc28e8cad8959d196a551e15c9af3af21247f1605873f'
-);
+```solidity
+keccak256(abi.encodePacked(bytes32(0x1bb9efc88ac9d910a9edc28e8cad8959d196a551e15c9af3af21247f1605873f)))
 // Output: 0xbc7896315bfd4b1186a05f219ec71a95def0d038617e7ae534075317866bfd1b
 ```
 
@@ -276,17 +274,14 @@ want to use the following signed data for the OEV beacon:
 
 they would encode the signed data as follows:
 
-```js
-ethers.utils.defaultAbiCoder.encode(
-  ['address', 'bytes32', 'uint256', 'bytes', 'bytes'],
-  [
-    '0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4',
-    '0x1bb9efc88ac9d910a9edc28e8cad8959d196a551e15c9af3af21247f1605873f', // Base feed template ID.
-    1726474901,
-    '0x000000000000000000000000000000000000000000000000003f9c9ba19d0d78',
-    '0xf5f454722652215823cb868fd53b7a0c63090dff46e65ba7cdd5fb120df3a520522b80b1fa41f2599c429daa0e48c4f42f60f25b41dab3a8a9be1d2547ebe9811b',
-  ]
-);
+```solidity
+abi.encode(
+  address(0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4),
+  bytes32(0x1bb9efc88ac9d910a9edc28e8cad8959d196a551e15c9af3af21247f1605873f),
+  uint256(1726474901),
+  hex"000000000000000000000000000000000000000000000000003f9c9ba19d0d78",
+  hex"f5f454722652215823cb868fd53b7a0c63090dff46e65ba7cdd5fb120df3a520522b80b1fa41f2599c429daa0e48c4f42f60f25b41dab3a8a9be1d2547ebe9811b"
+)
 ```
 
 :::

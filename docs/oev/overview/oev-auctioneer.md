@@ -48,10 +48,8 @@ Auctions repeat indefinitely and take a fixed amount of time. The first auction
 starts at the UNIX timestamp 0 (midnight UTC on 1st of January 1970) plus an
 offset based on the the dApp ID.
 
-```js
-const offset = ethers.BigNumber.from(
-  ethers.utils.keccak256(ethers.utils.solidityPack(['uint256'], [dAppId]))
-).mod(AUCTION_LENGTH_SECONDS);
+```solidity
+uint256(keccak256(abi.encodePacked(uint256(dAppId)))) % AUCTION_LENGTH_SECONDS;
 ```
 
 ::: info
@@ -75,11 +73,13 @@ second auction starts at timestamp `36`, the third at `66`, and so on...
 
 Auctioneer uses the following convention for the bid topic:
 
-```js
-ethers.utils.keccak256(
-  ethers.utils.solidityPack(
-    ['uint256', 'uint256', 'uint32', 'uint32'],
-    [majorVersion, dappId, auctionLength, signedDataTimestampCutoff]
+```solidity
+keccak256(
+  abi.encodePacked(
+    uint256(majorVersion),
+    uint256(dappId),
+    uint32(auctionLength),
+    uint32(signedDataTimestampCutoff)
   )
 );
 ```
@@ -124,10 +124,10 @@ and so on...
 
 The bid details have the following convention:
 
-```js
-ethers.utils.defaultAbiCoder.encode(
-  ['address', 'bytes32'],
-  [updateSenderAddress, ethers.utils.hexlify(ethers.utils.randomBytes(32))]
+```solidity
+abi.encode(
+  address(updateSenderAddress),
+  bytes32(nonce)
 );
 ```
 

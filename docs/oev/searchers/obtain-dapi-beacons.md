@@ -53,7 +53,7 @@ length depends on the number of beacons encoded.
 ## Example
 
 Say there is a dApp which uses the `ETH/USD` dAPI. We can compute the details
-for this dAPI by:
+for this dAPI off-chain by:
 
 ```js
 const encodedDapiName = ethers.utils.formatBytes32String('ETH/USD'); // 0x4554482f55534400000000000000000000000000000000000000000000000000
