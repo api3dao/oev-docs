@@ -40,6 +40,7 @@ understand and comply with in order to successfully participate in auctions.
 | BIDDING_PHASE_LENGTH_SECONDS          | 25    | The length of the bidding phase during which searchers can place their bids.                       |
 | REPORT_FULFILLMENT_PERIOD_SECONDS     | 86400 | The fulfillment period, during which the auction winner is able to report payment for the OEV bid. |
 | MINIMUM_BID_EXPIRING_SECONDS          | 15    | The minimum expiring time for a bid to be considered eligible for award.                           |
+| PLACED_BIDS_BLOCK_RANGE               | 300   | The number of blocks queried for placed bids during award phase.                                   |
 
 ### Auction offset
 
@@ -187,7 +188,7 @@ as soon as possible. The following happens under the hood:
 
 1. Compute the bid topic for the current auction.
 2. Fetch the current block on the OEV Network.
-3. Fetch the bids placed during the bidding phase up to the given block.
+3. Fetch the bids for the bid topic from the last `PLACED_BIDS_BLOCK_RANGE`.
 4. Discard all ineligible bids.
 5. Select the bidder with highest bid amount. In case there are multiple
    eligible bids with the same amount, the bidder with the earliest bid is

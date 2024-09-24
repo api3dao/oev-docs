@@ -8,9 +8,9 @@ outline: deep
 
 # OEV Playground
 
-In the previous version we had developed an OEV playground that explained the
-auction process through an interactive UI. While this provided a great intro to
-the auction process, it only scratched the surface of OEV. To provide a full
+For the previous OEV version we had developed an OEV playground that explained
+the auction process through an interactive UI. While this provided a great intro
+to the auction process, it only scratched the surface of OEV. To provide a full
 playground for OEV liquidations, we've decided to launch our own dApp built with
 API3 OEV proxies. This allows us to build a fully functional OEV bot and share
 that as a reference.

@@ -24,7 +24,8 @@ actual data feed details.
 
 Encoding or decoding data feed details is simple, but depends on whether the
 feed is a beacon (single source) or a beacon set (multi sources). Assume we have
-encoded `dataFeedDetails` and we need to decode it.
+encoded `dataFeedDetails` and we need to decode it. Note, the encoding follows a
+similar principle.
 
 The decoding of a beacon:
 
