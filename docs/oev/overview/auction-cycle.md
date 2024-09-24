@@ -63,15 +63,15 @@ with this in mind, allowing both Auctioneer and the winner enough time.
 
 ### Find the winning bid
 
-If there are multiple eligible bids, the Auctioneer selects the one with the
-highest bid amount. More details on how the auctioneer selects the winning bid
-can be found in the
+If there are multiple eligible bids, Auctioneer selects the one with the highest
+bid amount. More details on how Auctioneer selects the winning bid can be found
+in the
 [Auction resolution](/oev/overview/oev-auctioneer.html#auction-resolution)
 section.
 
 ### Award the winning bid
 
-After the winning bid is determined, the Auctioneer creates a cryptographic
+After the winning bid is determined, Auctioneer creates a cryptographic
 signature and submits it in on the OEV Network. The signature is to be used on
 the target chain when capturing the OEV opportunity by the auction winner.
 

@@ -16,7 +16,7 @@ can be verified on-chain, because the logic is based solely on the
 [OevAuctionHouse](/oev/overview/oev-network#oevauctionhouse) contract state and
 events at a given time.
 
-OEV auctioneer has two main responsibilities:
+OEV Auctioneer has two main responsibilities:
 
 1. Resolve auctions and award the winner.
 2. Confirm or contradict fulfillments.
@@ -35,7 +35,7 @@ understand and comply with in order to successfully participate in auctions.
 | Name                                  | Value | Description                                                                                        |
 | ------------------------------------- | ----- | -------------------------------------------------------------------------------------------------- |
 | AUCTION_LENGTH_SECONDS                | 30    | How long does an auction last.                                                                     |
-| MAJOR_VERSION                         | 1     | Increased when the Auctioneer releases a breaking change.                                          |
+| MAJOR_VERSION                         | 1     | Increased when we release any breaking change relevant to OEV auctions.                            |
 | COLLATERAL_REQUIREMENT_BUFFER_PERCENT | 5     | The additional percentage of the bidder's collateral to mitigate against price changes.            |
 | BIDDING_PHASE_LENGTH_SECONDS          | 25    | The length of the bidding phase during which searchers can place their bids.                       |
 | REPORT_FULFILLMENT_PERIOD_SECONDS     | 86400 | The fulfillment period, during which the auction winner is able to report payment for the OEV bid. |
@@ -86,8 +86,8 @@ keccak256(
 
 Let's break down the components of the bid topic:
 
-1. `majorVersion` - The major version of the auctioneer. Any breaking change in
-   the behavior of the auctioneer, which can involve changes in auction rules or
+1. `majorVersion` - The major version of Auctioneer. Any breaking change in the
+   behavior of Auctioneer, which can involve changes in auction rules or
    off-chain protocol specs, is denoted by this major version being incremented.
    Refer to the current value of `MAJOR_VERSION` constant.
 2. `dappId` - The dApp ID for which the auction is being held.
