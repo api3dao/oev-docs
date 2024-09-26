@@ -105,7 +105,7 @@ simulation. The intended usage is to do a multicall that simulates the data feed
 update(s) then makes arbitrary number external calls.
 
 To understand how to construct the payload for data feed simulation, refer to
-[Update the Data Feed](/oev/overview/target-chain.html#update-the-data-feed)
+[Update the Data Feed](/oev/overview/target-chain.html#updating-the-data-feed)
 section.
 
 ```js
