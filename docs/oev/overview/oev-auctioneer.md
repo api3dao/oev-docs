@@ -59,13 +59,13 @@ uint256(keccak256(abi.encodePacked(uint256(dAppId)))) % AUCTION_LENGTH_SECONDS;
 Say there is a dApp with ID `13` and `AUCTION_LENGTH_SECONDS=30`
 
 - When we encode and hash the dApp ID, we get
-  `0x0e814ac3d2697269bfdc5233432fb2cedebd80e0d22aa486feb679ad45c168b8`.
+  `0xd7b6990105719101dabeb77144f2a3385c8033acd3af97e9423a695e81ad1eb5`.
 - When we convert it to a decimal number, we get
-  `6560819160100363211601641299258035429214555763785895604957504684595601303736`.
-- When we modulo the number by `30`, we get `6`.
+  `97569884605916225051403212656556507955018248777258318895762758024193532305077n`.
+- When we modulo the number by `30`, we get `17`.
 
-So the first auction starts at UNIX timsetamp `6` and repeats every 30s. The
-second auction starts at timestamp `36`, the third at `66`, and so on...
+So the first auction starts at UNIX timsetamp `17` and repeats every 30s. The
+second auction starts at timestamp `47`, the third at `77`, and so on...
 
 :::
 
@@ -106,15 +106,15 @@ Auctions repeat continuously and indefinitely. To calculate the
 to calculate the `startTimestamp` of the auction. This depends on the auction
 offset and `BIDDING_PHASE_LENGTH_SECONDS`.
 
-For example, dApp with ID `13` has an auction offset of `6`. With
+For example, dApp with ID `13` has an auction offset of `17`. With
 `AUCTION_LENGTH_SECONDS=30` and `BIDDING_PHASE_LENGTH_SECONDS=25` this gives the
 following sequence of auctions:
 
 | `startTimestamp` | `signedDataTimestampCutoff` | End of award phase |
 | ---------------- | --------------------------- | ------------------ |
-| 6                | 31                          | 36                 |
-| 36               | 61                          | 66                 |
-| 66               | 91                          | 96                 |
+| 17               | 42                          | 47                 |
+| 47               | 72                          | 77                 |
+| 77               | 102                         | 107                |
 
 and so on...
 
