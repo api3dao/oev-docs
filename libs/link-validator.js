@@ -238,6 +238,7 @@ async function printFailures() {
       console.log('|', colors.bold.red(failuresArr[i].error));
       console.log();
     }
+    process.exit(1);
   } else {
     console.log(colors.bold.green('All links OK.'));
     console.log(colors.bold.underline.blue('Total passed: ' + totalPassedCnt));
@@ -248,13 +249,7 @@ async function start() {
   linksObj = {};
   await loadLinks();
   await run('links');
-
-  // Print failures
   await printFailures();
-
-  console.log('\n|++++++++++++++++++++++++');
-  console.log('| END: Link Validator');
-  console.log('|++++++++++++++++++++++++\n');
 }
 
 start();
