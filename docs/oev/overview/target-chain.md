@@ -124,10 +124,7 @@ Signed APIs are also open sourced for anyone to use. This is yet another step
 towards more decentralization, because even if API3 oracle service is down,
 anyone can use these existing Signed APIs to do the updates instead.
 
-API3 partners with Nodary to run two independent Signed API services, deployed
-in two different regions using different service providers to ensure maximum
-uptime and reliability. They share the same open source implementation, but are
-otherwise completely independent.
+API3 runs Signed APIs deployed on AWS, ensuring maximum uptime and reliability.
 
 The endpoint path of a Signed API has the following shape:
 
@@ -149,8 +146,6 @@ The following are the endpoints that are publicly available:
 
 1. `https://signed-api.api3.org/public/<AIRNODE_ADDRESS>` - The official API3
    Signed APIs used by the push oracle to update the base feeds.
-2. `https://signed-api.nodary.io/public/<AIRNODE_ADDRESS>` - The unofficial
-   Signed APIs maintained by the Nodary collective.
 
 For example, see the
 [API3 response for Nodary Airnode](https://signed-api.api3.org/public/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
@@ -160,7 +155,6 @@ For example, see the
 The following are the endpoints that are publicly available:
 
 1. `https://signed-api.api3.org/public-oev/<AIRNODE_ADDRESS>`
-2. `https://signed-api.nodary.io/public-oev/<AIRNODE_ADDRESS>`
 
 For example, see the
 [API3 response for Nodary Airnode](https://signed-api.api3.org/public-oev/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
