@@ -19,7 +19,7 @@
     "firebase:emulator": "pnpm docs:build; firebase emulators:start"
   },
   "devDependencies": {
-    "@api3/chains": "^9.1.0",
+    "@api3/chains": "^10.2.3",
     "axios": "^1.7.3",
     "colors": "^1.4.0",
     "ethers": "^6.13.2",
