@@ -28,7 +28,8 @@ The prerequisite to leveraging OEV is to use API3's dAPIs. To learn more about
 how dAPIs work, please refer to the [dAPIs documentation](/dapis/).
 
 Integrating OEV dAPIs requires no code changes to the protocol. This is
-accomplished by a [proxy contract](/oev/dapps/#proxy-contract). Searchers who
+accomplished by a
+[proxy contract](/dapis/reference/understand/proxy-contracts.md). Searchers who
 win the auction are able to update the data feed to the up-to-date value, which
 can be read by the dApp through this proxy.
 

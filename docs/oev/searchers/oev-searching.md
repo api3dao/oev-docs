@@ -15,7 +15,7 @@ solution. Let's detail the steps to transition from MEV to OEV searching.
 
 To be eligible to win OEV auctions, searchers need to have enough collateral
 deposited in the OevAuctionHouse contract. See
-[Bid Eligibility](/oev/overview/oev-auctioneer.html#bid-eligibility) for more
+[Bid Eligibility](/oev/overview/oev-auctioneer.md#bid-eligibility) for more
 details.
 
 We recommend using the same hot wallet for the bot on the OEV network (to
@@ -40,8 +40,7 @@ frontrunning the award transaction by withdrawing the collateral.
 For a searcher to win an auction, they are required to have enough ETH deposited
 in the OevAuctionHouse contract. Similarly, the value the searcher can win is
 limited by the amount they have deposited. Refer to
-[Bid Eligibility](/oev/overview/oev-auctioneer.html#bid-eligibility) for
-details.
+[Bid Eligibility](/oev/overview/oev-auctioneer.md#bid-eligibility) for details.
 
 The collateral and protocol fee rates are configurable parameters within the
 OevAuctionHouse contract and are configured by the API3 DAO. These values are
@@ -67,7 +66,7 @@ their collateral is slashed.
 ## Monitoring Signed Data
 
 Searchers should periodically call the public
-[OEV Endpoints](/oev/overview/target-chain.html#oev-endpoints) to get the
+[OEV Endpoints](/oev/overview/target-chain.md#oev-endpoints) to get the
 real-time values for the dAPIs used by the dApp. The dApp will use a proxy to
 read the dAPI value, which prefers the fresher out of the base feed updates and
 OEV updates.
@@ -75,7 +74,7 @@ OEV updates.
 ### Querying Signed APIs
 
 For each tracked beacon, searchers need to derive the corresponding
-[OEV Beacon](/oev/overview/target-chain.html#oev-beacons).
+[OEV Beacon](/oev/overview/target-chain.md#oev-beacons).
 
 Then, simply call the OEV Signed API endpoints for the various Airnodes and pick
 the signed data for the required OEV beacons. It's necessary to persist these
@@ -105,7 +104,7 @@ simulation. The intended usage is to do a multicall that simulates the data feed
 update(s) then makes arbitrary number external calls.
 
 To understand how to construct the payload for data feed simulation, refer to
-[Update the Data Feed](/oev/overview/target-chain.html#updating-the-data-feed)
+[Update the Data Feed](/oev/overview/target-chain.md#updating-the-data-feed)
 section.
 
 ```js
@@ -150,10 +149,10 @@ The `placeBidWithExpiration` accepts the following parameters:
 
 | Argument             | Type    | Description                                                                                                                                                                                                                  |
 | -------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bidTopic             | bytes32 | The [Bid Topic](/oev/overview/oev-auctioneer.html#bid-topic) of the current auction.                                                                                                                                         |
+| bidTopic             | bytes32 | The [Bid Topic](/oev/overview/oev-auctioneer.md#bid-topic) of the current auction.                                                                                                                                           |
 | chainId              | uint256 | The chain ID of the target chain.                                                                                                                                                                                            |
 | bidAmount            | uint256 | The amount of the bid in the native currency of the target chain. At award time, a respective percentage fo this amount is reserved as collateral and the winner is expected to pay the full bid amount on the target chain. |
-| bidDetails           | bytes   | The [Bid details](/oev/overview/oev-auctioneer.html#bid-details) of the bid.                                                                                                                                                 |
+| bidDetails           | bytes   | The [Bid details](/oev/overview/oev-auctioneer.md#bid-details) of the bid.                                                                                                                                                   |
 | maxCollateralAmount  | uint256 | The maximum collateral amount that the bidder is willing to lock up. This is to prevent unwanted slippage in case of a large price change before the transaction is mined.                                                   |
 | maxProtocolFeeAmount | uint256 | The maximum protocol fee amount that the bidder is willing to pay. This is to prevent unwanted slippage in case of a large price change before the transaction is mined.                                                     |
 | expirationTimestamp  | uint32  | The timestamp until which the bid is valid. The timestamp is checked against the `block.timestamp` at the bid placement time. Minimum is 15 seconds and maximum 24 hours.                                                    |
@@ -168,7 +167,7 @@ most important is the bid topic, which also identifies the auction. For the bid
 to be considered, the place bid transaction needs to be mined during the bidding
 phase. Searchers should be mindful of the block time on the OEV Network to make
 sure their transaction is mined in time. Refer to
-[OEV Network Properties](/oev/overview/oev-network.html#properties) for details.
+[OEV Network Properties](/oev/overview/oev-network.md#properties) for details.
 
 ## Waiting for Auction Award
 
@@ -216,7 +215,7 @@ contract allows searcher to repeat steps 2. and 3. as many times as they want.
 However, each update has to increase the timestamp of the OEV Beacon(s).
 
 Refer to
-[Using an Auction Award](/oev/overview/target-chain.html#using-an-auction-award)
+[Using an Auction Award](/oev/overview/target-chain.md#using-an-auction-award)
 for details how to execute the first two steps. To execute the OEV capture,
 searchers can use the same calldata they've used during simulation.
 

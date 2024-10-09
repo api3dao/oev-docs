@@ -18,7 +18,7 @@ auction process.
 Before we dive into the auction cycle, let's quickly summarize the work of
 searchers. The searcher needs to fund an EoA (Externally Owned Account) and
 deposit collateral on its behalf. It needs to monitor the off-chain
-[Signed APIs](/oev/overview/target-chain.html#oev-signed-data) and monitor the
+[Signed APIs](/oev/overview/target-chain.md#oev-signed-data) and monitor the
 dApp's state for profitable opportunities.
 
 For the purposes of this guide, we assume there is a searcher that implemented
@@ -65,8 +65,7 @@ with this in mind, allowing both Auctioneer and the winner enough time.
 
 If there are multiple eligible bids, Auctioneer selects the one with the highest
 bid amount. More details on how Auctioneer selects the winning bid can be found
-in the
-[Auction resolution](/oev/overview/oev-auctioneer.html#auction-resolution)
+in the [Auction resolution](/oev/overview/oev-auctioneer.md#auction-resolution)
 section.
 
 ### Awarding the Winning Bid
