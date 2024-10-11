@@ -104,7 +104,8 @@ atomically, ensuring immediate value return to the dApp.
 After making the payment, the winner needs to post a proof of doing so (the
 transaction hash) to the OEV Network. This proof is then validated and the
 reserved collateral of the searcher is released, while the
-[protocol fee](/oev/searchers/collateral-protocol-fee) is deducted.
+[protocol fee](/oev/searchers/oev-searching.md#collateral-and-protocol-fee) is
+deducted.
 
 The contract is designed to work together with an off-chain component that can
 enforce particular data encodings. This allows for great flexibility and an
@@ -136,5 +137,4 @@ roles are:
 
 For tech savvy users, it's recommended to take a look at the contract's source.
 The logic of the OevAuctionHouse contract is especially important for searchers,
-for which we have a dedicated section
-[OEV Searching](/oev/searchers/#oev-searching-1).
+for which we have a dedicated section [OEV Searching](/oev/searchers/index.md).
