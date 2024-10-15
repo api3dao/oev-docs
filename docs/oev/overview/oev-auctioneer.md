@@ -195,11 +195,11 @@ as soon as possible. The following happens under the hood:
    selected.
 6. Prepare and submit the award for the auction winner on OEV network.
 
-Under rare circumstances, when Auctioneer is unable to fetch the block on the
-OEV Network, the auction will be aborted and no winner is chosen. Similarly, if
-the auction award transaction fails, there will be no retry. Retrying in the
-case of an award failure would be unsafe, because the award signature was
-already exposed publicly.
+Under rare circumstances, when Auctioneer is unable to fetch the block or the
+logs from the OEV Network, the auction will be aborted and no winner is chosen.
+Similarly, if the auction award transaction fails, there will be no retry.
+Retrying in the case of an award failure would be unsafe, because the award
+signature was already exposed publicly.
 
 ### Bidding Phase Guarantee
 
