@@ -172,6 +172,34 @@ Auctioneer fetches the required information from the OevAuctionHouse contract.
 In a rare case when Auctioneer fails to fetch eligibility for a bidder, it will
 abort awarding the current auction.
 
+::: info
+
+**Edge case:**
+
+If a bidder places multiple bids across different dApps in quick succession,
+with only enough collateral to cover a subset of the bids, then Auctioneer may
+attempt to award a bid when the bidder does not have enough collateral.
+
+Let's say we have:
+
+- two dApps (D1 and D2) whose award phases start one second from each other
+- a bidder with only enough collateral to cover one bid for either dApp
+
+If the bidder places 2 winning bids (B1 and B2), one for each dApp, Auctioneer
+can end up executing this sequence:
+
+- run auction for dApp D1 and fetch the bidder's current collateral
+- run auction for dApp D2 and fetch the bidder's current collateral
+- award bid B1 for dApp D1
+- award bid B2 for dApp D2, but the transaction fails because the bidder no
+  longer has enough collateral after bid B1 was awarded
+
+In this scenario, Auctioneer will not try to award another bidder, as the
+awarded signature will already have been exposed in the reverting award
+transaction.
+
+:::
+
 ## Auction Resolution
 
 Each auction is split into two phases:
@@ -195,11 +223,11 @@ as soon as possible. The following happens under the hood:
    selected.
 6. Prepare and submit the award for the auction winner on OEV network.
 
-Under rare circumstances, when Auctioneer is unable to fetch the block on the
-OEV Network, the auction will be aborted and no winner is chosen. Similarly, if
-the auction award transaction fails, there will be no retry. Retrying in the
-case of an award failure would be unsafe, because the award signature was
-already exposed publicly.
+Under rare circumstances, when Auctioneer is unable to fetch the block or the
+logs from the OEV Network, the auction will be aborted and no winner is chosen.
+Similarly, if the auction award transaction fails, there will be no retry.
+Retrying in the case of an award failure would be unsafe, because the award
+signature was already exposed publicly.
 
 ### Bidding Phase Guarantee
 
