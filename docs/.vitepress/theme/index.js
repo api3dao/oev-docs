@@ -5,7 +5,6 @@ import mediumZoom from 'medium-zoom';
 import PageHeader from '../../_components/PageHeader.vue';
 import CopyIcon from '../../_components/CopyIcon.vue';
 import Video from '../../_components/Video.vue';
-import EthersAbiCoder from '../../_components/EthersAbiCoder.vue';
 
 import './zoom.css';
 
@@ -29,6 +28,5 @@ export default {
     app.component('PageHeader', PageHeader);
     app.component('CopyIcon', CopyIcon);
     app.component('Video', Video);
-    app.component('EthersAbiCoder', EthersAbiCoder);
   },
 };
