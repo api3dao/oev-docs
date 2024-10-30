@@ -16,12 +16,12 @@ module.exports = [
         link: '/oev/overview/oev-auctioneer',
       },
       {
-        text: 'Target Chain',
-        link: '/oev/overview/target-chain',
-      },
-      {
         text: 'Auction Cycle',
         link: '/oev/overview/auction-cycle',
+      },
+      {
+        text: 'Glossary',
+        link: '/oev/overview/glossary',
       },
     ],
   },
@@ -32,6 +32,14 @@ module.exports = [
       {
         text: 'Searchers',
         link: '/oev/searchers/',
+      },
+      {
+        text: 'OEV Auctioneer',
+        link: '/oev/searcher/oev-auctioneer',
+      },
+      {
+        text: 'Target Chain',
+        link: '/oev/searcher/target-chain',
       },
       {
         text: 'Obtaining dAPI Beacons',

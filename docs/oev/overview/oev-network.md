@@ -11,9 +11,9 @@ outline: deep
 ![OEV Network image](/oev/overview/assets/oev-network.png)
 
 The OEV Network is an open marketplace designed to facilitate the distribution
-of oracle updates. Operating as an Arbitrum Nitro L2 optimistic-rollup, the
-system ensures transparency and allows verification of the auction process. In
-this marketplace, OEV searchers place bids for the exclusive opportunity to
+of oracle updates. Operating as an standard Arbitrum Nitro L2 optimistic-rollup,
+the system ensures transparency and allows verification of the auction process.
+In this marketplace, OEV searchers place bids for the exclusive opportunity to
 update a dAPIs for a short period of time.
 
 By hosting auctions on on-chain, we address two big issues:
@@ -21,7 +21,7 @@ By hosting auctions on on-chain, we address two big issues:
 1. Scalability - The OEV network hosts auctions across different dApps across
    multiple chains. The system needs to scale up with demand, especially during
    periods of market volatility where the activity is the highest. This is a
-   long-solved problem in blockchains through the gas fees.
+   long-solved problem in blockchains through gas fees.
 2. Transparency - Auctions are awarded via an off-chain system, called OEV
    Auctioneer, so it's important to be able to reason about the correctness of
    auction outcomes. Blockchains are the perfect tool for this, as all the data
@@ -88,18 +88,18 @@ The implementation of the audited Api3ServerV1 contract is publicly available
 [here](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1.sol).
 
 The Api3ServerV1 contract powers dAPIs on the OEV Network, which are used in
-OevAuctionHouse to compute collateral and protocol fees from the bid amounts. N
-that this chain is not listed on the API3 market, because the OEV Network is
-primarily intended to be used for the OEV auctions.
+OevAuctionHouse contract to compute collateral and protocol fee from the bid
+amount. Note that this chain is not listed on the API3 market, because the OEV
+Network is primarily intended to be used for the OEV auctions.
 
 ### OevAuctionHouse
 
 The implementation of the audited OevAuctionHouse contract is publicly available
 [here](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/OevAuctionHouse.sol).
 
-Winners of OEV auctions must submit their payment before updating the data feed
-and capturing OEV. In practice, searchers are expected to do these steps
-atomically, ensuring immediate value return to the dApp.
+Winners of OEV auctions must submit their payment to be allowed to update the
+data feeds and capture OEV. In practice, searchers are expected to do these
+steps atomically, ensuring immediate value return to the dApp.
 
 After making the payment, the winner needs to post a proof of doing so (the
 transaction hash) to the OEV Network. This proof is then validated and the
@@ -107,11 +107,10 @@ reserved collateral of the searcher is released, while the
 [protocol fee](/oev/searchers/oev-searching.md#collateral-and-protocol-fee) is
 deducted.
 
-The contract is designed to work together with an off-chain component that can
-enforce particular data encodings. This allows for great flexibility and an
-easier migration process in case of an upgrade.
+The contract is designed to work together with an off-chain component that
+processes the auctions and provides the update signature to the winner.
 
-This contract is the key component that powers OEV auctions. This includes the
+This contract is the key component that powers these auctions. This includes the
 following:
 
 1. Deposit and withdraw collateral

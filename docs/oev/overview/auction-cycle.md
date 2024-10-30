@@ -10,14 +10,17 @@ outline: deep
 
 We already explored how the API3 OEV solution works at a high level and peaked
 into details of the OEV Network and OEV Auctioneer. In this section, we're going
-to walk through the auction cycle in depth, detailing the steps involved in the
-auction process.
+to walk through the whole auction cycle at a high level, explaining the steps
+involved in the auction process.
+
+The rest of our documentation is divided into the respective user groups, i.e.
+the dApps and searchers. Those sections cover the process in much more detail.
 
 ## Searching
 
 Before we dive into the auction cycle, let's quickly summarize the work of
-searchers. The searcher needs to fund an EoA (Externally Owned Account) and
-deposit collateral on its behalf. It needs to monitor the off-chain
+searchers. Searchers need a funded account and deposit collateral on its behalf.
+They needs to monitor the off-chain
 [Signed APIs](/oev/overview/target-chain.md#oev-signed-data) and monitor the
 dApp's state for profitable opportunities.
 
@@ -57,9 +60,10 @@ The award phase starts immediately after the end of the bidding phase.
 Auctioneer determines the auction winner and awards them a signature giving them
 the exclusive rights.
 
-Performance is critical here as the longer it takes to award the bid, the less
-time the auction winner has to capture the OEV. The phase periods are chosen
-with this in mind, allowing both Auctioneer and the winner enough time.
+Performance is critical here because the longer it takes to award the bid, the
+less time the auction winner has to capture the OEV before the data becomes
+public. Both bidding periods are chosen with this in mind, allowing both
+Auctioneer and the auction winner enough time.
 
 ### Finding the Winning Bid
 
@@ -72,7 +76,8 @@ section.
 
 After the winning bid is determined, Auctioneer creates a cryptographic
 signature and submits it in on the OEV Network. The signature is to be used on
-the target chain when capturing the OEV opportunity by the auction winner.
+the target chain when capturing the OEV opportunity by the auction winner. This
+signature is only usable by the auction winner.
 
 ### Polling for Awarded Bid
 
@@ -83,8 +88,7 @@ use of the award as soon as possible.
 
 The searcher can use the winning signature to pay for the OEV bid on the target
 chain by making a transaction. They need to pay the bid amount announced in the
-bid submission. This payment will be forwarded to the dApp. The signature
-ensures that only the auction winner can do so.
+bid submission. This payment will be forwarded to the dApp.
 
 After they've made the payment, the contract allows them to perform the data
 feed updates with exclusive rights. Note that API3 feeds guarantee very strong
