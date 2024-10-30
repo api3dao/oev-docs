@@ -34,28 +34,24 @@ module.exports = [
         link: '/oev/searchers/',
       },
       {
-        text: 'OEV Auctioneer',
-        link: '/oev/searcher/oev-auctioneer',
-      },
-      {
-        text: 'Target Chain',
-        link: '/oev/searcher/target-chain',
-      },
-      {
-        text: 'Obtaining dAPI Beacons',
-        link: '/oev/searchers/obtaining-dapi-beacons',
-      },
-      {
         text: 'MEV with Signed APIs',
         link: '/oev/searchers/mev-with-signed-apis',
+      },
+      {
+        text: 'dAPIs',
+        link: '/oev/searchers/dapis',
+      },
+      {
+        text: 'OEV Auctioneer',
+        link: '/oev/searchers/oev-auctioneer',
       },
       {
         text: 'OEV Searching',
         link: '/oev/searchers/oev-searching',
       },
       {
-        text: 'OEV Playground',
-        link: '/oev/searchers/oev-playground',
+        text: 'Examples',
+        link: '/oev/searchers/examples',
       },
     ],
   },
