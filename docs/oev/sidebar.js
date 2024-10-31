@@ -34,12 +34,12 @@ module.exports = [
         link: '/oev/searchers/',
       },
       {
-        text: 'MEV with Signed APIs',
-        link: '/oev/searchers/mev-with-signed-apis',
-      },
-      {
         text: 'dAPIs',
         link: '/oev/searchers/dapis',
+      },
+      {
+        text: 'MEV with Signed APIs',
+        link: '/oev/searchers/mev-with-signed-apis',
       },
       {
         text: 'OEV Auctioneer',

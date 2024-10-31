@@ -9,7 +9,7 @@ outline: deep
 # MEV with Signed APIs
 
 One step closer to OEV searching, is to extend MEV bots to utilize the public
-[Base Feed Endpoints](/oev/overview/target-chain.md#base-feed-endpoints). These
+[Base Feed Endpoints](/oev/searchers/dapis/#base-feed-endpoints). These
 endpoints are public, and also used by API3 DAO push oracle - so there is tight
 competition - something which searchers are already used to.
 

@@ -8,17 +8,15 @@ outline: deep
 
 # OEV Searching
 
-This part of the docs is dedicated to searchers. We've already covered how OEV
-works and scratched the surface behind the complexity of searching.
-
-This section explains how OEV auctions work in depth and provide basic searching
-strategies to simplify onboarding of the existing MEV searchers to OEV.
+This part of the docs is dedicated to searchers. It details how OEV auctions
+work and explains basic searching strategies to simplify onboarding of the
+existing MEV searchers to OEV.
 
 ## OEV dApps Catalog
 
 We maintain an open source list with all dApps which integrated API3 feeds as
 part of [dApp Registry](https://github.com/api3dao/dapp-registry). However, not
-all dApps opted-in to OEV yet, so we provide a separate list of OEV dApps are
+all dApps opted-in to OEV yet, so we provide a dedicated list of OEV dApps are
 currently suitable candidates for searching:
 
 <!-- TODO: Make sure these are sorted alphabetically. -->

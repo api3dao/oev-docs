@@ -20,34 +20,34 @@ dAPIs to the searchers publicly - and without cost.
 ## Signed APIs
 
 The heart of dAPIs are the first-party data feeds, powered by the owners of the
-data themselves. These data source owners operate an Airnode - a small
-abstraction that takes their data and cryptographically signs it. The signer
+data themselves. These data source owners operate an Airnode feed - a small
+abstraction that queries their API and cryptographically signs it. The signer
 wallet never leaves the owner's control, and anyone can verify that a particular
-signed data was signed by the respective data source. Airnodes periodically push
-the signed data to Signed APIs.
+signed data was signed by the respective data source. Airnode feeds periodically
+push the signed data to Signed APIs.
 
-Signed APIs store the data pushed by Airnodes and expose them to the public via
-an API. This allows for various use cases, out of which the two most important
-are:
+Signed APIs store the data pushed by Airnode feeds and expose them to the public
+via an API. This supports the following use-cases:
 
-1. Regular dAPI updates
+<!-- TODO: Make sure NOT to call "base feed updates" as "regular updates" -->
+
+1. Base feed dAPI updates
 2. OEV dAPI updates
 
-Both the Airnode and Signed API implementations are
+Both the Airnode feed and Signed API implementations are
 [open source](https://github.com/api3dao/signed-api) to increase the
 transparency and security of the process.
 
-### Regular dAPI updates
+<!-- TODO: Make sure to refer to Airnode feed as "Airnode feed" not "Airnode" -->
+
+### Base feed dAPI updates
 
 dAPIs are updated via Airseeker, a push oracle that updates the dAPIs based on
-deviation treshold parameters and heartbeat parameters. This tool is also
-[open source](https://github.com/api3dao/airseeker) to increase the transparency
-and security of the process.
+deviation treshold parameters and heartbeat parameters.
 
-To support OEV seamlessly, these regular (or "base feed") updates use a Signed
-API endpoint that provides data with a small delay. This delay is negligible in
-practice, because the OEV searchers will keep the dAPIs up-to-date when it
-matters. This activity also increases the decentralization of the data source.
+To support OEV, these base feed updates use a Signed API endpoint that provides
+data with a small delay. This delay is negligible in practice, because the OEV
+searchers will keep the dAPIs up-to-date when it matters.
 
 ### OEV Signed Data
 
@@ -67,9 +67,9 @@ Each base feed beacon has a corresponding OEV beacon, which is derived from the
 original one by hashing the template ID using `keccak256`. Each Airnode signs
 two beacon values - one for the base feed beacon and one for the OEV one.
 
-The OEV beacons will have different beacon IDs and are essentially unused
+The OEV beacons will have different beacon IDs and are unused by base feeds
 (because there is no dAPI using them), but they are valuable to searchers for
-monitoring the real-time, off-chain data feed values. The auction winner can use
+monitoring the real-time off-chain data feed values. The auction winner can use
 this data to update the dAPI value for a particular dApp.
 
 ::: info
@@ -107,11 +107,8 @@ Notice that the beacon ID is different, but the Airnode address is the same.
 
 ### Endpoints
 
-Signed APIs are also open sourced for anyone to use. This is yet another step
-towards more decentralization, because even if API3 oracle service is down,
-anyone can use these existing Signed APIs to do the updates instead.
-
-API3 runs Signed APIs deployed on AWS, ensuring maximum uptime and reliability.
+Signed APIs are open-sourced for anyone to use. API3 runs Signed APIs deployed
+on AWS, ensuring maximum uptime and reliability.
 
 The endpoint path of a Signed API has the following shape:
 
@@ -129,7 +126,7 @@ To break it down:
 
 #### Base Feed Endpoints
 
-The following are the endpoints that are publicly available:
+The following are the base feed endpoints that are publicly available:
 
 1. `https://signed-api.api3.org/public/<AIRNODE_ADDRESS>` - The official API3
    Signed APIs used by the push oracle to update the base feeds.
@@ -139,7 +136,7 @@ For example, see the
 
 #### OEV Endpoints
 
-The following are the endpoints that are publicly available:
+The following are the OEV endpoints that are publicly available:
 
 1. `https://signed-api.api3.org/public-oev/<AIRNODE_ADDRESS>`
 
@@ -178,14 +175,20 @@ For example:
 }
 ```
 
-## Obtaining dAPI beacons
+## Obtaining data feed sources
 
-Searchers need to know the proxy address and the underlying dAPI name that the
-proxy is using. The dApps are in full control to change their proxies, so it's
-best to refer to their documentation or inspect their contracts.
+dApps which oped-in to OEV use specific OEV proxies to read the data feed value.
+Searchers need to know the proxy address and the underlying dAPI name used by
+the OEV proxy. The dApps have full control over what proxies they use, so it's
+best to refer to their documentation or inspect their contracts to get
+up-to-date proxy address.
 
 To determine the underlying beacons used by the dAPI, you can use the
 AirseekerRegistry contract on the target chain.
+
+### OEV Proxy
+
+TODO: How exactly that proxy works.
 
 ### Data feed details encoding
 
@@ -195,7 +198,7 @@ callers of AirseekerRegistry need to encode or decode this value to get the
 actual data feed details.
 
 Encoding or decoding data feed details is simple, but depends on whether the
-feed is a beacon (single source) or a beacon set (multi sources). Assume we have
+feed is a beacon (single source) or a beacon set (multi source). Assume we have
 encoded `dataFeedDetails` and we need to decode it. Note, the encoding follows a
 similar principle.
 
@@ -257,9 +260,8 @@ const airseekerRegistry = new ethers.Contract(
 const dataFeedDetails = await airseekerRegistry.dataFeedIdToDetails(dataFeedId);
 ```
 
-The data feed details need to be decoded first. Refer to the
-[decodeDataFeedDetails](https://github.com/api3dao/airseeker/blob/main/src/update-feeds-loops/contracts.ts#L61)
-function in Airseeker. The following is a simplified version of this function:
+The data feed details need to be decoded first. The following is a simplified
+version of that decodes the data off-chain:
 
 ```js
 const deriveBeaconId = (airnodeAddress, templateId) => {
@@ -344,4 +346,5 @@ Say the following is the output after decoding the data feed details:
 ```
 
 The searching bot needs to monitor these data sources with the public Signed
-APIs.
+APIs. Note, that these are the base feed data feeds and the searcher is expected
+to derive the OEV feeds to monitor the OEV data.
