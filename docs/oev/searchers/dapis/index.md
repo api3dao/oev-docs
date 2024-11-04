@@ -124,7 +124,7 @@ base feed or the OEV feed, whatever is fresher.
 <!-- NOTE: Source = https://excalidraw.com/#json=YBOgsQx3LnXa_ct_qkAUr,W0k3A5A4Ln6BhECwl4OB6A -->
 <img src="./oev-proxy.svg" />
 
-The OEV feed is specific to the dApp and its' update only reflects the price for
+The OEV feed is specific to the dApp and its update only reflects the price for
 the dApp which uses this proxy. This is accomplished by proxy having an
 immutable dApp ID field. This allows for separate auctions being held for each
 dApp.
@@ -135,12 +135,13 @@ auction, searcher is guaranteed that the data is fresher than the base feed.
 
 ### OEV Feed
 
-OEV feed is derived from the base feed via OEV beacons. OEV beacon is derived
-from the base beacon by hashing its' template ID using `keccak256`. This makes
-it possible to share the signed data for OEV beacons freely, because they can't
-be used to update the base feed. The Api3ServerV1OevExtension contract only
-allows them to be used by the auction winner provided they paid the correct
-amount.
+OEV feed is derived from the base feed by changing its beacons to OEV beacons.
+
+An OEV beacon is derived from the base beacon by hashing its' template ID using
+`keccak256`. This makes it possible to share the signed data for OEV beacons
+freely, because they can't be used to update the base feed. The
+Api3ServerV1OevExtension contract only allows them to be used by the auction
+winner provided they paid the correct amount.
 
 ::: info
 
@@ -354,7 +355,9 @@ Signed APIs and makes them publicly available. They deployed on AWS, ensuring
 maximum uptime and reliability.
 
 Signed APIs only support querying data for a particular Airnode. The Airnode
-address is supplied as HTTP path parameter.
+address is supplied as HTTP path parameter. The endpoint is cached and can be
+called repeatedly. However, too drastic call usage is punished by a rate
+limiting or full access denial.
 
 <!-- TODO: Make sure NOT to call "base feed updates" as "regular updates" -->
 
