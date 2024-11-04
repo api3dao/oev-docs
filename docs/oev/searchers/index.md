@@ -42,7 +42,8 @@ block validators.
 Most of the searching logic related to position tracking and liquidating remains
 the same. What's left is:
 
-1. [Bridge funds](/oev/overview/oev-network.md#bridging-eth) to the OEV network.
+1. [Bridge funds](/oev/searchers/oev-network.html#bridging-eth) to the OEV
+   network.
 2. Deposit funds to the OevAuctionHouse contract.
 3. Monitor off-chain signed data for dAPIs used by the dApp.
 4. Simulate the data feed update on-chain to determine liquidation

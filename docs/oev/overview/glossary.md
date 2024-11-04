@@ -225,7 +225,7 @@ OEV Auctioneer, or simply Auctioneer, is the off-chain component powering the
 
 Each base feed beacon has a corresponding OEV beacon, which is derived from the
 original one by hashing the template ID using `keccak256`. These beacons are
-needed for OEV searchers to query [Signed APIs](signed-api) for their real-time
+needed for OEV searchers to query [Signed APIs](#signed-api) for their real-time
 values.
 
 ### OEV feed
@@ -243,7 +243,7 @@ and retrospectively verifiable way.
 ### OEV Proxy
 
 By OEV proxy we mean the a proxy contract that reads a value from both
-[base feed](#base-feed) and [OEV feed](oev-feed) and prefers the fresher out of
+[base feed](#base-feed) and [OEV feed](#oev-feed) and prefers the fresher out of
 the two. Our implementation is called `Api3ReaderProxyV1` and partially supports
 Chainlink's AggregatorV2V3Interface for convenience.
 

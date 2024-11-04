@@ -120,7 +120,7 @@ have a dedicated section [OEV Searching](/oev/searchers/index.md).
 
 To be eligible to win OEV auctions, searchers need to have enough collateral
 deposited in the OevAuctionHouse contract. See
-[Bid Eligibility](/oev/overview/oev-auctioneer.md#bid-eligibility) for more
+[Bid Eligibility](/oev/searchers/oev-auctioneer.html#bid-eligibility) for more
 details.
 
 We recommend using the same hot wallet for the bot on the OEV network (to
@@ -174,7 +174,8 @@ function withdraw(
 For a searcher to win an auction, they are required to have enough ETH deposited
 in the OevAuctionHouse contract. Similarly, the value the searcher can win is
 limited by the amount they have deposited. Refer to
-[Bid Eligibility](/oev/overview/oev-auctioneer.md#bid-eligibility) for details.
+[Bid Eligibility](/oev/searchers/oev-auctioneer.html#bid-eligibility) for
+details.
 
 The collateral and protocol fee rates are configurable parameters within the
 OevAuctionHouse contract and are configured by the API3 DAO. These values are

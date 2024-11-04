@@ -42,7 +42,7 @@ Note, that this operation can be cached because they change only when the
 underlying base feed changes, which happens only when the dAPI is reconfigured.
 
 Once the list of OEV beacons is known, searchers should periodically call the
-public [OEV Endpoints](/oev/searchers/dapis#oev-endpoints) to get the real-time
+public [OEV Endpoints](/oev/searchers/dapis/#oev-endpoints) to get the real-time
 values for the OEV beacons used by the dApp. It's necessary to persist these
 values for a brief period of time - in case they win the auction and need to
 update the data feed.
@@ -67,7 +67,7 @@ is to do a multicall that simulates the data feed update(s) then makes arbitrary
 number external calls.
 
 To understand how to construct the payload for data feed simulation, refer to
-[Update the Data Feed](/oev/overview/target-chain.md#updating-the-data-feed)
+[Update the Data Feed](/oev/searchers/oev-searching.html#updating-the-data-feed)
 section. The following is an example code snippet demonstating the expected
 usage in JavaScript with ethers library.
 
@@ -111,10 +111,10 @@ It accepts the following parameters:
 
 | Argument             | Type    | Description                                                                                                                                                                                                                  |
 | -------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bidTopic             | bytes32 | The [Bid Topic](/oev/overview/oev-auctioneer.md#bid-topic) of the current auction.                                                                                                                                           |
+| bidTopic             | bytes32 | The [Bid Topic](/oev/searchers/oev-auctioneer.html#bid-topic) of the current auction.                                                                                                                                        |
 | chainId              | uint256 | The chain ID of the target chain.                                                                                                                                                                                            |
 | bidAmount            | uint256 | The amount of the bid in the native currency of the target chain. At award time, a respective percentage fo this amount is reserved as collateral and the winner is expected to pay the full bid amount on the target chain. |
-| bidDetails           | bytes   | The [Bid details](/oev/overview/oev-auctioneer.md#bid-details) of the bid.                                                                                                                                                   |
+| bidDetails           | bytes   | The [Bid details](/oev/searchers/oev-auctioneer.html#bid-details) of the bid.                                                                                                                                                |
 | maxCollateralAmount  | uint256 | The maximum collateral amount that the bidder is willing to lock up. This is to prevent unwanted slippage in case of a large price change before the transaction is mined.                                                   |
 | maxProtocolFeeAmount | uint256 | The maximum protocol fee amount that the bidder is willing to pay. This is to prevent unwanted slippage in case of a large price change before the transaction is mined.                                                     |
 | expirationTimestamp  | uint32  | The timestamp until which the bid is valid. The timestamp is checked against the `block.timestamp` at the bid placement time. Minimum is 15 seconds and maximum 24 hours.                                                    |
@@ -138,15 +138,15 @@ bid is placed by mistake one can expedite it manually to prevent potential
 issues.
 
 There are multiple ways to
-[expedite a bid](oev/searchers/oev-network.html#expediting-a-bid), but the
+[expedite a bid](/oev/searchers/oev-network.html#expediting-a-bid), but the
 recommended way is to call `expediteBidExpirationMaximally`.
 
 It accepts the following parameters:
 
-| Argument       | Type    | Description                                                                            |
-| -------------- | ------- | -------------------------------------------------------------------------------------- |
-| bidTopic       | bytes32 | The [Bid Topic](/oev/overview/oev-auctioneer.md#bid-topic) of the current auction.     |
-| bidDetailsHash | bytes32 | The hash of the [Bid details](/oev/overview/oev-auctioneer.md#bid-details) of the bid. |
+| Argument       | Type    | Description                                                                               |
+| -------------- | ------- | ----------------------------------------------------------------------------------------- |
+| bidTopic       | bytes32 | The [Bid Topic](/oev/searchers/oev-auctioneer.html#bid-topic) of the current auction.     |
+| bidDetailsHash | bytes32 | The hash of the [Bid details](/oev/searchers/oev-auctioneer.html#bid-details) of the bid. |
 
 ## Waiting for Auction Award
 
