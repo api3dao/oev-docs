@@ -10,10 +10,9 @@ outline: deep
 
 ![OEV Network image](/oev/overview/assets/oev-network.png)
 
-The OEV Network is an open marketplace designed to facilitate the distribution
-of oracle updates. Operating as an standard Arbitrum Nitro L2 optimistic-rollup,
-the system ensures transparency and allows verification of the auction process.
-In this marketplace, OEV searchers place bids for the exclusive opportunity to
+The OEV Network operates as an standard Arbitrum Nitro L2 optimistic-rollup, the
+system ensures transparency and allows verification of the auction process. In
+this marketplace, OEV searchers place bids for the exclusive opportunity to
 update a dAPIs for a short period of time.
 
 By hosting auctions on on-chain, we address two big issues:
