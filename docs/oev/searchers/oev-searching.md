@@ -23,6 +23,9 @@ participate in auctions) and the target chain (to capture the OEV). To deposit
 funds, you can use either the `deposit` or `depositForBidder` functions. The
 latter allows you to deposit the collateral on behalf of another address.
 
+For an advanced usage where the bidder is a contract, refer to
+[Bidding Contract](/oev/searchers/oev-searching#bidding-contract).
+
 ## Withdrawing Funds
 
 To withdraw the deposited collateral from OevAuctionHouse contract, the searcher
@@ -34,34 +37,6 @@ needs to do the following:
 
 The withdrawal process is implemented this way to prevent denying service by
 frontrunning the award transaction by withdrawing the collateral.
-
-## Collateral and Protocol Fee
-
-For a searcher to win an auction, they are required to have enough ETH deposited
-in the OevAuctionHouse contract. Similarly, the value the searcher can win is
-limited by the amount they have deposited. Refer to
-[Bid Eligibility](/oev/overview/oev-auctioneer.md#bid-eligibility) for details.
-
-The collateral and protocol fee rates are configurable parameters within the
-OevAuctionHouse contract and are configured by the API3 DAO. These values are
-set in "basis points", which are 1/100th of a percentage point. For example, a
-value of 1000 is equivalent to 10%.
-
-| Parameter                | Value |
-| ------------------------ | ----- |
-| collateralInBasisPoints  | 1000  |
-| protocolFeeInBasisPoints | 0     |
-
-The collateral and the protocol fee are calculated using the price feed values
-at the time of the bid placement. However, the collateral is reserved at award
-time. This allows the bidder to place multiple bids for different dApps, even if
-their collateral doesn't allow them to win all. This allows for greater
-flexibility.
-
-If the auction winner pays for the bid on the OEV Network and report the
-fulfillment, their collateral is released and the protocol fee is deducted. If
-the auction winner doesn't pay for the award or fails to report the fulfillment,
-their collateral is slashed.
 
 ## Monitoring Signed Data
 
@@ -135,6 +110,34 @@ const simulationResult = await api3ServerV1OevExtensionImpersonated.multicall.st
   ...externalCallsCalldata
 );
 ```
+
+## Collateral and Protocol Fee
+
+For a searcher to win an auction, they are required to have enough ETH deposited
+in the OevAuctionHouse contract. Similarly, the value the searcher can win is
+limited by the amount they have deposited. Refer to
+[Bid Eligibility](/oev/overview/oev-auctioneer.md#bid-eligibility) for details.
+
+The collateral and protocol fee rates are configurable parameters within the
+OevAuctionHouse contract and are configured by the API3 DAO. These values are
+set in "basis points", which are 1/100th of a percentage point. For example, a
+value of 1000 is equivalent to 10%. The current values are set to the following:
+
+| Parameter                | Value |
+| ------------------------ | ----- |
+| collateralInBasisPoints  | 1000  |
+| protocolFeeInBasisPoints | 0     |
+
+The collateral and the protocol fee are calculated using the price feed values
+at the time of the bid placement. However, the collateral is reserved at award
+time. This allows the bidder to place multiple bids for different dApps, even if
+their collateral doesn't allow them to win all. This allows for greater
+flexibility.
+
+If the auction winner pays for the bid on the OEV Network and report the
+fulfillment, their collateral is released and the protocol fee is deducted. If
+the auction winner doesn't pay for the award or fails to report the fulfillment,
+their collateral is slashed.
 
 ## Placing a Bid
 
@@ -315,6 +318,37 @@ the value via the `read` function.
 Internally, this proxy uses the `Api3ServerV1` and `Api3ServerV1OevExtension`
 contracts to read the base feed and OEV value respectively, with a preference
 for the fresher out of the two.
+
+## Bidding Contract
+
+The bidder can be either EoA or a contract. The former is simpler, but has
+certain drawbacks. Imagine a searcher firm, where individual developers work on
+the searcher bots. Each bot has a dedicated EoA to interact with OEV Network and
+capture OEV on the target chain. The product owner only provides liquidity to
+each EoA for the OEV collateral. There are a few immediate drawbacks:
+
+1. The EoA needs has full control over the deposit in OevAuctionHouse contract.
+2. The collateral liquidity is fragmented across multiple EoA.
+
+Both of these downsides can be mitigated by a role-based bidding contract. One
+can imagine the product owner being the only one who can withdraw the funds and
+give bidding permissions to other accounts. These accounts can be used to place
+bids through the contract. The contract can have other use cases based on the
+use cases needed, but there are a few important consiederations to keep in mind
+when designing the contract:
+
+1. The OevAuctionsHouse expects the same account to call `reportFulfillment`.
+   This means the bidding contract needs to be reporting fulfillments as well.
+2. Both `initiateWithdrawal`, `withdraw` and `cancelWithdrawal` need to be
+   called by the the same address. The bidding contract need to be allowed to
+   call of this. Note that withdrawal cancelation may be omitted if the contract
+   doesn't need to have this capability. Access to these functions should be
+   limited. For example, a malicious actor that has access to it may call
+   `initiateWithdrawal` so that the auctioneer bots disregard the respective
+   bids, or call `cancelWithdrawal` whenever a withdrawal is initiated to
+   prevent the funds from ever being withdrawn.
+3. The withdrawal recipient is specified in the `withdraw` call. Make sure the
+   recipient is payable and the funds will not remain locked.
 
 ## Handling Disputes
 

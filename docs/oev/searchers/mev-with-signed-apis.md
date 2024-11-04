@@ -11,11 +11,12 @@ outline: deep
 One step closer to OEV searching, is to extend MEV bots to utilize the public
 [Base Feed Endpoints](/oev/searchers/dapis/#base-feed-endpoints). These
 endpoints are public, and also used by API3 DAO push oracle - so there is tight
-competition - something which searchers are already used to.
+competition in who is the fastest with the on-chain transaction.
 
 The existing MEV bot can utilize this off-chain open source data and make a base
 feed update on-chain whenever there is OEV to be captured. Refer to
-[dAPIs Reference](/dapis/reference/understand/#dapis) for more details.
+[Updating dAPI Value](/oev/searchers/dapis/#updating-dapi-value) for more
+details.
 
 One advantage of using this data is that searchers can easily simulate the data
 feed update (which is permissionless for base feeds) and to more easily
@@ -31,10 +32,11 @@ Assuming a searcher calls the Signed APIs and has a valid data to update the
 base feed, they can use them to simulate the data feed update on-chain followed
 up by a call to check for liquidation opportunities.
 
-The code below demonstrates how this process can be implemented in JavaScript.
-Note that this code makes use of variables which are not defined in the code
-snippet. Their purpose can be understood from the context and is left out to
-keep the example concise and focused on how a dAPI can be updated.
+The code below demonstrates how this process can be implemented in JavaScript
+with the ethers library. Note that this code makes use of variables which are
+not defined in the code snippet. Their purpose can be understood from the
+context and is left out to keep the example concise and focused on how a dAPI
+can be updated.
 
 ```javascript
 const beaconsIds = []; // Assume the data feed is a beacon set with these beacons
@@ -77,5 +79,7 @@ const result = await multicall3.aggregate3.staticCall(calls);
 ## Capture MEV
 
 If a searcher successfully simulated a profitable MEV opportunity, they can use
-the same data feed calldata, and submit the transaction instead of simulating
-it.
+the same data feed calldata, and submit the transaction instead of simulation.
+
+Note that the signed data for base feeds is delayed to make sure OEV searchers
+have an exclusive priority for OEV extraction.

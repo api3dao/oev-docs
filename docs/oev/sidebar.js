@@ -8,14 +8,6 @@ module.exports = [
         link: '/oev/',
       },
       {
-        text: 'OEV Network',
-        link: '/oev/overview/oev-network',
-      },
-      {
-        text: 'OEV Auctioneer',
-        link: '/oev/overview/oev-auctioneer',
-      },
-      {
         text: 'Auction Cycle',
         link: '/oev/overview/auction-cycle',
       },
@@ -40,6 +32,10 @@ module.exports = [
       {
         text: 'MEV with Signed APIs',
         link: '/oev/searchers/mev-with-signed-apis',
+      },
+      {
+        text: 'OEV Network',
+        link: '/oev/searchers/oev-network',
       },
       {
         text: 'OEV Auctioneer',

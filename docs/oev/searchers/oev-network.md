@@ -1,6 +1,6 @@
 ---
 title: OEV Network
-pageHeader: OEV → Overview
+pageHeader: OEV → Searchers
 outline: deep
 ---
 
@@ -27,9 +27,9 @@ By hosting auctions on on-chain, we address two big issues:
    auction outcomes. Blockchains are the perfect tool for this, as all the data
    is public and verifiable.
 
-To participate in auctions, you need to have a sufficient amount of ETH bridged
-to the OEV network and interact with the [OevAuctionHouse](#oevauctionhouse)
-contract.
+To participate in auctions, searchers need to have a sufficient amount of ETH
+bridged to the OEV network and interact with the
+[OevAuctionHouse](#oevauctionhouse) contract.
 
 ## Using the OEV Network
 
@@ -98,10 +98,11 @@ The implementation of the audited OevAuctionHouse contract is publicly available
 [here](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/OevAuctionHouse.sol).
 
 Winners of OEV auctions must submit their payment to be allowed to update the
-data feeds and capture OEV. In practice, searchers are expected to do these
-steps atomically, ensuring immediate value return to the dApp.
+data feeds and capture OEV on the target chain. In practice, searchers are
+expected to do these steps atomically, ensuring immediate value return to the
+dApp.
 
-After making the payment, the winner needs to post a proof of doing so (the
+After the payment is made, the winner needs to post a proof of doing so (the
 transaction hash) to the OEV Network. This proof is then validated and the
 reserved collateral of the searcher is released, while the
 [protocol fee](/oev/searchers/oev-searching.md#collateral-and-protocol-fee) is
@@ -119,9 +120,6 @@ following:
 4. Confirm or contract fulfillment
 5. Update protocol and collateral fee
 6. Update the price feed proxies
-
-Refer to the [Auction Cycle](/oev/overview/auction-cycle) and
-[OEV Auctioneer](/oev/overview/oev-auctioneer) for details.
 
 To support OEV auctions in the least privileged way, the contract defines a few
 special roles allowed to interact with the contract in an authorized way. These

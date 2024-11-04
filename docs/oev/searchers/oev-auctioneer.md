@@ -27,6 +27,17 @@ Each dApp which uses OEV feeds is served by some Auctioneer instance.
 Internally, API3 DAO may run multiple Auctioneers as a form of horizontal
 scaling to ensure auctions can be processed in a timely manner.
 
+## How it works?
+
+Auctioneer processes logs emitted by the OevAuctionHouse contract and responds
+back by transacting with the same contract. Auctioneer is deployed on AWS with
+well established security. It has an Auctioneer wallet, which is given the
+rights to resolve the auctions and confirm/contradict fulfillments.
+
+The only cross chain communication happens during fulfillment verification - all
+other operations are performed solely on OEV Network or the target chain of the
+dApp. This minimizes the latency incurred and improves the resiliency.
+
 ## Enforced Conventions
 
 Auctioneer enforces a few conventions. These are important for searchers to
