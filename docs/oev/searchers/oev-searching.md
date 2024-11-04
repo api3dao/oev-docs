@@ -200,40 +200,70 @@ the data feed values.
 
 ### Paying for the OEV Bid
 
-To pay for the winning bid, call the `payOevBid` function. This function
-requires the following parameters:
+Paying for the OEV bid presents a problem. The searcher does not have funds
+upfront, they only receive these once they capture OEV. This challenge has a
+workaround - let the searcher flashloan the amount to be paid and they repay it
+via the OEV proceeds. However, searchers need to often take a loan for the OEV
+recapture. This presents a problem, because protocols often implement reentrancy
+guards, preventing nested flashloans. The alternative is to compute the
+flashloan amount to account for both OEV recapture and bid payment.
 
-1. `uint256 dappId` - The ID of the dApp that the searcher wants to update. This
-   is the same value which they've used in the bid topic.
-2. `uint32 signedDataTimestampCutoff` - The signed data timestamp cutoff period.
-   This is the same value, which they've used in the bid topic.
-3. `bytes calldata signature` - The signature that the auction winner received
-   as an award. This is obtained from the event emitted on the OEV Network after
-   Auctioneer awarded the bid.
+We've expected this to degrade the UX, so we implemented the OEV payment in a
+way which allows OEV recapture before paying for the OEV bid amount. This works
+similarly to a taking a flashloan. Searcher calls `payOevBid` function, which
+allows the `msg.sender` to update the dApp data feeds and calls
+`onOevBidPayment` callback. After the callback is executed, the function
+verifies that the contract's balance increased by at least the corresponding bid
+amount. In the `onOevBidPayment` callback, the searcher can capture the OEV and
+swap the proceeds to native currency and send the adequate bid amount to to
+Api3ServerV1OevExtension contract.
+
+This is the signature of the function:
+
+```solidity
+function payOevBid(
+    uint256 dappId, // The ID of the dApp that the searcher wants to update (the same value that was used in bid topic)
+    uint256 bidAmount, // The bid amount that is to be paid for winning the auction
+    uint32 signedDataTimestampCutoff, // The signed data timestamp cutoff period (the same value that was used in bid topic)
+    bytes calldata signature, // The signature that the auction winner received via award details
+    bytes calldata data // Data that will be passed through the callback
+) external;
+```
 
 The signature is crafted for a specific dApp ID and signed data timestamp
 cutoff. If the searcher provides incorrect values, the signature verification
 will fail, causing the transaction to revert. If the signature is valid, the
-contract allows the sender to update the data feed. Due to exclusivity
+contract allows the sender to update the data feed(s). Due to exclusivity
 guarantees, the winner is guaranteed to be who can update the feed with the data
 from within the bidding phase of the respective auction.
 
 ### Updating the Data Feed
 
 To update the data feed values, call the `updateDappOevDataFeed` function. This
-requires the sender to be whitelisted by paying for the OEV bid first. The
-function requires the following parameters:
+requires the sender to be whitelisted by paying for the OEV bid first.
 
-1. `uint256 dappId` - The ID of the dApp that the searcher wants to update.
-2. `bytes[] calldata signedData` - The ABI encoded signed data that the searcher
-   wants to update the dAPI with. The contract decodes the following fields:
-   - `address airnode` - The address of the Airnode.
-   - `bytes32 templateId` - The template ID of the base beacon - **not** the
-     template ID of the OEV beacon.
-   - `uint256 timestamp` - The timestamp of the data.
-   - `bytes memory data` - The encoded value.
-   - `bytes memory signature` - The signature for this signed data - signed for
-     the base beacon.
+```solidity
+function updateDappOevDataFeed(
+    uint256 dappId, // The ID of the dApp that the searcher wants to update
+    bytes[] calldata signedData // The ABI encoded signed data that the searcher wants to update the dAPI with
+)
+    external
+    returns (
+        bytes32 baseDataFeedId,
+        int224 updatedValue,
+        uint32 updatedTimestamp
+    );
+```
+
+The ABI encoded signed data are expected to be decoded to the following fields:
+
+- `address airnode` - The address of the Airnode.
+- `bytes32 templateId` - The template ID of the base beacon - **not** the
+  template ID of the OEV beacon.
+- `uint256 timestamp` - The timestamp of the data.
+- `bytes memory data` - The encoded value.
+- `bytes memory signature` - The signature for this signed data - signed for the
+  base beacon.
 
 ::: info
 
@@ -280,6 +310,17 @@ timestamp of the base feed beacon. The data feed value after aggregating OEV
 beacons must change the base feed - either increase the timestamp or change the
 aggregated value. This enforces time monotonicity at the contract level, making
 sure OEV updates provide only the freshest data.
+
+### Api3ServerV1OevExtensionOevBidPayer
+
+As part `payOevBid` function, the Api3ServerV1OevExtension contract assumes
+`msg.sender` is a contract that implements the
+IApi3ServerV1OevExtensionOevBidPayer interface. It calls the `onOevBidPayment`
+callback and requires the return value to equal:
+
+```solidity
+keccak256("Api3ServerV1OevExtensionOevBidPayer.onOevBidPayment")
+```
 
 ## Bidding Contract
 
