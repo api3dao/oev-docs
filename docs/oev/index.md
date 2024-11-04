@@ -34,9 +34,7 @@ by open auctions, bound by rules that enforced on-chain. The winner of an
 auction must pay for winning the auction, which allows them to use the oracle
 update and capture profitable opportunities.
 
-::: info
-
-**Basic Example**
+## Example
 
 Imagine an overcollateralized lending platform, which uses API3 price feeds.
 Borrowers of the protocol can be liquidated with some incentive whenever their
@@ -66,46 +64,14 @@ The concept of OEV is not tailored only to liquidations, but can occur anywhere
 where price feed updates potentially expose profitable opportunities, such as
 arbitrage and many more.
 
-:::
-
-## Security
-
-Because OEV is an extension of API3 feeds, it inherits the same guarantees that
-the base feeds provide. Furthermore, our contracts and off-chain components
-undergone multiple security audits from multiple auditors. Refer to the
-[contract's security on GitHub](https://github.com/api3dao/contracts/blob/main/README.md#security)
-for details.
-
-## Benefits of OEV
-
-OEV offers advantages to various stakeholders in the ecosystem:
-
-1. For dApps and their users:
-
-   - Receive a major share of the value generated from their protocol's oracle
-     updates.
-   - Improved efficiency, granularity and decentralization of price feeds.
-
-2. For searchers:
-
-   - Lower gas fees and less competition, thus higher profits.
-
-### OEV Proceeds Distribution
+## OEV Proceeds Distribution
 
 To be able to update the data feed, the auction winner must pay the bid amount
 of the winning bid, which they've announced during the auction. In return, they
 get exclusive rights to capture the OEV. Searchers are compensated for this
-activity by the liquidation incentive.
-
-At API3, we believe that those operating the protocol should be compensated much
-more - after all, they are the ones who created the opportunity. As such, all of
-the bid amounts paid are distributed back to the dApp.
-
-Because the bid amount payments are made on the target chain of the protocol,
-the accumulated payment amount can be easily computed from on-chain events,
-ensuring absolute transparency in the process. The funds are withdrawable by
-API3 DAO, which will be responsible for distributing the funds back to the
-dApps.
+activity by the liquidation incentive. Thus the majority of the OEV is
+distributed to the dApp and the searchers. These are the parties who made the
+opportunity possible.
 
 ## How do Auctions Work?
 
@@ -169,7 +135,7 @@ Here are more resources how you to get started with OEV:
    [OEV Litepaper](https://raw.githubusercontent.com/api3dao/oev-litepaper/main/oev-litepaper.pdf).
 2. Check out our [dApp onboarding guide](/oev/dapps/) to see how you can
    integrate OEV in your dApp.
-3. Check out our [Searchers guide](/oev/searchers/) to see how to start
+3. Check out our detailed [Searchers guide](/oev/searchers/) to see how to start
    searching.
 4. Connect with other developers and OEV enthusiasts in our
    [OEV Discord channel](https://discord.com/channels/758003776174030948/1062909222347603989).

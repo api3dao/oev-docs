@@ -35,7 +35,7 @@ module.exports = [
       },
       {
         text: 'dAPIs',
-        link: '/oev/searchers/dapis',
+        link: '/oev/searchers/dapis/',
       },
       {
         text: 'MEV with Signed APIs',

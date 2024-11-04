@@ -11,6 +11,7 @@ hero:
     src: /img/beacons.svg
     alt: API3
   actions:
+    # TODO: Update to dApps and Searchers
     - theme: brand
       text: dAPIs
       link: /dapis/
