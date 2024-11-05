@@ -179,6 +179,17 @@ Notice that the beacon ID is different, but the Airnode address is the same.
 The OEV update flow is explained more in depth in
 [OEV Searching](/oev-searchers/in-depth/oev-searching).
 
+### dApp IDs
+
+Each dApp that uses OEV feeds is assigned a unique ID, called the "dApp ID". The
+granularity of auctions is at the dApp level, meaning the auction winner is able
+to update any of the price feeds associated with this dApp ID. This ID is
+hardcoded in the OEV proxies of the dApp.
+
+The ID has no other meaning other than to group proxies of the same dApp
+together. Searchers can obtain the dApp ID of from the
+[OEV dApps catalog](/oev-searchers/in-depth/#oev-dapps-catalog).
+
 ### dApp Sources
 
 Searchers need to know the proxy address and the underlying dAPI name used by

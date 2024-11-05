@@ -16,8 +16,8 @@ existing MEV searchers to OEV.
 
 We maintain an open source list with all dApps which integrated API3 feeds as
 part of [dApp Registry](https://github.com/api3dao/dapp-registry). However, not
-all dApps opted-in to OEV yet, so we provide a dedicated list of OEV dApps are
-currently suitable candidates for searching:
+all of the dApps are suitable for OEV extraction, so we provide a list of dApps
+are currently suitable candidates for OEV searching.
 
 <!-- NOTE: Make sure these are sorted alphabetically. -->
 
@@ -26,6 +26,10 @@ currently suitable candidates for searching:
 3. [Orbit protocol on Blast](https://orbitlending.io/)
 4. [Silo protocol on Arbitrum](https://app.silo.finance/)
 5. [Yei protocol on Sei](https://www.yei.finance/)
+
+Currently, these protocols use outdated API3 proxies, which support the previous
+version of OEV auctions, which is no longer supported. Searchers can still
+perform [MEV with Signed APIs](/in-depth/mev-with-signed-apis) extraction.
 
 ## From MEV Searching
 

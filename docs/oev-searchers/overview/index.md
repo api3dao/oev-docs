@@ -96,16 +96,6 @@ they need to report this back to OEV network. If they fail to do so, part of
 their collateral gets slashed. This is an important security aspect to prevent
 denying OEV recapture by withholding auction payments.
 
-### dApp IDs
-
-Each dApp that uses OEV feeds is assigned a unique ID, called the "dApp ID". The
-granularity of auctions is at the dApp level, meaning the auction winning is
-able to update any of the price feeds associated with this dApp ID. This ID is
-hardcoded in the OEV proxies of the dApp.
-
-The ID has no other meaning other than to group proxies of the same dApp
-together.
-
 ### OEV Network
 
 The OEV Network hosts auctions in a transparent way, ensuring that any disputes
