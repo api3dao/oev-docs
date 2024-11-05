@@ -12,27 +12,27 @@ Oracle Extractable Value (OEV) is a subset of Maximal Extractable Value (MEV)
 that occurs as a result of an oracle update. Traditional oracle solutions update
 data feeds blindly, which is wasteful and provides poor granularity.
 
-OEV is an addition to these push oracle updates to improve efficiency and
-granularity of the price feeds. The idea is that not all oracle updates are the
-same. Some oracle updates expose opportunities on the market which can be
-captured by "searchers". Searchers monitor the market for profitable
-opportunities and compete with each other to realize them first - paying the
-majority of the exposed value to block validators in the process. This dynamic
-is unhealthy, because the majority of the value should be split between the dApp
-and the searcher that realized the opportunity.
+OEV is an addition to these push oracle updates to improve efficiency of the
+price feeds. The idea is that not all oracle updates are the same. Some oracle
+updates expose opportunities on the market which can be captured by searchers.
+Searchers monitor the market for profitable opportunities and compete with each
+other to realize them first - paying the majority of the exposed value to block
+validators in the process. This dynamic is unhealthy, because the majority of
+the value should be split between the dApp and the searcher that realized the
+opportunity.
 
 OEV solves this problem by auctioning off the exclusive rights to execute the
-oracle update(s), allowing the searcher to atomically update the price feed(s)
-used by the dApps and capture the opportunity on the market. The exclusive
-update rights guarantee no competition and searcher avoids paying premium on the
-gas fees. On the other hand, the auction proceeds are distributed back to the
-dApp which created this opportunity, generating a completely new revenue stream.
+oracle update(s), allowing searchers to atomically update the price feed(s) used
+by the dApps and capture the opportunity on the market. The exclusive update
+rights guarantee no competition and searcher avoids paying premium on the gas
+fees. On the other hand, the auction proceeds are distributed back to the dApp
+which created this opportunity, thus generating a completely new revenue stream.
 
-With OEV, searchers announce the desire to do the oracle updates themselves
-along with the amount they are willing to pay for it. The process is facilitated
-by open auctions, bound by rules that enforced on-chain. The winner of an
-auction must pay for winning the auction, which allows them to use the oracle
-update and capture profitable opportunities.
+With OEV, searchers announce the desire to do the oracle updates along with the
+amount they are willing to pay for it. The process is facilitated by open
+auctions, bound by rules that enforced on-chain. The auction winner must pay the
+announced amount, which in return allows them to use the oracle update and
+capture profitable opportunities.
 
 ## Example
 
@@ -70,8 +70,7 @@ To be able to update the data feed, the auction winner must pay the bid amount
 of the winning bid, which they've announced during the auction. In return, they
 get exclusive rights to capture the OEV. Searchers are compensated for this
 activity by the remaining OEV proceeds amount. Thus the majority of the OEV is
-distributed to the dApp and the searchers. These are the parties who made the
-opportunity possible.
+distributed to the dApp and the searchers.
 
 ## How do Auctions Work?
 
