@@ -192,7 +192,7 @@ After the bid is awarded, the searcher needs to do the following:
 
 It's expected that searchers do all of these steps atomically. However, the
 contract allows searcher to repeat steps 2. and 3. as many times as they want.
-However, each update has to increase the timestamp of the OEV Beacon(s).
+However, each update has to increase the timestamp of the OEV beacon(s).
 
 The OEV capabilities are enabled by the
 [Api3ServerV1OevExtension](https://github.com/api3dao/contracts-qs/blob/main/contracts/api3-server-v1/Api3ServerV1OevExtension.sol).

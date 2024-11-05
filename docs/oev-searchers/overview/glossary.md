@@ -56,7 +56,7 @@ A secret wallet only known to the [API provider](#api-provider) who deploys the
 ### Airseeker
 
 [Airseeker](https://github.com/api3dao/airseeker) is an application that
-periodically fetches [signed data](#signed-data) from [signed APIs](#signed-api)
+periodically fetches [signed data](#signed-data) from [Signed APIs](#signed-api)
 to update [data feeds](#data-feed) whenever the conditions specified by the
 [update parameters](#update-parameters) are satisfied.
 
@@ -186,7 +186,7 @@ Data feeds are powered by [Airseekers](#airseeker).
 
 Deviation is the difference between the on-chain value of a
 [data feed](#data-feed) and its off-chain value based on the data served by
-[signed APIs](#signed-api). It is measured as a percentage value, and an update
+[Signed APIs](#signed-api). It is measured as a percentage value, and an update
 needs to be made when the value exceeds the deviation threshold. A deviation
 reference value is used as the reference value according to which the percentage
 value will be calculated.
@@ -308,7 +308,7 @@ APIs to update [data feeds](#data-feed).
 ### Signed Data
 
 Refers to the data signed by [Airnode feeds](#airnode-feed), served by
-[signed APIs](#signed-api) and used by [Airseekers](#airseeker) to update
+[Signed APIs](#signed-api) and used by [Airseekers](#airseeker) to update
 [data feeds](#data-feed).
 
 ### Target Chain
