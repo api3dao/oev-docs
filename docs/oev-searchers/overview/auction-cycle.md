@@ -1,6 +1,6 @@
 ---
 title: Auction Cycle
-pageHeader: OEV → Overview
+pageHeader: OEV Searchers → Overview
 outline: deep
 ---
 
@@ -11,14 +11,14 @@ outline: deep
 In this section, we're going to walk through the whole auction cycle at a high
 level, explaining the steps involved in the auction process. This sections aims
 to provide a basic mental model for searchers before reading out in-depth
-[Searchers' documentation](/oev/searchers/).
+[Searchers' documentation](/oev-searchers/in-depth/).
 
 Searchers need a funded account on OEV Network and deposit collateral on its
 behalf inside OevAuctionHouse contract. They need to monitor the off-chain
-[Signed APIs](/oev/searchers/dapis/#public-signed-apis) and monitor the dApp's
-state for profitable opportunities. For the purposes of this overview, we assume
-there is a searcher that implemented all of the above and knows how to capture
-the OEV once they've won an auction.
+[Signed APIs](/oev-searchers/in-depth/dapis/#public-signed-apis) and monitor the
+dApp's state for profitable opportunities. For the purposes of this overview, we
+assume there is a searcher that implemented all of the above and knows how to
+capture the OEV once they've won an auction.
 
 ## Start of the Bidding Phase
 
@@ -56,7 +56,7 @@ Auctioneer and the auction winner enough time.
 If there are multiple eligible bids, Auctioneer selects the one with the highest
 bid amount. More details on how Auctioneer selects the winning bid can be found
 in the
-[Auction resolution](/oev/searchers/oev-auctioneer.html#auction-resolution)
+[Auction resolution](/oev-searchers/in-depth/oev-auctioneer#auction-resolution)
 section.
 
 ## Awarding the Winning Bid

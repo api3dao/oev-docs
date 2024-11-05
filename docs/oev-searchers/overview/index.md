@@ -1,6 +1,6 @@
 ---
 title: OEV
-pageHeader: OEV → Overview
+pageHeader: OEV Searchers → Overview
 outline: deep
 ---
 
@@ -127,11 +127,9 @@ Here are more resources how you to get started with OEV:
 
 1. Dive deeper into OEV by reading the
    [OEV Litepaper](https://raw.githubusercontent.com/api3dao/oev-litepaper/main/oev-litepaper.pdf).
-2. Check out our [dApp onboarding guide](/oev/dapps/) to see how you can
-   integrate OEV in your dApp.
-3. Check out our detailed [Searchers guide](/oev/searchers/) to see how to start
-   searching.
-4. Connect with other developers and OEV enthusiasts in our
+2. Check out our detailed [Searchers guide](/oev-searchers/in-depth/) to see how
+   to start searching.
+3. Connect with other developers and OEV enthusiasts in our
    [OEV Discord channel](https://discord.com/channels/758003776174030948/1062909222347603989).
-5. Follow API3 on [Twitter](https://twitter.com/API3DAO) for the latest news and
+4. Follow API3 on [Twitter](https://twitter.com/API3DAO) for the latest news and
    updates on OEV.

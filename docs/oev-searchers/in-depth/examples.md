@@ -1,6 +1,6 @@
 ---
 title: Examples
-pageHeader: OEV → Searchers
+pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 

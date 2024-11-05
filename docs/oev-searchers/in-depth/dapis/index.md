@@ -1,6 +1,6 @@
 ---
 title: dAPIs
-pageHeader: OEV → Searchers
+pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
@@ -177,7 +177,7 @@ Notice that the beacon ID is different, but the Airnode address is the same.
 :::
 
 The OEV update flow is explained more in depth in
-[OEV Searching](/oev/searchers/oev-searching).
+[OEV Searching](/oev-searchers/in-depth/oev-searching).
 
 ### dApp Sources
 

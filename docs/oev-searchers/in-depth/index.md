@@ -1,6 +1,6 @@
 ---
 title: Searchers
-pageHeader: OEV → Searchers
+pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
@@ -42,7 +42,7 @@ block validators.
 Most of the searching logic related to position tracking and liquidating remains
 the same. What's left is:
 
-1. [Bridge funds](/oev/searchers/oev-network.html#bridging-eth) to the OEV
+1. [Bridge funds](/oev-searchers/in-depth/oev-network/#bridging-eth) to the OEV
    network.
 2. Deposit funds to the OevAuctionHouse contract.
 3. Monitor off-chain signed data for dAPIs used by the dApp.
@@ -56,4 +56,4 @@ the same. What's left is:
 Most of these steps require small additions to the existing MEV bot, but it's
 required to understand the mental model behind OEV. Because of that, we
 recommend starting with an in-between solution we call
-[MEV with Signed APIs](/oev/searchers/mev-with-signed-apis).
+[MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis).

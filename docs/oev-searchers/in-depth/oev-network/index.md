@@ -1,6 +1,6 @@
 ---
 title: OEV Network
-pageHeader: OEV → Searchers
+pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
@@ -114,14 +114,14 @@ The interactions with this contract include:
 
 Tech savvy users can refer to the contract's source for details. The logic of
 the OevAuctionHouse contract is especially important for searchers, for which we
-have a dedicated section [OEV Searching](/oev/searchers/index.md).
+have a dedicated section [OEV Searching](/oev-searchers/in-depth/index.md).
 
 ### Depositing Collateral
 
 To be eligible to win OEV auctions, searchers need to have enough collateral
 deposited in the OevAuctionHouse contract. See
-[Bid Eligibility](/oev/searchers/oev-auctioneer.html#bid-eligibility) for more
-details.
+[Bid Eligibility](/oev-searchers/in-depth/oev-auctioneer#bid-eligibility) for
+more details.
 
 We recommend using the same hot wallet for the bot on the OEV network (to
 participate in auctions) and the target chain (to capture the OEV). To deposit
@@ -139,7 +139,7 @@ function depositForBidder(
 ```
 
 For an advanced usage where the bidder is a contract, refer to
-[Bidding Contract](/oev/searchers/oev-searching#bidding-contract).
+[Bidding Contract](/oev-searchers/in-depth/oev-searching#bidding-contract).
 
 ### Withdrawing Collateral
 
@@ -174,7 +174,7 @@ function withdraw(
 For a searcher to win an auction, they are required to have enough ETH deposited
 in the OevAuctionHouse contract. Similarly, the value the searcher can win is
 limited by the amount they have deposited. Refer to
-[Bid Eligibility](/oev/searchers/oev-auctioneer.html#bid-eligibility) for
+[Bid Eligibility](/oev-searchers/in-depth/oev-auctioneer#bid-eligibility) for
 details.
 
 The collateral and protocol fee rates are configurable parameters within the
@@ -237,8 +237,8 @@ function placeBid(
 
 The OevAuctionHouse contract is designed in a generic way. To fully understand
 how to use this function, we need to understand how
-[OEV Auctioneer](/oev/searchers/oev-auctioneer.html) works. Refer to
-[Placing a Bid](/oev/searchers/oev-searching.html#placing-a-bid) section for
+[OEV Auctioneer](/oev-searchers/in-depth/oev-auctioneer) works. Refer to
+[Placing a Bid](/oev-searchers/in-depth/oev-searching#placing-a-bid) section for
 more details.
 
 ### Expediting a bid
@@ -268,9 +268,9 @@ function expediteBidExpirationMaximally(
 
 The OevAuctionHouse contract is designed in a generic way. To fully understand
 how to use this function, we need to understand how
-[OEV Auctioneer](/oev/searchers/oev-auctioneer.html) works. Refer to
-[Expediting a bid](/oev/searchers/oev-searching.html#expediting-a-bid) section
-for more details.
+[OEV Auctioneer](/oev-searchers/in-depth/oev-auctioneer) works. Refer to
+[Expediting a bid](/oev-searchers/in-depth/oev-searching#expediting-a-bid)
+section for more details.
 
 ## Deployed Contracts
 

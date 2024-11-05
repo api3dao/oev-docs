@@ -84,7 +84,7 @@ export default {
     },
     sidebar: {
       '/dapis/': require('../dapis/sidebar.js'),
-      '/oev/': require('../oev/sidebar.js'),
+      '/oev-searchers/': require('../oev-searchers/sidebar.js'),
       '/dev/': require('../dev/sidebar.js'),
     },
     nav: nav(),
@@ -99,6 +99,10 @@ function nav() {
       link: '/dapis/introduction/',
       activeMatch: '/dapis/.*',
     },
-    { text: 'OEV', link: '/oev/', activeMatch: '/oev/.*' },
+    {
+      text: 'OEV Searchers',
+      link: '/oev-searchers/overview/',
+      activeMatch: '/oev-searchers/.*',
+    },
   ];
 }

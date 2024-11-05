@@ -1,6 +1,6 @@
 ---
 title: OEV Network
-pageHeader: OEV → Searchers
+pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
@@ -15,7 +15,7 @@ auctions that happen on the OEV network. This off-chain component is necessary,
 because hosting auctions fully on-chain would be extremely gas intensive and
 wouldn't scale performance wise. The correctness and honesty of OEV Auctioneer
 can be verified on-chain, because the logic is based solely on the
-[OevAuctionHouse](/oev/searchers/oev-network.html#oevauctionhouse) contract
+[OevAuctionHouse](/oev-searchers/in-depth/oev-network/#oevauctionhouse) contract
 state and events at a given time.
 
 OEV Auctioneer has two main responsibilities:

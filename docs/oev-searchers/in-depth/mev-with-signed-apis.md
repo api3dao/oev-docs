@@ -1,6 +1,6 @@
 ---
 title: MEV with Signed APIs
-pageHeader: OEV → Searchers
+pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
@@ -9,14 +9,14 @@ outline: deep
 # MEV with Signed APIs
 
 One step closer to OEV searching, is to extend MEV bots to utilize the public
-[Base Feed Endpoints](/oev/searchers/dapis/#base-feed-endpoints). These
+[Base Feed Endpoints](/oev-searchers/in-depth/dapis/#base-feed-endpoints). These
 endpoints are public, and also used by API3 DAO push oracle - so there is tight
 competition in who is the fastest with the on-chain transaction.
 
 The existing MEV bot can utilize this off-chain open source data and make a base
 feed update on-chain whenever there is OEV to be captured. Refer to
-[Updating dAPI Value](/oev/searchers/dapis/#updating-dapi-value) for more
-details.
+[Updating dAPI Value](/oev-searchers/in-depth/dapis/#updating-dapi-value) for
+more details.
 
 One advantage of using this data is that searchers can easily simulate the data
 feed update (which is permissionless for base feeds) and to more easily
