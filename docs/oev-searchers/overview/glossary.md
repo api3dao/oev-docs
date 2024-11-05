@@ -273,7 +273,7 @@ and retrospectively verifiable way.
 
 We refer to OEV proceeds in two contexts:
 
-1. As the revenue from capturing the OEV liquidation.
+1. As the revenue from capturing the OEV opportunities.
 2. As the amount paid to the [dApps](#dapp) as a result of
    [bid amount](#bid-amount) payments of [OEV auction](#oev-auction) winners.
 

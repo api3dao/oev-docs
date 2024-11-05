@@ -69,7 +69,7 @@ arbitrage and many more.
 To be able to update the data feed, the auction winner must pay the bid amount
 of the winning bid, which they've announced during the auction. In return, they
 get exclusive rights to capture the OEV. Searchers are compensated for this
-activity by the liquidation incentive. Thus the majority of the OEV is
+activity by the remaining OEV proceeds amount. Thus the majority of the OEV is
 distributed to the dApp and the searchers. These are the parties who made the
 opportunity possible.
 

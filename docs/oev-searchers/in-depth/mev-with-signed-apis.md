@@ -20,8 +20,8 @@ more details.
 
 One advantage of using this data is that searchers can easily simulate the data
 feed update (which is permissionless for base feeds) and to more easily
-determine the liquidation opportunities. This is a direct improvement over
-monitoring data source values and predicting the next oracle update.
+determine the OEV opportunities. This is a direct improvement over monitoring
+data source values and predicting the next oracle update.
 
 This solution is also a perfect backup in case OEV is down or in maintenance,
 because dAPIs are decentralized with great uptime.
@@ -43,13 +43,13 @@ be either used immediately to look for the OEV opportunities.
 
 Assuming a searcher calls the Signed APIs and has a valid data to update the
 base feed, they can use them to simulate the data feed update on-chain followed
-up by a call to check for liquidation opportunities.
+up by a call to check for OEV opportunities.
 
 The code below demonstrates how this process can be implemented in JavaScript
-with the ethers library. Note that this code makes use of variables which are
-not defined in the code snippet. Their purpose can be understood from the
-context and is left out to keep the example concise and focused on how a dAPI
-can be updated.
+with the ethers library for an imaginary liquidation protocol. Note that this
+code makes use of variables which are not defined in the code snippet. Their
+purpose can be understood from the context and is left out to keep the example
+concise and focused on how a dAPI can be updated.
 
 ```javascript
 const beaconsIds = []; // Assume the data feed is a beacon set with these beacons

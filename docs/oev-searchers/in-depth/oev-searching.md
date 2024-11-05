@@ -15,7 +15,7 @@ steps to start OEV searching.
 ## Auction schedule
 
 OEV Auctioneer holds off auctions continuosly and these are very short lived.
-This is to ensure liquidations are performed in timely manner and the base feed
+This is to ensure OEV updates are performed in timely manner and the base feed
 delay is minimal.
 
 Searchers are expected to align with the auction schedule. The bidding phase

@@ -43,15 +43,14 @@ as an optional extension that searchers can capitalize on. Integrating OEV
 increases their profits by outperforming the competition and paying less to
 block validators.
 
-Most of the searching logic related to position tracking and liquidating remains
-the same. What's left is:
+Most of the searching logic remains the same. The following is a list of things
+that needs to be implemented:
 
 1. [Bridge funds](/oev-searchers/in-depth/oev-network/#bridging-eth) to the OEV
    network.
 2. Deposit funds to the OevAuctionHouse contract.
 3. Monitor off-chain signed data for dAPIs used by the dApp.
-4. Simulate the data feed update on-chain to determine liquidation
-   opportunities.
+4. Simulate the data feed update on-chain to determine OEV opportunities.
 5. Place bid on the OEV Network.
 6. Wait for auction award.
 7. Use the award to update the on-chain data feed on target chain and capture
