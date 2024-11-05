@@ -1,16 +1,16 @@
 [
-  "/api3-whitepaper-v1.0.3.pdf",
-  "NOTE: The lib link-validator.js uses these as a 'contains' lookup.",
   "https://api3.eth/",
   "https://arbiscan.io",
   "https://basescan.org",
   "https://bscscan.com",
   "https://developer.offchainlabs.com/docs/arbgas",
   "https://eth-goerli.gateway.pokt.network/v1/lb/",
+  "https://etherscan.io",
   "https://explorer.lumia.org",
   "https://explorer.metall2.com",
   "https://explorermainnet.zircuit.com",
   "https://github.com/api3dao/contracts-qs",
+  "https://github.com/api3dao/oev-docs",
   "https://github.com/api3dao/oev-v1-compound-bot",
   "https://goerlifaucet.com/",
   "https://mumbai.polygonscan.com/",
@@ -22,6 +22,6 @@
   "https://sepolia.basescan.org",
   "https://swagger.io/",
   "https://testnet.bscscan.com/",
-  "https://www.infura.io",
-  "https://github.com/api3dao/oev-docs"
+  "https://uniscan.xyz",
+  "https://www.infura.io"
 ]
