@@ -10,8 +10,8 @@ outline: deep
 
 One step closer to OEV searching, is to extend MEV bots to utilize the public
 [Base Feed Endpoints](/oev-searchers/in-depth/dapis/#base-feed-endpoints). These
-endpoints are public, and also used by API3 push oracle - so there is tight
-competition in who is the fastest with the on-chain transaction.
+endpoints are also used by API3 push oracle - so there is tight competition in
+who is the fastest with the on-chain transaction.
 
 The existing MEV bot can utilize this off-chain open source data and make a base
 feed update on-chain whenever there is OEV to be captured. Refer to
@@ -23,8 +23,8 @@ feed update (which is permissionless for base feeds) and to more easily
 determine the OEV opportunities. This is a direct improvement over monitoring
 data source values and predicting the next oracle update.
 
-This solution is also a perfect backup in case OEV is down or in maintenance,
-because dAPIs are decentralized with great uptime.
+This solution is also a perfect backup in case OEV is down or in maintenance
+mode.
 
 ## Monitoring Signed Data
 
@@ -37,11 +37,11 @@ Once the list of base feed beacons is known, searchers should periodically call
 the public
 [base feed endpoints](/oev-searchers/in-depth/dapis/#base-feed-endpoints) to get
 the real-time values for the base feed beacons used by the dApp. This data may
-be either used immediately to look for the OEV opportunities.
+be used immediately to look for the OEV opportunities.
 
 ## Simulating a Data Feed Update
 
-Assuming a searcher calls the Signed APIs and has a valid data to update the
+Assuming a searcher called the Signed APIs and has a valid data to update the
 base feed, they can use them to simulate the data feed update on-chain followed
 up by a call to check for OEV opportunities.
 
@@ -49,7 +49,7 @@ The code below demonstrates how this process can be implemented in JavaScript
 with the ethers library for an imaginary liquidation protocol. Note that this
 code makes use of variables which are not defined in the code snippet. Their
 purpose can be understood from the context and is left out to keep the example
-concise and focused on how a dAPI can be updated.
+concise and focused on the general idea.
 
 ```javascript
 const beaconsIds = []; // Assume the data feed is a beacon set with these beacons
@@ -85,14 +85,15 @@ const liquidationOpportunityCalldata = {
 // 3. Merge the calldata for updating the feeds and capturing the liquidation
 const calldata = [...dataFeedUpdateCalldata, liquidationOpportunityCalldata];
 
-// 4. Execute the staticcall multicall
+// 4. Execute the staticcall multicall, using a standard Multicall3 contract
 const result = await multicall3.aggregate3.staticCall(calls);
 ```
 
 ## Capture MEV
 
 If a searcher successfully simulated a profitable MEV opportunity, they can use
-the same data feed calldata, and submit the transaction instead of simulation.
+the same data feed calldata, and submit the transaction instead of using a
+staticcall.
 
 Note that the signed data for base feeds is delayed to make sure OEV searchers
 have an exclusive priority for OEV extraction.

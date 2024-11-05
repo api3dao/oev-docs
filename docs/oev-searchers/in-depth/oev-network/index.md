@@ -79,8 +79,8 @@ The implementation of the audited Api3ServerV1 contract is publicly available
 
 The Api3ServerV1 contract powers dAPIs on the OEV Network, which are used in
 OevAuctionHouse contract to compute collateral and protocol fee from the bid
-amount. Note that this chain is not listed on the API3 market, because the OEV
-Network is primarily intended to be used for the OEV auctions.
+amount. Note that this chain is not officially listed on the API3 market,
+because the OEV Network is primarily intended to be used for the OEV auctions.
 
 ## OevAuctionHouse
 
@@ -112,9 +112,7 @@ The interactions with this contract include:
 6. API3 DAO updating protocol and collateral fee
 7. API3 DAO updating the price feed proxies
 
-Tech savvy users can refer to the contract's source for details. The logic of
-the OevAuctionHouse contract is especially important for searchers, for which we
-have a dedicated section [OEV Searching](/oev-searchers/in-depth/index.md).
+Tech savvy users can refer to the contracts' source for details.
 
 ### Depositing Collateral
 
@@ -126,7 +124,9 @@ more details.
 We recommend using the same hot wallet for the bot on the OEV network (to
 participate in auctions) and the target chain (to capture the OEV). To deposit
 funds, you can use either the `deposit` or `depositForBidder` functions. The
-latter allows you to deposit the collateral on behalf of another address.
+latter allows you to deposit the collateral on behalf of another address. Both
+functions are `payable` and expect a non-zero amount to be sent with the
+transaction.
 
 ```solidity
 function deposit() external payable
@@ -240,7 +240,7 @@ function placeBid(
 ```
 
 The OevAuctionHouse contract is designed in a generic way. To fully understand
-how to use this function, we need to understand how
+how to use these functions, we need to understand how
 [OEV Auctioneer](/oev-searchers/in-depth/oev-auctioneer) works. Refer to
 [Placing a Bid](/oev-searchers/in-depth/oev-searching#placing-a-bid) section for
 more details.
@@ -271,7 +271,7 @@ function expediteBidExpirationMaximally(
 ```
 
 The OevAuctionHouse contract is designed in a generic way. To fully understand
-how to use this function, we need to understand how
+how to use these functions, we need to understand how
 [OEV Auctioneer](/oev-searchers/in-depth/oev-auctioneer) works. Refer to
 [Expediting a bid](/oev-searchers/in-depth/oev-searching#expediting-a-bid)
 section for more details.

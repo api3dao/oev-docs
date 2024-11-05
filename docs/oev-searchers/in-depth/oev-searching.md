@@ -14,23 +14,23 @@ steps to start OEV searching.
 
 ## Auction schedule
 
-OEV Auctioneer holds off auctions continuosly and these are very short lived.
-This is to ensure OEV updates are performed in timely manner and the base feed
-delay is minimal.
+OEV Auctioneer holds off auctions continuosly. These auctions are very short
+lived. This is to ensure OEV updates are performed in timely manner and the base
+feed delay is minimal.
 
 Searchers are expected to align with the auction schedule. The bidding phase
 should be used to monitor the off-chain data for possible OEV. Any combination
-of signed data from within the bidding phase has exclusivity guarantee so the
-longer off-chain monitoring, the more data points that can be used. That said,
-the bids need to be included on-chain during the Auctioneer award phase, so
-searchers should place their bids reasonably close to the end of the bidding
-phase.
+of signed data from within the bidding phase has exclusivity guarantee. The more
+time spent doing off-chain monitoring means more potential data points can be
+used for OEV extraction. That said, the bids need to be already included
+on-chain during the Auctioneer award phase, so searchers should place their bids
+reasonably close to the end of the bidding phase.
 
-Once a searcher wins an auction, they have the update proviledge until the next
-auction winner is selected or until the data is exposed for the base feeds. The
-winner is guaranteed privileges at least until the end of the next bidding
-phase. Note, that on some chains, especially during peak usage it's recommended
-to increase the gas costs.
+Once a searcher wins an auction, they have the update privilege until the next
+auction winner is selected or until the data is exposed via base feeds Signed
+API endpoints. The winner is guaranteed privileges at least until the end of the
+next bidding phase. Note, that on some chains, especially during peak usage it's
+recommended to increase the gas costs.
 
 ## Monitoring Signed Data
 
@@ -259,12 +259,12 @@ function updateDappOevDataFeed(
 The ABI encoded signed data are expected to be decoded to the following fields:
 
 - `address airnode` - The address of the Airnode wallet.
-- `bytes32 templateId` - The template ID of the base beacon - **not** the
+- `bytes32 templateId` - The template ID of the base feed beacon - **not** the
   template ID of the OEV beacon.
 - `uint256 timestamp` - The timestamp of the data.
 - `bytes memory data` - The encoded value.
 - `bytes memory signature` - The signature for this signed data - signed for the
-  base beacon.
+  base feed beacon.
 
 ::: info
 

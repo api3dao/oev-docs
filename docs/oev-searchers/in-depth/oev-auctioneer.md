@@ -9,7 +9,7 @@ outline: deep
 # OEV Auctioneer
 
 OEV Auctioneer is the off-chain system managed by the API3 DAO to process
-auctions that happen on the OEV network. This off-chain component is necessary,
+auctions hosted on the OEV network. This off-chain component is necessary,
 because hosting auctions fully on-chain would be extremely gas intensive and
 wouldn't scale performance wise. The correctness and honesty of OEV Auctioneer
 can be verified on-chain, because the logic is based solely on the
@@ -176,7 +176,7 @@ on-chain restrictions, Auctioneer adds a few more:
    time.
 3. Ensure the bidder has not initiated a withdrawal. This prevents withdrawing
    the deposit just before the bid award. Note that it does not matter if the
-   bid was placed before the withdrawal - if there is a withdraw initiated all
+   bid was placed before the withdrawal - if there is a withdrawal initiated all
    bidder's bids are ignored.
 
 Auctioneer fetches the required information from the OevAuctionHouse contract.
@@ -217,9 +217,9 @@ Each auction is split into two phases:
 
 1. Bidding phase - During this phase, searchers are free to submit their bids.
    This phase takes `BIDDING_PHASE_LENGTH_SECONDS`.
-2. Awarding phase - During this phase, Auctioneer determines and awards the
-   winner. Bids placed during this period are ignored. This phase takes the
-   remainder of the auction length, which is
+2. Award phase - During this phase, Auctioneer determines and awards the winner.
+   Bids placed during this period are ignored. This phase takes the remainder of
+   the auction length, which is
    `AUCTION_LENGTH_SECONDS - BIDDING_PHASE_LENGTH_SECONDS`.
 
 As soon as the bidding phase is over, Auctioneer attempts to resolve the auction

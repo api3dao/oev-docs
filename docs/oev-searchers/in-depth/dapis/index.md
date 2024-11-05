@@ -9,7 +9,7 @@ outline: deep
 # dAPIs
 
 Searchers need a way to monitor real-time off-chain prices to find profitable
-opportunities. Normally, searchers need to buy API subscriptions of the
+opportunities. Traditionally, searchers need to buy API subscriptions of the
 underlying oracle sources, creating additional friction in the process. API3
 simplifies this process by providing the same data that is used for updating the
 dAPIs to the searchers publicly - and without cost.
@@ -37,8 +37,8 @@ It consists of:
   ETH/USD.
 
 Together they represent a data point from a specific data provider. Beacons are
-identified by the hash of their Airnode address and template ID. Beacons are
-aggregated into "beacon sets" and identified by the IDs of the constituent
+identified by the hash of their Airnode address and template ID. They can be
+aggregated into "beacon sets" which are identified by the IDs of the constituent
 beacons.
 
 <!-- NOTE: Source = https://excalidraw.com/#json=nMEuUgnoInKUysNfxOmYQ,syyRUbVMdsXvIwSLytYmlw -->
@@ -55,9 +55,9 @@ data feed.
 ### Updating dAPI Value
 
 So far, we've referred to dAPIs and data feeds as sources of data, not
-mentioning these are kept up-to-date. API3 feeds are permissionless and anyone
-can do an update, provided they have a valid data. To update a beacon, anyone
-can call `updateBeaconWithSignedData` on the Api3ServerV1 contract:
+mentioning how are these kept up-to-date. API3 feeds are permissionless and
+anyone can do an update, provided they have a valid data. To update a beacon,
+anyone can call `updateBeaconWithSignedData` on the Api3ServerV1 contract:
 
 ```solidity
 function updateBeaconWithSignedData(
@@ -96,7 +96,7 @@ date:
    Airnode wallet. The cryptographically signed data is then pushed to Signed
    APIs.
 2. [Signed API](https://github.com/api3dao/signed-api/tree/main/packages/signed-api) -
-   Signed API accepts signed data from API providers and provides and API layer
+   Signed API accepts signed data from API providers and provides an API layer
    for off-chain querying.
 3. [Airseeker](https://github.com/api3dao/airseeker) - Airseeker is an API3 push
    oracle. It monitors the off-chain and on-chain data and causes an update is
@@ -107,15 +107,15 @@ All of these tools are open sourced for transparency.
 ### Update Schedule
 
 dAPIs are updated based on the configured update parameters. An update is
-performed whenever the dAPI value exceeds the allowed threshold or the feed was
-not updated for a long time.
+performed whenever a dAPI value exceeds the allowed threshold or the feed was
+not updated for a long time. The latter is called as heartbeat update.
 
 ## OEV Updates
 
 After a dAPI is updated, the changed value is reflected across all protocols
 that use the particular dAPI. We call these "base feed updates" to differentiate
-them from the OEV updates, made by the searchers who win the auction on OEV
-Network.
+them from the OEV updates, which are dApp specific. These are made by the
+searchers who win the auction on OEV Network.
 
 For dApps, OEV is an extension to base feeds, supported by Api3ReaderProxyV1
 contract. This contract is a simple proxy that reads the value either from the
@@ -130,18 +130,19 @@ immutable dApp ID field. This allows for separate auctions being held for each
 dApp.
 
 To guarantee searchers exclusivity privilege to capture OEV, the base feed
-updates are delayed. Searchers are bidding for real-time data and by winning an
-auction, searcher is guaranteed that the data is fresher than the base feed.
+updates are delayed. Searchers are bidding for real-time data which can be used
+to update OEV feed. By winning an auction, searcher is guaranteed that the data
+is fresher than the base feed.
 
 ### OEV Feed
 
 OEV feed is derived from the base feed by changing its beacons to OEV beacons.
 
-An OEV beacon is derived from the base beacon by hashing its' template ID using
-`keccak256`. This makes it possible to share the signed data for OEV beacons
-freely, because they can't be used to update the base feed. The
-Api3ServerV1OevExtension contract only allows them to be used by the auction
-winner provided they paid the correct amount.
+An OEV beacon is derived from the base feed beacon by hashing its template ID
+using `keccak256`. This makes it possible to share the signed data for OEV
+beacons freely, because they can't be used to update the base feed. The
+Api3ServerV1OevExtension contract only allows them to be used only by the
+auction winner provided they paid the correct amount.
 
 ::: info
 
@@ -187,7 +188,7 @@ to update any of the price feeds associated with this dApp ID. This ID is
 hardcoded in the OEV proxies of the dApp.
 
 The ID has no other meaning other than to group proxies of the same dApp
-together. Searchers can obtain the dApp ID of from the
+together. Searchers can obtain the dApp ID from the
 [OEV dApps catalog](/oev-searchers/in-depth/#oev-dapps-catalog).
 
 ### dApp Sources
@@ -230,7 +231,7 @@ The decoding of a beacon set:
 
 To know which encoding to use, you can check the length of the
 `dataFeedDetails`. For single beacon, the length is always `64` bytes, because
-both `address` and `bytes32` are encoding using 32 bytes. For beacon set, the
+both `address` and `bytes32` are encoded using 32 bytes. For beacon set, the
 length depends on the number of beacons encoded.
 
 #### Example
@@ -362,8 +363,8 @@ the OEV feeds to monitor the OEV data.
 Signed APIs store the data pushed by Airnode feeds and expose them to the public
 via an API. As mentioned, base feed updates are permissionless and can be update
 by anyone. The OEV feed data can only be used by OEV auction winner. API3 runs
-Signed APIs and makes them publicly available. They deployed on AWS, ensuring
-maximum uptime and reliability.
+Signed APIs and makes them publicly available. They are deployed on AWS,
+ensuring maximum uptime and reliability.
 
 Signed APIs only support querying data for a particular Airnode feed. The
 Airnode address is supplied as HTTP path parameter. The endpoint is cached and
