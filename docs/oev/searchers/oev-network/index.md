@@ -8,7 +8,7 @@ outline: deep
 
 # OEV Network
 
-![OEV Network image](/oev/overview/assets/oev-network.png)
+![OEV Network image](./oev-network.png)
 
 The OEV Network operates as an standard Arbitrum Nitro L2 optimistic-rollup, the
 system ensures transparency and allows verification of the auction process. In
@@ -65,7 +65,7 @@ information.
 Use the [OEV Network Bridge](https://oev.bridge.api3.org/) to bridge your ETH to
 the OEV Network. Bridging is only possible from ETH mainnet.
 
-![OEV Network Bridge](/oev/overview/assets/oev-bridge.png)
+![OEV Network Bridge](./oev-bridge.png)
 
 Clicking on `Transfer Tokens` will automatically add the OEV Network to your
 Metamask wallet. To bridge, confirm the transaction in your wallet and wait for

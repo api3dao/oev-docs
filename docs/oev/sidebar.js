@@ -35,7 +35,7 @@ module.exports = [
       },
       {
         text: 'OEV Network',
-        link: '/oev/searchers/oev-network',
+        link: '/oev/searchers/oev-network/',
       },
       {
         text: 'OEV Auctioneer',
