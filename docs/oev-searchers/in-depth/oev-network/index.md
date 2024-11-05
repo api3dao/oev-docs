@@ -129,13 +129,14 @@ funds, you can use either the `deposit` or `depositForBidder` functions. The
 latter allows you to deposit the collateral on behalf of another address.
 
 ```solidity
-function deposit() external payable returns (uint256 bidderBalance);
+function deposit() external payable
+    returns (uint256 bidderBalance); // The bidder balance that was deposited
 ```
 
 ```solidity
 function depositForBidder(
     address bidder // The address of the bidder to deposit on behalf of
-) external payable returns (uint256 bidderBalance);
+) external payable returns (uint256 bidderBalance); // The bidder balance that was deposited
 ```
 
 For an advanced usage where the bidder is a contract, refer to
@@ -155,7 +156,7 @@ needs to do the following:
 ```solidity
 function initiateWithdrawal()
     external
-    returns (uint256 earliestWithdrawalTimestamp);
+    returns (uint256 earliestWithdrawalTimestamp); // The timestamp after which the withdrawal can be performed
 ```
 
 2. Wait for the withdrawal period to pass. The period is 15 seconds.
@@ -213,7 +214,10 @@ function placeBidWithExpiration(
     uint256 maxCollateralAmount, // The maximum collateral amount the searcher is willing to pay
     uint256 maxProtocolFeeAmount, // The maximum protocol fee amount the searcher is willing to pay
     uint32 expirationTimestamp // The expiration timestamp of the bid
-) external returns (uint104 collateralAmount, uint104 protocolFeeAmount);
+) external returns (
+    uint104 collateralAmount, // The collateral amount required for the bid
+    uint104 protocolFeeAmount // The protocol fee required for the bid
+);
 ```
 
 Or the similar `placeBid` function:
@@ -229,9 +233,9 @@ function placeBid(
 )
     external
     returns (
-        uint32 expirationTimestamp,
-        uint104 collateralAmount,
-        uint104 protocolFeeAmount
+        uint32 expirationTimestamp, // The timestamp after which the bid becomes expired
+        uint104 collateralAmount, // The collateral amount required for the bid
+        uint104 protocolFeeAmount // The protocol fee required for the bid
     );
 ```
 
@@ -263,7 +267,7 @@ or
 function expediteBidExpirationMaximally(
     bytes32 bidTopic, // The bid topic is an identifier of the auction
     bytes32 bidDetailsHash // The keccak256 hash of the bid details
-) external returns (uint32 expirationTimestamp);
+) external returns (uint32 expirationTimestamp); // The updated expiration timestamp of the bid
 ```
 
 The OevAuctionHouse contract is designed in a generic way. To fully understand

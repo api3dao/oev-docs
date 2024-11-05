@@ -250,9 +250,9 @@ function updateDappOevDataFeed(
 )
     external
     returns (
-        bytes32 baseDataFeedId,
-        int224 updatedValue,
-        uint32 updatedTimestamp
+        bytes32 baseDataFeedId, // The data feed ID that was updated
+        int224 updatedValue, // The aggregated value of the update
+        uint32 updatedTimestamp // The aggregated timestamp of the update
     );
 ```
 

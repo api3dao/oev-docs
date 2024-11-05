@@ -66,7 +66,7 @@ function updateBeaconWithSignedData(
     uint256 timestamp, // The off-chain timestamp of the data
     bytes calldata data, // The encoded price feed data (decoded as int256 internally)
     bytes calldata signature // The signature of the fields above signed by the airnode wallet (owned by the data provider).
-) external returns (bytes32 beaconId);
+) external returns (bytes32 beaconId); // The beacon ID that was updated
 ```
 
 Similarly, to update a beacon set, one first updates the constituent beacons and
@@ -75,7 +75,7 @@ then calls the `updateBeaconSetWithBeacons`:
 ```solidity
 function updateBeaconSetWithBeacons(
     bytes32[] memory beaconIds // The beacon IDs of the constituent beacons
-) external returns (bytes32 beaconSetId);
+) external returns (bytes32 beaconSetId); // The beacon set ID that was updated
 ```
 
 By updating a beacon set, we aggregate the values and timestamps of the
