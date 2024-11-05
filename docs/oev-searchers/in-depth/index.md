@@ -29,8 +29,8 @@ with currently suitable candidates for OEV searching.
 
 Currently, these protocols use outdated API3 proxies, which support the previous
 version of OEV auctions, which are no longer supported. Searchers can still
-perform [MEV with Signed APIs](/in-depth/mev-with-signed-apis) extraction
-though.
+perform [MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis)
+extraction though.
 
 ## From MEV Searching
 
