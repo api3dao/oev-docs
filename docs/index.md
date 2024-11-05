@@ -11,11 +11,10 @@ hero:
     src: /img/beacons.svg
     alt: API3
   actions:
-    # TODO: Update to dApps and Searchers
     - theme: brand
       text: dAPIs
       link: /dapis/
     - theme: brand
-      text: OEV Network
+      text: OEV Searchers
       link: /oev-searchers/overview/
 ---

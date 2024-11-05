@@ -12,7 +12,7 @@ Oracle Extractable Value (OEV) is a subset of Maximal Extractable Value (MEV)
 that occurs as a result of an oracle update. Traditional oracle solutions update
 data feeds blindly, which is wasteful and provides poor granularity.
 
-OEV is an addition to these regular oracle updates to improve efficiency and
+OEV is an addition to these push oracle updates to improve efficiency and
 granularity of the price feeds. The idea is that not all oracle updates are the
 same. Some oracle updates expose opportunities on the market which can be
 captured by "searchers". Searchers monitor the market for profitable

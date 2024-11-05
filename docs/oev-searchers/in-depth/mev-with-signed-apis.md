@@ -10,7 +10,7 @@ outline: deep
 
 One step closer to OEV searching, is to extend MEV bots to utilize the public
 [Base Feed Endpoints](/oev-searchers/in-depth/dapis/#base-feed-endpoints). These
-endpoints are public, and also used by API3 DAO push oracle - so there is tight
+endpoints are public, and also used by API3 push oracle - so there is tight
 competition in who is the fastest with the on-chain transaction.
 
 The existing MEV bot can utilize this off-chain open source data and make a base
@@ -28,7 +28,16 @@ because dAPIs are decentralized with great uptime.
 
 ## Monitoring Signed Data
 
-TODO:
+First, searchers need to have a list of dAPIs used by the dApp and
+[obtain its beacons](/oev-searchers/in-depth/dapis/#dapp-sources). Note, that
+this operation can be heavily cached because they change only when the
+underlying base feed changes, which happens only when the dAPI is reconfigured.
+
+Once the list of base feed beacons is known, searchers should periodically call
+the public
+[base feed endpoints](/oev-searchers/in-depth/dapis/#base-feed-endpoints) to get
+the real-time values for the base feed beacons used by the dApp. This data may
+be either used immediately to look for the OEV opportunities.
 
 ## Simulating a Data Feed Update
 

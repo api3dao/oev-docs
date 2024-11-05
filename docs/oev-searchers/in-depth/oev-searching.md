@@ -258,7 +258,7 @@ function updateDappOevDataFeed(
 
 The ABI encoded signed data are expected to be decoded to the following fields:
 
-- `address airnode` - The address of the Airnode.
+- `address airnode` - The address of the Airnode wallet.
 - `bytes32 templateId` - The template ID of the base beacon - **not** the
   template ID of the OEV beacon.
 - `uint256 timestamp` - The timestamp of the data.

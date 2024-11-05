@@ -6,8 +6,6 @@ outline: deep
 
 <PageHeader/>
 
-<!-- TODO: This should be moved under searchers. Only very high level description is needed for overview. -->
-
 # OEV Auctioneer
 
 OEV Auctioneer is the off-chain system managed by the API3 DAO to process

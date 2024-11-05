@@ -354,14 +354,10 @@ by anyone. The OEV feed data can only be used by OEV auction winner. API3 runs
 Signed APIs and makes them publicly available. They deployed on AWS, ensuring
 maximum uptime and reliability.
 
-Signed APIs only support querying data for a particular Airnode. The Airnode
-address is supplied as HTTP path parameter. The endpoint is cached and can be
-called repeatedly. However, too drastic call usage is punished by a rate
+Signed APIs only support querying data for a particular Airnode feed. The
+Airnode address is supplied as HTTP path parameter. The endpoint is cached and
+can be called repeatedly. However, too drastic call usage is punished by a rate
 limiting or full access denial.
-
-<!-- TODO: Make sure NOT to call "base feed updates" as "regular updates" -->
-
-<!-- TODO: Make sure to refer to Airnode feed as "Airnode feed" not "Airnode" -->
 
 ### Base Feed Endpoints
 
@@ -371,7 +367,7 @@ The following are the base feed endpoints that are publicly available:
    Signed APIs used by the push oracle to update the base feeds.
 
 For example, see the
-[API3 response for Nodary Airnode](https://signed-api.api3.org/public/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
+[API3 response for Nodary Airnode feed](https://signed-api.api3.org/public/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
 
 ### OEV Endpoints
 
@@ -380,7 +376,7 @@ The following are the OEV endpoints that are publicly available:
 1. `https://signed-api.api3.org/public-oev/<AIRNODE_ADDRESS>`
 
 For example, see the
-[API3 response for Nodary Airnode](https://signed-api.api3.org/public-oev/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
+[API3 response for Nodary Airnode feed](https://signed-api.api3.org/public-oev/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
 
 ### Response
 

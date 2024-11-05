@@ -19,13 +19,13 @@ part of [dApp Registry](https://github.com/api3dao/dapp-registry). However, not
 all dApps opted-in to OEV yet, so we provide a dedicated list of OEV dApps are
 currently suitable candidates for searching:
 
-<!-- TODO: Make sure these are sorted alphabetically. -->
+<!-- NOTE: Make sure these are sorted alphabetically. -->
 
-1. [Lendle protocol on Mantle](https://lendle.xyz/)
-2. [Orbit protocol on Blast](https://orbitlending.io/)
-3. [Silo protocol on Arbitrum](https://app.silo.finance/)
-4. [Yei protocol on Sei](https://www.yei.finance/)
-5. [Hana protocol on Taiko](https://www.hana.finance/)
+1. [Hana protocol on Taiko](https://www.hana.finance/)
+2. [Lendle protocol on Mantle](https://lendle.xyz/)
+3. [Orbit protocol on Blast](https://orbitlending.io/)
+4. [Silo protocol on Arbitrum](https://app.silo.finance/)
+5. [Yei protocol on Sei](https://www.yei.finance/)
 
 ## From MEV Searching
 
