@@ -51,14 +51,4 @@ module.exports = [
       },
     ],
   },
-  {
-    text: 'dApps',
-    collapsed: false,
-    items: [
-      {
-        text: 'dApps',
-        link: '/oev/dapps/',
-      },
-    ],
-  },
 ];
