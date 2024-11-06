@@ -9,8 +9,8 @@ outline: deep
 # Glossary
 
 Here are the common terms referenced throughout the documentation with a brief
-description. This section is not indended to explain the terms in details, but
-to serve as a reminder or provide small clarification.
+description. This section is not intended to explain the terms in detail, but to
+serve as a reminder or provide small clarification.
 
 <!-- NOTE: We intentionally use triple hash to make the titles stand out a bit less. -->
 
@@ -21,9 +21,10 @@ to serve as a reminder or provide small clarification.
 [API providers](#api-provider). For [dAPIs](#dapi) specifically, an
 [Airnode feed](#airnode-feed) is used instead.
 
-The key concept is that API provider uses [Airnode wallet](#airnode-wallet) to
-sign its data. In the context of smart contracts, `airnode` refers to the
-[Airnode address](#airnode-address) of this wallet.
+The key concept is that an API provider uses an
+[Airnode wallet](#airnode-wallet) to sign its data. In the context of smart
+contracts, `airnode` refers to the [Airnode address](#airnode-address) of this
+wallet.
 
 ### Airnode ABI
 
@@ -65,7 +66,7 @@ to update [data feeds](#data-feed) whenever the conditions specified by the
 [AirseekerRegistry contract](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/AirseekerRegistry.sol)
 serves as an on-chain configuration file for [Airseeker](#airseeker). It
 provides a source of truth for [dAPIs](#dapi) and can be used to obtain which
-[data feed](#data-feed) a dAPI points to and what are its sources.
+[data feed](#data-feed) a dAPI points to and what its sources are.
 
 ### API Provider
 
@@ -80,14 +81,14 @@ purchase [dAPI](#dapi) plans, which get reflected on-chain immediately.
 ### Api3ServerV1 Contract
 
 [Api3ServerV1 contract](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1.sol)
-is the main contract for [dAPIs](#dapi). It's used by [Airseekers](#airseeker)
+is the main contract for [dAPIs](#dapi). It is used by [Airseekers](#airseeker)
 to update [base feeds](#base-feed).
 
 ### Api3ServerV1OevExtension Contract
 
 [Api3ServerV1OevExtension contract](https://github.com/api3dao/contracts-qs/blob/main/contracts/api3-server-v1/Api3ServerV1OevExtension.sol)
-is an extension of the [Api3ServerV1 contract](#api3serverv1-contract). It's
-used by [searchers](#searcher) to for [OEV feed](#oev-feed) updates.
+is an extension of the [Api3ServerV1 contract](#api3serverv1-contract). It is
+used by [searchers](#searcher) for [OEV feed](#oev-feed) updates.
 
 ### Auctioneer
 
@@ -102,8 +103,9 @@ is preceded by the [bid phase](#bid-phase).
 ### Base Feed
 
 In the context of OEV extraction, the base feed refers to a
-[data feed](#data-feed) behind a particular [dAPI](#dapi). Update of this data
-feed is reflected across all [OEV proxies](#oev-proxy) that read from this dAPI.
+[data feed](#data-feed) behind a particular [dAPI](#dapi). An update of this
+data feed is reflected across all [OEV proxies](#oev-proxy) that read from this
+dAPI.
 
 ### Beacon
 
@@ -125,13 +127,13 @@ beaconSetId = keccak256(abi.encode(beaconIds));
 
 ### Bid
 
-[Searchers](#searcher) place bid on [OEV Network](#oev-network) to participate
+[Searchers](#searcher) place bids on [OEV Network](#oev-network) to participate
 in [OEV auctions](#oev-auction) to obtain exclusive rights to capture
 [OEV](#oev).
 
 ### Bid Amount
 
-The amount [searcher](#searcher) is willing to pay for winning the
+The amount a [searcher](#searcher) is willing to pay for winning the
 [OEV auction](#oev-auction).
 
 ### Bid Phase
@@ -162,15 +164,15 @@ mapping is managed by API3 DAO.
 
 ### dApp
 
-Application which uses smart contracts. Usually referred to as a source of
+An application that uses smart contracts. Usually referred to as a source of
 [OEV](#oev). Each dApp eligible for [OEV proceeds](#oev-proceeds) has a
 [dApp ID](#dapp-id) assigned and uses [OEV proxies](#oev-proxy).
 
 ### dApp ID
 
 API3 holds separate [OEV auctions](#oev-auction) for different [dApps](#dapp) to
-be able to keep their [proceeds](#oev-proceeds) isolated. In this scheme, dApps
-are identified by IDs that are assigned by API3 DAO.
+keep their [proceeds](#oev-proceeds) isolated. In this scheme, dApps are
+identified by IDs that are assigned by API3 DAO.
 
 ### Data Feed
 
@@ -193,9 +195,9 @@ value will be calculated.
 
 ### Endpoint
 
-In the context of the data feeds, an endpoint represents a distinct type of
-oracle service provided by an [Airnode feed](#airnode-feed), which can be
-parameterized by [Airnode ABI](#airnode-abi)-encoded parameters.
+In the context of data feeds, an endpoint represents a distinct type of oracle
+service provided by an [Airnode feed](#airnode-feed), which can be parameterized
+by [Airnode ABI](#airnode-abi)-encoded parameters.
 
 An endpoint is identified by the respective
 [OIS](https://github.com/api3dao/ois) title and endpoint name.
@@ -237,7 +239,7 @@ interactions within a transaction.
 API3 monetizes its [dAPI](#dapi) services by holding
 [OEV auctions](#oev-auction) and forwarding the [proceeds](#oev-proceeds) to the
 respective [dApps](#dapp). This is both a net gain for the dApps (which
-otherwise would have bled these funds to [MEV](#mev) bots and validators), and a
+otherwise would have bled these funds to [MEV](#mev) bots and validators) and a
 fair and scalable business model for API3 DAO.
 
 ### OEV Auction
@@ -262,12 +264,13 @@ derived from the original one by hashing the [template](#template) ID using
 
 In the context of OEV extraction, the OEV feed refers to a
 [data feed](#data-feed) used by [OEV proxy](#oev-proxy). This feed is proxy
-specific and can be updated by searcher who won the [OEV auction](#oev-auction).
+specific and can be updated by a searcher who won the
+[OEV auction](#oev-auction).
 
 ### OEV Network
 
 OEV Network is an Arbitrum Nitro L2. Its chain ID is 4913 and it uses ETH as the
-gas token. It's purpose is to hold [OEV auctions](#oev-auction) in a transparent
+gas token. Its purpose is to hold [OEV auctions](#oev-auction) in a transparent
 and retrospectively verifiable way.
 
 ### OEV Proceeds
@@ -280,7 +283,7 @@ We refer to OEV proceeds in two contexts:
 
 ### OEV Proxy
 
-By OEV proxy we mean the a proxy contract that reads a value from both
+An OEV proxy is a proxy contract that reads a value from both
 [base feed](#base-feed) and [OEV feed](#oev-feed) and prefers the fresher out of
 the two. Our implementation is called `Api3ReaderProxyV1` and partially supports
 Chainlink's AggregatorV2V3Interface for convenience.
@@ -289,7 +292,7 @@ Chainlink's AggregatorV2V3Interface for convenience.
 
 When [Auctioneer](#auctioneer) confirms a [fulfillment](#fulfillment) and
 releases the [collateral amount](#collateral), it deducts a protocol fee which
-is kept by API3 DAO. The protocol fee is set to 0 currently.
+is kept by API3 DAO. The protocol fee is currently set to 0.
 
 ### Searcher
 
@@ -301,7 +304,7 @@ to refer to searchers as people.
 
 A
 [Signed API](https://github.com/api3dao/signed-api/tree/main/packages/signed-api)
-receives signed data from [Airnode feeds](#airnode-feed), and serves it to the
+receives signed data from [Airnode feeds](#airnode-feed) and serves it to the
 public through an API. For example, an [Airseeker](#airseeker) depends on Signed
 APIs to update [data feeds](#data-feed).
 
@@ -321,7 +324,7 @@ happens.
 
 ### Template
 
-In the context of the [data feeds](#data-feed), a template represents an
+In the context of [data feeds](#data-feed), a template represents an
 [endpoint](#endpoint) and some [Airnode ABI](#airnode-abi)-encoded parameters. A
 template is identified by the respective endpoint ID and Airnode ABI-encoded
 parameters.

@@ -9,30 +9,30 @@ outline: deep
 # OEV Auctioneer
 
 OEV Auctioneer is the off-chain system managed by the API3 DAO to process
-auctions hosted on the OEV network. This off-chain component is necessary,
-because hosting auctions fully on-chain would be extremely gas intensive and
-wouldn't scale performance wise. The correctness and honesty of OEV Auctioneer
-can be verified on-chain, because the logic is based solely on the
+auctions hosted on the OEV network. This off-chain component is necessary
+because hosting auctions fully on-chain would be extremely gas-intensive and
+wouldn't scale performance-wise. The correctness and honesty of OEV Auctioneer
+can be verified on-chain because the logic is based solely on the
 [OevAuctionHouse](/oev-searchers/in-depth/oev-network/#oevauctionhouse) contract
 state and events at a given time.
 
 OEV Auctioneer has two main responsibilities:
 
-1. Resolve auctions and award the winner.
-2. Confirm or contradict fulfillments.
+1. Resolve auctions and award the winner
+2. Confirm or contradict fulfillments
 
-Each dApp which uses OEV feeds is served by some Auctioneer instance.
-Internally, API3 DAO may run multiple Auctioneers as a form of horizontal
-scaling to ensure auctions can be processed in a timely manner.
+Each dApp that uses OEV feeds is served by an Auctioneer instance. Internally,
+API3 DAO may run multiple Auctioneers as a form of horizontal scaling to ensure
+auctions can be processed in a timely manner.
 
 ## How it works?
 
 Auctioneer processes logs emitted by the OevAuctionHouse contract and responds
-back by transacting with the same contract. Auctioneer is deployed on AWS with
-well established security. It has an Auctioneer wallet, which is given the
-rights to resolve the auctions and confirm/contradict fulfillments.
+back by interacting with the same contract. Auctioneer is deployed on AWS with
+well-established security. It has an Auctioneer wallet that is given the rights
+to resolve the auctions and confirm/contradict fulfillments.
 
-The only cross chain communication happens during fulfillment verification - all
+The only cross-chain communication happens during fulfillment verification - all
 other operations are performed solely on OEV Network or the target chain of the
 dApp. This minimizes the latency incurred and improves the resiliency.
 
@@ -45,7 +45,7 @@ understand and comply with in order to successfully participate in auctions.
 
 | Name                                  | Value | Description                                                                                        |
 | ------------------------------------- | ----- | -------------------------------------------------------------------------------------------------- |
-| AUCTION_LENGTH_SECONDS                | 30    | How long does an auction last.                                                                     |
+| AUCTION_LENGTH_SECONDS                | 30    | How long an auction lasts.                                                                         |
 | OEV_AUCTIONS_MAJOR_VERSION            | 1     | Increased when we release any breaking change relevant to OEV auctions.                            |
 | COLLATERAL_REQUIREMENT_BUFFER_PERCENT | 5     | The additional percentage of the bidder's collateral to mitigate against price changes.            |
 | BIDDING_PHASE_LENGTH_SECONDS          | 25    | The length of the bidding phase during which searchers can place their bids.                       |
@@ -57,7 +57,7 @@ understand and comply with in order to successfully participate in auctions.
 
 Auctions repeat indefinitely and take a fixed amount of time. The first auction
 starts at the UNIX timestamp 0 (midnight UTC on 1st of January 1970) plus an
-offset based on the the dApp ID.
+offset based on the dApp ID.
 
 ```solidity
 uint256(keccak256(abi.encodePacked(uint256(dAppId)))) % AUCTION_LENGTH_SECONDS;
@@ -98,16 +98,16 @@ keccak256(
 Let's break down the components of the bid topic:
 
 1. `majorVersion` - The major version of OEV Auctions. Any change resulting in
-   auction behaviour changing, such as changes in auction rules or off-chain
+   auction behavior changing, such as changes in auction rules or off-chain
    protocol specs, is denoted by this major version being incremented. Refer to
    the current value of `OEV_AUCTIONS_MAJOR_VERSION` constant.
 2. `dappId` - The dApp ID for which the auction is being held.
-3. `auctionLength` - The length of the auction. This parameter must to be set to
+3. `auctionLength` - The length of the auction. This parameter must be set to
    `AUCTION_LENGTH_SECONDS`. It is one of the most important parameters, so
    we're explicitly including it in the bid topic to highlight its importance.
 4. `signedDataTimestampCutoff` - The cutoff timestamp of the signed data. Only
-   signed data with timestamp smaller or equal to this value are permitted to
-   update the data feed. It is equal to the end of the bidding phase of the
+   signed data with timestamps smaller than or equal to this value are permitted
+   to update the data feed. It is equal to the end of the bidding phase of the
    auction, that is `startTimestamp + BIDDING_PHASE_LENGTH_SECONDS`.
 
 ::: info
@@ -133,7 +133,7 @@ and so on...
 
 ### Bid Details
 
-The bid details have the following convention:
+The bid details follow this convention:
 
 ```solidity
 abi.encode(
@@ -157,7 +157,7 @@ price feeds.
 
 ### Fulfillment Details
 
-The fulfillment details is a single `bytes32` value that represents the
+The fulfillment details are a single `bytes32` value that represents the
 transaction hash on the target chain in which the auction winner paid for the
 OEV bid.
 
@@ -176,8 +176,8 @@ on-chain restrictions, Auctioneer adds a few more:
    time.
 3. Ensure the bidder has not initiated a withdrawal. This prevents withdrawing
    the deposit just before the bid award. Note that it does not matter if the
-   bid was placed before the withdrawal - if there is a withdrawal initiated all
-   bidder's bids are ignored.
+   bid was placed before the withdrawal - if there is a withdrawal initiated,
+   all bidder's bids are ignored.
 
 Auctioneer fetches the required information from the OevAuctionHouse contract.
 In a rare case when Auctioneer fails to fetch eligibility for a bidder, it will
@@ -225,14 +225,14 @@ Each auction is split into two phases:
 As soon as the bidding phase is over, Auctioneer attempts to resolve the auction
 as soon as possible. The following happens under the hood:
 
-1. Compute the bid topic for the current auction.
-2. Fetch the current block on the OEV Network.
-3. Fetch the bids for the bid topic from the last `PLACED_BIDS_BLOCK_RANGE`.
-4. Discard all ineligible bids.
-5. Select the bidder with highest bid amount. In case there are multiple
+1. Compute the bid topic for the current auction
+2. Fetch the current block on the OEV Network
+3. Fetch the bids for the bid topic from the last `PLACED_BIDS_BLOCK_RANGE`
+4. Discard all ineligible bids
+5. Select the bidder with the highest bid amount. In case there are multiple
    eligible bids with the same amount, the bidder with the earliest bid is
-   selected.
-6. Prepare and submit the award for the auction winner on OEV network.
+   selected
+6. Prepare and submit the award for the auction winner on the OEV Network
 
 Under rare circumstances, when Auctioneer is unable to fetch the block or the
 logs from the OEV Network, the auction will be aborted and no winner is chosen.
@@ -244,23 +244,23 @@ because the award signature was already exposed publicly.
 Auctioneer guarantees that any bid placed during the bidding phase will be
 processed. The timestamp of the placed bid is determined by the block timestamp
 in which the transaction is included. Searchers need to be mindful of that and
-of the block time of OEV Network and make sure to place their bids in time.
+of the block time of the OEV Network and make sure to place their bids in time.
 
 That said, Auctioneer may also include bids placed before or slightly after the
-bidding phase. That is because Auctioneer fetches the logs from OEV Network some
-time in the award phase. It fetches logs from sufficient block range with some
-buffer to ensure the full bidding phase is included. This behaviour might change
-in time and searchers should not rely on it.
+bidding phase. This is because Auctioneer fetches the logs from the OEV Network
+some time in the award phase. It fetches logs from a sufficient block range with
+some buffer to ensure the full bidding phase is included. This behavior might
+change in time and searchers should not rely on it.
 
 ## Processing Fulfillments
 
 After the auction winner is awarded, they are expected to fulfill their duties
 by paying for the awarded OEV bid. After they've made the transaction on the
 target chain, they are expected to report the fulfillment back to the OEV
-network to get part of their collateral released. Auctioneer periodically
-queries the OEV Network logs for such events, by doing the following:
+Network to get part of their collateral released. Auctioneer periodically
+queries the OEV Network logs for such events by doing the following:
 
-1. Fetch all logs regarding fulfillments for sufficient time period -
+1. Fetch all logs regarding fulfillments for a sufficient time period -
    AwardedBid, ReportedFulfillment, ConfirmedFulfillment and
    ContradictedFulfillment.
 
@@ -268,29 +268,28 @@ queries the OEV Network logs for such events, by doing the following:
 
 2. Contradict all AwardedBid events that are `REPORT_FULFILLMENT_PERIOD_SECONDS`
    old without a matching reported fulfillment. Make no action for other
-   AwardedBid events, because they are within the fulfillment period.
+   AwardedBid events because they are within the fulfillment period.
 
 3. For all ReportedFulfillment events without a matching ConfirmedFulfillment or
-   ContradictedFulfillment fetch the PlacedBid event to determine which chain
-   was the bid for.
+   ContradictedFulfillment, fetch the PlacedBid event to determine which chain
+   the bid was for.
 
-4. Verify that the reported fulfillment is valid. It needed to be paid through
-   the correct contract, with the correct amount and on the correct target
-   chain.
+4. Verify that the reported fulfillment is valid. It must be paid through the
+   correct contract, with the correct amount and on the correct target chain.
 
 In case there is a failure during any of the steps above, the Auctioneer tries
-to process the fulfillment later. Its upmost priority is to avoid slashing
+to process the fulfillment later. Its utmost priority is to avoid slashing
 honest searchers. That said, once the Auctioneer disproves the fulfillment, it
-will promptly slash. Auction winners are advised to wait sufficient time for the
-transaction to reach enough finality on the target chain.
+will promptly slash. Auction winners are advised to wait a sufficient time for
+the transaction to reach enough finality on the target chain.
 
 ::: info
 
 Note that the auction winner may choose not to update the price feed when they
-pay for the awarded bid. This is an allowed way to withhold the updates, because
+pay for the awarded bid. This is an allowed way to withhold the updates because
 the auction winner is losing money by being slashed, making it financially
-infeasible. As a note, the data feed security remains unchanged, because it will
-be eventually updated by an API3 push oracle when its deviation exceeds the
+infeasible. As a note, the data feed security remains unchanged because it will
+be eventually updated by an API3 push oracle when the deviation exceeds its
 threshold.
 
 :::
