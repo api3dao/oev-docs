@@ -62,10 +62,10 @@ information.
 
 ## Bridging ETH
 
-Use the [OEV Network Bridge](https://oev.bridge.api3.org/) to bridge your ETH to
+Use the [OEV Network bridge](https://oev.bridge.api3.org/) to bridge your ETH to
 the OEV Network. Bridging is only possible from ETH mainnet.
 
-![OEV Network Bridge](./oev-bridge.png)
+![OEV Network bridge](./oev-bridge.png)
 
 Clicking on `Transfer Tokens` will automatically add the OEV Network to your
 Metamask wallet. To bridge, confirm the transaction in your wallet and wait for
@@ -118,8 +118,8 @@ Tech-savvy users can refer to the contract's source for details.
 
 To be eligible to win OEV auctions, searchers need to have enough collateral
 deposited in the OevAuctionHouse contract. See
-[Bid Eligibility](/oev-searchers/in-depth/oev-auctioneer#bid-eligibility) for
-more details.
+[bid eligibility](/oev-searchers/in-depth/oev-auctioneer#bid-eligibility)
+section for more details.
 
 We recommend using the same hot wallet for the bot on the OEV network (to
 participate in auctions) and the target chain (to capture the OEV). To deposit
@@ -140,7 +140,8 @@ function depositForBidder(
 ```
 
 For an advanced usage where the bidder is a contract, refer to
-[Bidding Contract](/oev-searchers/in-depth/oev-searching#bidding-contract).
+[bidding contract](/oev-searchers/in-depth/oev-searching#bidding-contract)
+section.
 
 ### Withdrawing Collateral
 
@@ -175,8 +176,8 @@ function withdraw(
 For a searcher to win an auction, they are required to have enough ETH deposited
 in the OevAuctionHouse contract. Similarly, the value the searcher can win is
 limited by the amount they have deposited. Refer to
-[Bid Eligibility](/oev-searchers/in-depth/oev-auctioneer#bid-eligibility) for
-details.
+[bid eligibility](/oev-searchers/in-depth/oev-auctioneer#bid-eligibility)
+section for details.
 
 The collateral and protocol fee rates are configurable parameters within the
 OevAuctionHouse contract and are configured by the API3 DAO. These values are
@@ -242,7 +243,7 @@ function placeBid(
 The OevAuctionHouse contract is designed in a generic way. To fully understand
 how to use these functions, we need to understand how
 [OEV Auctioneer](/oev-searchers/in-depth/oev-auctioneer) works. Refer to
-[Placing a Bid](/oev-searchers/in-depth/oev-searching#placing-a-bid) section for
+[placing a bid](/oev-searchers/in-depth/oev-searching#placing-a-bid) section for
 more details.
 
 ### Expediting a bid

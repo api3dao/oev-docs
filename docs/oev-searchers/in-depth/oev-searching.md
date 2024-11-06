@@ -43,7 +43,7 @@ can be cached because they change only when the underlying base feed changes,
 which happens only when the dAPI is reconfigured.
 
 Once the list of OEV beacons is known, searchers should periodically call the
-public [OEV Endpoints](/oev-searchers/in-depth/dapis/#oev-endpoints) to get the
+public [OEV endpoints](/oev-searchers/in-depth/dapis/#oev-endpoints) to get the
 real-time values for the OEV beacons used by the dApp. It's necessary to persist
 these values for a brief period of time - in case they win the auction and need
 to update the data feed.
@@ -69,7 +69,7 @@ arbitrary number of external calls.
 
 To understand how to construct the payload for data feed simulation, refer to
 the
-[Update the Data Feed](/oev-searchers/in-depth/oev-searching#updating-the-data-feed)
+[update the data feed](/oev-searchers/in-depth/oev-searching#updating-the-data-feed)
 section. The following is an example code snippet demonstrating the expected
 usage in JavaScript with the ethers library.
 
@@ -113,10 +113,10 @@ It accepts the following parameters:
 
 | Argument             | Type    | Description                                                                                                                                                                                                                  |
 | -------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bidTopic             | bytes32 | The [Bid Topic](/oev-searchers/in-depth/oev-auctioneer#bid-topic) of the current auction.                                                                                                                                    |
+| bidTopic             | bytes32 | The [bid topic](/oev-searchers/in-depth/oev-auctioneer#bid-topic) of the current auction.                                                                                                                                    |
 | chainId              | uint256 | The chain ID of the target chain.                                                                                                                                                                                            |
 | bidAmount            | uint256 | The amount of the bid in the native currency of the target chain. At award time, a respective percentage fo this amount is reserved as collateral and the winner is expected to pay the full bid amount on the target chain. |
-| bidDetails           | bytes   | The [Bid details](/oev-searchers/in-depth/oev-auctioneer#bid-details) of the bid.                                                                                                                                            |
+| bidDetails           | bytes   | The [bid details](/oev-searchers/in-depth/oev-auctioneer#bid-details) of the bid.                                                                                                                                            |
 | maxCollateralAmount  | uint256 | The maximum collateral amount that the bidder is willing to lock up. This is to prevent unwanted slippage in case of a large price change before the transaction is mined.                                                   |
 | maxProtocolFeeAmount | uint256 | The maximum protocol fee amount that the bidder is willing to pay. This is to prevent unwanted slippage in case of a large price change before the transaction is mined.                                                     |
 | expirationTimestamp  | uint32  | The timestamp until which the bid is valid. The timestamp is checked against the `block.timestamp` at the bid placement time. Minimum is 15 seconds and maximum 24 hours.                                                    |
@@ -147,8 +147,8 @@ It accepts the following parameters:
 
 | Argument       | Type    | Description                                                                                   |
 | -------------- | ------- | --------------------------------------------------------------------------------------------- |
-| bidTopic       | bytes32 | The [Bid Topic](/oev-searchers/in-depth/oev-auctioneer#bid-topic) of the current auction.     |
-| bidDetailsHash | bytes32 | The hash of the [Bid details](/oev-searchers/in-depth/oev-auctioneer#bid-details) of the bid. |
+| bidTopic       | bytes32 | The [bid topic](/oev-searchers/in-depth/oev-auctioneer#bid-topic) of the current auction.     |
+| bidDetailsHash | bytes32 | The hash of the [bid details](/oev-searchers/in-depth/oev-auctioneer#bid-details) of the bid. |
 
 ## Waiting for Auction Award
 
@@ -365,13 +365,13 @@ non-applicable. This may include searchers' complaints about RPC connections or
 similar off-chain problems.
 
 To open a dispute, head out to the
-[OEV Discord Channel](https://discord.com/channels/758003776174030948/1062909222347603989)
+[OEV Discord channel](https://discord.com/channels/758003776174030948/1062909222347603989)
 and create a post with the description of the dispute.
 
 ## Example
 
 One can refer the the
-[OEV v1 Compound Example Bot](https://github.com/api3dao/oev-v1-compound-bot)
+[OEV v1 Compound example bot](https://github.com/api3dao/oev-v1-compound-bot)
 and inspect the
 [changes](https://github.com/api3dao/oev-v1-compound-bot/compare/mev-with-signed-apis...oev)
 needed to migrate the

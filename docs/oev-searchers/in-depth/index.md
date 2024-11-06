@@ -15,7 +15,7 @@ existing MEV searchers to OEV.
 ## OEV dApps Catalog
 
 We maintain an open-source list of all dApps that have integrated API3 feeds as
-part of the [dApp Registry](https://github.com/api3dao/dapp-registry). However,
+part of the [dApp registry](https://github.com/api3dao/dapp-registry). However,
 not all of the dApps are suitable for OEV extraction, so we provide a separate
 list of currently suitable candidates for OEV searching.
 
@@ -46,8 +46,7 @@ outperforming the competition and paying less to block validators.
 The following is a list of things that need to be done to enable an existing MEV
 bot to participate in OEV searching:
 
-1. [Bridge funds](/oev-searchers/in-depth/oev-network/#bridging-eth) to the OEV
-   network
+1. Bridge funds to the OEV network
 2. Deposit funds to the OevAuctionHouse contract
 3. Monitor off-chain signed data for dAPIs used by the dApp
 4. Simulate the data feed update on-chain to determine OEV opportunities

@@ -178,7 +178,7 @@ Notice that the beacon ID is different, but the Airnode address is the same.
 :::
 
 The OEV update flow is explained in more depth in
-[OEV Searching](/oev-searchers/in-depth/oev-searching).
+[OEV searching](/oev-searchers/in-depth/oev-searching) docs.
 
 ### dApp IDs
 
