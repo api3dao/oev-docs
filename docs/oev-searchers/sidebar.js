@@ -1,24 +1,16 @@
 module.exports = [
   {
-    text: 'Overview',
+    text: '',
     collapsed: false,
     items: [
       {
-        text: 'OEV',
-        link: '/oev-searchers/overview/',
-      },
-      {
-        text: 'Auction Cycle',
-        link: '/oev-searchers/overview/auction-cycle',
-      },
-      {
-        text: 'Glossary',
-        link: '/oev-searchers/overview/glossary',
+        text: 'Overview',
+        link: '/oev-searchers/overview',
       },
     ],
   },
   {
-    text: 'In Depth',
+    text: 'In depth',
     collapsed: false,
     items: [
       {
@@ -48,6 +40,16 @@ module.exports = [
       {
         text: 'Examples',
         link: '/oev-searchers/in-depth/examples',
+      },
+    ],
+  },
+  {
+    text: '',
+    collapsed: false,
+    items: [
+      {
+        text: 'Glossary',
+        link: '/oev-searchers/glossary',
       },
     ],
   },

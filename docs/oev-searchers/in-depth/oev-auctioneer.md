@@ -1,5 +1,5 @@
 ---
-title: OEV Network
+title: OEV Auctioneer
 pageHeader: OEV Searchers → In Depth
 outline: deep
 ---

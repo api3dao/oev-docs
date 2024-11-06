@@ -1,6 +1,6 @@
 ---
 title: Glossary
-pageHeader: OEV Searchers → Overview
+pageHeader: OEV Searchers
 outline: deep
 ---
 
