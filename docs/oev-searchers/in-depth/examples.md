@@ -13,7 +13,7 @@ liquidity. This allows us to build a fully functional OEV bot and share it as a
 reference without promoting a particular dApp. Because of the small liquidity,
 we expect very little competition, making it an ideal way to start with OEV.
 
-## Compound3 fork
+## Compound3 Fork
 
 ::: warning
 
@@ -42,5 +42,6 @@ Refer to this table for dApp details:
 
 ## The OEV Bot
 
-See the [GitHub implementation](https://github.com/api3dao/oev-v1-compound-bot)
+See the
+[OEV v1 Compound example bot](https://github.com/api3dao/oev-v1-compound-bot)
 for details.

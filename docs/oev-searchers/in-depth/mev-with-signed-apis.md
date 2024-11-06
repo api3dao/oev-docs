@@ -97,3 +97,14 @@ staticcall.
 
 Note that the signed data for base feeds is delayed to ensure OEV searchers have
 exclusive priority for OEV extraction.
+
+## Example
+
+One can refer the the
+[OEV v1 Compound Example Bot](https://github.com/api3dao/oev-v1-compound-bot/tree/mev-with-signed-apis)
+and inspect the
+[changes](https://github.com/api3dao/oev-v1-compound-bot/compare/mev...mev-with-signed-apis)
+needed to migrate the MEV bot to MEV with Signed APIs bot.
+
+The bot is configured to run against a forked Compound3 protocol on Base
+network. Follow the description in the README for details.
