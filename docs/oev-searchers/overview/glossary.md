@@ -86,7 +86,7 @@ to update [base feeds](#base-feed).
 
 ### Api3ServerV1OevExtension Contract
 
-[Api3ServerV1OevExtension contract](https://github.com/api3dao/contracts-qs/blob/main/contracts/api3-server-v1/Api3ServerV1OevExtension.sol)
+[Api3ServerV1OevExtension contract](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1OevExtension.sol)
 is an extension of the [Api3ServerV1 contract](#api3serverv1-contract). It is
 used by [searchers](#searcher) for [OEV feed](#oev-feed) updates.
 

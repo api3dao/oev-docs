@@ -150,10 +150,8 @@ The arguments are:
 
 ### Award Details
 
-The award details contain a
-[signature](https://github.com/api3dao/contracts-qs/blob/a5a11d929d8dae54fd586986d65513f8bc5a14b4/contracts/api3-server-v1/Api3ServerV1OevExtension.sol#L106)
-that the auction winner uses to pay the OEV bid, which allows them to update the
-price feeds.
+The award details contain a signature that the auction winner uses to pay the
+OEV bid, which allows them to update the price feeds.
 
 ### Fulfillment Details
 

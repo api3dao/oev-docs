@@ -196,7 +196,7 @@ contract allows searchers to repeat steps 2 and 3 as many times as they want.
 However, each update must increase the timestamp of the OEV beacon(s).
 
 The OEV capabilities are enabled by the
-[Api3ServerV1OevExtension](https://github.com/api3dao/contracts-qs/blob/main/contracts/api3-server-v1/Api3ServerV1OevExtension.sol).
+[Api3ServerV1OevExtension](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1OevExtension.sol).
 This contract allows the auction winner to pay for the winning bid and update
 the data feed values.
 
