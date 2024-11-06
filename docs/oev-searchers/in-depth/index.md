@@ -6,7 +6,7 @@ outline: deep
 
 <PageHeader/>
 
-# OEV Searching
+# Searchers
 
 This part of the docs is dedicated to searchers. It details how OEV auctions
 work and explains basic searching strategies to simplify the onboarding of

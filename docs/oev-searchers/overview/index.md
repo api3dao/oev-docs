@@ -6,7 +6,7 @@ outline: deep
 
 <PageHeader/>
 
-# What is OEV?
+# OEV
 
 Oracle Extractable Value (OEV) is a subset of Maximal Extractable Value (MEV)
 that occurs as a result of an oracle update. Traditional oracle solutions update
