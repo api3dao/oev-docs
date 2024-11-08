@@ -6,7 +6,7 @@ hero:
   text: Oracles that pay you
   tagline: Receive OEV Rewards for your DeFi project
   image:
-    src: /img/beacons.svg
+    src: /img/data-feeds-simple-to-integrate.svg
     alt: API3
   actions:
     - theme: brand
