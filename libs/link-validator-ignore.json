@@ -26,5 +26,8 @@
   "https://www.infura.io",
   "https://github.com/api3dao/oev-docs",
   "https://orbitlending.io/",
-  "https://snowtrace.io/"
+  "https://snowtrace.io/",
+  "https://testnet.snowtrace.io/",
+  "https://bartio.beratrail.io/",
+  "https://blockscoutapi.hekla.taiko.xyz/"
 ]

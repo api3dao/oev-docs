@@ -367,13 +367,13 @@ Note that any dispute that cannot be proven or disproved on-chain is
 non-applicable. This may include searchers' complaints about RPC connections or
 similar off-chain problems.
 
-To open a dispute, head out to the
+To open a dispute, head to the
 [OEV Discord channel](https://discord.com/channels/758003776174030948/1062909222347603989)
 and create a post with the description of the dispute.
 
 ## Example
 
-One can refer the the
+One can refer to the
 [OEV v1 Compound example bot](https://github.com/api3dao/oev-v1-compound-bot)
 and inspect the
 [changes](https://github.com/api3dao/oev-v1-compound-bot/compare/mev-with-signed-apis...oev)

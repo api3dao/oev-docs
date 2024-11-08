@@ -100,7 +100,7 @@ exclusive priority for OEV extraction.
 
 ## Example
 
-One can refer the the
+One can refer to the
 [OEV v1 Compound example bot](https://github.com/api3dao/oev-v1-compound-bot/tree/mev-with-signed-apis)
 and inspect the
 [changes](https://github.com/api3dao/oev-v1-compound-bot/compare/mev...mev-with-signed-apis)
