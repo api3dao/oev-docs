@@ -83,7 +83,7 @@ export default {
       copyright: 'Copyright © 2019-present API3',
     },
     sidebar: {
-      '/dapis/': require('../dapis/sidebar.js'),
+      '/dapps/': require('../dapps/sidebar.js'),
       '/oev-searchers/': require('../oev-searchers/sidebar.js'),
       '/dev/': require('../dev/sidebar.js'),
     },
@@ -95,9 +95,9 @@ function nav() {
   return [
     { text: 'Home', link: '/' },
     {
-      text: 'dAPIs',
-      link: '/dapis/introduction/',
-      activeMatch: '/dapis/.*',
+      text: 'dApps',
+      link: '/dapps/overview/',
+      activeMatch: '/dapps/.*',
     },
     {
       text: 'OEV Searchers',
