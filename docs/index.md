@@ -3,17 +3,15 @@ layout: home
 
 hero:
   name: API3
-  text: Documentation
-  tagline:
-    API3 builds solutions that bridge the gap between off-chain data and
-    on-chain applications with maximum security and minimal latency.
+  text: Oracles that pay you
+  tagline: Receive OEV Rewards for your DeFi project
   image:
     src: /img/beacons.svg
     alt: API3
   actions:
     - theme: brand
-      text: dAPIs
-      link: /dapis/
+      text: dApps
+      link: /dapps/overview/
     - theme: brand
       text: OEV Searchers
       link: /oev-searchers/overview/
