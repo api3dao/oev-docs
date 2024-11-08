@@ -15,6 +15,6 @@ hero:
       text: dAPIs
       link: /dapis/
     - theme: brand
-      text: OEV Network
-      link: /oev/
+      text: OEV Searchers
+      link: /oev-searchers/overview/
 ---
