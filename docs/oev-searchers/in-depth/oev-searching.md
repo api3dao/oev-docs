@@ -324,6 +324,9 @@ callback and requires the return value to equal:
 keccak256("Api3ServerV1OevExtensionOevBidPayer.onOevBidPayment")
 ```
 
+Searchers are recommended to create a specialized, permissioned liquidator
+contract that only they can call.
+
 ## Bidding Contract
 
 The bidder can be either an EOA or a contract. The former is simpler but has
