@@ -8,9 +8,7 @@ outline: deep
 
 # Glossary
 
-Here are the common terms referenced throughout the documentation with a brief
-description. This section is not intended to explain the terms in detail, but to
-serve as a reminder or provide small clarification.
+Below are brief descriptions of commonly used terms within the documentation.
 
 <!-- NOTE: We intentionally use triple hash to make the titles stand out a bit less. -->
 

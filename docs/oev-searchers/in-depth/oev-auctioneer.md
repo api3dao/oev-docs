@@ -34,7 +34,7 @@ to resolve the auctions and confirm/contradict fulfillments.
 
 The only cross-chain communication happens during fulfillment verification - all
 other operations are performed solely on OEV Network or the target chain of the
-dApp. This minimizes the latency incurred and improves the resiliency.
+dApp. This minimizes latency and improves the resiliency.
 
 ## Enforced Conventions
 
@@ -255,8 +255,12 @@ change in time and searchers should not rely on it.
 After the auction winner is awarded, they are expected to fulfill their duties
 by paying for the awarded OEV bid. After they've made the transaction on the
 target chain, they are expected to report the fulfillment back to the OEV
-Network to get part of their collateral released. Auctioneer periodically
-queries the OEV Network logs for such events by doing the following:
+Network to get their collateral released. Auction winners are advised to wait a
+sufficient time for the transaction to reach enough finality on the target
+chain.
+
+Auctioneer periodically queries the OEV Network logs for such events by doing
+the following:
 
 1. Fetch all logs regarding fulfillments for a sufficient time period -
    AwardedBid, ReportedFulfillment, ConfirmedFulfillment and
@@ -278,8 +282,7 @@ queries the OEV Network logs for such events by doing the following:
 In case there is a failure during any of the steps above, the Auctioneer tries
 to process the fulfillment later. Its utmost priority is to avoid slashing
 honest searchers. That said, once the Auctioneer disproves the fulfillment, it
-will promptly slash. Auction winners are advised to wait a sufficient time for
-the transaction to reach enough finality on the target chain.
+will promptly slash.
 
 ::: info
 

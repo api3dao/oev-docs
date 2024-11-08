@@ -40,8 +40,8 @@ to join OEV searching by outlining the steps to transition from MEV to OEV.
 
 Let's emphasize that MEV searchers can still use their existing infrastructure
 and searching bots even when opting into OEV. OEV should be treated as an
-extension to MEV that searchers can capitalize on. OEV can increase profits by
-outperforming the competition and paying less to block validators.
+extension to MEV that searchers can capitalize on. OEV can increase profits
+through lower fees paid to block validators when compared to traditional MEV.
 
 The following is a list of things that need to be done to enable an existing MEV
 bot to participate in OEV searching:

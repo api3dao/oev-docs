@@ -10,7 +10,9 @@ outline: deep
 
 Oracle Extractable Value (OEV) is a subset of Maximal Extractable Value (MEV)
 that occurs as a result of an oracle update. Traditional oracle solutions update
-data feeds blindly, which is wasteful and provides poor granularity.
+data feeds blindly, exposing dApps to significant value loss and providing
+suboptimal data feed resolution. For searchers, these updates start latency wars
+over who captures the MEV first.
 
 OEV updates are an addition to these push oracle updates that improve the
 efficiency of price feeds. The idea is that not all oracle updates are the same.
@@ -145,8 +147,8 @@ them with exclusive update rights.
 
 Performance is critical here because the longer it takes to award the bid, the
 less time the auction winner has to capture the OEV before the data becomes
-public. Both bidding periods are chosen with this in mind, allowing both
-Auctioneer and the auction winner sufficient time.
+public. Both bidding phase and award phase periods are chosen with this in mind,
+allowing both Auctioneer and the auction winner sufficient time.
 
 ### Finding the Winning Bid
 

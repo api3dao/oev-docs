@@ -8,7 +8,8 @@ outline: deep
 
 # MEV with Signed APIs
 
-One step closer to OEV searching is to extend MEV bots to utilize the public
+An intermediate step towards OEV searching is to extend MEV bots to utilize the
+public
 [base feed endpoints](/oev-searchers/in-depth/dapis/#base-feed-endpoints). These
 endpoints are also used by the API3 push oracle, so there is tight competition
 to be the fastest with the on-chain transaction.
@@ -23,8 +24,7 @@ feed update (which is permissionless for base feeds) to determine OEV
 opportunities more easily. This is a direct improvement over monitoring data
 source values and predicting the next oracle update.
 
-This solution is also a perfect backup in case OEV is down or in maintenance
-mode.
+This solution is also a backup in case OEV is down or under maintenance.
 
 ## Monitoring Signed Data
 
