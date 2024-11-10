@@ -96,7 +96,7 @@ For example, if ETH/USD is `2918.5652133`, `value` will read `291856521330000000
 
 It is extremely risky to validate the data feed value based on practical assumptions.
 An example where doing so went wrong was Chainlink requiring their LUNA/USD data feed value to be at least `0.1`.
-Doing so caused them to misreport by an order or magnitude during the UST depeg, and caused a dApp to suffer north of $14MM in damages.
+Doing so caused them to misreport by an order or magnitude during the UST depeg, and caused a dApp to suffer more than $14MM in damages.
 
 We do not utilize such practical assumptions at our end, and recommend you to be very careful if you do.
 
