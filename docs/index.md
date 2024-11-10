@@ -10,9 +10,9 @@ hero:
     alt: API3
   actions:
     - theme: brand
-      text: dApps
+      text: For dApps
       link: /dapps/overview/
     - theme: brand
-      text: OEV Searchers
+      text: For OEV searchers
       link: /oev-searchers/overview/
 ---
