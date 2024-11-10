@@ -8,7 +8,7 @@ pageHeader: dApps → Integration
 # AggregatorV2V3Interface
 
 AggregatorV2V3Interface is intended to be used by contracts that were originally built to use Chainlink data feeds.
-All considerations in the [contract integration page](./contract-integration.md) still apply.
+All considerations in the [contract integration page](/dapps/integration/contract-integration.md) still apply.
 
 ::: info ⚠️ Warning
 

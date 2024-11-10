@@ -56,13 +56,13 @@ Api3ReaderProxyV1 deployment requires three parameters:
 In short, if your dApp has a dApp ID assigned, deploy your own Api3ReaderProxyV1 contracts by referring to the [instructions in `data-feed-reader-example`.](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/README.md#deploying-proxy-contracts-programmatically)
 Otherwise, use the Api3ReaderProxyV1 addresses displayed on the integration pages of the respective data feeds.
 
-With either option, we recommended you to validate the Api3ReaderProxyV1 addresses using [`@api3/contracts`.](./api3-contracts.md)
+With either option, we recommended you to validate the Api3ReaderProxyV1 addresses using [`@api3/contracts`.](/dapps/integration/api3-contracts.md)
 
 :::
 
 ### Reading the data feed
 
-Api3ReaderProxyV1 implements IApi3ReaderProxy, which you can import from [`@api3/contracts`](./api3-contracts.md) to use in your contract.
+Api3ReaderProxyV1 implements IApi3ReaderProxy, which you can import from [`@api3/contracts`](/dapps/integration/api3-contracts.md) to use in your contract.
 
 ```solidity
 interface IApi3ReaderProxy {
@@ -73,7 +73,7 @@ interface IApi3ReaderProxy {
 ::: info 💡 Tip
 
 Api3ReaderProxyV1 also implements Chainlink's AggregatorV2V3Interface, which enables it to be used as a drop-in replacement for Chainlink data feeds.
-Refer to the [AggregatorV2V3Interface page](./aggregatorv2v3interface.md) for details.
+Refer to the [AggregatorV2V3Interface page](/dapps/integration/aggregatorv2v3interface.md) for details.
 
 :::
 

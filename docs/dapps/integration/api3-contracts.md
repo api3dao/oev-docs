@@ -17,6 +17,6 @@ You can refer to [`data-feed-reader-example`](https://github.com/api3dao/data-fe
 
 ::: info ℹ️ Info
 
-Note that we do not export [AggregatorV2V3Interface](./aggregatorv2v3interface.md), as contracts that are built to use it are expected to have imported it.
+Note that we do not export [AggregatorV2V3Interface](/dapps/integration/aggregatorv2v3interface.md), as contracts that are built to use it are expected to have imported it.
 
 :::
