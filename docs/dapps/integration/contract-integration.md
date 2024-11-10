@@ -145,7 +145,8 @@ Based on our analysis, any less will hinder OEV extraction during times of high 
 
 :::
 
-Note that using API3 data feeds for only some asset prices still counts as a mixed design.Say a lending platform uses the ETH/USD API3 data feed, and the USDT/USD data feed of another oracle solution.
+Note that using API3 data feeds for only some asset prices still counts as a mixed design.
+Say a lending platform uses the ETH/USD API3 data feed, and the USDT/USD data feed of another oracle solution.
 A user takes out a USDT loan with ETH collateral.
 Even if an OEV searcher detects an opportunity that they want to bid on, they must consider that a rogue USDT/USD update may expose it to the public before they can claim it, which causes them to avoid bidding a large amount.
 
