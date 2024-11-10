@@ -8,7 +8,7 @@ outline: deep
 
 # Using API3 Market
 
-See the [Quickstart](../quickstart/index.md) page for a basic guide on how to use [API3 Market.](https://market.api3.org/)
+See the [Quickstart](/dapps/quickstart/index.md) page for a basic guide on how to use [API3 Market.](https://market.api3.org/)
 This page will provide further details about using it in production.
 
 ## Update parameters

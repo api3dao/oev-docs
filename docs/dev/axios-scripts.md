@@ -13,7 +13,7 @@ The script
 is used to generated local data files. These files are rendered by certain
 markdown pages as a data source. For example see these markdown files:
 
-- [dAPIs chains list](/dapis/reference/chains/chains-list.md)
+- dAPIs chains list (no longer exists)
 
 The local data files provide for a better page load experience rather than
 real-time data access from the monorepo.
