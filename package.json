@@ -15,11 +15,9 @@
     "format": "prettier --write --cache \"./**/*.{js,vue,md,json,yaml}\" --log-level silent",
     "format:check": "prettier --check --cache \"./**/*.{js,vue,md,json,yaml}\"",
     "prepare": "husky",
-    "axios:build": "node libs/axiosBuildScripts.js; pnpm format;",
     "firebase:emulator": "pnpm docs:build; firebase emulators:start"
   },
   "devDependencies": {
-    "@api3/chains": "^10.6.0",
     "axios": "^1.7.7",
     "colors": "^1.4.0",
     "file": "^0.2.2",
