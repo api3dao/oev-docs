@@ -28,7 +28,6 @@ jobs:
 
       - name: Build documentation
         run: |
-          pnpm axios:build
           pnpm docs:build
 
       - name: Serve docs and check links
