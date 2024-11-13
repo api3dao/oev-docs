@@ -34,7 +34,7 @@ Refer to this table for dApp details:
 | Name                                                                                            | Description              |
 | ----------------------------------------------------------------------------------------------- | ------------------------ |
 | [API3 Compound dApp](https://oev-v1-compound.vercel.app/markets)                                | The OEV dApp.            |
-| [USDC Comet contract](https://basescan.org/address/0xa193bcE4554663FECde688D5921dF38D4D41AA96)  | The USDC Comet contract. |
+| [USDC Comet contract](https://basescan.org/address/0x07BD845d340a59A88B913769E12df30F99f6384C)  | The USDC Comet contract. |
 | [USDC contract](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913#code)   | The USDC token.          |
 | [WETH contract](https://basescan.org/address/0x4200000000000000000000000000000000000006#code)   | The WETH token.          |
 | [cbETH contract](https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22#code)  | The cbETH token.         |
