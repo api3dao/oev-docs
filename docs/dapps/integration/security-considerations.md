@@ -55,7 +55,7 @@ This operation is supported by dedicated monitoring personnel, automated alertin
 
 ::: info ℹ️ Info
 
-We have been providing oracle services as early as [2019](https://etherscan.io/txs?a=0x78e76126719715eddf107cd70f3a31dddf31f85a&p=1029), and were listed as the [best responding oracle](/dapps/integration/images/reputation-link.png) among all Chainlink oracles by [`reputation.link`](https://www.google.com/search?q=%22reputation.link%22+chainlink) as of September 2020, which is when we published the [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) and requested to be removed from Chainlink data feeds.
+We have been providing oracle services as early as [2019](https://etherscan.io/txs?a=0x78e76126719715eddf107cd70f3a31dddf31f85a&p=1029), and were listed as the [best responding oracle](/assets/reputation-link.CxhU2iIj.png) among all Chainlink oracles by [`reputation.link`](https://www.google.com/search?q=%22reputation.link%22+chainlink) as of September 2020, which is when we published the [API3 whitepaper](https://github.com/api3dao/api3-whitepaper) and requested to be removed from Chainlink data feeds.
 We had the opportunity to design our architecture and operations from scratch with the hindsight of what works well and what does not, and have come an even longer way since then.
 
 <img src="./images/reputation-link.png" style="display: none;">
