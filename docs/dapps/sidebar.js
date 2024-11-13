@@ -24,6 +24,14 @@ module.exports = [
         text: '@api3/contracts',
         link: '/dapps/integration/api3-contracts',
       },
+      {
+        text: 'Security considerations',
+        link: '/dapps/integration/security-considerations',
+      },
+      {
+        text: 'Old integrations',
+        link: '/dapps/integration/old-integrations',
+      },
     ],
   },
 ];
