@@ -34,4 +34,12 @@ module.exports = [
       },
     ],
   },
+  {
+    text: 'OEV Rewards',
+    collapsed: false,
+    items: [
+      { text: 'Getting paid', link: '/dapps/oev-rewards/' },
+      { text: 'dApp ID', link: '/dapps/oev-rewards/dapp-id' },
+    ],
+  },
 ];

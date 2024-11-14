@@ -53,7 +53,7 @@ Api3ReaderProxyV1 deployment requires three parameters:
 
 ::: info 💡 Tip
 
-In short, if your dApp has a dApp ID assigned, deploy your own Api3ReaderProxyV1 contracts by referring to the [instructions in `data-feed-reader-example`.](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/README.md#deploying-proxy-contracts-programmatically)
+In short, if your dApp has a [dApp ID](/dapps/oev-rewards/dapp-id) assigned, deploy your own Api3ReaderProxyV1 contracts by referring to the [instructions in `data-feed-reader-example`.](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/README.md#deploying-proxy-contracts-programmatically)
 Otherwise, use the Api3ReaderProxyV1 addresses displayed on the integration pages of the respective data feeds.
 
 With either option, we recommended you to validate the Api3ReaderProxyV1 addresses using [`@api3/contracts`.](/dapps/integration/api3-contracts.md)
