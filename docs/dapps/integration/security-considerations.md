@@ -27,7 +27,7 @@ We propose three methods to assess the smart contract risk.
 Firstly, you can refer to the related [audit reports.](https://github.com/api3dao/contracts?tab=readme-ov-file#security)
 A more practical method is to refer to [our historical TVS](https://defillama.com/oracles/API3) to get a general idea of the _battle-testedness_ of our data feeds.
 Finally, you are welcome to review the contracts behind [Api3ReaderProxyV1](/dapps/integration/contract-integration.md#api3readerproxyv1), specifically [Api3ServerV1](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1.sol) and [Api3ServerV1OevExtension](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1OevExtension.sol).
-Note that our [contract developer docs](https://github.com/api3dao/contracts/tree/main/docs) may come in helpful in interpreting the design decisions made for these contracts.
+Note that our [contract developer docs](https://github.com/api3dao/contracts/tree/main/docs) may be helpful in interpreting the design decisions made for these contracts.
 
 ## Privileged accounts
 
