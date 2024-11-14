@@ -43,7 +43,7 @@ In other words, adding, removing or replacing API providers that contribute to t
 ::: info ℹ️ Info
 
 The configuration of data feed sources depends on various factors such as uptime, accuracy, response time to incidents and qualitative considerations.
-The signers of the multisig have access to this data and are responsible to verify them.
+The signers of the multisig have access to these data and are responsible to verify them.
 
 :::
 
