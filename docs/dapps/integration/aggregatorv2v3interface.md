@@ -46,3 +46,5 @@ The main reason Chainlink data feeds provide past round data is to address this 
 Instead, you can simply read the latest data feed value from an API3 data feed, and get paid the value extracted through time arbitrage in the form of OEV Rewards.
 
 :::
+
+If you have any doubts about interacting with your Api3ReaderProxyV1 over AggregatorV2V3Interface, you can refer to the [Api3ReaderProxyV1 implementation](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/proxies/Api3ReaderProxyV1.sol) to see how exactly the respective functions will behave.

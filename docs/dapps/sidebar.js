@@ -17,12 +17,20 @@ module.exports = [
         link: '/dapps/integration/contract-integration',
       },
       {
+        text: 'AggregatorV2V3Interface',
+        link: '/dapps/integration/aggregatorv2v3interface',
+      },
+      {
         text: '@api3/contracts',
         link: '/dapps/integration/api3-contracts',
       },
       {
-        text: 'AggregatorV2V3Interface',
-        link: '/dapps/integration/aggregatorv2v3interface',
+        text: 'Security considerations',
+        link: '/dapps/integration/security-considerations',
+      },
+      {
+        text: 'Old integrations',
+        link: '/dapps/integration/old-integrations',
       },
     ],
   },
