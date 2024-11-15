@@ -34,7 +34,7 @@ The answer, in short, is _the MEV mafia_.
 
 :::
 
-### 🤝DEAL🤝
+### DEAL
 
 The onboarding workflow described above is temporary.
 We are working on a protocol, DEAL, to determine the OEV Rewards beneficiary in a self-serve manner.
