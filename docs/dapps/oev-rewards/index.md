@@ -8,7 +8,7 @@ outline: deep
 
 # Getting paid
 
-dApps that use traditional data feeds are constantly exploited by MEV bots that manipulate the order operations around individual data feed updates.
+dApps that use traditional data feeds are constantly exploited by MEV bots that manipulate the order of operations around individual data feed updates.
 In practice, this causes dApps to suffer significant and continuous financial losses.
 As the antidote, API3 auctions off the privilege to determine the order of operations around data feed updates to OEV searchers, and pays the auction proceeds to the dApp in the form of OEV Rewards.
 Assuming competitive auctions, OEV Rewards will be equal to the amount that would otherwise have been lost to the MEV bots.
@@ -55,19 +55,19 @@ If your contract integration is faulty, the suggestions below are unlikely to he
 
 OEV Rewards are proceeds from auctions that OEV searchers participate in.
 For the bids placed at the auctions to be competitive, there needs to be multiple independent OEV searcher parties.
-An OEV searcher is a blockchain developer with a specific expertise, whose time is quite valuable.
-These factors imply that for a maximum amount of OEV Rewards, searching for your dApp must be as easy as possible.
+An OEV searcher is a blockchain developer with a specific expertise, whose time typically is quite valuable.
+Therefore, for a maximum amount of OEV Rewards, searching for your dApp must be as easy as possible.
 
 ::: info 💰 Financial
 
-In most cases, investing some resouces into maximizing OEV Rewards upfront will yield the best financial outcome.
+In most cases, investing some resources into maximizing OEV Rewards upfront will yield the best financial outcome.
 
 :::
 
 OEV searchers make a simple revenue–cost estimation before deciding if they will search for your dApp.
 The easiest way to tilt this equation to your favor would be to provide excellent documentation for how OEV searchers should interact with your dApp.
 One step ahead of this is developing and open-sourcing an OEV bot for your dApp that anyone can use and improve.
-Finally, you can [run your own OEV bot](/oev-searchers/overview) and participate in the auctions of your dApp.
+Finally, you can [be your own OEV searcher](/oev-searchers/overview) and participate in the auctions of your dApp.
 
 ::: info 💡 Tip
 
@@ -82,7 +82,7 @@ Similarly, a perpetual derivative exchange that uses API3 data feeds can be expe
 
 ::: info 💰 Financial
 
-Consider treating OEV Rewards as your main/only source of revenue, rather than an extra one.
+Consider treating OEV Rewards as your main source of revenue, rather than an extra one.
 Do you really need to charge a protocol fee on your dApp if you are receiving enough in OEV Rewards?
 
 :::
