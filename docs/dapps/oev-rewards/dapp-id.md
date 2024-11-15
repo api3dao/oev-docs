@@ -26,7 +26,7 @@ Send an email to `XXX@api3.org`, specifying
 - The URL of your dApp,
 - The chain IDs of the networks that your dApp is deployed on,
 - The address of the account that will receive the OEV Rewards on each network,
-- The list of data feeds that they will use on each network.
+- The list of data feeds that your dApp will use on each network.
 
 ::: info 💡 Tip
 
