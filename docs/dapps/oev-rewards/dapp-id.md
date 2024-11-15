@@ -38,7 +38,3 @@ We will create a Telegram group to guide you along the rest of the way.
 | 1       | API3 Market (default) | All networks       |
 | 2       | MyPlaceholderDapp     | Ethereum (1)       |
 | 3       | MyPlaceholderDapp     | Gnosis Chain (100) |
-
-## Usage by the OEV searcher
-
-OEV searchers need to know the dApp ID of the dApp they are searching for to place and pay for bids.
