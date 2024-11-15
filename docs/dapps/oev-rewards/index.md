@@ -24,13 +24,11 @@ You can drop in API3 data feeds in place of your current data feeds, and immedia
 
 At the end of each month, we will send you a report and 80% of the auction proceeds in the native currency of the network that your dApp is deployed on, and keep the rest as the protocol fee.
 
-::: info 💡 Tip
+::: info 💰 Financial
 
-Traditionally, the relationship between dApps and oracles has been a zero-sum game.
-Oracles lured dApps with free services, and later used vendor lock-in to extract as much as possible from them.
-
-OEV Rewards enable dApps and API3 to earn at the same time, which begs the question, at whose expense?
-The answer, in short, is _the MEV mafia_.
+API3 provides data feeds [at cost](/dapps/integration/index#pricing) and pays OEV Rewards on top.
+You might ask "What's the catch?"
+There is none, we do this at the expense of the parties that benefit from MEV.
 
 :::
 
