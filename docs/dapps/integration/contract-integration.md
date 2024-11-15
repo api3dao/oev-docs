@@ -43,7 +43,7 @@ Api3ReaderProxyV1 deployment requires three parameters:
 
   :::
 
-- `dAppId` is a `uint256` that API3 has assigned to a specific dApp.
+- [`dappId`](/dapps/oev-rewards/dapp-id) is a `uint256` that API3 has assigned to a specific dApp.
   It is similar to a chain ID in function.
 
   For the communal Api3ReaderProxyV1 deployments, `dAppId` is [`1`.](https://blastscan.io/address/0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473#readProxyContract#F5)
