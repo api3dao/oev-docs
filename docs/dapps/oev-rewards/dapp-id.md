@@ -21,18 +21,13 @@ The dApp ID of a dApp is static, it never changes.
 
 ## Getting assigned a dApp ID
 
-Send an email to `XXX@api3.org`, specifying
+Fill in [this form](https://c3pu3z1tpiz.typeform.com/to/XfNSSjKE), specifying
 
 - The URL of your dApp,
-- The chain IDs of the networks that your dApp is deployed on,
-- The address of the account that will receive the OEV Rewards on each network,
-- The list of data feeds that they will use on each network.
+- The networks that your dApp is deployed on,
+- Your Telegram handle.
 
-::: info 💡 Tip
-
-We will need to confirm that you represent the dApp.
-
-:::
+We will create a Telegram group to guide you along the rest of the way.
 
 ## Usage by the dApp
 
