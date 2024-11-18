@@ -33,8 +33,6 @@ We will create a Telegram group to guide you along the rest of the way.
 
 ## dApp ID list
 
-| dApp ID | dApp alias            | Network            |
-| ------- | --------------------- | ------------------ |
-| 1       | API3 Market (default) | All networks       |
-| 2       | MyPlaceholderDapp     | Ethereum (1)       |
-| 3       | MyPlaceholderDapp     | Gnosis Chain (100) |
+| dApp ID | dApp alias            | Network      |
+| ------- | --------------------- | ------------ |
+| 1       | API3 Market (default) | All networks |
