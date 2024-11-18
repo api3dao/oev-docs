@@ -43,17 +43,17 @@ Api3ReaderProxyV1 deployment requires three parameters:
 
   :::
 
-- `dAppId` is a `uint256` that API3 has assigned to a specific dApp.
+- [`dappId`](/dapps/oev-rewards/dapp-id) is a `uint256` that API3 has assigned to a specific dApp.
   It is similar to a chain ID in function.
 
-  For the communal Api3ReaderProxyV1 deployments, `dAppId` is [`1`.](https://blastscan.io/address/0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473#readProxyContract#F5)
+  For the communal Api3ReaderProxyV1 deployments, `dappId` is [`1`.](https://blastscan.io/address/0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473#readProxyContract#F5)
 
 - While deploying an Api3ReaderProxyV1, a `bytes`-type `metadata` is specified, whose hash is used as the CREATE2 salt.
   It should be left [empty](https://blastscan.io/tx/0x0e98bc849985df6d5489396d66b766019c547fedfe3c3fb881276d7fb76ef26e#eventlog#17), i.e., as `0x`.
 
 ::: info 💡 Tip
 
-In short, if your dApp has a dApp ID assigned, deploy your own Api3ReaderProxyV1 contracts by referring to the [instructions in `data-feed-reader-example`.](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/README.md#deploying-proxy-contracts-programmatically)
+In short, if your dApp has a [dApp ID](/dapps/oev-rewards/dapp-id) assigned, deploy your own Api3ReaderProxyV1 contracts by referring to the [instructions in `data-feed-reader-example`.](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/README.md#deploying-proxy-contracts-programmatically)
 Otherwise, use the Api3ReaderProxyV1 addresses displayed on the integration pages of the respective data feeds.
 
 With either option, we recommended you to validate the Api3ReaderProxyV1 addresses using [`@api3/contracts`.](/dapps/integration/api3-contracts.md)
