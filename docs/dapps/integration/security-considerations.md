@@ -13,7 +13,7 @@ Therefore, as long as you continue to use it, there will be ongoing security con
 ::: info 💡 Tip
 
 API3 data feeds have never misreported or experienced an outage.
-This page merely discusses theoretical scenarios, which apply to all data feeds.
+This page merely discusses theoretical scenarios, which apply to any data feed.
 
 :::
 
@@ -65,7 +65,7 @@ We had the opportunity to design our architecture and operations from scratch wi
 Note that we get the API provider-signed data that we use to update data feeds from publicly accessible APIs.
 This is similar to the [Coinbase price oracle](https://www.coinbase.com/en-tr/blog/introducing-the-coinbase-price-oracle), but done by many API providers using the same standard that API3 has created, which makes aggregation feasible.
 This means that us not updating a data feed does not necessarily prevent further updates.
-For example, MEV searchers can be expected to use this API to execute updates that are financially relevant.
+For example, MEV searchers can be expected to use these APIs to execute updates that are financially relevant.
 Furthermore, our OEV implementation utilizes an equivalent mechanism, which implies that OEV updates will continue going through even if we stop updating the data feed according to the update parameters.
 
 ## Correctness of data

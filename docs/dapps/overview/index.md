@@ -31,5 +31,5 @@ This fact can often be exploited to extract funds from the users of the data fee
 
 [Oracle Extractable Value (OEV)](https://medium.com/api3/oracle-extractable-value-oev-13c1b6d53c5b) is a subset of MEV that oracles have priority on extracting by batching additional operations with their updates.
 Furthermore, instead of searching for such OEV opportunities themselves, oracles can auction off this privilege.
-API3 holds transparent and permissionless auctions for OEV opportunities on OEV Network, and pays the auction proceeds to the respective dApps.
+API3 holds transparent and permissionless auctions for OEV opportunities on OEV Network, and [pays](/dapps/oev-rewards) the auction proceeds to the respective dApps.
 OEV Rewards is effectively a new and sustainable revenue stream for dApps.

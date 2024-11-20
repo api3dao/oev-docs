@@ -110,3 +110,9 @@ If not, make sure that your wallet is connected to the network that the data fee
   You will see the values that DataFeedReaderExample read from Api3ReaderProxy.
 
   <img src="./images/remix-read.png">
+
+## What next?
+
+This guide should be enough to get you started for a hackathon.
+However, if you want to use API3 data feeds in production, continue reading the [integration section.](/dapps/integration)
+Alternatively, find out how to [get paid](/dapps/oev-rewards) by using API3 data feeds.
