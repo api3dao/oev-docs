@@ -11,8 +11,8 @@ hero:
   actions:
     - theme: brand
       text: For dApps
-      link: /dapps/overview/
+      link: /dapps/
     - theme: brand
       text: For OEV searchers
-      link: /oev-searchers/overview/
+      link: /oev-searchers/
 ---
