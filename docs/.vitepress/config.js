@@ -96,12 +96,12 @@ function nav() {
     { text: 'Home', link: '/' },
     {
       text: 'dApps',
-      link: '/dapps/overview/',
+      link: '/dapps/',
       activeMatch: '/dapps/.*',
     },
     {
       text: 'OEV Searchers',
-      link: '/oev-searchers/overview/',
+      link: '/oev-searchers/',
       activeMatch: '/oev-searchers/.*',
     },
   ];

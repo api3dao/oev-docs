@@ -1,7 +1,7 @@
 module.exports = [
   {
     text: 'Overview',
-    link: '/dapps/overview/',
+    link: '/dapps/',
   },
   {
     text: 'Quickstart',

@@ -68,7 +68,7 @@ OEV searchers make a simple revenue–cost estimation before deciding if they wi
 The easiest way to tilt this equation to your favor would be to provide excellent documentation for how OEV searchers should interact with your dApp.
 One step ahead of this is developing and open-sourcing an OEV bot for your dApp that anyone can use and improve upon.
 An open source bot that works well and is easy to operate will find many users, which will drive searcher profit margins down and your OEV Rewards up.
-Finally, you can [be your own OEV searcher](/oev-searchers/overview) and participate in the auctions of your dApp.
+Finally, you can [be your own OEV searcher](/oev-searchers) and participate in the auctions of your dApp.
 
 ::: info 💡 Tip
 
