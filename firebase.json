@@ -1,12 +1,6 @@
 {
   "hosting": {
-    "redirects": [
-      {
-        "source": "/dapis",
-        "destination": "/dapis/reference/understand/",
-        "type": 301
-      }
-    ],
+    "redirects": [],
     "public": "docs/.vitepress/dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
