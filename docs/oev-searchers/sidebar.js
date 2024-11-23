@@ -5,7 +5,7 @@ module.exports = [
     items: [
       {
         text: 'Overview',
-        link: '/oev-searchers',
+        link: '/oev-searchers/',
       },
     ],
   },
