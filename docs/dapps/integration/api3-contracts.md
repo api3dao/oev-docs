@@ -11,7 +11,7 @@ pageHeader: dApps → Integration
 
 1. `@api3/contracts/interfaces/IApi3ReaderProxy.sol` is imported by contracts that call Api3ReaderProxyV1 contracts using IApi3ReaderProxy.
 2. `@api3/contracts/mock/MockApi3ReaderProxy.sol` is used in tests.
-3. `computeApi3ReaderProxyV1Address()` is used to validate the Api3ReaderProxyV1 addresses.
+3. `computeCommunalApi3ReaderProxyV1Address()` and `computeDappSpecificApi3ReaderProxyV1Address()` are used to validate the respective types of Api3ReaderProxyV1 addresses.
 
 You can refer to [`data-feed-reader-example`](https://github.com/api3dao/data-feed-reader-example) for a demonstration of how each can be used.
 

@@ -18,8 +18,8 @@ You can drop in API3 data feeds in place of your current data feeds, and immedia
 
 ## How to get onboard
 
-1. Get assigned a [dApp ID.](/dapps/oev-rewards/dapp-id)
-2. [Deploy](/dapps/integration/contract-integration#deployment-parameters) Api3ReaderProxyV1 contracts with this dApp ID.
+1. Get assigned a [dApp alias.](/dapps/oev-rewards/dapp-alias)
+2. [Deploy](/dapps/integration/contract-integration#deployment) Api3ReaderProxyV1 contracts with this dApp alias.
 3. [Integrate](/dapps/integration/contract-integration) the Api3ReaderProxyV1 contracts that you have deployed.
 
 At the end of each month, we will send you a report and 80% of the auction proceeds in the native currency of the network that your dApp is deployed on, and keep the rest as the protocol fee.
