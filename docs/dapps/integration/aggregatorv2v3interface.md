@@ -12,7 +12,7 @@ All considerations in the [contract integration page](/dapps/integration/contrac
 
 ::: info ⚠️ Warning
 
-API3 data feeds are aggregated from asynchronous data feeds for maximal availability guarantees.
+API3 data feeds are aggregated from asynchronous data feeds for maximal availability guarantees, which means they are not updated in rounds.
 As a side effect, Api3ReaderProxyV1 does not implement the round-related functionality of AggregatorV2V3Interface.
 If your contract depends on these, it would not be appropriate to use Api3ReaderProxyV1 via AggregatorV2V3Interface.
 We would instead recommend you to use IApi3ReaderProxy with a custom adapter that fits your specific needs.
@@ -43,7 +43,7 @@ On the other hand, you should not interact with Api3ReaderProxyV1 through Aggreg
 
 DeFi protocols such as perpetual derivative exchanges are typically vulnerable to MEV searchers performing time arbitrage.
 The main reason Chainlink data feeds provide past round data is to address this issue, which comes with significant UX degradation by requiring some actions to take multiple transactions.
-Instead, you can simply read the latest data feed value from an API3 data feed, and get paid the value extracted through time arbitrage in the form of OEV Rewards.
+Instead, you can simply read the latest data feed value from an API3 data feed, and get paid the value extracted through time arbitrage in the form of [OEV Rewards.](/dapps/oev-rewards/)
 
 :::
 

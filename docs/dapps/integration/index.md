@@ -26,7 +26,7 @@ For example, if the deviation threshold is 1% and the on-chain value of the data
 
 Note that it is not possible to guarantee a maximum deviation amount, as there is no theoretical bound to how fast the off-chain value of a data feed can change.
 
-When we refer to a 1% deviation threshold, we mean that at the time of a deviation threshold-related update, the deviation amount will be larger than 1%.
+When we refer to a 1% deviation threshold, we mean that at the time of a deviation threshold-related update, the deviation amount will have exceeded 1%.
 
 :::
 

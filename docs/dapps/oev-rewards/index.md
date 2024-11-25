@@ -18,8 +18,8 @@ You can drop in API3 data feeds in place of your current data feeds, and immedia
 
 ## How to get onboard
 
-1. Get assigned a [dApp ID.](/dapps/oev-rewards/dapp-id)
-2. [Deploy](/dapps/integration/contract-integration#deployment-parameters) Api3ReaderProxyV1 contracts with this dApp ID.
+1. Get assigned a [dApp alias.](/dapps/oev-rewards/dapp-alias)
+2. [Deploy](/dapps/integration/contract-integration#deployment) Api3ReaderProxyV1 contracts with this dApp alias.
 3. [Integrate](/dapps/integration/contract-integration) the Api3ReaderProxyV1 contracts that you have deployed.
 
 At the end of each month, we will send you a report and 80% of the auction proceeds in the native currency of the network that your dApp is deployed on, and keep the rest as the protocol fee.
@@ -48,7 +48,7 @@ DEAL will not require any changes to your contract integration, including the Ap
 
 ::: info ⚠️ Warning
 
-[Mixed oracle design](/dapps/integration/contract-integration#mixed-oracle-design) is the main culprit for lackluster OEV Rewards.
+[Mixed oracle design](/dapps/integration/contract-integration#mixed-oracle-design) is the main culprit of lackluster OEV Rewards.
 If your contract integration is faulty, the suggestions below are unlikely to help.
 
 :::
@@ -60,7 +60,7 @@ Therefore, for a maximum amount of OEV Rewards, searching for your dApp must be 
 
 ::: info 💰 Financial
 
-In most cases, investing some resources into maximizing OEV Rewards upfront will yield the best financial outcome.
+In most cases, investing some resources into bootstrapping OEV searcher activity will yield the best financial outcome.
 
 :::
 
