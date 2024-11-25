@@ -105,7 +105,7 @@ It is extremely risky to validate the data feed value based on practical assumpt
 An example where doing so went wrong was Chainlink requiring their LUNA/USD data feed value to be at least `0.1`.
 Doing so caused them to misreport by an order or magnitude during the UST depeg, and caused a dApp to suffer more than $14MM in damages.
 
-We do not utilize such practical assumptions at our end, and recommend you to be very careful if you do.
+We do not utilize such heuristics at our end, and recommend you to be very careful if you do.
 
 :::
 
@@ -118,15 +118,15 @@ Its main role is to act as a nonce that prevents data feed updates from being re
 ::: info ⚠️ Warning
 
 `timestamp` is not the block timestamp at the time of the update.
-It is reported system (i.e., off-chain) time.
+It is the reported system (i.e., off-chain) time.
 A common mistake is using `require(timestamp <= block.timestamp)`.
 This should be avoided for two reasons:
 
 1. If `block.timestamp` lags compared to actual time, this will revert.
-   However, that is not a valid reason to avoid using the data feed, and will cause unnecessary downtime.
+   However, that is not a valid reason to avoid using the data feed, and will cause unnecessary downtime for your contract.
 2. Some L2 implementations use the timestamp of the latest block as `block.timestamp` (rather than the system time of the node) when a static call is made to the RPC endpoint.
    This means that this `require()` will revert during static calls even when `block.timestamp` does not actually lag.
-   This disables OEV searchers from using the intended workflow, and will reduce the amount of OEV Rewards you will receive as a result.
+   This disables OEV searchers from using the intended workflow, and will reduce the amount of OEV Rewards you will receive in practice.
 
 :::
 
@@ -135,12 +135,12 @@ However, unless your contract design specifically relies on the data feed value 
 
 ## Mixed oracle design
 
-Some dApps choose to mix oracle solutions, either by denying service if they are not in consensus, or by using one primarily and deferring to another in case of inconsistency.
+Some dApps choose to mix oracle solutions, either by refusing service if they are not in consensus, or by using one primarily and deferring to another in case of inconsistency.
 
 In such setups, API3 data feeds need to be treated differently due to OEV considerations.
 Specifically, the vast majority of OEV is extracted during times of volatility, and letting other oracle solutions interfere during such times may result in losing out on a significant amount of OEV revenue.
 In practice, this will play out as an OEV searcher bidding a significant amount for a detected OEV opportunity, only to realize after the auction ends that the dApp now defers to a non-API3 data feed and the OEV opportunity no longer exists.
-Such ambiguity will put off OEV searchers from your dApp, or cause them to bid much less to hedge the risk, reducing your OEV Rewards.
+Such ambiguity will put off OEV searchers from your dApp, or cause them to bid much less to hedge the risk, reducing your [OEV Rewards](/dapps/oev-rewards/).
 
 The golden standard is only using API3 data feeds, in which case OEV searchers will be able to bid on OEV opportunities with full confidence, knowing that they will be able to extract if they win the auction.
 If you must use API3 data feeds as your primary source with another solution as fallback, you should tolerate as much inconsistency as possible.
@@ -154,11 +154,12 @@ Based on our analysis, any less will hinder OEV extraction during times of high 
 
 Note that using API3 data feeds for only some asset prices still counts as a mixed design.
 Say a lending platform uses the ETH/USD API3 data feed, and the USDT/USD data feed of another oracle solution.
-A user takes out a USDT loan with ETH collateral.
-Even if an OEV searcher detects an opportunity that they want to bid on, they must consider that a rogue USDT/USD update may expose it to the public before they can claim it, which causes them to avoid bidding a large amount.
+A user takes out a USDT loan with ETH collateral, and the following price action renders the position liquidatable once the ETH/USD data feed is updated.
+Even if an OEV searcher detects the opportunity, they must consider that a rogue USDT/USD update by the other oracle solution may expose it to the public before they can claim it, which causes them to avoid bidding a fair amount.
 
 ::: info 💰 Financial
 
 It is up to you to maximize your OEV Rewards by integrating correctly.
+Not maximizing OEV Rewards causes loss of profits and thus is a security issue.
 
 :::

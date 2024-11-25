@@ -48,7 +48,7 @@ DEAL will not require any changes to your contract integration, including the Ap
 
 ::: info ⚠️ Warning
 
-[Mixed oracle design](/dapps/integration/contract-integration#mixed-oracle-design) is the main culprit for lackluster OEV Rewards.
+[Mixed oracle design](/dapps/integration/contract-integration#mixed-oracle-design) is the main culprit of lackluster OEV Rewards.
 If your contract integration is faulty, the suggestions below are unlikely to help.
 
 :::
@@ -60,7 +60,7 @@ Therefore, for a maximum amount of OEV Rewards, searching for your dApp must be 
 
 ::: info 💰 Financial
 
-In most cases, investing some resources into maximizing OEV Rewards upfront will yield the best financial outcome.
+In most cases, investing some resources into bootstrapping OEV searcher activity will yield the best financial outcome.
 
 :::
 

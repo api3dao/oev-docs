@@ -101,13 +101,13 @@ If not, make sure that your wallet is connected to the network that the data fee
   <center><img src="./images/proxy-address.png"></center>
 
 - Return to Remix IDE.
-  While the "Deploy & run transactions" tab is selected on the left sidebar, paste the Api3ReaderProxy address in the textbox next to the "Deploy" button, and click it.
+  While the "Deploy & run transactions" tab is selected on the left sidebar, paste the Api3ReaderProxyV1 address in the textbox next to the "Deploy" button, and click it.
 
   <img src="./images/remix-deploy.png">
 
 - After the transaction is confirmed, you can call the publicly accessible functions of DataFeedReaderExample.
   Expand "DATAFEEDREADEREXAMPLE AT ..." under "Deployed Contracts", and click "readDataFeed".
-  You will see the values that DataFeedReaderExample read from Api3ReaderProxy.
+  You will see the values that DataFeedReaderExample read from Api3ReaderProxyV1.
 
   <img src="./images/remix-read.png">
 

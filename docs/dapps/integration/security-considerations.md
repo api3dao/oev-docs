@@ -85,9 +85,10 @@ This is not true in two important ways:
   Most Pyth oracles are not API providers to begin with.
 - Even in the case that a Pyth oracle is an API provider, their data gets aggregated and served through Wormhole, which is a third party point of failure.
 
-In general, serving an oracle service through an intermediary blockchain or state channel renders it third party.
-Whether this blockchain or state channel is decentralized or not is not a factor in this.
-The main issue is that when a dApp uses Pyth data on Ethereum, their users will pay Ethereum gas fees while the dApp will not be more secure than Wormhole.
+In general, aggregating and/or serving an oracle service through an intermediary blockchain or state channel whose consensus model is not identical to the aggregation itself renders it third party.
+For example, if 7 API providers provide the data and 100+ node operators aggregate the data and make the aggregation available, the resulting architecture has two points of failure, which is typical of third-party oracle setups.
+Furthermore, the redundant point of failure can be expected to be much weaker than the forced one consisting of API providers.
+In practice, this means that when a dApp uses Pyth data on Ethereum, their users pay Ethereum gas fees while the dApp is not more secure than [Wormhole.](https://thedefiant.io/news/defi/wormhole-exploit-320m)
 
 :::
 
@@ -116,7 +117,7 @@ If `X1 < X2 + Y`, which is the case more often than not, using API3 feeds is the
 ::: info 💡 Tip
 
 An underrated perspective here is that the traditional oracle solutions that do not allow OEV capture are simply vulnerable.
-They caused their users to be exploited for hundreds of millions of dollars over the years without anyone realizing that this was avoidable.
+They caused their users to be exploited for [hundreds of millions of dollars](https://members.delphidigital.io/reports/api3-the-state-of-oev) over the years without anyone realizing that this was avoidable.
 Therefore, auditors should start flagging dApps that do not make use of an effective OEV capture mechanism, and the dApps that continue using the traditional solutions with the now-known vulnerability should have to justify their position.
 
 :::
