@@ -30,7 +30,7 @@ They will not receive auction proceeds even if there has been any.
 
 ## How to get assigned a dApp alias
 
-Fill in [this form](https://c3pu3z1tpiz.typeform.com/to/XfNSSjKE), specifying
+Fill in [this form](https://api3dao.typeform.com/to/FHhFIL41), specifying
 
 - The URL of your dApp,
 - The networks that your dApp is deployed on,
