@@ -33,3 +33,10 @@ This fact can often be exploited to extract funds from the users of the data fee
 Furthermore, instead of searching for such OEV opportunities themselves, oracles can auction off this privilege.
 API3 holds transparent and permissionless auctions for OEV opportunities on OEV Network, and [pays](/dapps/oev-rewards/) the auction proceeds to the respective dApps.
 OEV Rewards is effectively a new and sustainable revenue stream for dApps.
+
+::: info ⚠️ Disclaimer
+
+We refer you to the API3 [terms and conditions](https://api3.org/terms-and-conditions/), which apply to all services and software provided by API3 (including but not limited to data feeds, OEV Network, and any example OEV bots).
+Nothing in this documentation nor related materials should be interpreted as financial, business, nor professional advice.
+
+:::
