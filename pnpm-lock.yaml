@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       axios:
-        specifier: ^1.7.8
-        version: 1.7.8
+        specifier: ^1.7.9
+        version: 1.7.9
       colors:
         specifier: ^1.4.0
         version: 1.4.0
@@ -30,11 +30,11 @@ importers:
         specifier: ^2.0.4
         version: 2.0.4
       prettier:
-        specifier: ^3.4.1
-        version: 3.4.1
+        specifier: ^3.4.2
+        version: 3.4.2
       vitepress:
         specifier: 1.5.0
-        version: 1.5.0(@algolia/client-search@5.13.0)(@types/node@22.7.5)(axios@1.7.8)(postcss@8.4.49)(search-insights@2.16.2)
+        version: 1.5.0(@algolia/client-search@5.13.0)(@types/node@22.7.5)(axios@1.7.9)(postcss@8.4.49)(search-insights@2.16.2)
       walk-sync:
         specifier: ^3.0.0
         version: 3.0.0
@@ -533,8 +533,8 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  axios@1.7.8:
-    resolution: {integrity: sha512-Uu0wb7KNqK2t5K+YQyVCLM76prD5sRFjKHbJYCP1J7JFGEQ6nN7HWn9+04LAeiJ3ji54lgS/gZCH1oxyrf1SPw==}
+  axios@1.7.9:
+    resolution: {integrity: sha512-LhLcE7Hbiryz8oMDdDptSrWowmB4Bl6RCt6sIJKpRB4XtVf0iEgewX3au/pJqm+Py1kCASkb/FFKjxQaLtxJvw==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -747,8 +747,8 @@ packages:
   mitt@3.0.1:
     resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
 
-  nanoid@3.3.7:
-    resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
+  nanoid@3.3.8:
+    resolution: {integrity: sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -785,8 +785,8 @@ packages:
   preact@10.23.1:
     resolution: {integrity: sha512-O5UdRsNh4vdZaTieWe3XOgSpdMAmkIYBCT3VhQDlKrzyCm8lUYsk0fmVEvoQQifoOjFRTaHZO69ylrzTW2BH+A==}
 
-  prettier@3.4.1:
-    resolution: {integrity: sha512-G+YdqtITVZmOJje6QkXQWzl3fSfMxFwm1tjTyo9exhkmWSqC4Yhd1+lug++IlR2mvRVAxEDDWYkQdeSztajqgg==}
+  prettier@3.4.2:
+    resolution: {integrity: sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -1377,13 +1377,13 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/integrations@11.2.0(axios@1.7.8)(focus-trap@7.6.1)(vue@3.5.12)':
+  '@vueuse/integrations@11.2.0(axios@1.7.9)(focus-trap@7.6.1)(vue@3.5.12)':
     dependencies:
       '@vueuse/core': 11.2.0(vue@3.5.12)
       '@vueuse/shared': 11.2.0(vue@3.5.12)
       vue-demi: 0.14.10(vue@3.5.12)
     optionalDependencies:
-      axios: 1.7.8
+      axios: 1.7.9
       focus-trap: 7.6.1
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -1416,7 +1416,7 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  axios@1.7.8:
+  axios@1.7.9:
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
@@ -1679,7 +1679,7 @@ snapshots:
 
   mitt@3.0.1: {}
 
-  nanoid@3.3.7: {}
+  nanoid@3.3.8: {}
 
   nth-check@2.1.1:
     dependencies:
@@ -1713,13 +1713,13 @@ snapshots:
 
   postcss@8.4.49:
     dependencies:
-      nanoid: 3.3.7
+      nanoid: 3.3.8
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
   preact@10.23.1: {}
 
-  prettier@3.4.1: {}
+  prettier@3.4.2: {}
 
   property-information@6.5.0: {}
 
@@ -1836,7 +1836,7 @@ snapshots:
       '@types/node': 22.7.5
       fsevents: 2.3.3
 
-  vitepress@1.5.0(@algolia/client-search@5.13.0)(@types/node@22.7.5)(axios@1.7.8)(postcss@8.4.49)(search-insights@2.16.2):
+  vitepress@1.5.0(@algolia/client-search@5.13.0)(@types/node@22.7.5)(axios@1.7.9)(postcss@8.4.49)(search-insights@2.16.2):
     dependencies:
       '@docsearch/css': 3.7.0
       '@docsearch/js': 3.7.0(@algolia/client-search@5.13.0)(search-insights@2.16.2)
@@ -1849,7 +1849,7 @@ snapshots:
       '@vue/devtools-api': 7.6.4
       '@vue/shared': 3.5.12
       '@vueuse/core': 11.2.0(vue@3.5.12)
-      '@vueuse/integrations': 11.2.0(axios@1.7.8)(focus-trap@7.6.1)(vue@3.5.12)
+      '@vueuse/integrations': 11.2.0(axios@1.7.9)(focus-trap@7.6.1)(vue@3.5.12)
       focus-trap: 7.6.1
       mark.js: 8.11.1
       minisearch: 7.1.0
