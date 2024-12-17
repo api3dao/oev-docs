@@ -1,4 +1,4 @@
-name: Link Validator
+name: Lint and validate links
 
 on:
   pull_request:
@@ -25,6 +25,10 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install
+
+      - name: Lint
+        run: |
+          pnpm format:check
 
       - name: Build documentation
         run: |
