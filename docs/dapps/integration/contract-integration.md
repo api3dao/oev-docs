@@ -11,6 +11,13 @@ outline: deep
 This page provides important information on how to integrate API3 data feeds to a contract.
 Please read it in its entirety before attempting an integration.
 
+::: info ⚠️ Warning
+
+API3 does not authorize any member or affiliate to provide security advice.
+You are solely responsible for following the instructions on this page.
+
+:::
+
 ::: info 💡 Tip
 
 Your auditors may not be familiar with the best practices in the context of API3 data feeds.
