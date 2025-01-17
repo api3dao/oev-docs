@@ -11,10 +11,10 @@ outline: deep
 This page provides important information on how to integrate API3 data feeds to a contract.
 Please read it in its entirety before attempting an integration.
 
-::: info 💡 Tip
+::: info ⚠️ Warning
 
-Your auditors may not be familiar with the best practices in the context of API3 data feeds.
-It is a good idea to direct them to this page.
+API3 does not authorize any member or affiliate to provide security advice.
+You are solely responsible for following the instructions on this page.
 
 :::
 
@@ -25,47 +25,48 @@ For example, to read ETH/USD on Blast, one can simply call the `read()` function
 
 The Api3ReaderProxyV1 addresses displayed on API3 Market are communal—they do not belong to a specific dApp.
 Alternatively, an Api3ReaderProxyV1 can belong to a specific dApp, which is required for [OEV Rewards](/dapps/oev-rewards/) support.
+There is no other functional difference between the two.
 
-### Deployment
+### Printing dApp-specific Api3ReaderProxyV1 addresses
 
-Api3ReaderProxyV1 is designed to be deployed by calling the `deployApi3ReaderProxyV1()` function of Api3ReaderProxyV1Factory.
-Purchasing a plan for a data feed on API3 Market deploys a communal Api3ReaderProxyV1 for it automatically, whose address is displayed on the [integration page.](https://market.api3.org/blast/eth-usd/integrate)
-Alternatively, [`data-feed-reader-example`](https://github.com/api3dao/data-feed-reader-example) provides [instructions](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/README.md#deploying-proxy-contracts-programmatically) for how (communal and dApp-specific) Api3ReaderProxyV1 contracts can be deployed programmatically.
+API3 representatives will assign your [dApp alias](/dapps/oev-rewards/dapp-alias.md), deploy your dApp-specific Api3ReaderProxyV1 contracts, and give you a list of commands that will print their addresses.
+By running these commands yourself, you can ensure that you are using the correct addresses.
 
 ::: info 💡 Tip
 
-In short, if your dApp has a [dApp alias](/dapps/oev-rewards/dapp-alias) assigned, deploy your own Api3ReaderProxyV1 contracts by referring to the [instructions in `data-feed-reader-example`.](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/README.md#deploying-proxy-contracts-programmatically)
-Otherwise, use the communal Api3ReaderProxyV1 addresses displayed on the integration pages of the respective data feeds.
-
-With either option, we recommended you to validate the Api3ReaderProxyV1 addresses using [`@api3/contracts`.](/dapps/integration/api3-contracts.md)
+We try to verify our contracts on all block explorers with varying success due to their practical limitations.
+Since Api3ReaderProxyV1 is deployed deterministically, it not being verified on a block explorer is not a security concern.
 
 :::
 
-#### Parameters
+These commands should be in the following format, where the dApp alias, chain ID, and dAPI names match your case:
 
-Deploying Api3ReaderProxyV1 by calling Api3ReaderProxyV1Factory requires three parameters:
+```sh
+npx @api3/contracts@latest print-api3readerproxyv1-address \
+  --dapp-alias lendle \
+  --chain-id 5000 \
+  --dapi-name ETH/USD
+```
 
-- `dapiName` is the name of the data feed in `bytes32` string form.
-  For example, `dapiName` for the ETH/USD data feed is [`0x4554482f55534400000000000000000000000000000000000000000000000000`.](https://blastscan.io/address/0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473#readProxyContract#F4)
-  ::: info ℹ️ Info
+The command above prints:
 
-  The term dAPI can be traced back to the [API3 whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf), and refers to a DAO-governed data feed that is built out of first-party oracles.
-  For the purposes of this page, you can think of the terms dAPI and data feed to be interchangeable.
+```
+dApp alias: lendle
+chain: Mantle
+dAPI name: ETH/USD
+• Please confirm that https://market.api3.org/mantle/eth-usd points to an active feed.
+• Your proxy address is https://mantlescan.xyz/address/0x776E79D916e49BBDb8FEe0F43fF148C2Ed3bE125
+Please confirm that there is a contract deployed at this address before using it.
+```
 
-  :::
+Note that if an API3 representative has provided you with this command, you can expect the Market page to point to an active feed and the proxy to be already deployed.
+Do not proceed with the integration until you confirm these.
 
-- `dappId` is a `uint256` that API3 has assigned to a specific dApp on a specific chain.
-  It is similar to a chain ID in function.
-  In Solidity, it can be derived as
+::: info 💡 Tip
 
-  ```solidity
-  uint256(keccak256(abi.encodePacked(keccak256(abi.encodePacked(dappAliasAsString)), block.chainid)));
-  ```
+If you are using the API3 Market in a self-serve manner and want to use dApp-specific Api3ReaderProxyV1 contracts, see the [Api3ReaderProxyV1 deployment guide](/dapps/integration/api3readerproxyv1-deployment).
 
-  For the communal Api3ReaderProxyV1 deployments, `dappId` is [`1`.](https://blastscan.io/address/0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473#readProxyContract#F5)
-
-- While deploying an Api3ReaderProxyV1, a `bytes`-type `metadata` is specified, whose hash is used as the CREATE2 salt.
-  It should be left [empty](https://blastscan.io/tx/0x0e98bc849985df6d5489396d66b766019c547fedfe3c3fb881276d7fb76ef26e#eventlog#17), i.e., as `0x`.
+:::
 
 ### Reading the data feed
 
@@ -132,6 +133,13 @@ This should be avoided for two reasons:
 
 In general, the only acceptable use of `timestamp` is validating if the heartbeat interval is upheld, as in `require(timestamp + 24 hours > block.timestamp)`.
 However, unless your contract design specifically relies on the data feed value being at most a day old (which is unlikely), we do not necessarily recommend this either.
+
+::: info 💡 Tip
+
+Your auditors may not be familiar with the best practices in the context of API3 data feeds.
+It is a good idea to direct them to this page.
+
+:::
 
 ## Mixed oracle design
 
