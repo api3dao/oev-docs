@@ -13,17 +13,11 @@ You can see the current list of dApps with aliases [here.](https://github.com/ap
 
 ## Why do you need to be assigned a dApp alias?
 
-While reading API3 data feeds, dApps must use the [Api3ReaderProxyV1 contracts](/dapps/integration/contract-integration#api3readerproxyv1) deployed with their own dApp alias.
+While reading API3 data feeds, dApps must use the [Api3ReaderProxyV1 contracts](/dapps/integration/contract-integration#api3readerproxyv1) deployed with their own dApp alias to be eligible for OEV Rewards.
 
 ::: info ⚠️ Warning
 
-Only the dApps that use Api3ReaderProxyV1 contracts deployed with their own dApp aliases are eligible for OEV Rewards.
-dApps that use any
-
-- communal Api3ReaderProxyV1 contracts (whose addresses are displayed on API3 Market)
-- dApp-specific Api3ReaderProxyV1 contracts that are deployed with the alias of another dApp
-
-are not eligible for OEV Rewards.
+dApps that use any dApp-specific Api3ReaderProxyV1 contracts that are deployed with the alias of another dApp are not eligible for OEV Rewards.
 They will not receive auction proceeds even if there has been any.
 
 :::
