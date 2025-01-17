@@ -13,7 +13,7 @@ You can see the current list of dApps with aliases [here.](https://github.com/ap
 
 ## Why do you need to be assigned a dApp alias?
 
-While reading API3 data feeds, dApps must use the Api3ReaderProxyV1 contracts [deployed](/dapps/integration/api3readerproxyv1-deployment) with their own dApp alias.
+While reading API3 data feeds, dApps must use the [Api3ReaderProxyV1 contracts](/dapps/integration/contract-integration#api3readerproxyv1) deployed with their own dApp alias.
 
 ::: info ⚠️ Warning
 

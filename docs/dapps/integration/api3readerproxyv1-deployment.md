@@ -8,6 +8,12 @@ outline: deep
 
 # Api3ReaderProxyV1 deployment
 
+::: info 💡 Tip
+
+If API3 representatives have provided you with [commands to print Api3ReaderProxyV1 addresses](/dapps/integration/contract-integration#printing-dapp-specific-api3readerproxyv1-addresses), your proxies should already be deployed and you do not need to follow this page.
+
+:::
+
 Api3ReaderProxyV1 is designed to be deployed by calling the `deployApi3ReaderProxyV1()` function of Api3ReaderProxyV1Factory.
 Purchasing a plan for a data feed on API3 Market deploys a communal Api3ReaderProxyV1 for it automatically, whose address is displayed on the [integration page.](https://market.api3.org/blast/eth-usd/integrate)
 Alternatively, [`data-feed-reader-example`](https://github.com/api3dao/data-feed-reader-example) provides [instructions](https://github.com/api3dao/data-feed-reader-example/blob/main/scripts/README.md#deploying-proxy-contracts-programmatically) for how (communal and dApp-specific) Api3ReaderProxyV1 contracts can be deployed programmatically.
