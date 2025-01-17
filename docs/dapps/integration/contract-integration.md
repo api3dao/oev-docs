@@ -18,13 +18,6 @@ You are solely responsible for following the instructions on this page.
 
 :::
 
-::: info 💡 Tip
-
-Your auditors may not be familiar with the best practices in the context of API3 data feeds.
-It is a good idea to direct them to this page.
-
-:::
-
 ## Api3ReaderProxyV1
 
 Api3ReaderProxyV1 is a contract that is used to read a specific API3 data feed.
@@ -139,6 +132,13 @@ This should be avoided for two reasons:
 
 In general, the only acceptable use of `timestamp` is validating if the heartbeat interval is upheld, as in `require(timestamp + 24 hours > block.timestamp)`.
 However, unless your contract design specifically relies on the data feed value being at most a day old (which is unlikely), we do not necessarily recommend this either.
+
+::: info 💡 Tip
+
+Your auditors may not be familiar with the best practices in the context of API3 data feeds.
+It is a good idea to direct them to this page.
+
+:::
 
 ## Mixed oracle design
 
