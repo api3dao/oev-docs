@@ -25,6 +25,18 @@ export default {
   },
 
   enhanceApp({ app }) {
+    if (typeof window !== 'undefined') {
+      const script = document.createElement('script');
+      script.src = "https://dashboard.letmeexplain.ai/embed/lme_chatbot_widget.js";
+      script.async = true;
+      document.body.appendChild(script);
+
+      script.onload = () => {
+        window.loadCustomWidget({
+          orgId: "5f12b6b7-97b7-4e",
+        });
+      };
+    }
     app.component('PageHeader', PageHeader);
     app.component('CopyIcon', CopyIcon);
     app.component('Video', Video);
