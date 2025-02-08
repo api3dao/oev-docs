@@ -154,3 +154,10 @@ Once the transaction goes through, the Api3ReaderProxyV1 address you should use 
 Note that this address is different than the one displayed when "Skip OEV Rewards" is selected.
 
 <center><img src="./images/earn-oev-rewards.png"></center>
+
+::: info 💡 Tip
+
+You cannot find you dApp?
+You need to follow the OEV Rewards [onboarding flow](../oev-rewards/index.md#how-to-get-onboard) first.
+
+:::
