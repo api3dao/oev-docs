@@ -36,18 +36,6 @@ There is none; OEV Rewards are at the expense of the third parties that otherwis
 
 :::
 
-### DEAL
-
-The onboarding workflow described above is temporary.
-API3 is developing a protocol, DEAL, to determine the OEV Rewards beneficiary in a self-serve manner.
-DEAL will provide transparent proof that you are the rightful beneficiary of your dApp's OEV Rewards.
-
-::: info 💡 Tip
-
-DEAL will not require any changes to your contract integration, including the Api3ReaderProxyV1 addresses.
-
-:::
-
 ## Best practices to maximize OEV Rewards
 
 ::: info ⚠️ Warning
