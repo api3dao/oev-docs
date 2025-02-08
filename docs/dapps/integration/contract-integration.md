@@ -21,7 +21,7 @@ You are solely responsible for following the instructions on this page.
 ## Api3ReaderProxyV1
 
 Api3ReaderProxyV1 is a contract that is used to read a specific API3 data feed.
-For example, to read ETH/USD on Blast, one can simply call the `read()` function of the respective [Api3ReaderProxyV1.](https://blastscan.io/address/0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473#readProxyContract#F17)
+For example, to read ETH/USD on Blast, one can simply call the [`read()` function](https://blastscan.io/address/0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473#readProxyContract#F17) of a respective Api3ReaderProxyV1.
 
 The Api3ReaderProxyV1 addresses displayed on API3 Market are communal—they do not belong to a specific dApp.
 Alternatively, an Api3ReaderProxyV1 can belong to a specific dApp, which is required for [OEV Rewards](/dapps/oev-rewards/) support.
