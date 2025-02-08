@@ -19,17 +19,14 @@ You can drop in API3 data feeds in place of your current data feeds, and immedia
 
 ## How to get onboard
 
-1. Get assigned a [dApp alias.](/dapps/oev-rewards/dapp-alias)
-2. Deploy Api3ReaderProxyV1 contracts with this dApp alias.
-3. [Integrate](/dapps/integration/contract-integration) the Api3ReaderProxyV1 contracts that you have deployed.
+Use [this form](https://api3dao.typeform.com/to/FHhFIL41) to get in contact with an API3 representative who will walk you through the following steps:
 
-::: info 💡 Tip
+1. We register your dApp for it to show up on the API3 Market [integration page.](../integration/index.md#integration-information)
+2. You let us know which chains you operate on and which data feeds you want to use.
+3. We purchase subscriptions for you if applicable and deploy an OEV Rewards-enabled Api3ReaderProxyV1 contract for each data feed you will use.
+4. You integrate these Api3ReaderProxyV1 contracts according to [the instructions.](/dapps/integration/contract-integration)
 
-You can use [this form](https://api3dao.typeform.com/to/FHhFIL41) to get in contact with an API3 representative who can handle the first two steps for you.
-
-:::
-
-At the end of each month, API3 will make available a report and 80% of the auction proceeds in the native gas token of the network on which your dApp is deployed, with the remainder of the auction proceeds retained as the OEV Network protocol fee.
+At the end of each month, API3 will make available a report and 80% of the OEV revenue in the native gas token of the network on which your dApp is deployed, with the remainder of the auction proceeds retained as the protocol fee.
 
 ::: info 💰 Financial
 
