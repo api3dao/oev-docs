@@ -61,12 +61,6 @@ Please confirm that there is a contract deployed at this address before using it
 Note that if an API3 representative has provided you with this command, you can expect the Market page to point to an active feed and the proxy to be already deployed.
 Do not proceed with the integration until you confirm these.
 
-::: info 💡 Tip
-
-If you are using the API3 Market in a self-serve manner and want to use dApp-specific Api3ReaderProxyV1 contracts, see the [Api3ReaderProxyV1 deployment guide](/dapps/integration/api3readerproxyv1-deployment).
-
-:::
-
 ### Reading the data feed
 
 Api3ReaderProxyV1 implements IApi3ReaderProxy, which you can import from [`@api3/contracts`](/dapps/integration/api3-contracts.md) to use in your contract.
