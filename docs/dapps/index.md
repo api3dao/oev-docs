@@ -18,7 +18,7 @@ API3 provides data feeds and pays dApps for using them.
 Liquidity is increasingly shifting to newly launched L2 networks, and dApps that are able to branch out to these faster are at a significant competitive advantage.
 For dApps that utilize data feeds, this is only possible with a data feed provider that has recognized this fact and designed their solutions accordingly.
 
-Our answer to this is [API3 Market](https://market.api3.org/), a B2B SaaS marketplace that serves data feeds.
+Our answer to this is [API3 Market.](https://market.api3.org/)
 Without speaking to a representative or signing a contract, it enables a dApp developer to purchase a plan for the data feed they need, and integrate it within minutes.
 Furthermore, the whole system is designed to streamline the addition of support for new networks and data feed types, resulting in a large and dynamic catalog.
 
