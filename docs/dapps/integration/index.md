@@ -140,3 +140,17 @@ In some cases, the discount allows you to get the plan for free.
 ### Gas grants
 
 You can ask for a gas grant for your dApp by filling in [this form,](https://api3dao.typeform.com/to/TBTu8bJt) where you can request us to purchase plans for you.
+
+## Integration information
+
+Clicking "Integrate" on a data feed page will display the information needed for a [contract integration.](./contract-integration.md)
+By default, you will see that "Skip OEV Rewards" is selected, and an Api3ReaderProxyV1 address being displayed.
+If you wish to forgo OEV Rewards, you can simply use this address in your integration.
+
+<center><img src="./images/skip-oev-rewards.png"></center>
+
+Alternatively, you can select the "Earn OEV Rewards" option, provide the name of your dApp and (if the proxy has not been deployed earlier) click the "Deploy Proxy" button to send a transaction.
+Once the transaction goes through, the Api3ReaderProxyV1 address you should use in your integration will be displayed.
+Note that this address is different than the one displayed when "Skip OEV Rewards" is selected.
+
+<center><img src="./images/earn-oev-rewards.png"></center>
