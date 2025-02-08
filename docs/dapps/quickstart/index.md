@@ -96,7 +96,8 @@ If not, make sure that your wallet is connected to the network that the data fee
 
   <img src="./images/integrate.png">
 
-- Click the copy icon next to the displayed communal Api3ReaderProxyV1 address.
+- Click the copy icon next to the displayed Api3ReaderProxyV1 address.
+Note that [OEV Rewards](/dapps/oev-rewards/) are not supported on testnets.
 
   <center><img src="./images/proxy-address.png"></center>
 
