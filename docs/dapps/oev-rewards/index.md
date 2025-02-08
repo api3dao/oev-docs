@@ -20,7 +20,7 @@ You can drop in API3 data feeds in place of your current data feeds, and immedia
 ## How to get onboard
 
 1. Get assigned a [dApp alias.](/dapps/oev-rewards/dapp-alias)
-2. [Deploy](/dapps/integration/api3readerproxyv1-deployment) Api3ReaderProxyV1 contracts with this dApp alias.
+2. Deploy Api3ReaderProxyV1 contracts with this dApp alias.
 3. [Integrate](/dapps/integration/contract-integration) the Api3ReaderProxyV1 contracts that you have deployed.
 
 ::: info 💡 Tip
