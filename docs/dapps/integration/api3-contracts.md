@@ -15,6 +15,8 @@ pageHeader: dApps → Integration
 
 You can refer to [`data-feed-reader-example`](https://github.com/api3dao/data-feed-reader-example) for a demonstration of how each can be used.
 
+In addition, `@api3/contracts` implements a CLI command for printing OEV Rewards-enabled (i.e., dApp-specific) Api3ReaderProxyV1 addresses, as described [here.](./contract-integration.md#printing-api3readerproxyv1-addresses)
+
 ::: info ℹ️ Info
 
 Note that we do not export [AggregatorV2V3Interface](/dapps/integration/aggregatorv2v3interface.md), as contracts that are built to use it are expected to have imported it.
