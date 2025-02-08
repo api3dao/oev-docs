@@ -26,6 +26,12 @@ For example, to read ETH/USD on Blast, one can simply call the [`read()` functio
 You can use the API3 Market to see the Api3ReaderProxyV1 address you should use for a specific data feed as described [here.](./index.md#integration-information)
 To summarize, you should use the Api3ReaderProxyV1 address that appears after you select "Earn OEV Rewards" and enter the name of your dApp.
 
+::: info ⚠️ Warning
+
+To be eligible for OEV Rewards, you are required to use the Api3ReaderProxyV1 contracts belonging to your dApp.
+
+:::
+
 ### Printing Api3ReaderProxyV1 addresses
 
 For your convenience, API3 representatives may deploy OEV Rewards-enabled Api3ReaderProxyV1 contracts on your behalf, and give you a list of commands that will print their addresses.
@@ -38,7 +44,7 @@ Since Api3ReaderProxyV1 is deployed deterministically, it not being verified on 
 
 :::
 
-These commands should be in the following format, where the dApp alias, chain ID, and dAPI names match your case:
+These commands should be in the following format, where the dApp alias (assigned to you by API3 during [registration](../oev-rewards/index.md#how-to-get-onboard)), chain ID, and dAPI names match your case:
 
 ```sh
 npx @api3/contracts@latest print-api3readerproxyv1-address \
