@@ -149,15 +149,15 @@ If you wish to forgo OEV Rewards, you can simply use this address in your integr
 
 <center><img src="./images/skip-oev-rewards.png"></center>
 
-Alternatively, you can select the "Earn OEV Rewards" option, provide the name of your dApp and (if the proxy has not been deployed earlier) click the "Deploy Proxy" button to send a transaction.
+Alternatively, you can select the "Earn OEV Rewards" option, provide the name of your dApp, and (if the proxy has not been deployed earlier) click the "Deploy Proxy" button to send a transaction.
 Once the transaction goes through, the Api3ReaderProxyV1 address you should use in your integration will be displayed.
-Note that this address is different than the one displayed when "Skip OEV Rewards" is selected.
+Note that this address is different from the one displayed when "Skip OEV Rewards" is selected.
 
 <center><img src="./images/earn-oev-rewards.png"></center>
 
 ::: info 💡 Tip
 
-You can't find your dApp?
-You need to follow the OEV Rewards [onboarding flow](../oev-rewards/index.md#how-to-get-onboard) first.
+Can't find your dApp?
+Follow the OEV Rewards [onboarding flow](../oev-rewards/index.md#how-to-get-onboard) first.
 
 :::
