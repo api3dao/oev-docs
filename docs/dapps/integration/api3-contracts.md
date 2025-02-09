@@ -11,8 +11,8 @@ pageHeader: dApps → Integration
 
 1. `@api3/contracts/interfaces/IApi3ReaderProxy.sol` is imported by contracts that call Api3ReaderProxyV1 contracts through IApi3ReaderProxy.
 2. `@api3/contracts/mock/MockApi3ReaderProxy.sol` is used in tests.
-3. - `computeCommunalApi3ReaderProxyV1Address()` is used to validate adresses shown by API3 Market when ["Skip OEV Rewards"](./index.md#integration-information) is selected.
-   - `computeDappSpecificApi3ReaderProxyV1Address()` is used to validate adresses shown by API3 Market when ["Earn OEV Rewards"](./index.md#integration-information) is selected.
+3. - `computeCommunalApi3ReaderProxyV1Address()` is used to validate adresses shown by API3 Market when ["Skip OEV Rewards"](/dapps/integration/index.md#integration-information) is selected.
+   - `computeDappSpecificApi3ReaderProxyV1Address()` is used to validate adresses shown by API3 Market when ["Earn OEV Rewards"](/dapps/integration/index.md#integration-information) is selected.
 
 For detailed examples of how to use these features, see the [`data-feed-reader-example` repository.](https://github.com/api3dao/data-feed-reader-example)
 

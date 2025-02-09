@@ -143,7 +143,7 @@ You can request a gas grant for your dApp by filling out [this form,](https://ap
 
 ## Integration information
 
-Clicking "Integrate" on a data feed page will display the information needed for a [contract integration.](./contract-integration.md)
+Clicking "Integrate" on a data feed page will display the information needed for a [contract integration.](/dapps/integration/contract-integration.md)
 By default, you will see that "Skip OEV Rewards" is selected and an Api3ReaderProxyV1 address is displayed.
 If you wish to forgo OEV Rewards, you can simply use this address in your integration.
 
