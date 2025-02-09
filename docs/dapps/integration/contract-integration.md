@@ -23,7 +23,7 @@ You are solely responsible for following the instructions on this page.
 Api3ReaderProxyV1 is a contract that is used to read a specific API3 data feed.
 For example, to read ETH/USD on Blast, one can simply call the [`read()` function](https://blastscan.io/address/0x5b0cf2b36a65a6BB085D501B971e4c102B9Cd473#readProxyContract#F17) of a respective Api3ReaderProxyV1.
 
-You can use API3 Market to see the Api3ReaderProxyV1 address you should use for a specific data feed, as described [here.](./index.md#integration-information)
+You can use API3 Market to see the Api3ReaderProxyV1 address you should use for a specific data feed, as described [here.](/dapps/integration/index.md#integration-information)
 To summarize, you should use the Api3ReaderProxyV1 address that appears after selecting "Earn OEV Rewards" and entering the name of your dApp.
 
 ::: info ⚠️ Warning
@@ -44,7 +44,7 @@ Since Api3ReaderProxyV1 is deployed deterministically, the lack of verification 
 
 :::
 
-These commands should be in the following format, where the dApp alias (assigned to you by API3 during [registration](../oev-rewards/index.md#how-to-get-onboard)), chain ID, and dAPI names match your specific case:
+These commands should be in the following format, where the dApp alias (assigned to you by API3 during [registration](/dapps/oev-rewards/index.md#how-to-get-onboard)), chain ID, and dAPI names match your specific case:
 
 ```sh
 npx @api3/contracts@latest print-api3readerproxyv1-address \

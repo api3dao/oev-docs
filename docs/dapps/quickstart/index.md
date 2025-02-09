@@ -98,7 +98,7 @@ If not, ensure your wallet is connected to the network where the data feed exist
 
 - Click the copy icon next to the displayed Api3ReaderProxyV1 address.
 Please note that [OEV Rewards](/dapps/oev-rewards/) is disabled on testnets.
-For information about using this selection on mainnets, refer to [this section.](../integration/index.md#integration-information)
+For information about using this selection on mainnets, refer to [this section.](/dapps/integration/index.md#integration-information)
 
   <center><img src="./images/proxy-address.png"></center>
 

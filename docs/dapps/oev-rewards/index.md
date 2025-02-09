@@ -21,7 +21,7 @@ You can drop in API3 data feeds to replace your current data feeds and immediate
 
 Use [this form](https://api3dao.typeform.com/to/FHhFIL41) to contact an API3 representative who will walk you through the following steps:
 
-1. We register your dApp so it appears on the API3 Market [integration page.](../integration/index.md#integration-information)
+1. We register your dApp so it appears on the API3 Market [integration page.](/dapps/integration/index.md#integration-information)
 2. You let us know which chains you operate on and which data feeds you want to use.
 3. We purchase subscriptions for you (if applicable) and deploy an OEV Rewards-enabled Api3ReaderProxyV1 contract for each data feed you will use.
 4. You integrate these Api3ReaderProxyV1 contracts according to the [instructions.](/dapps/integration/contract-integration)
