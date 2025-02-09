@@ -17,10 +17,6 @@ module.exports = [
         link: '/dapps/integration/contract-integration',
       },
       {
-        text: 'Api3ReaderProxyV1 deployment',
-        link: '/dapps/integration/api3readerproxyv1-deployment',
-      },
-      {
         text: 'AggregatorV2V3Interface',
         link: '/dapps/integration/aggregatorv2v3interface',
       },
@@ -41,9 +37,6 @@ module.exports = [
   {
     text: 'OEV Rewards',
     collapsed: false,
-    items: [
-      { text: 'Getting paid', link: '/dapps/oev-rewards/' },
-      { text: 'dApp alias', link: '/dapps/oev-rewards/dapp-alias' },
-    ],
+    items: [{ text: 'Getting paid', link: '/dapps/oev-rewards/' }],
   },
 ];

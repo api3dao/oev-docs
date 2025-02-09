@@ -7,44 +7,44 @@ pageHeader: dApps → Integration
 
 # AggregatorV2V3Interface
 
-AggregatorV2V3Interface is intended to be used by contracts that were originally built to use Chainlink data feeds.
-All considerations in the [contract integration page](/dapps/integration/contract-integration.md) still apply.
+AggregatorV2V3Interface is intended for use by contracts that were originally built to use Chainlink data feeds.
+All considerations from the [contract integration page](/dapps/integration/contract-integration.md) still apply.
 
 ::: info ⚠️ Warning
 
-API3 data feeds are aggregated from asynchronous data feeds for maximal availability guarantees, which means they are not updated in rounds.
+API3 data feeds are aggregated from asynchronous data feeds to provide maximal availability guarantees, which means they are not updated in rounds.
 As a side effect, Api3ReaderProxyV1 does not implement the round-related functionality of AggregatorV2V3Interface.
-If your contract depends on these, it would not be appropriate to use Api3ReaderProxyV1 via AggregatorV2V3Interface.
-We would instead recommend you to use IApi3ReaderProxy with a custom adapter that fits your specific needs.
+If your contract depends on round-related functionality, it would not be appropriate to use Api3ReaderProxyV1 via AggregatorV2V3Interface.
+Instead, we recommend using IApi3ReaderProxy with a custom adapter that fits your specific needs.
 
 :::
 
-You can interact with Api3ReaderProxyV1 through AggregatorV2V3Interface if all of the below apply:
+You can interact with Api3ReaderProxyV1 through AggregatorV2V3Interface if all of the following conditions apply:
 
-- Your contract mainly depends on the current data feed value (`latestAnswer()` of AggregatorInterface or `answer` returned by `latestRoundData()` of AggregatorV3Interface).
-- If your contract uses the current data feed timestamp (`latestTimestamp()` of AggregatorInterface or `updatedAt` returned by `latestRoundData()` of AggregatorV3Interface), and it is only for a staleness check, e.g., to check if the feed has been updated in the last heartbeat interval.
-- If any other values are used, they do not affect the logic of your contract or the off-chain infrastructure of your dApp.
-  For example, your contract only emits `roundId` in an event, and strictly for logging purposes.
-- The off-chain infrastructure of your dApp does not depend on the events defined in AggregatorInterface.
+- Your contract primarily relies on the current data feed value (`latestAnswer()` of AggregatorInterface or `answer` returned by `latestRoundData()` of AggregatorV3Interface).
+- If your contract uses the current data feed timestamp (`latestTimestamp()` of AggregatorInterface or `updatedAt` returned by `latestRoundData()` of AggregatorV3Interface), it must be used only for staleness checks (e.g., to verify if the feed has been updated within the last heartbeat interval).
+- Any other values used must not affect your contract's logic or your dApp's off-chain infrastructure.
+  For example, your contract may emit `roundId` in an event strictly for logging purposes.
+- Your dApp's off-chain infrastructure does not depend on events defined in AggregatorInterface.
 
 ::: info 💡 Tip
 
-Lending protocols typically satisfy the above.
+Lending protocols typically satisfy these conditions.
 
 :::
 
-On the other hand, you should not interact with Api3ReaderProxyV1 through AggregatorV2V3Interface if any of the below applies:
+On the other hand, you should not interact with Api3ReaderProxyV1 through AggregatorV2V3Interface if any of the following conditions applies:
 
 - Your contract depends on Chainlink feed implementation details, such as the round ID increasing with every update.
-- Your contract depends on being able to query past updates using `getAnswer()` or `getTimestamp()` of AggregatorInterface, or `getRoundData()` of AggregatorV3Interface.
-- The off-chain infrastructure of your dApp depends on the events defined in AggregatorInterface.
+- Your contract depends on querying past updates using `getAnswer()` or `getTimestamp()` of AggregatorInterface, or `getRoundData()` of AggregatorV3Interface.
+- Your dApp's off-chain infrastructure depends on events defined in AggregatorInterface.
 
 ::: info 💡 Tip
 
 DeFi protocols such as perpetual derivative exchanges are typically vulnerable to MEV searchers performing time arbitrage.
-The main reason Chainlink data feeds provide past round data is to address this issue, which comes with significant UX degradation by requiring some actions to take multiple transactions.
-Instead, you can simply read the latest data feed value from an API3 data feed, and get paid the value extracted through time arbitrage in the form of [OEV Rewards.](/dapps/oev-rewards/)
+Chainlink data feeds provide past round data primarily to address this issue, but this solution significantly degrades UX by requiring multiple transactions for certain actions.
+Instead, you can simply read the latest data feed value from an API3 data feed and receive compensation for time arbitrage value extraction through [OEV Rewards.](/dapps/oev-rewards/)
 
 :::
 
-If you have any doubts about interacting with your Api3ReaderProxyV1 over AggregatorV2V3Interface, you can refer to the [Api3ReaderProxyV1 implementation](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/proxies/Api3ReaderProxyV1.sol) to see how exactly the respective functions will behave.
+If you have any doubts about interacting with Api3ReaderProxyV1 through AggregatorV2V3Interface, you can refer to the [Api3ReaderProxyV1 implementation](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/proxies/Api3ReaderProxyV1.sol) to see exactly how these functions behave.
