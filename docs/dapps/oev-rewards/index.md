@@ -19,12 +19,19 @@ If you want to maximize your OEV Rewards, make sure to check out our [guide for 
 
 ## How to get onboard
 
-Use [this form](https://api3dao.typeform.com/to/FHhFIL41) to contact an API3 representative who will walk you through the following steps:
+Use [this form](https://api3dao.typeform.com/to/FHhFIL41) to get in contact with an API3 representative who will walk you through the following steps:
 
-1. We register your dApp so it appears on the API3 Market [integration page.](/dapps/integration/index.md#integration-information)
-2. You let us know which chains you operate on and which data feeds you want to use.
-3. We purchase subscriptions for you (if applicable) and deploy an OEV Rewards-enabled Api3ReaderProxyV1 contract for each data feed you will use.
-4. You integrate these Api3ReaderProxyV1 contracts according to the [instructions.](/dapps/integration/contract-integration)
+1. We register your dApp for it to show up on the API3 Market [integration page.](/dapps/integration/index.md#integration-information)
+2. You let us know which chains you operate on so we can start running the respective auctions.
+   ::: info 💡 Tip
+   Don't forget to notify us if you expand to new chains later on.
+   :::
+3. You let us know which data feeds you will use.
+   If a gas grant is applicable, we purchase subscriptions for you and deploy an OEV Rewards-enabled Api3ReaderProxyV1 contract for each data feed.
+   ::: info 💡 Tip
+   Alternatively, you can complete this step on your own using [API3 Market.](https://market.api3.org/)
+   :::
+4. You [integrate](/dapps/integration/contract-integration) the OEV Rewards-enabled Api3ReaderProxyV1 contracts.
 
 At the end of each month, API3 will make available a report and 80% of the OEV revenue in the native gas token of the network where your dApp is deployed, with the remaining auction proceeds retained as the protocol fee.
 
