@@ -158,6 +158,6 @@ Note that this address is different from the one displayed when "Skip OEV Reward
 ::: info 💡 Tip
 
 Can't find your dApp?
-Follow the OEV Rewards [onboarding flow](/dapps/oev-rewards/index.md#how-to-get-onboard) first.
+Follow the OEV Rewards [onboarding steps](/dapps/oev-rewards/index.md#how-to-get-onboard) first.
 
 :::
