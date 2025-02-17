@@ -596,3 +596,36 @@
   --vp-local-search-highlight-bg: var(--vp-c-brand-1);
   --vp-local-search-highlight-text: var(--vp-c-neutral-inverse);
 }
+
+
+.VPHome .image-src {
+  width: 100%;
+  max-width: 400px;
+  
+}
+
+@media (min-width: 960px) {
+  .VPHome .image-src {
+    max-width: 272px;
+    margin-left: 64px;
+  }
+
+  .VPHero.has-image .main {
+    max-width: 352px !important;
+    margin-left: 128px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .VPHome .image-src {
+    max-width: 656px;
+    max-height: 596px;
+    margin-top: 128px;
+  }
+
+  .VPHero.has-image .main {
+    max-width: 613px !important;
+    margin-left: 0;
+    margin-top: 128px;
+  }
+}
