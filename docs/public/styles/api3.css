@@ -601,7 +601,10 @@
 .VPHome .image-src {
   width: 100%;
   max-width: 400px;
-  
+}
+
+html.dark .vp-code span[style*="--shiki-dark:#6A737D"] {
+  --shiki-dark: #757E8A !important; /* Override dark theme color for comments */
 }
 
 @media (min-width: 960px) {

@@ -80,7 +80,7 @@ export default {
     ],
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-present API3',
+      copyright: 'Copyright © 2019-present API3 Foundation',
     },
     sidebar: {
       '/dapps/': require('../dapps/sidebar.js'),
