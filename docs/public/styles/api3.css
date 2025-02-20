@@ -1,18 +1,3 @@
-:root {
-  --vp-home-hero-name-color: rgb(66, 184, 131);
-
-  --vp-code-color: #36454f;
-
-  --vp-c-brand-1: var(--vp-c-green-1);
-  --vp-c-brand-2: var(--vp-c-green-2);
-  --vp-c-brand-3: var(--vp-c-green-3);
-  --vp-c-brand-soft: var(--vp-c-green-soft);
-}
-
-:root.dark {
-  --vp-code-color: whitesmoke;
-  --vp-code-bg: #36454f;
-}
 
 /**
  * Colors: Solid
@@ -97,7 +82,7 @@
   --vp-c-gray-1: #636f86;
   --vp-c-gray-2: #455065;
   --vp-c-gray-3: #313d52;
-  --vp-c-gray-soft: rgba(10, 16, 82, 0.1);
+  --vp-c-gray-soft: rgba(142, 155, 178, .16);
 
   --vp-c-indigo-1: #7ea6ff;
   --vp-c-indigo-2: #3e7aff;
