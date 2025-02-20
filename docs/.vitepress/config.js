@@ -67,8 +67,8 @@ export default {
     },
     externalLinkIcon: true,
     logo: {
-      light: '/img/API3-Active.png',
-      dark: '/img/api3-inactive.png',
+      light: '/img/api3-logo-light-theme.svg',
+      dark: '/img/api3-logo-dark-theme.svg',
     },
     siteTitle: 'Documentation',
     socialLinks: [
