@@ -2,12 +2,13 @@
 layout: home
 
 hero:
-  name: API3
+  name: Api3
   text: Oracles that pay you
   tagline: Receive OEV Rewards for your DeFi project
   image:
-    src: /img/data-feeds-simple-to-integrate.svg
-    alt: API3
+    light: /img/data-feeds-simple-to-integrate-light.svg
+    dark: /img/data-feeds-simple-to-integrate-dark.svg
+    alt: Api3
   actions:
     - theme: brand
       text: For dApps

@@ -8,7 +8,7 @@ outline: deep
 
 # OEV Network
 
-![OEV Network image](./oev-network.png)
+![OEV Network image](./oev-network.svg)
 
 The OEV Network operates as a standard Arbitrum Nitro L2 optimistic-rollup. The
 system ensures transparency and allows verification of the auction process. In
