@@ -10,7 +10,7 @@ pageHeader: dApps → Integration
 A data feed is an on-chain service that is driven by off-chain components.
 Therefore, as long as you continue to use it, there will be ongoing security considerations that you should be aware of.
 
-::: info 💡 Tip
+::: info ℹ️ Info
 
 API3 data feeds have never misreported or experienced an outage.
 This page merely discusses theoretical scenarios that apply to any data feed.
