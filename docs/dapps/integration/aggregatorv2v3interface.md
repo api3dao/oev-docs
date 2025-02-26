@@ -22,8 +22,8 @@ Instead, we recommend using IApi3ReaderProxy with a custom adapter that fits you
 You can interact with Api3ReaderProxyV1 through AggregatorV2V3Interface if all of the following conditions apply:
 
 - Your contract primarily relies on the current data feed value (`latestAnswer()` of AggregatorInterface or `answer` returned by `latestRoundData()` of AggregatorV3Interface).
-- If your contract uses the current data feed timestamp (`latestTimestamp()` of AggregatorInterface or `updatedAt` returned by `latestRoundData()` of AggregatorV3Interface), it must be used only for staleness checks (e.g., to verify if the feed has been updated within the last heartbeat interval).
-- Any other values used must not affect your contract's logic or your dApp's off-chain infrastructure.
+- If your contract uses the current data feed timestamp (`latestTimestamp()` of AggregatorInterface or `updatedAt` returned by `latestRoundData()` of AggregatorV3Interface), it uses it only for a staleness check (e.g., to verify if the feed has been updated within the last heartbeat interval).
+- Any other values used do not affect your contract's logic or your dApp's off-chain infrastructure.
   For example, your contract may emit `roundId` in an event strictly for logging purposes.
 - Your dApp's off-chain infrastructure does not depend on events defined in AggregatorInterface.
 
