@@ -65,22 +65,22 @@ Note that this still does not provide a hard guarantee, and your contract should
 
 ## Plan durations
 
-API3 Market offers 7-day plans on testnets and 6-month plans on mainnets.
+API3 Market offers 7-day plans on testnets and 3-month plans on mainnets.
 Each purchased plan has an expiration date, and the respective update parameters will stop being upheld after that.
 Let's go over a few example cases:
 
 - BTC/USD on Ethereum is inactive.
-  The user purchases a 1% deviation threshold for 6 months.
-  The data feed will immediately activate and deactivate 6 months later.
-- BTC/USD on Ethereum is active with a 1% deviation threshold, set to expire 3 months later.
-  The user purchases a 1% deviation threshold for 6 months (with a [discount](#discounts)).
-  The expiration will be extended to 6 months from now.
-- BTC/USD on Ethereum is active with a 5% deviation threshold, set to expire 3 months later.
-  The user purchases a 1% deviation threshold for 6 months (with a [discount](#discounts)).
-  The data feed will switch to a 1% deviation threshold and deactivate 6 months later.
-- BTC/USD on Ethereum is active with a 0.5% deviation threshold, set to expire 3 months later.
-  The user purchases a 1% deviation threshold for 6 months (with a [discount](#discounts)).
-  The data feed will continue running with a 0.5% deviation threshold for 3 months, switch to a 1% deviation threshold, run for another 3 months, and deactivate.
+  The user purchases a 1% deviation threshold for 3 months.
+  The data feed will immediately activate and deactivate 3 months later.
+- BTC/USD on Ethereum is active with a 1% deviation threshold, set to expire 1 month later.
+  The user purchases a 1% deviation threshold for 3 months (with a [discount](#discounts)).
+  The expiration will be extended to 3 months from now.
+- BTC/USD on Ethereum is active with a 5% deviation threshold, set to expire 1 month later.
+  The user purchases a 1% deviation threshold for 3 months (with a [discount](#discounts)).
+  The data feed will switch to a 1% deviation threshold and deactivate 3 months later.
+- BTC/USD on Ethereum is active with a 0.5% deviation threshold, set to expire 1 month later.
+  The user purchases a 1% deviation threshold for 3 months (with a [discount](#discounts)).
+  The data feed will continue running with a 0.5% deviation threshold for 1 month, switch to a 1% deviation threshold, run for another 2 months, and deactivate.
 
 When plans with different deviation parameters are queued, the API3 Market interface displays them as shown below.
 
