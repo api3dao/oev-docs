@@ -31,9 +31,10 @@ Use [this form](https://api3dao.typeform.com/to/FHhFIL41) to get in contact with
    ::: info 💡 Tip
    Alternatively, you can complete this step on your own using [API3 Market.](https://market.api3.org/)
    :::
-4. You let us know an address where to receive the OEV proceeds.
+4. You let us know an address where to receive the OEV Rewards.
    ::: info 💡 Tip
-   OEV proceeds are paid in the native currency of your dApp's chain. The receiving address must be an EOA you control or a contract capable of receiving native currency payments.
+   OEV Rewards are paid in the native currency of your dApp's chain.
+   The receiving address must be an EOA you control or a contract capable of receiving native currency payments.
    :::
 5. You [integrate](/dapps/integration/contract-integration) the OEV Rewards-enabled Api3ReaderProxyV1 contracts.
 
