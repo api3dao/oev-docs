@@ -1,10 +1,11 @@
 [
   "https://basescan.org",
+  "https://defillama.com/oracles/API3",
   "https://etherscan.io",
   "https://github.com/api3dao/oev-docs",
   "https://github.com/api3dao/oev-v1-compound-bot",
   "https://oev.rpc.api3.org",
   "https://orbitlending.io/",
-  "https://defillama.com/oracles/API3",
-  "https://www.coinbase.com/en-tr/blog/introducing-the-coinbase-price-oracle"
+  "https://www.coinbase.com/en-tr/blog/introducing-the-coinbase-price-oracle",
+  "https://x.com"
 ]
