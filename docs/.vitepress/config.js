@@ -1,6 +1,6 @@
 export default {
   title: 'Documentation',
-  description: 'API3 technical documentation',
+  description: 'Api3 technical documentation',
   markdown: {
     lineNumbers: true,
     toc: ['h2', 'h3', 'h4', 'h5'],

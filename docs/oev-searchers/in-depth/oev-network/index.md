@@ -79,7 +79,7 @@ The implementation of the audited Api3ServerV1 contract is publicly available
 
 The Api3ServerV1 contract powers dAPIs on the OEV Network, which are used in the
 OevAuctionHouse contract to compute collateral and protocol fee from the bid
-amount. Note that this chain is not officially listed on the API3 market because
+amount. Note that this chain is not officially listed on the Api3 market because
 the OEV Network is primarily intended to be used for OEV auctions.
 
 ## OevAuctionHouse
@@ -109,8 +109,8 @@ The interactions with this contract include:
 3. Searchers placing or expediting bids
 4. Auctioneer resolving auction winner
 5. Auctioneer confirming or contradicting fulfillment
-6. API3 DAO updating protocol and collateral fee
-7. API3 DAO updating the price feed proxies
+6. Api3 DAO updating protocol and collateral fee
+7. Api3 DAO updating the price feed proxies
 
 Tech-savvy users can refer to the contract's source for details.
 
@@ -180,7 +180,7 @@ limited by the amount they have deposited. Refer to
 section for details.
 
 The collateral and protocol fee rates are configurable parameters within the
-OevAuctionHouse contract and are configured by the API3 DAO. These values are
+OevAuctionHouse contract and are configured by the Api3 DAO. These values are
 set in "basis points", which are 1/100th of a percentage point. For example, a
 value of 1000 is equivalent to 10%. The current values are set to the following:
 

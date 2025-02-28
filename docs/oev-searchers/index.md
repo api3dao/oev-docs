@@ -38,7 +38,7 @@ profitable opportunities.
 
 ## Example
 
-Imagine an overcollateralized lending platform that uses API3 price feeds.
+Imagine an overcollateralized lending platform that uses Api3 price feeds.
 Borrowers in the protocol can be liquidated with an incentive whenever their
 position becomes unhealthy to ensure the protocol remains solvent. Say
 liquidations can occur if the loan-to-value ratio exceeds 90%. Let's look at
@@ -77,7 +77,7 @@ searchers.
 
 ## How do Auctions Work?
 
-API3 has developed a specialized on-chain Order Flow Auction (OFA) similar to
+Api3 has developed a specialized on-chain Order Flow Auction (OFA) similar to
 the one you might be familiar with from Flashbots and MEV-Boost.
 
 We use a combination of the [OEV Network](#oev-network) and the
@@ -109,7 +109,7 @@ update.
 
 A key component of OEV is an off-chain auction system that processes the
 auctions taking place on the OEV network. We call this system OEV Auctioneer,
-and it is managed by the API3 DAO. The integrity of OEV Auctioneer is ensured by
+and it is managed by the Api3 DAO. The integrity of OEV Auctioneer is ensured by
 using the OEV Network for all important actions, such as announcing the auction
 winner.
 
@@ -207,5 +207,5 @@ Here are resources to help you get started with OEV:
    to start searching.
 3. Connect with other developers and OEV enthusiasts in our
    [OEV Discord channel](https://discord.com/channels/758003776174030948/1062909222347603989).
-4. Follow API3 on [X](https://x.com/API3DAO) for the latest news and updates on
+4. Follow Api3 on [X](https://x.com/api3dao) for the latest news and updates on
    OEV.
