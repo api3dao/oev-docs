@@ -71,9 +71,9 @@ provides a source of truth for [dAPIs](#dapi) and can be used to obtain which
 An API provider is a business that has productized their services in the form of
 an API.
 
-### API3 Market
+### Api3 Market
 
-[API3 Market](https://market.api3.org/) is a [dApp](#dapp) where users can
+[Api3 Market](https://market.api3.org/) is a [dApp](#dapp) where users can
 purchase [dAPI](#dapi) plans, which get reflected on-chain immediately.
 
 ### Api3ServerV1 Contract
@@ -153,12 +153,12 @@ after they've paid the bid amount.
 ### dAPI
 
 The
-[API3 whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf)
+[Api3 whitepaper](https://github.com/api3dao/api3-whitepaper/blob/master/api3-whitepaper.pdf)
 definition of a dAPI is a [first-party oracle](#first-party-oracles)-based data
 feed that is managed decentrally.
 
 In practice, a dAPI is mapped to a particular [data feed](#data-feed). The
-mapping is managed by API3 DAO.
+mapping is managed by Api3 DAO.
 
 ### dApp
 
@@ -168,9 +168,9 @@ An application that uses smart contracts. Usually referred to as a source of
 
 ### dApp ID
 
-API3 holds separate [OEV auctions](#oev-auction) for different [dApps](#dapp) to
+Api3 holds separate [OEV auctions](#oev-auction) for different [dApps](#dapp) to
 keep their [proceeds](#oev-proceeds) isolated. In this scheme, dApps are
-identified by IDs that are assigned by API3 DAO.
+identified by IDs that are assigned by Api3 DAO.
 
 ### Data Feed
 
@@ -234,15 +234,15 @@ Oracle extractable value (OEV) is a subset of [MEV](#mev) that can be extracted
 by guaranteeing a specific relative order of oracle updates and related
 interactions within a transaction.
 
-API3 monetizes its [dAPI](#dapi) services by holding
+Api3 monetizes its [dAPI](#dapi) services by holding
 [OEV auctions](#oev-auction) and forwarding the [proceeds](#oev-proceeds) to the
 respective [dApps](#dapp). This is both a net gain for the dApps (which
 otherwise would have bled these funds to [MEV](#mev) bots and validators) and a
-fair and scalable business model for API3 DAO.
+fair and scalable business model for Api3 DAO.
 
 ### OEV Auction
 
-API3 periodically holds [OEV](#oev) auctions on [OEV Network](#oev-network)
+Api3 periodically holds [OEV](#oev) auctions on [OEV Network](#oev-network)
 where [searchers](#searcher) [bid](#bid) to receive exclusive update rights to
 update the data feeds for a specific [dApp](#dapp) for a limited amount of time.
 
@@ -290,7 +290,7 @@ Chainlink's AggregatorV2V3Interface for convenience.
 
 When [Auctioneer](#auctioneer) confirms a [fulfillment](#fulfillment) and
 releases the [collateral amount](#collateral), it deducts a protocol fee which
-is kept by API3 DAO. The protocol fee is currently set to 0.
+is kept by Api3 DAO. The protocol fee is currently set to 0.
 
 ### Searcher
 

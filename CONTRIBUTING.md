@@ -1,15 +1,15 @@
 ## Contributor's Guide
 
-Welcome to the API3 Documentation Repository. This guide will help you get
-started with contributing to the API3 documentation.
+Welcome to the Api3 Documentation Repository. This guide will help you get
+started with contributing to the Api3 documentation.
 
 ## How to get started
 
-The API3 Docs uses [VitePress](https://vitepress.dev/), a Vue-powered static
+The Api3 Docs uses [VitePress](https://vitepress.dev/), a Vue-powered static
 site generator. Follow the steps below to get started.
 
 Make sure to check out https://docs.api3.org/dev/ for more details and
-information about getting started and making a contribution to the API3 Docs.
+information about getting started and making a contribution to the Api3 Docs.
 
 ### Pre-requisites
 
@@ -32,9 +32,9 @@ pnpm docs:dev
 
 ### Structure
 
-The API3 Docs repository is structured as follows:
+The Api3 Docs repository is structured as follows:
 
-- `/docs/dapis`: Explore section within the API3 Docs.
+- `/docs/dapis`: Explore section within the Api3 Docs.
 - `/docs/oev`: All the guides that demonstrate the use of Airnode, QRNG and
   dAPIs.
 - `/docs/reference`: Contains the core documentation for Airnode, QRNG and
@@ -43,7 +43,7 @@ The API3 Docs repository is structured as follows:
 Each section will have a `sidebar.js` file that contains the sidebar structure
 for that section.
 
-`/_components`: Contains the custom vue components used in the API3 Docs.
+`/_components`: Contains the custom vue components used in the Api3 Docs.
 
 [Check this out](https://docs.api3.org/dev/docsets.html) for more info about the
 structure of the docs.

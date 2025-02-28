@@ -11,16 +11,16 @@ outline: deep
 Searchers need a way to monitor real-time off-chain prices to find profitable
 opportunities. Traditionally, searchers have needed to buy API subscriptions
 from underlying oracle sources, creating additional friction in the process.
-API3 simplifies this process by providing the same data that is used for
+Api3 simplifies this process by providing the same data that is used for
 updating dAPIs to searchers publicly - and without cost.
 
-The price feed solution from API3 is called dAPIs, and their design allows
+The price feed solution from Api3 is called dAPIs, and their design allows
 extracting OEV with ease.
 
 ## How dAPIs Work?
 
 Let's start from the ground up. The dAPI logic is dictated by the Api3ServerV1
-contract. The central part of API3 feeds is first-party oracles, relying on
+contract. The central part of Api3 feeds is first-party oracles, relying on
 cryptographic signatures verified on-chain.
 
 ### dAPI Structure
@@ -55,7 +55,7 @@ to a data feed.
 ### Updating dAPI Value
 
 So far, we've referred to dAPIs and data feeds as sources of data, not
-mentioning how they are kept up-to-date. API3 feeds are permissionless and
+mentioning how they are kept up-to-date. Api3 feeds are permissionless and
 anyone can perform an update, provided they have valid data. To update a beacon,
 anyone can call `updateBeaconWithSignedData` on the Api3ServerV1 contract:
 
@@ -98,7 +98,7 @@ date:
 2. [Signed API](https://github.com/api3dao/signed-api/tree/main/packages/signed-api) -
    Signed API accepts signed data from API providers and provides an API layer
    for off-chain querying.
-3. [Airseeker](https://github.com/api3dao/airseeker) - Airseeker is an API3 push
+3. [Airseeker](https://github.com/api3dao/airseeker) - Airseeker is an Api3 push
    oracle. It monitors the off-chain and on-chain data and triggers an update
    when needed.
 
@@ -363,7 +363,7 @@ the OEV feeds to monitor the OEV data.
 Signed APIs store the data pushed by Airnode feeds and expose them to the public
 via an API. As mentioned, base feed updates are permissionless and can be
 updated by anyone. The OEV feed data can only be used by the OEV auction winner.
-API3 runs Signed APIs and makes them publicly available. They are deployed on
+Api3 runs Signed APIs and makes them publicly available. They are deployed on
 AWS, ensuring maximum uptime and reliability.
 
 Signed APIs only support querying data for a particular Airnode feed. The
@@ -375,11 +375,11 @@ rate limiting or full access denial.
 
 The following are the base feed endpoints that are publicly available:
 
-1. `https://signed-api.api3.org/public/<AIRNODE_ADDRESS>` - The official API3
+1. `https://signed-api.api3.org/public/<AIRNODE_ADDRESS>` - The official Api3
    Signed APIs used by the push oracle to update the base feeds.
 
 For example, see the
-[API3 response for Nodary Airnode feed](https://signed-api.api3.org/public/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
+[Api3 response for Nodary Airnode feed](https://signed-api.api3.org/public/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
 
 ### OEV Endpoints
 
@@ -388,7 +388,7 @@ The following are the OEV endpoints that are publicly available:
 1. `https://signed-api.api3.org/public-oev/<AIRNODE_ADDRESS>`
 
 For example, see the
-[API3 response for Nodary Airnode feed](https://signed-api.api3.org/public-oev/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
+[Api3 response for Nodary Airnode feed](https://signed-api.api3.org/public-oev/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
 
 ### Response
 

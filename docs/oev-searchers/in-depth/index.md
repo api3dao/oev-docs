@@ -14,7 +14,7 @@ existing MEV searchers to OEV.
 
 ## OEV dApps Catalog
 
-We maintain an open-source list of all dApps that have integrated API3 feeds as
+We maintain an open-source list of all dApps that have integrated Api3 feeds as
 part of the [dApp registry](https://github.com/api3dao/dapp-registry). However,
 not all of the dApps are suitable for OEV extraction, so we provide a separate
 list of currently suitable candidates for OEV searching.
@@ -27,7 +27,7 @@ list of currently suitable candidates for OEV searching.
 4. [Silo protocol on Arbitrum](https://app.silo.finance/)
 5. [Yei protocol on Sei](https://www.yei.finance/)
 
-Currently, these protocols use outdated API3 proxies that support the previous
+Currently, these protocols use outdated Api3 proxies that support the previous
 version of OEV auctions, which are no longer supported. Searchers can still
 perform [MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis)
 extraction though.

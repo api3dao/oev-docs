@@ -8,7 +8,7 @@ outline: deep
 
 # Examples
 
-We've decided to launch our own dApp built with API3 OEV proxies with minimal
+We've decided to launch our own dApp built with Api3 OEV proxies with minimal
 liquidity. This allows us to build a fully functional OEV bot and share it as a
 reference without promoting a particular dApp. Because of the small liquidity,
 we expect very little competition, making it an ideal way to start with OEV.
@@ -33,7 +33,7 @@ Refer to this table for dApp details:
 
 | Name                                                                                            | Description              |
 | ----------------------------------------------------------------------------------------------- | ------------------------ |
-| [API3 Compound dApp](https://oev-v1-compound.vercel.app/markets)                                | The OEV dApp.            |
+| [Api3 Compound dApp](https://oev-v1-compound.vercel.app/markets)                                | The OEV dApp.            |
 | [USDC Comet contract](https://basescan.org/address/0x07BD845d340a59A88B913769E12df30F99f6384C)  | The USDC Comet contract. |
 | [USDC contract](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913#code)   | The USDC token.          |
 | [WETH contract](https://basescan.org/address/0x4200000000000000000000000000000000000006#code)   | The WETH token.          |

@@ -8,7 +8,7 @@ outline: deep
 
 # OEV Auctioneer
 
-OEV Auctioneer is the off-chain system managed by the API3 DAO to process
+OEV Auctioneer is the off-chain system managed by the Api3 DAO to process
 auctions hosted on the OEV network. This off-chain component is necessary
 because hosting auctions fully on-chain would be extremely gas-intensive and
 wouldn't scale performance-wise. The correctness and honesty of OEV Auctioneer
@@ -22,7 +22,7 @@ OEV Auctioneer has two main responsibilities:
 2. Confirm or contradict fulfillments
 
 Each dApp that uses OEV feeds is served by an Auctioneer instance. Internally,
-API3 DAO may run multiple Auctioneers as a form of horizontal scaling to ensure
+Api3 DAO may run multiple Auctioneers as a form of horizontal scaling to ensure
 auctions can be processed in a timely manner.
 
 ## How it works?
@@ -290,7 +290,7 @@ Note that the auction winner may choose not to update the price feed when they
 pay for the awarded bid. This is an allowed way to withhold the updates because
 the auction winner is losing money by being slashed, making it financially
 infeasible. As a note, the data feed security remains unchanged because it will
-be eventually updated by an API3 push oracle when the deviation exceeds its
+be eventually updated by an Api3 push oracle when the deviation exceeds its
 threshold.
 
 :::
@@ -302,7 +302,7 @@ fulfillments. These addresses are granted the respective privileges on the
 OevAuctionHouse contract on the OEV Network and Api3ServerV1OevExtension
 contract on all target chains.
 
-Internally, API3 DAO uses multiple wallets for resolving auctions and processing
+Internally, Api3 DAO uses multiple wallets for resolving auctions and processing
 fulfillments. The table below displays the addresses of currently whitelisted
 Auctioneer wallets.
 
@@ -313,7 +313,7 @@ Auctioneer wallets.
 
 ## Maintenance
 
-Auctioneer is maintained by the API3 DAO, which is responsible for its uptime
+Auctioneer is maintained by the Api3 DAO, which is responsible for its uptime
 and reliable auction processing. In case of a planned migration or maintenance,
 there will be an announcement shared in advance. It's expected that maintenance
 periods will be very rare and short.
