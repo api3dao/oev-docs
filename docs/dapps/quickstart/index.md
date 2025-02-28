@@ -8,21 +8,21 @@ pageHeader: dApps
 # Quickstart
 
 [API3 Market](https://market.api3.org/) serves a large and dynamic catalog of data feeds on all major EVM networks.
-Follow this guide to learn how to use API3 Market to integrate a data feed to an example contract.
+Follow this guide to learn how to use API3 Market to integrate a data feed into an example contract.
 
 ## Using API3 Market
 
 - Go to [market.api3.org.](https://market.api3.org/)
 
-- Click the toggle button to view the testnets, and pick one for which you have funds.
+- Click the toggle button to view the testnets, and pick one where you have funds.
 
   <img src="./images/testnets-toggle.png">
 
-- On the network page, you will see a searchbar (1), some of the data feeds that are already active on the network under "Featured Feeds" (2), and a link to the catalog (3).
+- On the network page, you will see a search bar (1), some of the data feeds that are already active on the network under "Featured Feeds" (2), and a link to the catalog (3).
 
   <img src="./images/search.png">
 
-  Start typing the name of a data feed in the searchbar, and click it once it appears in the dropdown.
+  Start typing the name of a data feed in the search bar, and click it once it appears in the drop-down.
 
   <img src="./images/autocomplete.png">
 
@@ -39,17 +39,17 @@ On the network page, active feeds appear as cards, and inactive feeds appear as 
 
 If you pick a data feed that is already active on the network, you will be taken to the data feed page directly.
 Otherwise, you will be taken to the activation page first.
-To experience the entire flow, we recommend you to pick a data feed that is not active.
+To experience the entire flow, we recommend picking a data feed that is not active.
 
 :::
 
 - If you have picked a data feed that is not active, you will be taken to the activation page next.
-  Select the parameters, review the duration and the price, and click the "Purchase" button to pay.
+  Select the parameters, review the duration and price, and click the "Purchase" button to pay.
 
   <center><img src="./images/activate.png"></center>
 
 - Once your purchase transaction is confirmed, you can proceed to view the data feed page.
-  Leave this tab open, we will come back to it later in the guide.
+  Leave this tab open, as we will come back to it later in the guide.
 
   <img src="./images/data-feed-page.png">
 
@@ -67,28 +67,28 @@ If you prefer using Hardhat, you can clone [`data-feed-reader-example`](https://
 
 - Go to [Remix.](https://remix.ethereum.org)
 
-- While the "File explorer" tab is selected on the left sidebar, click the hamburger button and select "Clone".
+- With the "File explorer" tab selected on the left sidebar, click the hamburger button and select "Clone".
 
   <img src="./images/remix-hamburger.png">
 
   Enter `https://github.com/api3dao/data-feed-reader-example` and click "OK".
 
-- While the "File explorer" tab is selected on the left sidebar, double click `contracts/` to expand it, and click `DataFeedReaderExample.sol`.
+- With the "File explorer" tab selected on the left sidebar, double-click `contracts/` to expand it, then click `DataFeedReaderExample.sol`.
 
   <img src="./images/remix-contract.png">
 
-- While the "Solidity compiler" tab is selected on the left sidebar, click "Compile DataFeedReaderExample".
+- With the "Solidity compiler" tab selected on the left sidebar, click "Compile DataFeedReaderExample".
 
   <img src="./images/remix-compile.png">
 
-- While the "Deploy & run transactions" tab is selected on the left sidebar, select "Injected Provider - MetaMask" from the "Environment" dropdown.
+- With the "Deploy & run transactions" tab selected on the left sidebar, select "Injected Provider - MetaMask" from the "Environment" drop-down.
 
   <img src="./images/remix-provider.png">
 
 ::: info 💡 Tip
 
-If you have just used API3 Market to purchase a plan, your MetaMask wallet should be connected to the correct network.
-If not, make sure that your wallet is connected to the network that the data feed is on, where we will deploy DataFeedReaderExample.
+If you just purchased a plan on API3 Market, your MetaMask wallet should be connected to the correct network.
+If not, ensure your wallet is connected to the network where the data feed exists, where we'll deploy DataFeedReaderExample.
 
 :::
 
@@ -96,23 +96,25 @@ If not, make sure that your wallet is connected to the network that the data fee
 
   <img src="./images/integrate.png">
 
-- Click the copy icon next to the displayed communal Api3ReaderProxyV1 address.
+- Click the copy icon next to the displayed Api3ReaderProxyV1 address.
+Please note that [OEV Rewards](/dapps/oev-rewards/) is disabled on testnets.
+For information about using this selection on mainnets, refer to [this section.](/dapps/integration/index.md#integration-information)
 
   <center><img src="./images/proxy-address.png"></center>
 
 - Return to Remix IDE.
-  While the "Deploy & run transactions" tab is selected on the left sidebar, paste the Api3ReaderProxyV1 address in the textbox next to the "Deploy" button, and click it.
+  With the "Deploy & run transactions" tab selected on the left sidebar, paste the Api3ReaderProxyV1 address into the textbox next to the "Deploy" button, then click the button.
 
   <img src="./images/remix-deploy.png">
 
 - After the transaction is confirmed, you can call the publicly accessible functions of DataFeedReaderExample.
-  Expand "DATAFEEDREADEREXAMPLE AT ..." under "Deployed Contracts", and click "readDataFeed".
-  You will see the values that DataFeedReaderExample read from Api3ReaderProxyV1.
+  Under "Deployed Contracts", expand 'DATAFEEDREADEREXAMPLE AT ...', then click "readDataFeed".
+  You'll see the values that DataFeedReaderExample reads from Api3ReaderProxyV1.
 
   <img src="./images/remix-read.png">
 
 ## What next?
 
-This guide should be enough to get you started for a hackathon.
-However, if you want to use API3 data feeds in production, continue reading the [integration section.](/dapps/integration/)
-Alternatively, find out how to [get paid](/dapps/oev-rewards/) by using API3 data feeds.
+This guide should help you get started with a hackathon project.
+For production use of API3 data feeds, please continue to the [integration section.](/dapps/integration/)
+You can also learn how to [get paid](/dapps/oev-rewards/) for using API3 data feeds."

@@ -21,11 +21,11 @@
     "axios": "^1.7.9",
     "colors": "^1.4.0",
     "file": "^0.2.2",
-    "fs-extra": "^11.2.0",
+    "fs-extra": "^11.3.0",
     "husky": "^9.1.7",
     "medium-zoom": "^1.1.0",
     "oust": "^2.0.4",
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.2",
     "vitepress": "1.5.0",
     "walk-sync": "^3.0.0"
   }

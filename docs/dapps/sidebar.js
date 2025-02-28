@@ -39,7 +39,7 @@ module.exports = [
     collapsed: false,
     items: [
       { text: 'Getting paid', link: '/dapps/oev-rewards/' },
-      { text: 'dApp alias', link: '/dapps/oev-rewards/dapp-alias' },
+      { text: 'Best practices', link: '/dapps/oev-rewards/best-practices' },
     ],
   },
 ];

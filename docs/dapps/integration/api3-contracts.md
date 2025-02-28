@@ -7,16 +7,19 @@ pageHeader: dApps → Integration
 
 # `@api3/contracts`
 
-[`@api3/contracts`](https://www.npmjs.com/package/@api3/contracts) is an npm package that provides three basic features that will be useful to API3 data feed users:
+[`@api3/contracts`](https://www.npmjs.com/package/@api3/contracts) is an npm package that provides three basic features for API3 data feed users:
 
-1. `@api3/contracts/interfaces/IApi3ReaderProxy.sol` is imported by contracts that call Api3ReaderProxyV1 contracts using IApi3ReaderProxy.
+1. `@api3/contracts/interfaces/IApi3ReaderProxy.sol` is imported by contracts that call Api3ReaderProxyV1 contracts through IApi3ReaderProxy.
 2. `@api3/contracts/mock/MockApi3ReaderProxy.sol` is used in tests.
-3. `computeCommunalApi3ReaderProxyV1Address()` and `computeDappSpecificApi3ReaderProxyV1Address()` are used to validate the respective types of Api3ReaderProxyV1 addresses.
+3. - `computeCommunalApi3ReaderProxyV1Address()` is used to validate adresses shown by API3 Market when ["Skip OEV Rewards"](/dapps/integration/index.md#integration-information) is selected.
+   - `computeDappSpecificApi3ReaderProxyV1Address()` is used to validate adresses shown by API3 Market when ["Earn OEV Rewards"](/dapps/integration/index.md#integration-information) is selected.
 
-You can refer to [`data-feed-reader-example`](https://github.com/api3dao/data-feed-reader-example) for a demonstration of how each can be used.
+For detailed examples of how to use these features, see the [`data-feed-reader-example` repository.](https://github.com/api3dao/data-feed-reader-example)
+
+Additionally, `@api3/contracts` provides a CLI command for printing OEV Rewards-enabled (i.e., dApp-specific) Api3ReaderProxyV1 addresses, as described [here.](/dapps/integration/contract-integration.md#printing-api3readerproxyv1-addresses)
 
 ::: info ℹ️ Info
 
-Note that we do not export [AggregatorV2V3Interface](/dapps/integration/aggregatorv2v3interface.md), as contracts that are built to use it are expected to have imported it.
+[AggregatorV2V3Interface](/dapps/integration/aggregatorv2v3interface.md) is not exported from this package, since contracts using this interface must have already imported it from elsewhere.
 
 :::

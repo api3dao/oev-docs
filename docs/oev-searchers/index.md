@@ -207,5 +207,5 @@ Here are resources to help you get started with OEV:
    to start searching.
 3. Connect with other developers and OEV enthusiasts in our
    [OEV Discord channel](https://discord.com/channels/758003776174030948/1062909222347603989).
-4. Follow API3 on [Twitter](https://twitter.com/API3DAO) for the latest news and
-   updates on OEV.
+4. Follow API3 on [X](https://x.com/API3DAO) for the latest news and updates on
+   OEV.
