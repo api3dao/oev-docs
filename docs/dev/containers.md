@@ -13,7 +13,7 @@ should be used in `vitepress-docs`.
 
 ::: info
 
-The info box is the default go-to for the API3 technical documentation.
+The info box is the default go-to for the Api3 technical documentation.
 
 :::
 
