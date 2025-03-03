@@ -11,7 +11,7 @@ outline: deep
 An intermediate step towards OEV searching is to extend MEV bots to utilize the
 public
 [base feed endpoints](/oev-searchers/in-depth/dapis/#base-feed-endpoints). These
-endpoints are also used by the API3 push oracle, so there is tight competition
+endpoints are also used by the Api3 push oracle, so there is tight competition
 to be the fastest with the on-chain transaction.
 
 The existing MEV bot can utilize this off-chain open-source data and make a base
