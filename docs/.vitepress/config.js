@@ -1,5 +1,5 @@
 export default {
-  title: 'Api3 | Documentation',
+  title: 'Api3 documentation',
   description: 'Api3 documentation',
   markdown: {
     lineNumbers: true,
