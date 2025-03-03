@@ -7,12 +7,12 @@ pageHeader: dApps → Integration
 
 # `@api3/contracts`
 
-[`@api3/contracts`](https://www.npmjs.com/package/@api3/contracts) is an npm package that provides three basic features for API3 data feed users:
+[`@api3/contracts`](https://www.npmjs.com/package/@api3/contracts) is an npm package that provides three basic features for Api3 data feed users:
 
 1. `@api3/contracts/interfaces/IApi3ReaderProxy.sol` is imported by contracts that call Api3ReaderProxyV1 contracts through IApi3ReaderProxy.
 2. `@api3/contracts/mock/MockApi3ReaderProxy.sol` is used in tests.
-3. - `computeCommunalApi3ReaderProxyV1Address()` is used to validate adresses shown by API3 Market when ["Skip OEV Rewards"](/dapps/integration/index.md#integration-information) is selected.
-   - `computeDappSpecificApi3ReaderProxyV1Address()` is used to validate adresses shown by API3 Market when ["Earn OEV Rewards"](/dapps/integration/index.md#integration-information) is selected.
+3. - `computeCommunalApi3ReaderProxyV1Address()` is used to validate adresses shown by Api3 Market when ["Skip OEV Rewards"](/dapps/integration/index.md#integration-information) is selected.
+   - `computeDappSpecificApi3ReaderProxyV1Address()` is used to validate adresses shown by Api3 Market when ["Earn OEV Rewards"](/dapps/integration/index.md#integration-information) is selected.
 
 For detailed examples of how to use these features, see the [`data-feed-reader-example` repository.](https://github.com/api3dao/data-feed-reader-example)
 

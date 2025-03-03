@@ -34,13 +34,13 @@ Finally, you can [be your own OEV searcher](/oev-searchers/) and participate in 
 ::: info 💡 Tip
 
 If your dApp is a fork of a well-established DeFi protocol, the barrier to entry for searching your dApp will be minimal.
-Since API3 is also incentivized to maximize OEV Rewards, we will provide access to a library of example open-source OEV bots.
+Since Api3 is also incentivized to maximize OEV Rewards, we will provide access to a library of example open-source OEV bots.
 
 :::
 
 The second way to attract OEV searchers and maximize OEV Rewards is to increase revenue.
 For example, a lending platform that pays 10% of the position size as a liquidation reward will attract more attention than one that pays 5%.
-Similarly, a perpetual derivative exchange that properly uses API3 data feeds is likely to yield a significant amount of OEV Rewards.
+Similarly, a perpetual derivative exchange that properly uses Api3 data feeds is likely to yield a significant amount of OEV Rewards.
 
 ::: info 💰 Financial
 
