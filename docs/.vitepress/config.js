@@ -75,7 +75,7 @@ export default {
       { icon: 'github', link: 'https://github.com/api3dao/oev-docs' },
       {
         icon: 'discord',
-        link: 'https://discord.com/channels/758003776174030948/765618225144266793',
+        link: 'https://discord.gg/api3dao',
       },
     ],
     footer: {
