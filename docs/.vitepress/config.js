@@ -19,7 +19,7 @@ export default {
       {
         rel: 'apple-touch-icon',
         sizes: '180x180',
-        href: '/img/small-logo.png',
+        href: '/img/android-chrome-192x192.png',
       },
     ],
     [
@@ -28,7 +28,7 @@ export default {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/img/small-logo.png',
+        href: '/img/android-chrome-192x192.png',
       },
     ],
     [
@@ -37,7 +37,7 @@ export default {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/img/small-logo.png',
+        href: '/img/android-chrome-192x192.png',
       },
     ],
   ],
