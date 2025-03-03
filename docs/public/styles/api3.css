@@ -595,7 +595,6 @@ html.dark .vp-code span[style*="--shiki-dark:#6A737D"] {
 @media (min-width: 960px) {
   .VPHome .image-src {
     max-width: 272px;
-    margin-left: 64px;
   }
 
   .VPHero.has-image .main {
@@ -609,6 +608,7 @@ html.dark .vp-code span[style*="--shiki-dark:#6A737D"] {
     max-width: 656px;
     max-height: 596px;
     margin-top: 128px;
+    margin-left: 0 !important;
   }
 
   .VPHero.has-image .main {
@@ -616,4 +616,17 @@ html.dark .vp-code span[style*="--shiki-dark:#6A737D"] {
     margin-left: 0;
     margin-top: 128px;
   }
+}
+
+.VPHome .VPHero .image-container {
+  transform: unset !important;
+}
+
+.VPHome .VPHero .image-container .VPImage {
+  transform: translateZ(0px);
+  margin: 0;
+  margin-left: 5vw;
+  position: absolute;
+  top: 32px;
+  left: 32px;
 }
