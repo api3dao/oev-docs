@@ -265,6 +265,10 @@ In the context of OEV extraction, the OEV feed refers to a
 specific and can be updated by a searcher who won the
 [OEV auction](#oev-auction).
 
+### OEV Updates
+
+TODO: refers to data feed updates made with the intention to capture OEV
+
 ### OEV Network
 
 OEV Network is an Arbitrum Nitro L2. Its chain ID is 4913 and it uses ETH as the
@@ -272,6 +276,8 @@ gas token. Its purpose is to hold [OEV auctions](#oev-auction) in a transparent
 and retrospectively verifiable way.
 
 ### OEV Proceeds
+
+<!-- TODO: Update this (and re-read the whole section) -->
 
 We refer to OEV proceeds in two contexts:
 

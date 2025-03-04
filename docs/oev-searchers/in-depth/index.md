@@ -1,12 +1,12 @@
 ---
-title: Searchers
+title: Getting Started
 pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
 <PageHeader/>
 
-# Searchers
+# Getting Started
 
 This part of the docs is dedicated to searchers. It details how OEV auctions
 work and explains basic searching strategies to simplify the onboarding of
