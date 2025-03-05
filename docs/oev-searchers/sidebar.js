@@ -8,7 +8,7 @@ module.exports = [
         link: '/oev-searchers/',
       },
       {
-        text: 'Auction Cycle',
+        text: 'Auction cycle',
         link: '/oev-searchers/auction-cycle/',
       },
     ],
@@ -18,7 +18,7 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'Getting Started',
+        text: 'Getting started',
         link: '/oev-searchers/in-depth/',
       },
       {
@@ -38,7 +38,7 @@ module.exports = [
         link: '/oev-searchers/in-depth/oev-auctioneer',
       },
       {
-        text: 'OEV Searching',
+        text: 'OEV searching',
         link: '/oev-searchers/in-depth/oev-searching',
       },
       {

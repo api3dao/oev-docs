@@ -11,7 +11,7 @@ outline: deep
 In this section, we're going to walk through the entire auction cycle at a high
 level, explaining the steps involved in the auction process. This section aims
 to provide a basic mental model for searchers before reading the in-depth
-[Getting Started](/oev-searchers/in-depth/).
+[Getting started](/oev-searchers/in-depth/).
 
 ## Start of the bid phase
 
