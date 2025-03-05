@@ -1,18 +1,18 @@
 ---
-title: OEV Searching
+title: OEV searching
 pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
 <PageHeader/>
 
-# OEV Searching
+# OEV searching
 
 We assume that a searcher has an existing MEV bot and is familiar with the OEV
 Network and OEV Auctioneer. Let's glue these concepts together and detail the
 steps to start OEV searching.
 
-## Auction Schedule
+## Auction schedule
 
 OEV Auctioneer runs auctions continuously. These auctions are very short-lived.
 This is to ensure OEV updates are performed in a timely manner and the base feed
@@ -32,7 +32,7 @@ API endpoints. The winner is guaranteed privileges at least until the end of the
 next bidding phase. Note that on some chains, especially during peak usage, it's
 recommended to increase the gas costs.
 
-## Monitoring Signed Data
+## Monitoring signed data
 
 Searchers need to have a list of dAPIs used by the dApp and
 [obtain its beacons](/oev-searchers/in-depth/dapis/#dapp-sources). However,
@@ -54,7 +54,7 @@ previous auction winner who can also use them to update the feed. Moreover, it's
 not possible to use data fresher than the end of the bidding phase. This is to
 ensure the same guarantees apply for the subsequent auction winner.
 
-## Simulating a Data Feed Update
+## Simulating a data feed update
 
 Compared to the base feed updates, OEV updates are permissioned - allowing only
 the auction winner to update the data feed. This makes the OEV update on-chain
@@ -102,7 +102,7 @@ const simulationResult = await api3ServerV1OevExtensionImpersonated.multicall.st
 );
 ```
 
-## Placing a Bid
+## Placing a bid
 
 After a profitable OEV opportunity is identified, the searcher needs to place a
 bid in the auction. There are multiple ways to
@@ -132,7 +132,7 @@ to be considered, the place bid transaction needs to be mined during the bidding
 phase. Searchers should be mindful of the block time on the OEV Network to make
 sure their transaction is mined in time.
 
-## Expediting a Bid
+## Expediting a bid
 
 Because OEV Auctions are short-lived and the minimum bid lifetime is 15 seconds,
 there is little reason to place long-lived bids. However, in rare cases when a
@@ -150,7 +150,7 @@ It accepts the following parameters:
 | bidTopic       | bytes32 | The [bid topic](/oev-searchers/in-depth/oev-auctioneer#bid-topic) of the current auction.     |
 | bidDetailsHash | bytes32 | The hash of the [bid details](/oev-searchers/in-depth/oev-auctioneer#bid-details) of the bid. |
 
-## Waiting for Auction Award
+## Waiting for auction award
 
 Immediately after the bidding phase is over, Auctioneer enters the award phase,
 determines the auction winner, and submits the `awardBid` transaction, which
@@ -200,7 +200,7 @@ The OEV capabilities are enabled by the
 This contract allows the auction winner to pay for the winning bid and update
 the data feed values.
 
-### Paying for the OEV Bid
+### Paying for the OEV bid
 
 Paying for the OEV bid presents a problem. The searcher does not have funds
 upfront - they only receive these once they capture OEV. This challenge has a
@@ -239,7 +239,7 @@ contract allows the sender to update the data feed(s). Due to exclusivity
 guarantees, the winner is guaranteed to be the only one who can update the feed
 with data from within the bidding phase of the respective auction.
 
-### Updating the Data Feed
+### Updating the data feed
 
 To update the data feed values, call the `updateDappOevDataFeed` function. This
 requires the sender to be whitelisted by paying for the OEV bid first.
@@ -327,7 +327,7 @@ keccak256("Api3ServerV1OevExtensionOevBidPayer.onOevBidPayment")
 Searchers are recommended to create a specialized, permissioned liquidator
 contract that only they can call.
 
-## Bidding Contract
+## Bidding contract
 
 The bidder can be either an EOA or a contract. The former is simpler but has
 certain drawbacks. Imagine a searcher firm where individual developers work on
@@ -357,7 +357,7 @@ are a few important considerations to keep in mind when designing the contract:
 3. The withdrawal recipient is specified in the `withdraw` call. Make sure the
    recipient is payable and the funds will not remain locked.
 
-## Handling Disputes
+## Handling disputes
 
 In case of a dispute, the OEV Network is considered the source of truth and can
 be used to resolve it. This may include Auctioneer awarding the wrong bidder or

@@ -17,13 +17,13 @@ updating dAPIs to searchers publicly - and without cost.
 The price feed solution from Api3 is called dAPIs, and their design allows
 extracting OEV with ease.
 
-## How dAPIs Work?
+## How dAPIs work?
 
 Let's start from the ground up. The dAPI logic is dictated by the Api3ServerV1
 contract. The central part of Api3 feeds is first-party oracles, relying on
 cryptographic signatures verified on-chain.
 
-### dAPI Structure
+### dAPI structure
 
 The simplest primitive is a "beacon".
 
@@ -52,7 +52,7 @@ to a data feed.
 <!-- NOTE: Source = https://excalidraw.com/#json=hjgWnU8kHd-8QnxwjMmPi,oaX0ncVhqlnF6hAtp6GLpA -->
 <img src="./dapi-mapping.svg" />
 
-### Updating dAPI Value
+### Updating dAPI value
 
 So far, we've referred to dAPIs and data feeds as sources of data, not
 mentioning how they are kept up-to-date. Api3 feeds are permissionless and
@@ -85,7 +85,7 @@ sources. Modifying the underlying beacon set also updates the dAPI value.
 <!-- NOTE: Source = https://excalidraw.com/#json=KlQJo32mDFkDGyydpyxbk,l6L2eSDpBlCCB9j2Ecu9pw -->
 <img src="./dapi-overview.svg" />
 
-### Off-chain Components
+### Off-chain components
 
 There are several off-chain components that are used to keep dAPI values up to
 date:
@@ -104,13 +104,13 @@ date:
 
 All of these tools are open-sourced for transparency.
 
-### Update Schedule
+### Update schedule
 
 dAPIs are updated based on the configured update parameters. An update is
 performed whenever a dAPI value exceeds the allowed threshold or the feed was
 not updated for a long time. The latter is called a heartbeat update.
 
-## OEV Updates
+## OEV updates
 
 After a dAPI is updated, the changed value is reflected across all protocols
 that use the particular dAPI. We call these "base feed updates" to differentiate
@@ -133,7 +133,7 @@ updates are delayed. Searchers bid for real-time data that can be used to update
 the OEV feed. By winning an auction, a searcher is guaranteed that the data is
 fresher than the base feed.
 
-### OEV Feed
+### OEV feed
 
 The OEV feed is derived from the base feed by changing its beacons to OEV
 beacons.
@@ -191,7 +191,7 @@ The ID has no meaning other than to group proxies of the same dApp together.
 Searchers can obtain the dApp ID from the
 [OEV dApps catalog](/oev-searchers/in-depth/#oev-dapps-catalog).
 
-### dApp Sources
+### dApp sources
 
 Searchers need to know the proxy address and the underlying dAPI name used by
 the OEV proxy. The dApps have full control over what proxies they use, so it is
@@ -371,7 +371,7 @@ Airnode address is supplied as an HTTP path parameter. The endpoint is cached
 and can be called repeatedly. However, excessive call frequency is restricted by
 rate limiting or full access denial.
 
-### Base Feed Endpoints
+### Base feed endpoints
 
 The following are the base feed endpoints that are publicly available:
 
@@ -381,7 +381,7 @@ The following are the base feed endpoints that are publicly available:
 For example, see the
 [Api3 response for Nodary Airnode feed](https://signed-api.api3.org/public/0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4).
 
-### OEV Endpoints
+### OEV endpoints
 
 The following are the OEV endpoints that are publicly available:
 

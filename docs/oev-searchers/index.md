@@ -58,7 +58,7 @@ The concept of OEV is not limited to liquidations but can occur anywhere where
 price feed updates potentially expose profitable opportunities, such as
 arbitrage and many others.
 
-## OEV Proceeds Distribution
+## OEV proceeds distribution
 
 To update the data feed, the auction winner must pay the bid amount they
 announced during the auction. Majority of the auction proceeds go back to the dApp. Searchers, in return, get exclusive rights to capture
@@ -67,7 +67,7 @@ the OEV and get to keep the remaining revenue.
 Thus, the majority of the OEV is distributed to the dApp and the
 searchers.
 
-## How do Auctions Work?
+## How do auctions work?
 
 Api3 has developed a specialized on-chain Order Flow Auction (OFA) similar to
 the one you might be familiar with from Flashbots and MEV-Boost.
@@ -105,7 +105,7 @@ and it is managed by the Api3 DAO. The integrity of OEV Auctioneer is ensured by
 using the OEV Network for all important actions, such as announcing the auction
 winner.
 
-## Get Involved with OEV
+## Get involved with OEV
 
 Here are resources to help you get started with OEV:
 

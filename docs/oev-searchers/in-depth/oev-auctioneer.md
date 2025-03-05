@@ -36,7 +36,7 @@ The only cross-chain communication happens during fulfillment verification - all
 other operations are performed solely on OEV Network or the target chain of the
 dApp. This minimizes latency and improves the resiliency.
 
-## Enforced Conventions
+## Enforced conventions
 
 Auctioneer enforces a few conventions. These are important for searchers to
 understand and comply with in order to successfully participate in auctions.
@@ -53,7 +53,7 @@ understand and comply with in order to successfully participate in auctions.
 | MINIMUM_BID_EXPIRING_SECONDS          | 15    | The minimum expiring time for a bid to be considered eligible for award.                           |
 | PLACED_BIDS_BLOCK_RANGE               | 300   | The number of blocks queried for placed bids during award phase.                                   |
 
-### Auction Offset
+### Auction offset
 
 Auctions repeat indefinitely and take a fixed amount of time. The first auction
 starts at the UNIX timestamp 0 (midnight UTC on 1st of January 1970) plus an
@@ -80,7 +80,7 @@ second auction starts at timestamp `47`, the third at `77`, and so on...
 
 :::
 
-### Bid Topic
+### Bid topic
 
 Auctioneer uses the following convention for the bid topic:
 
@@ -131,7 +131,7 @@ and so on...
 
 :::
 
-### Bid Details
+### Bid details
 
 The bid details follow this convention:
 
@@ -148,18 +148,18 @@ The arguments are:
    update the data feed, if the bid wins the auction.
 2. `nonce` - A random nonce to prevent bid ID conflicts.
 
-### Award Details
+### Award details
 
 The award details contain a signature that the auction winner uses to pay the
 OEV bid, which allows them to update the price feeds.
 
-### Fulfillment Details
+### Fulfillment details
 
 The fulfillment details are a single `bytes32` value that represents the
 transaction hash on the target chain in which the auction winner paid for the
 OEV bid.
 
-## Bid Eligibility
+## Bid eligibility
 
 Auctions are open for everyone. Searchers interact with the OevAuctionHouse
 contract when placing a bid, which enforces a few restrictions. Apart from the
@@ -209,7 +209,7 @@ transaction.
 
 :::
 
-## Auction Resolution
+## Auction resolution
 
 Each auction is split into two phases:
 
@@ -237,7 +237,9 @@ logs from the OEV Network, the auction will be aborted and no winner is chosen.
 Similarly, if the auction award transaction fails, there will be no retry,
 because the award signature was already exposed publicly.
 
-### Bidding Phase Guarantee
+### Bidding phase guarantee
+
+<!-- TODO: This is more like Auctioneer guarantees -->
 
 Auctioneer guarantees that any bid placed during the bidding phase will be
 processed. The timestamp of the placed bid is determined by the block timestamp
@@ -250,7 +252,7 @@ some time in the award phase. It fetches logs from a sufficient block range with
 some buffer to ensure the full bidding phase is included. This behavior might
 change in time and searchers should not rely on it.
 
-## Processing Fulfillments
+## Processing fulfillments
 
 After the auction winner is awarded, they are expected to fulfill their duties
 by paying for the awarded OEV bid. After they've made the transaction on the
@@ -295,7 +297,7 @@ threshold.
 
 :::
 
-## Auctioneer Addresses
+## Auctioneer addresses
 
 OEV Auctioneers use dedicated wallets to award auctions and process
 fulfillments. These addresses are granted the respective privileges on the

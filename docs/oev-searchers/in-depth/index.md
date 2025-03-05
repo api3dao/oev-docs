@@ -1,18 +1,18 @@
 ---
-title: Getting Started
+title: Getting started
 pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
 <PageHeader/>
 
-# Getting Started
+# Getting started
 
 This part of the docs is dedicated to searchers. It details how OEV auctions
 work and explains basic searching strategies to simplify the onboarding of
 existing MEV searchers to OEV.
 
-## OEV dApps Catalog
+## OEV dApps catalog
 
 We maintain an open-source list of all dApps that have integrated Api3 feeds as
 part of the [dApp registry](https://github.com/api3dao/dapp-registry). However,
@@ -32,7 +32,7 @@ version of OEV auctions, which are no longer supported. Searchers can still
 perform [MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis)
 extraction though.
 
-## From MEV Searching
+## From MEV searching
 
 MEV searching has a well-established community and expertise in securing health
 and stability across many dApps and chains. We want to motivate this community

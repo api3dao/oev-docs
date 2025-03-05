@@ -13,7 +13,7 @@ liquidity. This allows us to build a fully functional OEV bot and share it as a
 reference without promoting a particular dApp. Because of the small liquidity,
 we expect very little competition, making it an ideal way to start with OEV.
 
-## Compound3 Fork
+## Compound3 fork
 
 ::: warning
 
@@ -40,7 +40,7 @@ Refer to this table for dApp details:
 | [cbETH contract](https://basescan.org/address/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22#code)  | The cbETH token.         |
 | [wstETH contract](https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452#code) | The wstETH token.        |
 
-## The OEV Bot
+## The OEV bot
 
 See the
 [OEV v1 Compound example bot](https://github.com/api3dao/oev-v1-compound-bot)

@@ -26,7 +26,7 @@ source values and predicting the next oracle update.
 
 This solution is also a backup in case OEV is down or under maintenance.
 
-## Monitoring Signed Data
+## Monitoring signed data
 
 First, searchers need to have a list of dAPIs used by the dApp and
 [obtain its beacons](/oev-searchers/in-depth/dapis/#dapp-sources). Note that
@@ -39,7 +39,7 @@ the public
 the real-time values for the base feed beacons used by the dApp. This data may
 be used immediately to look for OEV opportunities.
 
-## Simulating a Data Feed Update
+## Simulating a data feed update
 
 Assuming a searcher called the Signed APIs and has valid data to update the base
 feed, they can use them to simulate the data feed update on-chain followed by a
