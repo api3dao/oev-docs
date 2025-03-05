@@ -114,7 +114,7 @@ The interactions with this contract include:
 
 Tech-savvy users can refer to the contract's source for details.
 
-### Depositing Collateral
+### Depositing collateral
 
 To be eligible to win OEV auctions, searchers need to have enough collateral
 deposited in the OevAuctionHouse contract. See
@@ -143,7 +143,7 @@ For an advanced usage where the bidder is a contract, refer to
 [bidding contract](/oev-searchers/in-depth/oev-searching#bidding-contract)
 section.
 
-### Withdrawing Collateral
+### Withdrawing collateral
 
 Withdrawal of deposited collateral is implemented as a two-way process to
 prevent denial of service by frontrunning the award transaction by withdrawing
@@ -171,7 +171,7 @@ function withdraw(
 ) external;
 ```
 
-### Collateral and Protocol Fee
+### Collateral and protocol fee
 
 For a searcher to win an auction, they are required to have enough ETH deposited
 in the OevAuctionHouse contract. Similarly, the value the searcher can win is
@@ -277,7 +277,7 @@ how to use these functions, we need to understand how
 [Expediting a bid](/oev-searchers/in-depth/oev-searching#expediting-a-bid)
 section for more details.
 
-## Deployed Contracts
+## Deployed contracts
 
 These are the relevant contracts deployed on the OEV Network:
 
