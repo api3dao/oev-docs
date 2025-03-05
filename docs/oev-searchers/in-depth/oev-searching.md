@@ -18,18 +18,18 @@ OEV Auctioneer runs auctions continuously. These auctions are very short-lived.
 This is to ensure OEV updates are performed in a timely manner and the base feed
 delay is minimal.
 
-Searchers are expected to align with the auction schedule. The bidding phase
+Searchers are expected to align with the auction schedule. The bid phase
 should be used to monitor the off-chain data for possible OEV. Any combination
-of signed data from within the bidding phase has an exclusivity guarantee. The
+of signed data from within the bid phase has an exclusivity guarantee. The
 more time spent doing off-chain monitoring means more potential data points can
 be used for OEV extraction. That said, the bids need to be already included
 on-chain during the Auctioneer award phase, so searchers should place their bids
-reasonably close to the end of the bidding phase.
+reasonably close to the end of the bid phase.
 
 Once a searcher wins an auction, they have the update privilege until the next
 auction winner is selected or until the data is exposed via base feeds Signed
 API endpoints. The winner is guaranteed privileges at least until the end of the
-next bidding phase. Note that on some chains, especially during peak usage, it's
+next bid phase. Note that on some chains, especially during peak usage, it's
 recommended to increase the gas costs.
 
 ## Monitoring signed data
@@ -49,9 +49,9 @@ these values for a brief period of time - in case they win the auction and need
 to update the data feed.
 
 OEV auctions provide exclusivity guarantees only for data points with timestamps
-from within the bidding phase. Note that for older signed data, there may be a
+from within the bid phase. Note that for older signed data, there may be a
 previous auction winner who can also use them to update the feed. Moreover, it's
-not possible to use data fresher than the end of the bidding phase. This is to
+not possible to use data fresher than the end of the bid phase. This is to
 ensure the same guarantees apply for the subsequent auction winner.
 
 ## Simulating a data feed update
@@ -128,7 +128,7 @@ Network, the paid bid amount, and the respective collateral and protocol fee.
 
 For a bid to be valid, it needs to use the correct arguments. Out of these, the
 most important is the bid topic, which also identifies the auction. For the bid
-to be considered, the place bid transaction needs to be mined during the bidding
+to be considered, the place bid transaction needs to be mined during the bid
 phase. Searchers should be mindful of the block time on the OEV Network to make
 sure their transaction is mined in time.
 
@@ -152,7 +152,7 @@ It accepts the following parameters:
 
 ## Waiting for auction award
 
-Immediately after the bidding phase is over, Auctioneer enters the award phase,
+Immediately after the bid phase is over, Auctioneer enters the award phase,
 determines the auction winner, and submits the `awardBid` transaction, which
 emits an AwardedBid event. This event indexes the three most important
 arguments:
@@ -171,7 +171,7 @@ possible.
 
 Auctioneer should in practice award the bid during the award phase, but
 searchers are recommended to poll longer. If Auctioneer does not respond even
-within the next bidding phase, there is likely something wrong. Whether the
+within the next bid phase, there is likely something wrong. Whether the
 issue is caused by Auctioneer or the searcher can be determined by looking at
 the OEV Network. If the issue was caused by Auctioneer, the searcher can
 [open a dispute](/oev-searchers/in-depth/oev-searching#handling-disputes).
@@ -237,7 +237,7 @@ cutoff. If the searcher provides incorrect values, the signature verification
 will fail, causing the transaction to revert. If the signature is valid, the
 contract allows the sender to update the data feed(s). Due to exclusivity
 guarantees, the winner is guaranteed to be the only one who can update the feed
-with data from within the bidding phase of the respective auction.
+with data from within the bid phase of the respective auction.
 
 ### Updating the data feed
 

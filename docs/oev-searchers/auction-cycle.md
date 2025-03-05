@@ -13,10 +13,10 @@ level, explaining the steps involved in the auction process. This section aims
 to provide a basic mental model for searchers before reading the in-depth
 [Getting Started](/oev-searchers/in-depth/).
 
-## Start of the bidding phase
+## Start of the bid phase
 
-Auctions run in two phases - the bidding phase and the award phase. During the
-bidding phase, searchers can look for OEV opportunities for the particular dApp
+Auctions run in two phases - the bid phase and the award phase. During the
+bid phase, searchers can look for OEV opportunities for the particular dApp
 by monitoring the off-chain data. When an opportunity is detected, they can
 place their bid.
 
@@ -36,13 +36,13 @@ enough collateral locked in the OevAuctionHouse contract at the time of award.
 
 ## Start of the award Phase
 
-The award phase starts immediately after the end of the bidding phase.
+The award phase starts immediately after the end of the bid phase.
 Auctioneer determines the auction winner and awards them a signature providing
 them with exclusive update rights.
 
 Performance is critical here because the longer it takes to award the bid, the
 less time the auction winner has to capture the OEV before the data becomes
-public. Both bidding phase and award phase periods are chosen with this in mind,
+public. Both bid phase and award phase periods are chosen with this in mind,
 allowing both Auctioneer and the auction winner sufficient time.
 
 ## Finding the winning Bid
