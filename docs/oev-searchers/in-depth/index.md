@@ -8,29 +8,36 @@ outline: deep
 
 # Getting started
 
-This part of the docs is dedicated to searchers. It details how OEV auctions
-work and explains basic searching strategies to simplify the onboarding of
+This is a good starting place for searchers. It includes the list of good dApp candidates for searching, details how OEV auctions
+work and explains basic OEV searching strategy to simplify the onboarding of
 existing MEV searchers to OEV.
 
 ## OEV dApps catalog
 
-We maintain an open-source list of all dApps that have integrated Api3 feeds as
-part of the [dApp registry](https://github.com/api3dao/dapp-registry). However,
-not all of the dApps are suitable for OEV extraction, so we provide a separate
-list of currently suitable candidates for OEV searching.
+Api3 feeds are used across many dApps, but not all are suitable for OEV searching. This catalog includes those dApps that are generating large OEV amounts and are open for searchers to participate.
 
-<!-- NOTE: Make sure these are sorted alphabetically. -->
+<!-- NOTE: Make sure these are sorted alphabetically; title matches information in @api3/contracts; homepage points to the dApp market (can differ from dApp landing page) -->
 
-1. [Hana protocol on Taiko](https://www.hana.finance/)
-2. [Lendle protocol on Mantle](https://lendle.xyz/)
-3. [Orbit protocol on Blast](https://orbitlending.io/)
-4. [Silo protocol on Arbitrum](https://app.silo.finance/)
-5. [Yei protocol on Sei](https://www.yei.finance/)
+1. [dTRINITY on Fraxtal](https://dtrinity.org/)
+2. [INIT Capital on Mantle](https://app.init.capital/?chain=5000)
+3. [Lendle on Mantle](https://lendle.xyz/)
+4. [MachFi on Sonic](https://www.machfi.xyz/)
+5. [Vicuna Finance on Sonic](https://vicunafinance.com/)
+6. [Yei Finance on Sei](https://www.yei.finance/)
 
-Currently, these protocols use outdated Api3 proxies that support the previous
-version of OEV auctions, which are no longer supported. Searchers can still
+### Legacy integrations
+
+Some dApps are still using the legacy design of oracle proxies, which do not support OEV auctions. It's expected these will migrate the OEV supported ones soon. That said, searchers can already
 perform [MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis)
-extraction though.
+extraction.
+
+<!-- NOTE: Make sure these are sorted alphabetically; title matches information in @api3/contracts; homepage points to the dApp market (can differ from dApp landing page) -->
+
+1. [Compound Finance USDe market on Mantle](https://app.compound.finance/markets/usde-mantle)
+2. [Hana Finance on Taiko](https://www.hana.finance/)
+3. [INIT Capital on Blast](https://app.init.capital/?chain=81457)
+4. [Orbit Protocol on Blast](https://orbitlending.io/)
+5. [Silo Finance RDNT market](https://app.silo.finance/silo/0x19d3F8D09773065867e9fD11716229e73481c55A)
 
 ## From MEV searching
 
