@@ -48,7 +48,7 @@ understand and comply with in order to successfully participate in auctions.
 | AUCTION_LENGTH_SECONDS                | 30    | How long an auction lasts.                                                                         |
 | OEV_AUCTIONS_MAJOR_VERSION            | 1     | Increased when we release any breaking change relevant to OEV auctions.                            |
 | COLLATERAL_REQUIREMENT_BUFFER_PERCENT | 5     | The additional percentage of the bidder's collateral to mitigate against price changes.            |
-| BIDDING_PHASE_LENGTH_SECONDS          | 25    | The length of the bidding phase during which searchers can place their bids.                       |
+| BID_PHASE_LENGTH_SECONDS              | 25    | The length of the bid phase during which searchers can place their bids.                           |
 | REPORT_FULFILLMENT_PERIOD_SECONDS     | 86400 | The fulfillment period, during which the auction winner is able to report payment for the OEV bid. |
 | MINIMUM_BID_EXPIRING_SECONDS          | 15    | The minimum expiring time for a bid to be considered eligible for award.                           |
 | PLACED_BIDS_BLOCK_RANGE               | 300   | The number of blocks queried for placed bids during award phase.                                   |
@@ -107,18 +107,18 @@ Let's break down the components of the bid topic:
    we're explicitly including it in the bid topic to highlight its importance.
 4. `signedDataTimestampCutoff` - The cutoff timestamp of the signed data. Only
    signed data with timestamps smaller than or equal to this value are permitted
-   to update the data feed. It is equal to the end of the bidding phase of the
-   auction, that is `startTimestamp + BIDDING_PHASE_LENGTH_SECONDS`.
+   to update the data feed. It is equal to the end of the bid phase of the
+   auction, that is `startTimestamp + BID_PHASE_LENGTH_SECONDS`.
 
 ::: info
 
 Auctions repeat continuously and indefinitely. To calculate the
 `signedDataTimestampCutoff` that is to be specified in the bid topic, one needs
 to calculate the `startTimestamp` of the auction. This depends on the auction
-offset and `BIDDING_PHASE_LENGTH_SECONDS`.
+offset and `BID_PHASE_LENGTH_SECONDS`.
 
 For example, dApp with ID `13` has an auction offset of `17`. With
-`AUCTION_LENGTH_SECONDS=30` and `BIDDING_PHASE_LENGTH_SECONDS=25` this gives the
+`AUCTION_LENGTH_SECONDS=30` and `BID_PHASE_LENGTH_SECONDS=25` this gives the
 following sequence of auctions:
 
 | `startTimestamp` | `signedDataTimestampCutoff` | End of award phase |
@@ -213,14 +213,14 @@ transaction.
 
 Each auction is split into two phases:
 
-1. Bidding phase - During this phase, searchers are free to submit their bids.
-   This phase takes `BIDDING_PHASE_LENGTH_SECONDS`.
+1. Bid phase - During this phase, searchers are free to submit their bids.
+   This phase takes `BID_PHASE_LENGTH_SECONDS`.
 2. Award phase - During this phase, Auctioneer determines and awards the winner.
    Bids placed during this period are ignored. This phase takes the remainder of
    the auction length, which is
-   `AUCTION_LENGTH_SECONDS - BIDDING_PHASE_LENGTH_SECONDS`.
+   `AUCTION_LENGTH_SECONDS - BID_PHASE_LENGTH_SECONDS`.
 
-As soon as the bidding phase is over, Auctioneer attempts to resolve the auction
+As soon as the bid phase is over, Auctioneer attempts to resolve the auction
 as soon as possible. The following happens under the hood:
 
 1. Compute the bid topic for the current auction
@@ -237,19 +237,19 @@ logs from the OEV Network, the auction will be aborted and no winner is chosen.
 Similarly, if the auction award transaction fails, there will be no retry,
 because the award signature was already exposed publicly.
 
-### Bidding phase guarantee
+### Bid phase guarantee
 
 <!-- TODO: This is more like Auctioneer guarantees -->
 
-Auctioneer guarantees that any bid placed during the bidding phase will be
+Auctioneer guarantees that any bid placed during the bid phase will be
 processed. The timestamp of the placed bid is determined by the block timestamp
 in which the transaction is included. Searchers need to be mindful of that and
 of the block time of the OEV Network and make sure to place their bids in time.
 
 That said, Auctioneer may also include bids placed before or slightly after the
-bidding phase. This is because Auctioneer fetches the logs from the OEV Network
+bid phase. This is because Auctioneer fetches the logs from the OEV Network
 some time in the award phase. It fetches logs from a sufficient block range with
-some buffer to ensure the full bidding phase is included. This behavior might
+some buffer to ensure the full bid phase is included. This behavior might
 change in time and searchers should not rely on it.
 
 ## Processing fulfillments
