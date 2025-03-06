@@ -186,9 +186,7 @@ If you want to see what happens under the hood, you can click "Verified," which 
   "currentTimestamp": "1740583493",
   "deploymentTimestamp": "1739870993",
   "configHash": "0xbd159fb423d5eef7abd7947cf8ad1731f0c60cc2e093877837988907580539c9",
-  "certifiedAirnodes": [
-    "0x6b56E47DccFbC82D63Df3da417d26e8B1B877f0f"
-  ]
+  "certifiedAirnodes": ["0x6b56E47DccFbC82D63Df3da417d26e8B1B877f0f"]
 }
 ```
 
