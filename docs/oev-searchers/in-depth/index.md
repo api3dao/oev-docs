@@ -12,18 +12,22 @@ This is a good starting place for searchers. It includes the list of good dApp c
 work and explains basic OEV searching strategy to simplify the onboarding of
 existing MEV searchers to OEV.
 
-## OEV dApps catalog
+## dApps catalog
 
 Api3 feeds are used across many dApps, but not all are suitable for OEV searching. This catalog includes those dApps that are generating large OEV amounts and are open for searchers to participate.
 
+### OEV dApps
+
 <!-- NOTE: Make sure these are sorted alphabetically; title matches information in @api3/contracts; homepage points to the dApp market (can differ from dApp landing page) -->
 
-1. [dTRINITY on Fraxtal](https://dtrinity.org/)
-2. [INIT Capital on Mantle](https://app.init.capital/?chain=5000)
-3. [Lendle on Mantle](https://lendle.xyz/)
-4. [MachFi on Sonic](https://www.machfi.xyz/)
-5. [Vicuna Finance on Sonic](https://vicunafinance.com/)
-6. [Yei Finance on Sei](https://www.yei.finance/)
+| dApp                                                 | Chain   |
+| ---------------------------------------------------- | ------- |
+| [dTRINITY](https://dtrinity.org/)                    | Fraxtal |
+| [INIT Capital](https://app.init.capital/?chain=5000) | Mantle  |
+| [Lendle](https://lendle.xyz/)                        | Mantle  |
+| [MachFi](https://www.machfi.xyz/)                    | Sonic   |
+| [Vicuna Finance](https://vicunafinance.com/)         | Sonic   |
+| [Yei Finance](https://www.yei.finance/)              | Sei     |
 
 ### Legacy integrations
 
@@ -33,11 +37,13 @@ extraction.
 
 <!-- NOTE: Make sure these are sorted alphabetically; title matches information in @api3/contracts; homepage points to the dApp market (can differ from dApp landing page) -->
 
-1. [Compound Finance USDe market on Mantle](https://app.compound.finance/markets/usde-mantle)
-2. [Hana Finance on Taiko](https://www.hana.finance/)
-3. [INIT Capital on Blast](https://app.init.capital/?chain=81457)
-4. [Orbit Protocol on Blast](https://orbitlending.io/)
-5. [Silo Finance RDNT market](https://app.silo.finance/silo/0x19d3F8D09773065867e9fD11716229e73481c55A)
+| dApp                                                                                                 | Chain    |
+| ---------------------------------------------------------------------------------------------------- | -------- |
+| [Compound Finance USDe market](https://app.compound.finance/markets/usde-mantle)                     | Mantle   |
+| [Hana Finance](https://www.hana.finance/)                                                            | Taiko    |
+| [INIT Capital](https://app.init.capital/?chain=81457)                                                | Blast    |
+| [Orbit Protocol](https://orbitlending.io/)                                                           | Blast    |
+| [Silo Finance RDNT market](https://app.silo.finance/silo/0x19d3F8D09773065867e9fD11716229e73481c55A) | Ethereum |
 
 ## From MEV searching
 
