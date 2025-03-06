@@ -49,7 +49,8 @@ The [Api3 whitepaper](https://github.com/api3dao/api3-whitepaper) poses that all
 We have coined the term _first-party oracle_ to refer to this architecture, where API providers deliver oracle services without needing third parties to facilitate.
 
 Api3 data feeds are on-chain aggregations of data feeds powered by individual first-party oracles.
-Each API provider powers a single-source data feed on-chain, and the Api3 data feed is an on-chain median of the these individual data feeds, which provides the strongest security guarantees (for example, compared to off-chain aggregation).
+Each API provider powers a single-source data feed on-chain, and the Api3 data feed is an on-chain median of these individual data feeds, which provides the strongest security guarantees (for example, compared to off-chain aggregation).
+You can easily verify the first-party nature of our data feeds [directly on the data feed page in Api3 Market.](/dapps/integration/index.md#verifying-first-party-sources)
 
 ::: info ⚠️ Warning
 
