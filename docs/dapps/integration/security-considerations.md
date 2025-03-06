@@ -43,28 +43,6 @@ Multisig signers have access to this data and are responsible for its verificati
 
 :::
 
-## Update parameters
-
-Once a plan is purchased on Api3 Market, the respective data feed will maintain the advertised deviation threshold and heartbeat interval until plan expiration.
-This depends on the Api3 technical team to keep the wallets that will send the update transactions funded, and maintain the infrastructure that will use these wallets to send the update transactions.
-The operation is backed by dedicated monitoring personnel, automated alerts, and redundant infrastructure layers.
-
-::: info ℹ️ Info
-
-We have been providing oracle services as early as [2019](https://etherscan.io/txs?a=0x78e76126719715eddf107cd70f3a31dddf31f85a&p=1029), and were listed as the [best responding oracle](/assets/reputation-link.CxhU2iIj.png) among all Chainlink oracles by [`reputation.link`](https://www.google.com/search?q=%22reputation.link%22+chainlink) as of September 2020, which is when we published the [Api3 whitepaper](https://github.com/api3dao/api3-whitepaper) and requested to be removed from Chainlink data feeds.
-An important driving factor for this was our insight into systemic issues that could harm users and our confidence in building a better solution.
-With this understanding, we designed our architecture and operations from the ground up, leading to our current performance.
-
-<img src="./images/reputation-link.png" style="display: none;">
-
-:::
-
-We obtain API provider-signed data for feed updates from publicly accessible APIs.
-While similar to the [Coinbase price oracle](https://www.coinbase.com/en-tr/blog/introducing-the-coinbase-price-oracle), our approach involves multiple API providers using our standardized protocol, enabling aggregation.
-As a result, even if we cease updating a data feed, further updates remain possible.
-MEV searchers, for instance, can access these APIs to perform financially relevant updates.
-Similarly, our OEV implementation uses this mechanism, ensuring OEV updates continue even if we stop updating the feed according to the update parameters.
-
 ## Correctness of data
 
 The [Api3 whitepaper](https://github.com/api3dao/api3-whitepaper) poses that all oracle data comes from API providers in practice, and the trust-minimized way to receive data from an API provider is for there to be no third-party intermediaries.
@@ -89,6 +67,28 @@ Consequently, when dApps use Pyth data on Ethereum, users pay Ethereum gas fees 
 
 Api3 maintains a roster of first-party oracle partners and curates data feeds through continuous performance analysis.
 This focused approach produces better aggregation than alternatives that rely on numerous downstream oracle service providers.
+
+## Update parameters
+
+Once a plan is purchased on Api3 Market, the respective data feed will maintain the advertised deviation threshold and heartbeat interval until plan expiration.
+This depends on the Api3 technical team to keep the wallets that will send the update transactions funded, and maintain the infrastructure that will use these wallets to send the update transactions.
+The operation is backed by dedicated monitoring personnel, automated alerts, and redundant infrastructure layers.
+
+::: info ℹ️ Info
+
+We have been providing oracle services as early as [2019](https://etherscan.io/txs?a=0x78e76126719715eddf107cd70f3a31dddf31f85a&p=1029), and were listed as the [best responding oracle](/assets/reputation-link.CxhU2iIj.png) among all Chainlink oracles by [`reputation.link`](https://www.google.com/search?q=%22reputation.link%22+chainlink) as of September 2020, which is when we published the [Api3 whitepaper](https://github.com/api3dao/api3-whitepaper) and requested to be removed from Chainlink data feeds.
+An important driving factor for this was our insight into systemic issues that could harm users and our confidence in building a better solution.
+With this understanding, we designed our architecture and operations from the ground up, leading to our current performance.
+
+<img src="./images/reputation-link.png" style="display: none;">
+
+:::
+
+We obtain API provider-signed data for feed updates from publicly accessible APIs.
+While similar to the [Coinbase price oracle](https://www.coinbase.com/en-tr/blog/introducing-the-coinbase-price-oracle), our approach involves multiple API providers using our standardized protocol, enabling aggregation.
+As a result, even if we cease updating a data feed, further updates remain possible.
+MEV searchers, for instance, can access these APIs to perform financially relevant updates.
+Similarly, our OEV implementation uses this mechanism, ensuring OEV updates continue even if we stop updating the feed according to the update parameters.
 
 ## Oracle Extractable Value (OEV)
 
