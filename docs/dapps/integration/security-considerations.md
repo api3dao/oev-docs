@@ -92,7 +92,7 @@ With this understanding, we designed our architecture and operations from the gr
 
 ## Oracle Extractable Value (OEV)
 
-OEV updates provide identical guarantees to regular updates—they are on-chain aggregations of API provider-signed data—so they introduce no additional data integrity risk.
+OEV updates provide identical guarantees to regular updates—they are on-chain aggregations of API provider-signed data—so they introduce no additional data correctness risk.
 The OEV auction mechanism allows winners to frontrun updates of an artificially delayed base feed, a tradeoff designed to benefit the dApp.
 
 Here's how the process works.
