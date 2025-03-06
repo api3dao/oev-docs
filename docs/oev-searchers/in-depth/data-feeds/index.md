@@ -1,27 +1,26 @@
 ---
-title: dAPIs
+title: Data feeds
 pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
 <PageHeader/>
 
-# dAPIs
+# Data feeds
 
 Searchers need a way to monitor real-time off-chain prices to find profitable
 opportunities. Traditionally, searchers have needed to buy API subscriptions
 from underlying oracle sources, creating additional friction in the process.
 Api3 simplifies this process by providing the same data that is used for
-updating dAPIs to searchers publicly - and without cost.
+updating data feeds to searchers publicly - and without cost.
 
-The price feed solution from Api3 is called dAPIs, and their design allows
-extracting OEV with ease.
+## How data feeds work?
 
-## How dAPIs work?
-
-Let's start from the ground up. The dAPI logic is dictated by the Api3ServerV1
+Let's start from the ground up. The data feed logic is dictated by the Api3ServerV1
 contract. The central part of Api3 feeds is first-party oracles, relying on
 cryptographic signatures verified on-chain.
+
+Internally, we refer to our data feeds as dAPIs. This is also the terminology used across Api3 contracts. We'll be following the same terminology in this section.
 
 ### dAPI structure
 

@@ -13,7 +13,7 @@ outline: deep
 The OEV Network operates as a standard Arbitrum Nitro L2 optimistic-rollup. The
 system ensures transparency and allows verification of the auction process. In
 this marketplace, OEV searchers place bids for the exclusive opportunity to
-update dAPIs for a short period of time.
+update dApp's data feeds for a short period of time.
 
 By hosting auctions on-chain, we address two big issues:
 
@@ -77,7 +77,7 @@ OEV Network.
 The implementation of the audited Api3ServerV1 contract is publicly available
 [here](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1.sol).
 
-The Api3ServerV1 contract powers dAPIs on the OEV Network, which are used in the
+The Api3ServerV1 contract powers data feeds on the OEV Network, which are used in the
 OevAuctionHouse contract to compute collateral and protocol fee from the bid
 amount. Note that this chain is not officially listed on the Api3 market because
 the OEV Network is primarily intended to be used for OEV auctions.

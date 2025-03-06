@@ -34,16 +34,16 @@ recommended to increase the gas costs.
 
 ## Monitoring signed data
 
-Searchers need to have a list of dAPIs used by the dApp and
-[obtain its beacons](/oev-searchers/in-depth/dapis/#dapp-sources). However,
+Searchers need to have a list of data feeds used by the dApp and
+[obtain its beacons](/oev-searchers/in-depth/data-feeds/#dapp-sources). However,
 these are the beacons of the base feed. For each of these beacons, the searcher
 must derive the OEV counterpart to obtain the
-[OEV beacon](/oev-searchers/in-depth/dapis/#oev-feed). Note that this operation
+[OEV beacon](/oev-searchers/in-depth/data-feeds/#oev-feed). Note that this operation
 can be cached because they change only when the underlying base feed changes,
-which happens only when the dAPI is reconfigured.
+which happens only when a dAPI is reconfigured.
 
 Once the list of OEV beacons is known, searchers should periodically call the
-public [OEV endpoints](/oev-searchers/in-depth/dapis/#oev-endpoints) to get the
+public [OEV endpoints](/oev-searchers/in-depth/data-feeds/#oev-endpoints) to get the
 real-time values for the OEV beacons used by the dApp. It's necessary to persist
 these values for a brief period of time - in case they win the auction and need
 to update the data feed.
@@ -247,7 +247,7 @@ requires the sender to be whitelisted by paying for the OEV bid first.
 ```solidity
 function updateDappOevDataFeed(
     uint256 dappId, // The ID of the dApp that the searcher wants to update
-    bytes[] calldata signedData // The ABI encoded signed data that the searcher wants to update the dAPI with
+    bytes[] calldata signedData // The ABI encoded signed data used for updating the data feeds
 )
     external
     returns (
