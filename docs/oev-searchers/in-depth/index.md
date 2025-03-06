@@ -20,6 +20,8 @@ Api3 feeds are used across many dApps, but not all are suitable for OEV searchin
 
 <!-- NOTE: Make sure these are sorted alphabetically; title matches information in @api3/contracts; homepage points to the dApp market (can differ from dApp landing page) -->
 
+The following table includes dApps which integrated OEV proxies and are good candidates for OEV searching. The chain and dApp alias define are unique for every market and are required when implementing searcher bots.
+
 | dApp                                                 | Chain   | dApp alias       |
 | ---------------------------------------------------- | ------- | ---------------- |
 | [dTRINITY](https://dtrinity.org/)                    | Fraxtal | `dtrinity`       |
