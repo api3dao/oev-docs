@@ -88,9 +88,17 @@ to update [base feeds](#base-feed).
 is an extension of the [Api3ServerV1 contract](#api3serverv1-contract). It is
 used by [searchers](#searcher) for [OEV feed](#oev-feed) updates.
 
+### Auction
+
+Auction on the context of OEV auctions, is an order flow auction (OFA) giving exclusive priority for updating data feeds for particular dApp to capture OEV.
+
 ### Auctioneer
 
 Short term for [OEV Auctioneer](#oev-auctioneer).
+
+### Award details
+
+The award details provide the auction winner the exclusive priority to update the price feeds for a particular dApp. The award details format is enforced by [Auctioneer](#auctioneer).
 
 ### Award phase
 
@@ -123,13 +131,15 @@ identified by the hash of the constituting beacon IDs.
 beaconSetId = keccak256(abi.encode(beaconIds));
 ```
 
-<!-- TODO: Missing terms bid topic, bid details, etc... -->
-
 ### Bid
 
 [Searchers](#searcher) place bids on [OEV Network](#oev-network) to participate
 in [OEV auctions](#oev-auction) to obtain exclusive rights to capture
 [OEV](#oev).
+
+### Bid details
+
+Required part of a [bid](#bid) providing the details of the bid. The bid details format is enforced by [Auctioneer](#auctioneer).
 
 ### Bid amount
 
@@ -141,6 +151,10 @@ The amount a [searcher](#searcher) is willing to pay for winning the
 Bid phase is the first phase of an [OEV auction](#oev-auction) where
 [searchers](#searcher) are supposed to place their [bids](#bid). It is followed
 by the [award phase](#award-phase).
+
+### Bid topic
+
+A [bid](#bid) is placed for a particular auction, which is identified by the combination of a bid topic and chain ID. The bid topic format is enforced by [Auctioneer](#auctioneer).
 
 ### Collateral
 
@@ -218,6 +232,10 @@ Our first-party oracles are powered by [Airnode feeds](#airnode-feed).
 The [searcher](#searcher) that has won an [OEV auction](#oev-auction) is
 expected to pay their [bid amount](#bid-amount). This payment is referred to as
 a fulfillment in the context of [OevAuctionHouse](#oev-auction-house).
+
+### Fulfillment details
+
+Fulfillment details are required part of [fulfillment](#fulfillment). The fulfillment details format is enforced by [Auctioneer](#auctioneer).
 
 ### Heartbeat
 
