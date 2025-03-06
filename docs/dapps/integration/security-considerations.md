@@ -43,6 +43,29 @@ Multisig signers have access to this data and are responsible for its verificati
 
 :::
 
+## Data correctness
+
+The [Api3 whitepaper](https://github.com/api3dao/api3-whitepaper) poses that all oracle data comes from API providers in practice, and the trust-minimized way to receive data from an API provider is for there to be no third-party intermediaries.
+We have coined the term _first-party oracle_ to refer to this architecture, where API providers deliver oracle services without needing third parties to facilitate.
+
+Api3 data feeds are on-chain aggregations of data feeds powered by individual first-party oracles.
+Each API provider powers a single-source data feed on-chain, and the Api3 data feed is an on-chain median of these individual data feeds, which provides the strongest security guarantees (for example, compared to off-chain aggregation).
+You can easily verify the first-party nature of our data feeds [directly on the data feed page in Api3 Market.](/dapps/integration/index.md#verifying-first-party-sources)
+
+::: info ⚠️ Warning
+
+While some oracle solutions are at peace with their third-party status, other oracle solutions such as Pyth incorrectly claim their oracles are first party.
+This claim fails in two ways:
+First, an API provider is a business that provides an API as a service, and most Pyth oracles are not API providers.
+Second, even when a Pyth oracle is an API provider, their data is aggregated and served through Wormhole, introducing a third-party point of failure.
+
+In general, when oracle services use an intermediary blockchain or state channel for delivery, they create a third-party system since the intermediary's consensus model will not match the aggregation model.
+Consider a system where 7 API providers supply data and 100+ node operators provide aggregation and data availability—this creates two points of failure, typical of third-party oracle designs.
+The secondary point of failure (the node operators) is typically weaker than the primary one (the API providers).
+Consequently, when dApps use Pyth data on Ethereum, users pay Ethereum gas fees while only receiving security equivalent to [Wormhole.](https://www.google.com/search?q=wormhole+down+%22pyth%22)
+
+:::
+
 ## Update parameters
 
 Once a plan is purchased on Api3 Market, the respective data feed will maintain the advertised deviation threshold and heartbeat interval until plan expiration.
@@ -59,40 +82,17 @@ With this understanding, we designed our architecture and operations from the gr
 
 :::
 
-We obtain API provider-signed data for feed updates from publicly accessible APIs.
-While similar to the [Coinbase price oracle](https://www.coinbase.com/en-tr/blog/introducing-the-coinbase-price-oracle), our approach involves multiple API providers using our standardized protocol, enabling aggregation.
+## Data availability
+
+We obtain API provider-signed data for feed updates from publicly accessible APIs (the same ones you can use to [verify first-party sources on Api3 Market.](/dapps/integration/index.md#verifying-first-party-sources))
+While similar to the [Coinbase price oracle](https://www.coinbase.com/blog/introducing-the-coinbase-price-oracle), our approach involves multiple API providers using our standardized protocol, enabling aggregation.
 As a result, even if we cease updating a data feed, further updates remain possible.
 MEV searchers, for instance, can access these APIs to perform financially relevant updates.
 Similarly, our OEV implementation uses this mechanism, ensuring OEV updates continue even if we stop updating the feed according to the update parameters.
 
-## Correctness of data
-
-The [Api3 whitepaper](https://github.com/api3dao/api3-whitepaper) poses that all oracle data comes from API providers in practice, and the trust-minimized way to receive data from an API provider is for there to be no third-party intermediaries.
-We have coined the term _first-party oracle_ to refer to this architecture, where API providers deliver oracle services without needing third parties to facilitate.
-
-Api3 data feeds are on-chain aggregations of data feeds powered by individual first-party oracles.
-Each API provider powers a single-source data feed on-chain, and the Api3 data feed is an on-chain median of the these individual data feeds, which provides the strongest security guarantees (for example, compared to off-chain aggregation).
-
-::: info ⚠️ Warning
-
-Other oracle solutions, such as Pyth, incorrectly claim their oracles are first party.
-This claim fails in two ways:
-First, an API provider is a business that provides an API as a service, and most Pyth oracles are not API providers.
-Second, even when a Pyth oracle is an API provider, their data is aggregated and served through Wormhole, introducing a third-party point of failure.
-
-In general, when oracle services use an intermediary blockchain or state channel for delivery, they create a third-party system since the intermediary's consensus model will not match the aggregation model.
-Consider a system where 7 API providers supply data and 100+ node operators provide aggregation and data availability—this creates two points of failure, typical of third-party oracle designs.
-The secondary point of failure (the node operators) is typically weaker than the primary one (the API providers).
-Consequently, when dApps use Pyth data on Ethereum, users pay Ethereum gas fees while only receiving security equivalent to [Wormhole.](https://thedefiant.io/news/defi/wormhole-exploit-320m)
-
-:::
-
-Api3 maintains a roster of first-party oracle partners and curates data feeds through continuous performance analysis.
-This focused approach produces better aggregation than alternatives that rely on numerous downstream oracle service providers.
-
 ## Oracle Extractable Value (OEV)
 
-OEV updates provide identical guarantees to regular updates—they are on-chain aggregations of API provider-signed data—so they introduce no additional data integrity risk.
+OEV updates provide identical guarantees to regular updates—they are on-chain aggregations of API provider-signed data—so they introduce no additional data correctness risk.
 The OEV auction mechanism allows winners to frontrun updates of an artificially delayed base feed, a tradeoff designed to benefit the dApp.
 
 Here's how the process works.
