@@ -63,9 +63,7 @@ offset based on the dApp ID.
 uint256(keccak256(abi.encodePacked(uint256(dAppId)))) % AUCTION_LENGTH_SECONDS;
 ```
 
-::: info
-
-**Example:**
+::: info ℹ️ Example
 
 Say there is a dApp with ID `13` and `AUCTION_LENGTH_SECONDS=30`
 
@@ -110,7 +108,7 @@ Let's break down the components of the bid topic:
    to update the data feed. It is equal to the end of the bid phase of the
    auction, that is `startTimestamp + BID_PHASE_LENGTH_SECONDS`.
 
-::: info
+::: info ℹ️ Info
 
 Auctions repeat continuously and indefinitely. To calculate the
 `signedDataTimestampCutoff` that is to be specified in the bid topic, one needs
@@ -181,9 +179,7 @@ Auctioneer fetches the required information from the OevAuctionHouse contract.
 In a rare case when Auctioneer fails to fetch eligibility for a bidder, it will
 abort awarding the current auction.
 
-::: info
-
-**Edge case:**
+::: info ⚠️ Warning
 
 If a bidder places multiple bids across different dApps in quick succession,
 with only enough collateral to cover a subset of the bids, then Auctioneer may
@@ -286,7 +282,7 @@ to process the fulfillment later. Its utmost priority is to avoid slashing
 honest searchers. That said, once the Auctioneer disproves the fulfillment, it
 will promptly slash.
 
-::: info
+::: info ℹ️ Info
 
 Note that the auction winner may choose not to update the price feed when they
 pay for the awarded bid. This is an allowed way to withhold the updates because

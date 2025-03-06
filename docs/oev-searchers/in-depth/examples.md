@@ -15,7 +15,7 @@ we expect very little competition, making it an ideal way to start with OEV.
 
 ## Compound3 fork
 
-::: warning
+::: ⚠️ Warning
 
 The dApp uses real assets to allow for a more realistic experience, but the goal
 is to allow testing of the OEV flow. If you're just looking to borrow/lend
