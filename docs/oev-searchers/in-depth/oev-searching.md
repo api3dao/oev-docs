@@ -176,7 +176,7 @@ issue is caused by Auctioneer or the searcher can be determined by looking at
 the OEV Network. If the issue was caused by Auctioneer, the searcher can
 [open a dispute](/oev-searchers/in-depth/oev-searching#handling-disputes).
 
-::: info
+::: info 💡 Tip
 
 Searchers can monitor the auction in real-time and can determine the auction
 winner themselves (or even attempt to increase their bid).
@@ -267,9 +267,7 @@ The ABI encoded signed data are expected to be decoded to the following fields:
 - `bytes memory signature` - The signature for this signed data - signed for the
   base feed beacon.
 
-::: info
-
-**Important**
+::: info ⚠️ Warning
 
 It might be a bit surprising to pass the template ID of the base feed beacon,
 because the data and the signature are supplied for the OEV beacon. However, the
