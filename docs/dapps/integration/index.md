@@ -161,3 +161,37 @@ Can't find your dApp?
 Follow the OEV Rewards [onboarding steps](/dapps/oev-rewards/index.md#how-to-get-onboard) first.
 
 :::
+
+## Verifying first-party sources
+
+The term _first-party oracle_ is coined in the Api3 whitepaper and refers to an API provider that provides oracle services without depending on any middlemen.
+There are three conditions to be verified to check if an oracle service is first-party:
+
+- Each individual node must operate an independent API service as their primary business model (for them to be called API providers).
+- Each API provider must certify their public key and sign their data with the respective private key.
+- Each API provider must make their signed data available themselves, without depending on third-party APIs, blockchains, or state channels.
+
+Api3 provides the only first-party oracle solution.
+Furthermore, we have implemented functionality for the public to be able to easily audit this.
+On a data feed page, when you hover your mouse over the logo of a source, you can observe the Market frontend verifying the conditions above in real-time.
+
+<center><img src="./images/first-party-source.png"></center>
+
+If you want to see what happens under the hood, you can click "Verified," which allows you to make an HTTP request to the "signed API" of the source, https://signed-api.coingecko.com/, and receive a response such as the following:
+
+```json
+{
+  "stage": "aws",
+  "version": "3.0.1",
+  "currentTimestamp": "1740583493",
+  "deploymentTimestamp": "1739870993",
+  "configHash": "0xbd159fb423d5eef7abd7947cf8ad1731f0c60cc2e093877837988907580539c9",
+  "certifiedAirnodes": [
+    "0x6b56E47DccFbC82D63Df3da417d26e8B1B877f0f"
+  ]
+}
+```
+
+We know that CoinGecko is a reputable API provider, they own the `coingecko.com` domain, and this response comes from that domain.
+`certifiedAirnodes` is the list of addresses of the accounts that CoinGecko uses to sign its data (only `0x6b56E47DccFbC82D63Df3da417d26e8B1B877f0f` in this case), and the Market frontend confirms that the respective data feed is configured to use data signed by one of these certified accounts.
+Finally, all recent data points signed by CoinGecko can be fetched directly from them through https://signed-api.coingecko.com/public/0x6b56E47DccFbC82D63Df3da417d26e8B1B877f0f.
