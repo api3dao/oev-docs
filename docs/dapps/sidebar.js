@@ -28,10 +28,6 @@ module.exports = [
         text: 'Security considerations',
         link: '/dapps/integration/security-considerations',
       },
-      {
-        text: 'Old integrations',
-        link: '/dapps/integration/old-integrations',
-      },
     ],
   },
   {
