@@ -369,15 +369,8 @@ To open a dispute, head to the
 [OEV Discord channel](https://discord.com/channels/758003776174030948/1062909222347603989)
 and create a post with the description of the dispute.
 
-## Example
+## Reference implementation
 
-One can refer to the
-[OEV v1 Compound example bot](https://github.com/api3dao/oev-v1-compound-bot)
-and inspect the
-[changes](https://github.com/api3dao/oev-v1-compound-bot/compare/mev-with-signed-apis...oev)
-needed to migrate the
-[MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis) bot to OEV
-bot.
-
-The bot is configured to run against a forked Compound3 protocol on Base
-network. Follow the description in the README for details.
+- [Example OEV Compound bot](https://github.com/api3dao/oev-v1-compound-bot) - You can also inspect the
+  [changes](https://github.com/api3dao/oev-v1-compound-bot/compare/mev-with-signed-apis...oev)
+  needed to add the OEV functionality to an existing bot supporting [MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis).
