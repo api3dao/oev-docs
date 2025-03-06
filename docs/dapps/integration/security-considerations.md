@@ -66,6 +66,14 @@ Consequently, when dApps use Pyth data on Ethereum, users pay Ethereum gas fees 
 
 :::
 
+## Data availability
+
+We obtain API provider-signed data for feed updates from publicly accessible APIs (the same ones you can use to [verify first-party sources on Api3 Market.](/dapps/integration/index.md#verifying-first-party-sources))
+While similar to the [Coinbase price oracle](https://www.coinbase.com/blog/introducing-the-coinbase-price-oracle), our approach involves multiple API providers using our standardized protocol, enabling aggregation.
+As a result, even if we cease updating a data feed, further updates remain possible.
+MEV searchers, for instance, can access these APIs to perform financially relevant updates.
+Similarly, our OEV implementation uses this mechanism, ensuring OEV updates continue even if we stop updating the feed according to the update parameters.
+
 ## Update parameters
 
 Once a plan is purchased on Api3 Market, the respective data feed will maintain the advertised deviation threshold and heartbeat interval until plan expiration.
@@ -81,12 +89,6 @@ With this understanding, we designed our architecture and operations from the gr
 <img src="./images/reputation-link.png" style="display: none;">
 
 :::
-
-We obtain API provider-signed data for feed updates from publicly accessible APIs.
-While similar to the [Coinbase price oracle](https://www.coinbase.com/en-tr/blog/introducing-the-coinbase-price-oracle), our approach involves multiple API providers using our standardized protocol, enabling aggregation.
-As a result, even if we cease updating a data feed, further updates remain possible.
-MEV searchers, for instance, can access these APIs to perform financially relevant updates.
-Similarly, our OEV implementation uses this mechanism, ensuring OEV updates continue even if we stop updating the feed according to the update parameters.
 
 ## Oracle Extractable Value (OEV)
 
