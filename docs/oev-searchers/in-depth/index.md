@@ -61,6 +61,6 @@ bot to participate in OEV searching:
 
 Most of these steps require small additions to the existing MEV bot, but it is
 required to understand the mental model behind OEV and our
-[data-feeds](#/oev-searchers/in-depth/data-feeds/). Because of this, we recommend starting
+[data feeds](/oev-searchers/in-depth/data-feeds/). Because of this, we recommend starting
 with an in-between solution we call
 [MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis).

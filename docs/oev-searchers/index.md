@@ -69,26 +69,35 @@ searchers.
 
 ## How do auctions work?
 
-Api3 has developed a specialized on-chain Order Flow Auction (OFA) similar to
-the one you might be familiar with from Flashbots and MEV-Boost.
-
-We use a combination of the [OEV Network](#oev-network) and the
+Api3 uses a combination of the [OEV Network](#oev-network) and the
 [OEV Auctioneer](#oev-auctioneer) to power the OEV auctions in a secure and
 transparent way.
 
 At a high level, auctions repeat continuously and indefinitely. There is a
-separate auction for each dApp. Each auction takes a fixed amount of time.
-Searchers place bids during the auction and announce a bid amount they're
-willing to pay. When the auction ends, the highest eligible bidder is declared
-the winner and provided a cryptographic signature. The signature gives them
-exclusive rights to update any price feed(s) for the dApp for a limited period
-of time. Each time an auction ends, a new one begins and the same process
+separate auction for each dApp and each auction takes a fixed amount of time. Each time an auction ends, a new one begins and the same process
 repeats.
 
-After an auction winner fulfills their duties by paying for the winning bid,
-they need to report this back to the OEV network. If they fail to do so, part of
-their collateral is slashed. This is an important security measure to prevent
-denial of OEV recapture through withheld auction payments.
+<!-- NOTE: Source = https://excalidraw.com/#json=VHSz5AhV0HA88hUvabVJv,AhhEkjO7HE_4MOqbkrBGsw -->
+<img src="./auctions-overview.svg" />
+
+### Bid phase
+
+Auctions run in two phases - the bid phase and the award phase. During the
+bid phase, searchers look for OEV opportunities for the particular dApp
+by monitoring the off-chain data. When an opportunity is detected, they
+place their bid based on its value.
+
+It is important to understand that bids must be placed before the end of the bid phase, which establishes a cutoff period. The auction winner is able to use only price feed data with timestamp up to this cutoff period.
+
+### Award Phase
+
+The award phase starts immediately after the end of the bid phase. All bids placed during the bid phase are evaluated and the eligible bid with highest amount is selected as winner and provided a cryptographic signature allowing them to make the price feed updates up to the cutoff period. This signature is usable only by the auction winner. A requirement for updating the price feed is paying the announced bid amount in the same transaction.
+
+### Fulfillment
+
+Auction winner is required to make use of the auction data and pay for the winning bid to fulfill the purpose of the auction. After paying for the auction, they are required to report the fulfillment to the auction platform with the transaction hash of the update.
+
+The fulfillment is verified and provided the update was correct, the auction winner's collateral is released. If the fulfillment is not reported or incorrect information is submitted, the collateral is slashed. Fulfillment has a large reporting period and the auction winner is in full control of when they choose to report.
 
 ### OEV Network
 
@@ -111,7 +120,7 @@ Here are resources to help you get started with OEV:
 
 1. Dive deeper into OEV by reading the
    [OEV Litepaper](https://raw.githubusercontent.com/api3dao/oev-litepaper/main/oev-litepaper.pdf).
-2. Check out the [Auction cycle](/oev-searchers/in-depth/auction-cycle) overview and continue to [Getting started](/oev-searchers/in-depth/) section to see how
+2. Check out the [Getting started](/oev-searchers/in-depth/) section to see how
    to start searching.
 3. Connect with other developers and OEV enthusiasts in our
    [OEV Discord channel](https://discord.com/channels/758003776174030948/1062909222347603989).
