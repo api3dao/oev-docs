@@ -52,7 +52,7 @@ bot to participate in OEV searching:
 
 1. Bridge funds to the OEV network
 2. Deposit funds to the OevAuctionHouse contract
-3. Monitor off-chain signed data for dAPIs used by the dApp
+3. Monitor off-chain signed data for data feeds used by the dApp
 4. Simulate the data feed update on-chain to determine OEV opportunities
 5. Place a bid on the OEV Network
 6. Wait for the auction to end
@@ -61,6 +61,6 @@ bot to participate in OEV searching:
 
 Most of these steps require small additions to the existing MEV bot, but it is
 required to understand the mental model behind OEV and our
-[dAPIs](#/oev-searchers/in-depth/dapis/). Because of this, we recommend starting
+[data-feeds](#/oev-searchers/in-depth/data-feeds/). Because of this, we recommend starting
 with an in-between solution we call
 [MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis).

@@ -22,8 +22,8 @@ module.exports = [
         link: '/oev-searchers/in-depth/',
       },
       {
-        text: 'dAPIs',
-        link: '/oev-searchers/in-depth/dapis/',
+        text: 'Data feeds',
+        link: '/oev-searchers/in-depth/data-feeds/',
       },
       {
         text: 'MEV with Signed APIs',

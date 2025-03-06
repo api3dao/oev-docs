@@ -25,8 +25,8 @@ place their bid.
 ## Find an OEV opportunity
 
 Searchers compare data from off-chain Signed APIs to the on-chain values of
-dAPIs. This process often involves taking the off-chain data, simulating the
-dAPI updates, and inspecting the state changes of the dApp.
+data feeds. This process often involves taking the off-chain data, simulating the
+data feed updates, and inspecting the state changes of the dApp.
 
 ## Bid submission
 
