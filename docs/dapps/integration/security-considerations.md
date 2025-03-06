@@ -43,7 +43,7 @@ Multisig signers have access to this data and are responsible for its verificati
 
 :::
 
-## Correctness of data
+## Data correctness
 
 The [Api3 whitepaper](https://github.com/api3dao/api3-whitepaper) poses that all oracle data comes from API providers in practice, and the trust-minimized way to receive data from an API provider is for there to be no third-party intermediaries.
 We have coined the term _first-party oracle_ to refer to this architecture, where API providers deliver oracle services without needing third parties to facilitate.
