@@ -53,7 +53,7 @@ Each API provider powers a single-source data feed on-chain, and the Api3 data f
 
 ::: info ⚠️ Warning
 
-Other oracle solutions, such as Pyth, incorrectly claim their oracles are first party.
+While some oracle solutions are at peace with their third-party status, other oracle solutions such as Pyth incorrectly claim their oracles are first party.
 This claim fails in two ways:
 First, an API provider is a business that provides an API as a service, and most Pyth oracles are not API providers.
 Second, even when a Pyth oracle is an API provider, their data is aggregated and served through Wormhole, introducing a third-party point of failure.
