@@ -7,10 +7,6 @@ module.exports = [
         text: 'Overview',
         link: '/oev-searchers/',
       },
-      {
-        text: 'Auction cycle',
-        link: '/oev-searchers/auction-cycle/',
-      },
     ],
   },
   {
@@ -20,6 +16,10 @@ module.exports = [
       {
         text: 'Getting started',
         link: '/oev-searchers/in-depth/',
+      },
+      {
+        text: 'Auctions',
+        link: '/oev-searchers/in-depth/auctions/',
       },
       {
         text: 'Data feeds',
