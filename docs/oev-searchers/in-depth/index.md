@@ -45,12 +45,9 @@ MEV searching has a well-established community and expertise in securing health
 and stability across many dApps and chains. We want to motivate this community
 to join OEV searching by outlining the steps to transition from MEV to OEV.
 
-Let's emphasize that MEV searchers can still use their existing infrastructure
-and searching bots even when opting into OEV. OEV should be treated as an
-extension to MEV that searchers can capitalize on. OEV can increase profits
-through lower fees paid to block validators when compared to traditional MEV.
+OEV can be considered an extension of MEV that searchers can capitalize on. While traditional searching prioritizes low latency, OEV searchers can secure guaranteed profits through exclusive priority access for updating data feeds.
 
-The following is a list of things that need to be done to enable an existing MEV
+The following is a short list of requirements to upgrade an existing MEV
 bot to participate in OEV searching:
 
 1. Bridge funds to the OEV network
@@ -58,8 +55,8 @@ bot to participate in OEV searching:
 3. Monitor off-chain signed data for dAPIs used by the dApp
 4. Simulate the data feed update on-chain to determine OEV opportunities
 5. Place a bid on the OEV Network
-6. Wait for auction award
-7. Use the award to update the on-chain data feed on target chain and capture
+6. Wait for the auction to end
+7. Provided the auction is won, use the award to update the on-chain data feed on target chain and capture
    the OEV
 
 Most of these steps require small additions to the existing MEV bot, but it is
