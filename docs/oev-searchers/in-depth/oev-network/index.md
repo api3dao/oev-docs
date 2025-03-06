@@ -11,9 +11,8 @@ outline: deep
 ![OEV Network image](./oev-network.svg)
 
 The OEV Network operates as a standard Arbitrum Nitro L2 optimistic-rollup. The
-system ensures transparency and allows verification of the auction process. In
-this marketplace, OEV searchers place bids for the exclusive opportunity to
-update dApp's data feeds for a short period of time.
+system ensures transparency and allows verification of the auction process. It allows searchers to place bids for the exclusive opportunity to
+update a dApp's data feeds for a short period of time.
 
 By hosting auctions on-chain, we address two big issues:
 
@@ -23,7 +22,7 @@ By hosting auctions on-chain, we address two big issues:
    long-solved problem in blockchains through gas fees.
 2. Transparency - Auctions are awarded via an off-chain system, called OEV
    Auctioneer, so it is important to be able to reason about the correctness of
-   auction outcomes. Blockchains are the perfect tool for this, as all the data
+   auction outcomes. Blockchains are the perfect tool for this, as all the transactions and data
    is public and verifiable.
 
 To participate in auctions, searchers need to have a sufficient amount of ETH
@@ -32,7 +31,7 @@ bridged to the OEV network and interact with the
 
 ## Using the OEV Network
 
-The OEV Network can be added as a custom network to an EVM compatible wallet.
+The OEV Network can be added as a custom network to any EVM compatible wallet.
 
 | Details            | Value                          |
 | ------------------ | ------------------------------ |
@@ -52,7 +51,7 @@ Here are some of the key properties of the OEV Network:
    250ms. Note that the OEV Network only produces blocks when there are
    transactions.
 2. Gas fees - The gas fees are paid in ETH, and because the network is an
-   optimistic L2 rollup, the gas fees are low.
+   optimistic L2 rollup, the gas fees are low and get cheaper with the increased number of transactions.
 3. Using Anytrust - By using AnyTrust DAC, the OEV Network achieves further cost
    reduction.
 
@@ -174,8 +173,7 @@ function withdraw(
 ### Collateral and protocol fee
 
 For a searcher to win an auction, they are required to have enough ETH deposited
-in the OevAuctionHouse contract. Similarly, the value the searcher can win is
-limited by the amount they have deposited. Refer to
+in the OevAuctionHouse contract. Refer to
 [bid eligibility](/oev-searchers/in-depth/oev-auctioneer#bid-eligibility)
 section for details.
 

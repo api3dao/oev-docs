@@ -37,10 +37,6 @@ module.exports = [
         text: 'OEV searching',
         link: '/oev-searchers/in-depth/oev-searching',
       },
-      {
-        text: 'Examples',
-        link: '/oev-searchers/in-depth/examples',
-      },
     ],
   },
   {

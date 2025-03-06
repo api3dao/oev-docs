@@ -28,7 +28,7 @@ bound by rules enforced on-chain. The auction winner must pay the announced
 amount, which in return allows them to perform the oracle update and capture
 profitable opportunities.
 
-## Example
+## Practical example
 
 Imagine an overcollateralized lending platform that uses Api3 price feeds.
 Borrowers in the protocol can be liquidated with an incentive whenever their
