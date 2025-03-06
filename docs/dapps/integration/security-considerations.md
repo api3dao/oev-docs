@@ -65,9 +65,6 @@ Consequently, when dApps use Pyth data on Ethereum, users pay Ethereum gas fees 
 
 :::
 
-Api3 maintains a roster of first-party oracle partners and curates data feeds through continuous performance analysis.
-This focused approach produces better aggregation than alternatives that rely on numerous downstream oracle service providers.
-
 ## Update parameters
 
 Once a plan is purchased on Api3 Market, the respective data feed will maintain the advertised deviation threshold and heartbeat interval until plan expiration.
