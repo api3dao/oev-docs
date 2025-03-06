@@ -18,10 +18,6 @@ module.exports = [
         link: '/oev-searchers/in-depth/',
       },
       {
-        text: 'Auctions',
-        link: '/oev-searchers/in-depth/auctions/',
-      },
-      {
         text: 'Data feeds',
         link: '/oev-searchers/in-depth/data-feeds/',
       },
