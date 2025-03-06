@@ -7,10 +7,10 @@ pageHeader: dApps
 
 # Quickstart
 
-[API3 Market](https://market.api3.org/) serves a large and dynamic catalog of data feeds on all major EVM networks.
-Follow this guide to learn how to use API3 Market to integrate a data feed into an example contract.
+[Api3 Market](https://market.api3.org/) serves a large and dynamic catalog of data feeds on all major EVM networks.
+Follow this guide to learn how to use Api3 Market to integrate a data feed into an example contract.
 
-## Using API3 Market
+## Using Api3 Market
 
 - Go to [market.api3.org.](https://market.api3.org/)
 
@@ -87,12 +87,12 @@ If you prefer using Hardhat, you can clone [`data-feed-reader-example`](https://
 
 ::: info 💡 Tip
 
-If you just purchased a plan on API3 Market, your MetaMask wallet should be connected to the correct network.
+If you just purchased a plan on Api3 Market, your MetaMask wallet should be connected to the correct network.
 If not, ensure your wallet is connected to the network where the data feed exists, where we'll deploy DataFeedReaderExample.
 
 :::
 
-- Return to the data feed page on API3 Market and click "Integrate".
+- Return to the data feed page on Api3 Market and click "Integrate".
 
   <img src="./images/integrate.png">
 
@@ -116,5 +116,5 @@ For information about using this selection on mainnets, refer to [this section.]
 ## What next?
 
 This guide should help you get started with a hackathon project.
-For production use of API3 data feeds, please continue to the [integration section.](/dapps/integration/)
-You can also learn how to [get paid](/dapps/oev-rewards/) for using API3 data feeds."
+For production use of Api3 data feeds, please continue to the [integration section.](/dapps/integration/)
+You can also learn how to [get paid](/dapps/oev-rewards/) for using Api3 data feeds."

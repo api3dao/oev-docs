@@ -1,6 +1,6 @@
 export default {
-  title: 'Documentation',
-  description: 'API3 technical documentation',
+  title: 'Api3 documentation',
+  description: 'Api3 documentation',
   markdown: {
     lineNumbers: true,
     toc: ['h2', 'h3', 'h4', 'h5'],
@@ -19,7 +19,7 @@ export default {
       {
         rel: 'apple-touch-icon',
         sizes: '180x180',
-        href: '/img/small-logo.png',
+        href: '/img/android-chrome-192x192.png',
       },
     ],
     [
@@ -28,7 +28,7 @@ export default {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/img/small-logo.png',
+        href: '/img/android-chrome-192x192.png',
       },
     ],
     [
@@ -37,7 +37,7 @@ export default {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/img/small-logo.png',
+        href: '/img/android-chrome-192x192.png',
       },
     ],
   ],
@@ -67,20 +67,20 @@ export default {
     },
     externalLinkIcon: true,
     logo: {
-      light: '/img/API3-Active.png',
-      dark: '/img/api3-inactive.png',
+      light: '/img/api3-logo-light-theme.svg',
+      dark: '/img/api3-logo-dark-theme.svg',
     },
     siteTitle: 'Documentation',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/api3dao/oev-docs' },
       {
         icon: 'discord',
-        link: 'https://discord.com/channels/758003776174030948/765618225144266793',
+        link: 'https://discord.gg/api3dao',
       },
     ],
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-present API3',
+      copyright: 'Copyright © 2019-present API3 Foundation',
     },
     sidebar: {
       '/dapps/': require('../dapps/sidebar.js'),

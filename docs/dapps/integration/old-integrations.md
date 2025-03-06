@@ -13,4 +13,4 @@ This upgrade enables us to update your proxy when needed, protecting you from po
 Note that DapiProxyWithOev users must upgrade to restore their discontinued OEV support.
 
 If you are calling `read()` of a DataFeedProxy, or a DataFeedProxyWithOev, or Api3ServerV1 directly, we strongly recommend switching to the new integration version.
-These integration methods were never documented in API3 docs, and we now actively discourage their use.
+These integration methods were never documented in Api3 docs, and we now actively discourage their use.

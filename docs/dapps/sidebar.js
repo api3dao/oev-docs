@@ -11,7 +11,7 @@ module.exports = [
     text: 'Integration',
     collapsed: false,
     items: [
-      { text: 'Using API3 Market', link: '/dapps/integration/' },
+      { text: 'Using Api3 Market', link: '/dapps/integration/' },
       {
         text: 'Contract integration',
         link: '/dapps/integration/contract-integration',

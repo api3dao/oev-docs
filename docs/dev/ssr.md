@@ -8,7 +8,7 @@ outline: deep
 
 # {{$frontmatter.title}}
 
-API3 uses CloudFlare for DNS records which includes the docs. If SSR is turned
+Api3 uses CloudFlare for DNS records which includes the docs. If SSR is turned
 on for any domain related to the docs, then CloudFlare will minify the already
 minified build files from Firebase. This will result in the merging of pages
 visible to the reader.
