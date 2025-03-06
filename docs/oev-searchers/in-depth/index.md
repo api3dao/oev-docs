@@ -20,14 +20,14 @@ Api3 feeds are used across many dApps, but not all are suitable for OEV searchin
 
 <!-- NOTE: Make sure these are sorted alphabetically; title matches information in @api3/contracts; homepage points to the dApp market (can differ from dApp landing page) -->
 
-| dApp                                                 | Chain   |
-| ---------------------------------------------------- | ------- |
-| [dTRINITY](https://dtrinity.org/)                    | Fraxtal |
-| [INIT Capital](https://app.init.capital/?chain=5000) | Mantle  |
-| [Lendle](https://lendle.xyz/)                        | Mantle  |
-| [MachFi](https://www.machfi.xyz/)                    | Sonic   |
-| [Vicuna Finance](https://vicunafinance.com/)         | Sonic   |
-| [Yei Finance](https://www.yei.finance/)              | Sei     |
+| dApp                                                 | Chain   | dApp alias       |
+| ---------------------------------------------------- | ------- | ---------------- |
+| [dTRINITY](https://dtrinity.org/)                    | Fraxtal | `dtrinity`       |
+| [INIT Capital](https://app.init.capital/?chain=5000) | Mantle  | `init`           |
+| [Lendle](https://lendle.xyz/)                        | Mantle  | `lendle`         |
+| [MachFi](https://www.machfi.xyz/)                    | Sonic   | `mach-finance`   |
+| [Vicuna Finance](https://vicunafinance.com/)         | Sonic   | `vicuna-finance` |
+| [Yei Finance](https://www.yei.finance/)              | Sei     | `yei`            |
 
 ### Legacy integrations
 
