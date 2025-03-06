@@ -1,60 +1,60 @@
 ---
-title: OEV Searching
+title: OEV searching
 pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
 <PageHeader/>
 
-# OEV Searching
+# OEV searching
 
 We assume that a searcher has an existing MEV bot and is familiar with the OEV
 Network and OEV Auctioneer. Let's glue these concepts together and detail the
 steps to start OEV searching.
 
-## Auction Schedule
+## Auction schedule
 
 OEV Auctioneer runs auctions continuously. These auctions are very short-lived.
 This is to ensure OEV updates are performed in a timely manner and the base feed
 delay is minimal.
 
-Searchers are expected to align with the auction schedule. The bidding phase
+Searchers are expected to align with the auction schedule. The bid phase
 should be used to monitor the off-chain data for possible OEV. Any combination
-of signed data from within the bidding phase has an exclusivity guarantee. The
+of signed data from within the bid phase has an exclusivity guarantee. The
 more time spent doing off-chain monitoring means more potential data points can
 be used for OEV extraction. That said, the bids need to be already included
 on-chain during the Auctioneer award phase, so searchers should place their bids
-reasonably close to the end of the bidding phase.
+reasonably close to the end of the bid phase.
 
 Once a searcher wins an auction, they have the update privilege until the next
 auction winner is selected or until the data is exposed via base feeds Signed
 API endpoints. The winner is guaranteed privileges at least until the end of the
-next bidding phase. Note that on some chains, especially during peak usage, it's
+next bid phase. Note that on some chains, especially during peak usage, it's
 recommended to increase the gas costs.
 
-## Monitoring Signed Data
+## Monitoring signed data
 
-Searchers need to have a list of dAPIs used by the dApp and
-[obtain its beacons](/oev-searchers/in-depth/dapis/#dapp-sources). However,
+Searchers need to have a list of data feeds used by the dApp and
+[obtain its beacons](/oev-searchers/in-depth/data-feeds/#dapp-sources). However,
 these are the beacons of the base feed. For each of these beacons, the searcher
 must derive the OEV counterpart to obtain the
-[OEV beacon](/oev-searchers/in-depth/dapis/#oev-feed). Note that this operation
+[OEV beacon](/oev-searchers/in-depth/data-feeds/#oev-feed). Note that this operation
 can be cached because they change only when the underlying base feed changes,
-which happens only when the dAPI is reconfigured.
+which happens only when a dAPI is reconfigured.
 
 Once the list of OEV beacons is known, searchers should periodically call the
-public [OEV endpoints](/oev-searchers/in-depth/dapis/#oev-endpoints) to get the
+public [OEV endpoints](/oev-searchers/in-depth/data-feeds/#oev-endpoints) to get the
 real-time values for the OEV beacons used by the dApp. It's necessary to persist
 these values for a brief period of time - in case they win the auction and need
 to update the data feed.
 
 OEV auctions provide exclusivity guarantees only for data points with timestamps
-from within the bidding phase. Note that for older signed data, there may be a
+from within the bid phase. Note that for older signed data, there may be a
 previous auction winner who can also use them to update the feed. Moreover, it's
-not possible to use data fresher than the end of the bidding phase. This is to
+not possible to use data fresher than the end of the bid phase. This is to
 ensure the same guarantees apply for the subsequent auction winner.
 
-## Simulating a Data Feed Update
+## Simulating a data feed update
 
 Compared to the base feed updates, OEV updates are permissioned - allowing only
 the auction winner to update the data feed. This makes the OEV update on-chain
@@ -102,7 +102,7 @@ const simulationResult = await api3ServerV1OevExtensionImpersonated.multicall.st
 );
 ```
 
-## Placing a Bid
+## Placing a bid
 
 After a profitable OEV opportunity is identified, the searcher needs to place a
 bid in the auction. There are multiple ways to
@@ -128,11 +128,11 @@ Network, the paid bid amount, and the respective collateral and protocol fee.
 
 For a bid to be valid, it needs to use the correct arguments. Out of these, the
 most important is the bid topic, which also identifies the auction. For the bid
-to be considered, the place bid transaction needs to be mined during the bidding
+to be considered, the place bid transaction needs to be mined during the bid
 phase. Searchers should be mindful of the block time on the OEV Network to make
 sure their transaction is mined in time.
 
-## Expediting a Bid
+## Expediting a bid
 
 Because OEV Auctions are short-lived and the minimum bid lifetime is 15 seconds,
 there is little reason to place long-lived bids. However, in rare cases when a
@@ -150,9 +150,9 @@ It accepts the following parameters:
 | bidTopic       | bytes32 | The [bid topic](/oev-searchers/in-depth/oev-auctioneer#bid-topic) of the current auction.     |
 | bidDetailsHash | bytes32 | The hash of the [bid details](/oev-searchers/in-depth/oev-auctioneer#bid-details) of the bid. |
 
-## Waiting for Auction Award
+## Waiting for auction award
 
-Immediately after the bidding phase is over, Auctioneer enters the award phase,
+Immediately after the bid phase is over, Auctioneer enters the award phase,
 determines the auction winner, and submits the `awardBid` transaction, which
 emits an AwardedBid event. This event indexes the three most important
 arguments:
@@ -171,12 +171,12 @@ possible.
 
 Auctioneer should in practice award the bid during the award phase, but
 searchers are recommended to poll longer. If Auctioneer does not respond even
-within the next bidding phase, there is likely something wrong. Whether the
+within the next bid phase, there is likely something wrong. Whether the
 issue is caused by Auctioneer or the searcher can be determined by looking at
 the OEV Network. If the issue was caused by Auctioneer, the searcher can
 [open a dispute](/oev-searchers/in-depth/oev-searching#handling-disputes).
 
-::: info
+::: info 💡 Tip
 
 Searchers can monitor the auction in real-time and can determine the auction
 winner themselves (or even attempt to increase their bid).
@@ -200,7 +200,7 @@ The OEV capabilities are enabled by the
 This contract allows the auction winner to pay for the winning bid and update
 the data feed values.
 
-### Paying for the OEV Bid
+### Paying for the OEV bid
 
 Paying for the OEV bid presents a problem. The searcher does not have funds
 upfront - they only receive these once they capture OEV. This challenge has a
@@ -237,9 +237,9 @@ cutoff. If the searcher provides incorrect values, the signature verification
 will fail, causing the transaction to revert. If the signature is valid, the
 contract allows the sender to update the data feed(s). Due to exclusivity
 guarantees, the winner is guaranteed to be the only one who can update the feed
-with data from within the bidding phase of the respective auction.
+with data from within the bid phase of the respective auction.
 
-### Updating the Data Feed
+### Updating the data feed
 
 To update the data feed values, call the `updateDappOevDataFeed` function. This
 requires the sender to be whitelisted by paying for the OEV bid first.
@@ -247,7 +247,7 @@ requires the sender to be whitelisted by paying for the OEV bid first.
 ```solidity
 function updateDappOevDataFeed(
     uint256 dappId, // The ID of the dApp that the searcher wants to update
-    bytes[] calldata signedData // The ABI encoded signed data that the searcher wants to update the dAPI with
+    bytes[] calldata signedData // The ABI encoded signed data used for updating the data feeds
 )
     external
     returns (
@@ -267,9 +267,7 @@ The ABI encoded signed data are expected to be decoded to the following fields:
 - `bytes memory signature` - The signature for this signed data - signed for the
   base feed beacon.
 
-::: info
-
-**Important**
+::: info ⚠️ Warning
 
 It might be a bit surprising to pass the template ID of the base feed beacon,
 because the data and the signature are supplied for the OEV beacon. However, the
@@ -327,7 +325,7 @@ keccak256("Api3ServerV1OevExtensionOevBidPayer.onOevBidPayment")
 Searchers are recommended to create a specialized, permissioned liquidator
 contract that only they can call.
 
-## Bidding Contract
+## Bidding contract
 
 The bidder can be either an EOA or a contract. The former is simpler but has
 certain drawbacks. Imagine a searcher firm where individual developers work on
@@ -357,7 +355,7 @@ are a few important considerations to keep in mind when designing the contract:
 3. The withdrawal recipient is specified in the `withdraw` call. Make sure the
    recipient is payable and the funds will not remain locked.
 
-## Handling Disputes
+## Handling disputes
 
 In case of a dispute, the OEV Network is considered the source of truth and can
 be used to resolve it. This may include Auctioneer awarding the wrong bidder or
@@ -371,15 +369,8 @@ To open a dispute, head to the
 [OEV Discord channel](https://discord.com/channels/758003776174030948/1062909222347603989)
 and create a post with the description of the dispute.
 
-## Example
+## Reference implementation
 
-One can refer to the
-[OEV v1 Compound example bot](https://github.com/api3dao/oev-v1-compound-bot)
-and inspect the
-[changes](https://github.com/api3dao/oev-v1-compound-bot/compare/mev-with-signed-apis...oev)
-needed to migrate the
-[MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis) bot to OEV
-bot.
-
-The bot is configured to run against a forked Compound3 protocol on Base
-network. Follow the description in the README for details.
+- [Example OEV Compound bot](https://github.com/api3dao/oev-v1-compound-bot) - You can also inspect the
+  [changes](https://github.com/api3dao/oev-v1-compound-bot/compare/mev-with-signed-apis...oev)
+  needed to add the OEV functionality to an existing bot supporting [MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis).
