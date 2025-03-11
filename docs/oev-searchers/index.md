@@ -89,7 +89,7 @@ place their bid based on its value.
 
 It is important to understand that bids must be placed before the end of the bid phase, which establishes a cutoff period. The auction winner is able to use only price feed data with timestamp up to this cutoff period.
 
-### Award Phase
+### Award phase
 
 The award phase starts immediately after the end of the bid phase. All bids placed during the bid phase are evaluated and the eligible bid with highest amount is selected as winner and provided a cryptographic signature allowing them to make the price feed updates up to the cutoff period. This signature is usable only by the auction winner. A requirement for updating the price feed is paying the announced bid amount in the same transaction.
 
@@ -114,7 +114,7 @@ and it is managed by the Api3 DAO. The integrity of OEV Auctioneer is ensured by
 using the OEV Network for all important actions, such as announcing the auction
 winner.
 
-## Get involved with OEV
+## Get started with OEV
 
 Here are resources to help you get started with OEV:
 

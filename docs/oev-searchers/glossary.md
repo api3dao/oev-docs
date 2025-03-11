@@ -295,7 +295,7 @@ OEV Network is an Arbitrum Nitro L2. Its chain ID is 4913 and it uses ETH as the
 gas token. Its purpose is to hold [OEV auctions](#oev-auction) in a transparent
 and retrospectively verifiable way.
 
-### OEV Proceeds
+### OEV proceeds
 
 <!-- TODO: Update this (and re-read the whole section) -->
 
