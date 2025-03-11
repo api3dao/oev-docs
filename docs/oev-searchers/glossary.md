@@ -90,7 +90,7 @@ used by [searchers](#searcher) for [OEV feed](#oev-feed) updates.
 
 ### Auction
 
-Auction on the context of OEV auctions, is an order flow auction (OFA) giving exclusive priority for updating data feeds for particular dApp to capture OEV.
+Auction, in the context of OEV auctions, is an order flow auction (OFA) providing exclusive priority for updating data feeds for particular dApp to capture OEV.
 
 ### Auctioneer
 
@@ -235,7 +235,7 @@ a fulfillment in the context of [OevAuctionHouse](#oev-auction-house).
 
 ### Fulfillment details
 
-Fulfillment details are required part of [fulfillment](#fulfillment). The fulfillment details format is enforced by [Auctioneer](#auctioneer).
+Fulfillment details are required part of [fulfillment](#fulfillment) and their format is enforced by [Auctioneer](#auctioneer).
 
 ### Heartbeat
 
@@ -287,7 +287,7 @@ specific and can be updated by a searcher who won the
 
 ### OEV updates
 
-OEV updates are data feed updates performed by searchers after winning the auction with the intention of capturing OEV. These updates are an extension of our [base feed](#base-feed).
+OEV updates are data feed updates performed by searchers after winning the auction with the intention of capturing OEV. These updates are an extension of our [base feed](#base-feed) updates.
 
 ### OEV Network
 

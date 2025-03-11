@@ -44,7 +44,7 @@ beacons.
 <img src="./beacon-set.svg" />
 
 Both beacons and beacon sets can be used as price feeds. We use the term "data feed" to refer to
-either of them. Term data feed ID is a common name for beacon ID or beacon set ID. Finally, a dAPI is simply a mapping from a human-readable name
+either of them. Term data feed ID is a common name for beacon ID or beacon set ID. Finally, a dAPI is simply a mapping from a human-readable data feed name
 to a data feed ID.
 
 <!-- NOTE: Source = https://excalidraw.com/#json=hjgWnU8kHd-8QnxwjMmPi,oaX0ncVhqlnF6hAtp6GLpA -->
