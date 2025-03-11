@@ -50,7 +50,7 @@ to a data feed ID.
 <!-- NOTE: Source = https://excalidraw.com/#json=hjgWnU8kHd-8QnxwjMmPi,oaX0ncVhqlnF6hAtp6GLpA -->
 <img src="./dapi-mapping.svg" />
 
-### Updating dAPI value
+### Updating data feed value
 
 So far, we've referred to dAPIs and data feeds as sources of data, not
 mentioning how they are kept up-to-date. Api3 feeds are permissionless and

@@ -31,7 +31,7 @@ This improvement on its own provides a major competitive advantage over existing
 ## Monitor signed data
 
 First, searchers need to have a list of data feeds used by the dApp and
-[obtain its beacons](/oev-searchers/in-depth/data-feed/#dapp-sources). Note that
+[obtain its beacons](/oev-searchers/in-depth/data-feeds/#dapp-sources). Note that
 this can be cached because beacons change only when the
 underlying base feed dAPI changes, which happens rarely, only when a dAPI is reconfigured.
 
