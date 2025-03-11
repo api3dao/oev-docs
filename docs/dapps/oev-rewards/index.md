@@ -10,7 +10,7 @@ pageHeader: dApps → OEV Rewards
 dApps that use traditional data feeds are constantly exploited by MEV bots that manipulate the order of operations around individual data feed updates.
 In practice, this causes dApps to suffer significant and continuous financial losses.
 As the antidote, Api3's OEV Network auctions off to OEV searchers the privilege to determine the order of operations around data feed updates.
-The resulting auction proceeds are paid to the dApp in the form of OEV Rewards.
+The majority of resulting auction proceeds are paid to the dApp in the form of OEV Rewards.
 Assuming competitive auctions, OEV Rewards will be equal to the amount that would otherwise have been lost to the MEV bots.
 
 Api3 data feeds work identically to traditional data feeds, which means that you do not need to modify your contracts in any way to use them.

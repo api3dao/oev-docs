@@ -297,13 +297,7 @@ and retrospectively verifiable way.
 
 ### OEV proceeds
 
-<!-- TODO: Update this (and re-read the whole section) -->
-
-We refer to OEV proceeds in two contexts:
-
-1. As the revenue from capturing the OEV opportunities.
-2. As the amount paid to the [dApps](#dapp) as a result of
-   [bid amount](#bid-amount) payments of [OEV auction](#oev-auction) winners.
+OEV proceeds, or OEV auction proceeds, refers to the amount searchers paid for auctions. Vast majority of OEV proceeds goes back to the dApp in the form of [OEV Rewards](#oev-rewards), while the rest is kept as protocol fee for Api3.
 
 ### OEV proxy
 
@@ -311,6 +305,10 @@ An OEV proxy is a proxy contract that reads a value from both
 [base feed](#base-feed) and [OEV feed](#oev-feed) and prefers the fresher out of
 the two. Our implementation is called `Api3ReaderProxyV1` and partially supports
 Chainlink's AggregatorV2V3Interface for convenience.
+
+### OEV Rewards
+
+OEV Rewards refer to the amount paid to the dApp. These rewards constitute the majority portion of the [OEV auction proceeds](#oev-proceeds).
 
 ### Protocol fee
 
