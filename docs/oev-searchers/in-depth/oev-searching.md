@@ -239,20 +239,19 @@ the data feed values.
 
 Paying for the OEV bid presents a problem. The searcher does not have funds
 upfront - they only receive these once they capture OEV. This challenge has a
-workaround - let the searcher use a flash-loan for the amount to be paid and
-repay it via the OEV proceeds. However, searchers often need to take a loan for
-the OEV recapture. This presents a problem because protocols often implement
-reentrancy guards, preventing nested flash-loans. The alternative is to compute
-the flash-loan amount to account for both OEV recapture and bid payment.
+workaround - let the searcher take a loan. However, searchers often need to take a loan to
+capture the OEV opportunity. This presents a problem because protocols often implement
+reentrancy guards, preventing nested loans. The alternative is to compute
+the loan amount to account for both OEV opportunity and the bid payment.
 
 We expected this to degrade the UX, so we implemented the OEV payment in a way
-that allows OEV recapture before paying for the OEV bid amount. This works
-similarly to taking a flash-loan. The searcher calls `payOevBid` function, which
+that allows capturing the OEV opportunity before paying for the OEV bid amount. This works
+similarly to taking a loan. The searcher calls `payOevBid` function, which
 allows the `msg.sender` to update the dApp data feeds and calls the
 `onOevBidPayment` callback. After the callback is executed, the function
 verifies that the contract's balance increased by at least the corresponding bid
 amount. In the `onOevBidPayment` callback, the searcher can capture the OEV,
-swap the proceeds to native currency, and send the adequate bid amount to
+swap the revenue to native currency, and send the adequate bid amount to
 Api3ServerV1OevExtension contract.
 
 This is the signature of the `payOevBid` function:

@@ -179,13 +179,13 @@ mapping is managed by Api3 DAO.
 ### dApp
 
 An application that uses smart contracts. Usually referred to as a source of
-[OEV](#oev). Each dApp eligible for [OEV proceeds](#oev-proceeds) has a
-[dApp ID](#dapp-id) assigned and uses [OEV proxies](#oev-proxy).
+[OEV](#oev). Each dApp eligible for [OEV Rewards](#oev-rewards) has a
+[dApp ID](#dapp-id) assigned and uses its own [OEV proxies](#oev-proxy).
 
 ### dApp ID
 
 Api3 holds separate [OEV auctions](#oev-auction) for different [dApps](#dapp) to
-keep their [proceeds](#oev-proceeds) isolated. In this scheme, dApps are
+keep their [rewards](#oev-rewards) isolated. In this scheme, dApps are
 identified by IDs that are assigned by Api3 DAO.
 
 ### Data feed
@@ -255,7 +255,7 @@ by guaranteeing a specific relative order of oracle updates and related
 interactions within a transaction.
 
 Api3 monetizes its [dAPI](#dapi) services by holding
-[OEV auctions](#oev-auction) and forwarding the [proceeds](#oev-proceeds) to the
+[OEV auctions](#oev-auction) and paying [OEV Rewards](#oev-rewards) to the
 respective [dApps](#dapp). This is both a net gain for the dApps (which
 otherwise would have bled these funds to [MEV](#mev) bots and validators) and a
 fair and scalable business model for Api3 DAO.
@@ -297,7 +297,7 @@ and retrospectively verifiable way.
 
 ### OEV proceeds
 
-OEV proceeds, or OEV auction proceeds, refers to the amount searchers paid for auctions. Vast majority of OEV proceeds goes back to the dApp in the form of [OEV Rewards](#oev-rewards), while the rest is kept as protocol fee for Api3.
+OEV proceeds refer to auction proceeds, which is the amount searchers pay for auctions. Vast majority of OEV proceeds goes back to the dApp in the form of [OEV Rewards](#oev-rewards), while the rest is kept as protocol fee for Api3.
 
 ### OEV proxy
 
@@ -308,7 +308,7 @@ Chainlink's AggregatorV2V3Interface for convenience.
 
 ### OEV Rewards
 
-OEV Rewards refer to the amount paid to the dApp. These rewards constitute the majority portion of the [OEV auction proceeds](#oev-proceeds).
+OEV Rewards refer to the amount paid to the dApp. These rewards constitute the majority portion of the [OEV proceeds](#oev-proceeds).
 
 ### Protocol fee
 

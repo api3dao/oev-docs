@@ -58,11 +58,11 @@ The concept of OEV is not limited to liquidations but can occur anywhere where
 price feed updates potentially expose profitable opportunities, such as
 arbitrage and many others.
 
-## OEV proceeds distribution
+## OEV distribution
 
 To update the data feed, the auction winner must pay the bid amount they
-announced during the auction. Majority of the auction proceeds go back to the dApp. Searchers, in return, get exclusive rights to capture
-the OEV and get to keep the remaining revenue.
+announced during the auction. These payments constitute auction proceeds. Majority of these proceeds go back to the dApp in the form of [OEV Rewards](/dapps/oev-rewards/). Searchers, in return, get exclusive rights to capture
+the OEV and get to capitalize on the remaining revenue of the opportunity.
 
 Thus, the majority of the OEV is distributed to the dApp and the
 searchers.
