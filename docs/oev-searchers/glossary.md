@@ -287,7 +287,7 @@ specific and can be updated by a searcher who won the
 
 ### OEV updates
 
-TODO: refers to data feed updates made with the intention to capture OEV
+OEV updates are data feed updates performed by searchers after winning the auction with the intention of capturing OEV. These updates are an extension of our [base feed](#base-feed).
 
 ### OEV Network
 

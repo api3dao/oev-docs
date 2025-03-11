@@ -226,9 +226,7 @@ logs from the OEV Network, the auction will be aborted and no winner is chosen.
 Similarly, if the auction award transaction fails, there will be no retry,
 because the award signature was already exposed publicly.
 
-### Bid phase guarantee
-
-<!-- TODO: This is more like Auctioneer guarantees -->
+### Bid guarantees
 
 Auctioneer guarantees that any bid placed during the bid phase will be
 processed. The timestamp of the placed bid is determined by the block timestamp
