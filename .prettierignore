@@ -11,11 +11,6 @@ pnpm-lock.yaml
 /docs/.vitepress/public
 /docs/.vuepress/styles
 
-#dev
-/docs/dev/using-metamask/src/HelloWorld.sol.js
-/docs/dev/using-metamask/src/HelloWorld.sol
-
-
 /docs/public/img
 /docs/public/api3-whitepaper-v1.0.3.pdf
 

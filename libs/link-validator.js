@@ -1,8 +1,3 @@
-/**
- * USAGE: see the usage instructions at
- * https://docs.api3.org/dev/link-validation.html
- */
-
 const { readFileSync } = require('fs');
 var file = require('file');
 var colors = require('colors');
