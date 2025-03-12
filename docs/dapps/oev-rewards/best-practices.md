@@ -14,7 +14,7 @@ If your contract integration is faulty, the suggestions below are unlikely to he
 
 :::
 
-OEV Rewards are majority of proceeds from auctions in which OEV searchers participate.
+OEV Rewards are proceeds from auctions in which OEV searchers participate.
 For the auction bids to be competitive, there must be multiple independent OEV searcher parties.
 An OEV searcher is a blockchain developer with specific expertise whose time is typically quite valuable.
 Therefore, for a maximum amount of OEV Rewards, searching for your dApp must be as easy as possible.

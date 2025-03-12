@@ -206,7 +206,7 @@ const dTrinityDappId = unsafeComputeDappId('dtrinity', 252);
 
 Searchers need to know the proxy address and the underlying dAPI name used by
 the OEV proxy. The dApps have full control over what proxies they use, and searchers
-should refer to their documentation or inspect their on-chain contracts to get an
+should refer to their documentation or inspect the chain-state of their contracts to get an
 up-to-date proxy address.
 
 To determine the underlying beacons used by the dAPI, you can use the
@@ -373,7 +373,7 @@ Say the following is the output after decoding the data feed details:
 
 Signed APIs store the data pushed by Airnode feeds and expose them to the public
 via an API. As mentioned, base feed updates are delayed, permissionless and can be
-updated by anyone. The OEV feeds are real-time and can only be used by the OEV auction winner.
+updated by anyone. The OEV feeds are real-time and can only be updated by the OEV auction winner.
 Api3 runs Signed APIs and makes them publicly available. They are deployed on
 AWS, ensuring maximum uptime and reliability.
 

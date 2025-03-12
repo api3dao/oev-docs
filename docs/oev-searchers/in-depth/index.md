@@ -14,7 +14,7 @@ existing MEV searchers to OEV.
 
 ## dApps catalog
 
-Api3 feeds are used across many dApps, but not all are suitable for OEV searching. This catalog includes those dApps that are generating large OEV amounts and are open for searchers to participate.
+Api3 feeds are used across many dApps, but not all are suitable for OEV searching. This catalog includes those dApps that are generating significant OEV amounts and are open for searchers to participate.
 
 ### OEV dApps
 
