@@ -32,13 +32,13 @@ the schema used while encoding.
 is a specification built on contract ABI to allow encoding without knowing the
 schema.
 
-### Airnode Address
+### Airnode address
 
 All [API providers](#api-provider) [sign their data](#signed-data) with an EOA
 wallet. The address of this wallet is announced by the respective API provider
 in the DNS records of the base URL of their API.
 
-### Airnode Feed
+### Airnode feed
 
 [Airnode feed](https://github.com/api3dao/signed-api/tree/main/packages/airnode-feed)
 is an iteration on [Airnode](#airnode) that is optimized to power data feeds.
@@ -47,7 +47,7 @@ identified by the respective [Airnode address](#airnode-address). The
 [wallet](#airnode-wallet) of this account is used to cryptographically
 [sign the data](#signed-data) to prove the validity of the data.
 
-### Airnode Wallet
+### Airnode wallet
 
 A secret wallet only known to the [API provider](#api-provider) who deploys the
 [Airnode](#airnode) or [Airnode feed](#airnode-feed) used to sign its data.
@@ -59,14 +59,14 @@ periodically fetches [signed data](#signed-data) from [Signed APIs](#signed-api)
 to update [data feeds](#data-feed) whenever the conditions specified by the
 [update parameters](#update-parameters) are satisfied.
 
-### AirseekerRegistry Contract
+### AirseekerRegistry contract
 
 [AirseekerRegistry contract](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/AirseekerRegistry.sol)
 serves as an on-chain configuration file for [Airseeker](#airseeker). It
 provides a source of truth for [dAPIs](#dapi) and can be used to obtain which
 [data feed](#data-feed) a dAPI points to and what its sources are.
 
-### API Provider
+### API provider
 
 An API provider is a business that has productized their services in the form of
 an API.
@@ -76,29 +76,37 @@ an API.
 [Api3 Market](https://market.api3.org/) is a [dApp](#dapp) where users can
 purchase [dAPI](#dapi) plans, which get reflected on-chain immediately.
 
-### Api3ServerV1 Contract
+### Api3ServerV1 contract
 
 [Api3ServerV1 contract](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1.sol)
 is the main contract for [dAPIs](#dapi). It is used by [Airseekers](#airseeker)
 to update [base feeds](#base-feed).
 
-### Api3ServerV1OevExtension Contract
+### Api3ServerV1OevExtension contract
 
 [Api3ServerV1OevExtension contract](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1OevExtension.sol)
 is an extension of the [Api3ServerV1 contract](#api3serverv1-contract). It is
 used by [searchers](#searcher) for [OEV feed](#oev-feed) updates.
 
+### Auction
+
+Auction, in the context of OEV auctions, is an order flow auction (OFA) providing exclusive priority for updating data feeds for particular dApp to capture OEV.
+
 ### Auctioneer
 
 Short term for [OEV Auctioneer](#oev-auctioneer).
 
-### Award Phase
+### Award details
+
+The award details provide the auction winner the exclusive priority to update the price feeds for a particular dApp. The award details format is enforced by [Auctioneer](#auctioneer).
+
+### Award phase
 
 Award phase is the second phase of an [OEV auction](#oev-auction) where
 [OEV Auctioneer](#oev-auctioneer) resolves the auction and awards the winner. It
 is preceded by the [bid phase](#bid-phase).
 
-### Base Feed
+### Base feed
 
 In the context of OEV extraction, the base feed refers to a
 [data feed](#data-feed) behind a particular [dAPI](#dapi). An update of this
@@ -114,7 +122,7 @@ the respective [Airnode address](#airnode-address) and [template](#template) ID.
 beaconId = keccak256(abi.encodePacked(airnode, templateId));
 ```
 
-### Beacon Set
+### Beacon set
 
 A beacon set is an on-chain aggregation of [beacons](#beacon). A beacon set is
 identified by the hash of the constituting beacon IDs.
@@ -129,16 +137,24 @@ beaconSetId = keccak256(abi.encode(beaconIds));
 in [OEV auctions](#oev-auction) to obtain exclusive rights to capture
 [OEV](#oev).
 
-### Bid Amount
+### Bid details
+
+Required part of a [bid](#bid) providing the details of the bid. The bid details format is enforced by [Auctioneer](#auctioneer).
+
+### Bid amount
 
 The amount a [searcher](#searcher) is willing to pay for winning the
 [OEV auction](#oev-auction).
 
-### Bid Phase
+### Bid phase
 
 Bid phase is the first phase of an [OEV auction](#oev-auction) where
 [searchers](#searcher) are supposed to place their [bids](#bid). It is followed
 by the [award phase](#award-phase).
+
+### Bid topic
+
+A [bid](#bid) is placed for a particular auction, which is identified by the combination of a bid topic and chain ID. The bid topic format is enforced by [Auctioneer](#auctioneer).
 
 ### Collateral
 
@@ -163,16 +179,16 @@ mapping is managed by Api3 DAO.
 ### dApp
 
 An application that uses smart contracts. Usually referred to as a source of
-[OEV](#oev). Each dApp eligible for [OEV proceeds](#oev-proceeds) has a
-[dApp ID](#dapp-id) assigned and uses [OEV proxies](#oev-proxy).
+[OEV](#oev). Each dApp eligible for [OEV Rewards](#oev-rewards) has a
+[dApp ID](#dapp-id) assigned and uses its own [OEV proxies](#oev-proxy).
 
 ### dApp ID
 
 Api3 holds separate [OEV auctions](#oev-auction) for different [dApps](#dapp) to
-keep their [proceeds](#oev-proceeds) isolated. In this scheme, dApps are
+keep their [rewards](#oev-rewards) isolated. In this scheme, dApps are
 identified by IDs that are assigned by Api3 DAO.
 
-### Data Feed
+### Data feed
 
 The common term used to refer to a [beacon](#beacon) or a
 [beacon set](#beacon-set). Each [data feed](#data-feed) has a
@@ -204,7 +220,7 @@ An endpoint is identified by the respective
 endpointId = keccak256(abi.encode(oisTitle, endpointName));
 ```
 
-### First-party Oracles
+### First-party oracles
 
 An [API provider](#api-provider) that provides oracle services without the use
 of any middlemen is a first-party oracle.
@@ -216,6 +232,10 @@ Our first-party oracles are powered by [Airnode feeds](#airnode-feed).
 The [searcher](#searcher) that has won an [OEV auction](#oev-auction) is
 expected to pay their [bid amount](#bid-amount). This payment is referred to as
 a fulfillment in the context of [OevAuctionHouse](#oev-auction-house).
+
+### Fulfillment details
+
+Fulfillment details are required part of [fulfillment](#fulfillment) and their format is enforced by [Auctioneer](#auctioneer).
 
 ### Heartbeat
 
@@ -235,12 +255,12 @@ by guaranteeing a specific relative order of oracle updates and related
 interactions within a transaction.
 
 Api3 monetizes its [dAPI](#dapi) services by holding
-[OEV auctions](#oev-auction) and forwarding the [proceeds](#oev-proceeds) to the
+[OEV auctions](#oev-auction) and paying [OEV Rewards](#oev-rewards) to the
 respective [dApps](#dapp). This is both a net gain for the dApps (which
 otherwise would have bled these funds to [MEV](#mev) bots and validators) and a
 fair and scalable business model for Api3 DAO.
 
-### OEV Auction
+### OEV auction
 
 Api3 periodically holds [OEV](#oev) auctions on [OEV Network](#oev-network)
 where [searchers](#searcher) [bid](#bid) to receive exclusive update rights to
@@ -251,19 +271,23 @@ update the data feeds for a specific [dApp](#dapp) for a limited amount of time.
 OEV Auctioneer, or simply Auctioneer, is the off-chain component powering the
 [OEV Auctions](#oev-auction).
 
-### OEV Beacon
+### OEV beacon
 
 Each [base feed](#base-feed) beacon has a corresponding OEV beacon, which is
 derived from the original one by hashing the [template](#template) ID using
 `keccak256`. These beacons are needed for [OEV searchers](#searcher) to query
 [Signed APIs](#signed-api) for their real-time values.
 
-### OEV Feed
+### OEV feed
 
 In the context of OEV extraction, the OEV feed refers to a
 [data feed](#data-feed) used by [OEV proxy](#oev-proxy). This feed is proxy
 specific and can be updated by a searcher who won the
 [OEV auction](#oev-auction).
+
+### OEV updates
+
+OEV updates are data feed updates performed by searchers after winning the auction with the intention of capturing OEV. These updates are an extension of our [base feed](#base-feed) updates.
 
 ### OEV Network
 
@@ -271,22 +295,22 @@ OEV Network is an Arbitrum Nitro L2. Its chain ID is 4913 and it uses ETH as the
 gas token. Its purpose is to hold [OEV auctions](#oev-auction) in a transparent
 and retrospectively verifiable way.
 
-### OEV Proceeds
+### OEV proceeds
 
-We refer to OEV proceeds in two contexts:
+OEV proceeds refer to auction proceeds, which is the amount searchers pay for auctions. Vast majority of OEV proceeds goes back to the dApp in the form of [OEV Rewards](#oev-rewards), while the rest is kept as protocol fee for Api3.
 
-1. As the revenue from capturing the OEV opportunities.
-2. As the amount paid to the [dApps](#dapp) as a result of
-   [bid amount](#bid-amount) payments of [OEV auction](#oev-auction) winners.
-
-### OEV Proxy
+### OEV proxy
 
 An OEV proxy is a proxy contract that reads a value from both
 [base feed](#base-feed) and [OEV feed](#oev-feed) and prefers the fresher out of
 the two. Our implementation is called `Api3ReaderProxyV1` and partially supports
 Chainlink's AggregatorV2V3Interface for convenience.
 
-### Protocol Fee
+### OEV Rewards
+
+OEV Rewards refer to the amount paid to the dApp. These rewards constitute the majority portion of the [OEV proceeds](#oev-proceeds).
+
+### Protocol fee
 
 When [Auctioneer](#auctioneer) confirms a [fulfillment](#fulfillment) and
 releases the [collateral amount](#collateral), it deducts a protocol fee which
@@ -306,13 +330,13 @@ receives signed data from [Airnode feeds](#airnode-feed) and serves it to the
 public through an API. For example, an [Airseeker](#airseeker) depends on Signed
 APIs to update [data feeds](#data-feed).
 
-### Signed Data
+### Signed data
 
 Refers to the data signed by [Airnode feeds](#airnode-feed), served by
 [Signed APIs](#signed-api) and used by [Airseekers](#airseeker) to update
 [data feeds](#data-feed).
 
-### Target Chain
+### Target chain
 
 Target chain is the chain where the
 [Api3ServerV1 contract](#api3serverv1-contract),
@@ -331,7 +355,7 @@ parameters.
 templateId = keccak256(abi.encode(endpointID, parameters));
 ```
 
-### Update Parameters
+### Update parameters
 
 Parameters that specify when an [Airseeker](#airseeker) should update a
 [data feed](#data-feed). Typically, there are two aspects that require an

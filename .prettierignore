@@ -11,11 +11,6 @@ pnpm-lock.yaml
 /docs/.vitepress/public
 /docs/.vuepress/styles
 
-#dev
-/docs/dev/using-metamask/src/HelloWorld.sol.js
-/docs/dev/using-metamask/src/HelloWorld.sol
-
-
 /docs/public/img
 /docs/public/api3-whitepaper-v1.0.3.pdf
 
@@ -23,8 +18,6 @@ pnpm-lock.yaml
 /docs/reference/ois/latest/assets
 /docs/reference/airnode/latest/assets
 /docs/reference/dao-members/assets
-/docs/dapis/reference/assets
 /docs/reference/chainapi/assets
 /docs/reference/qrng/assets
 /docs/oev-searchers/assets
-/docs/dapis/assets

@@ -9,12 +9,10 @@ outline: deep
 # OEV Auctioneer
 
 OEV Auctioneer is the off-chain system managed by the Api3 DAO to process
-auctions hosted on the OEV network. This off-chain component is necessary
-because hosting auctions fully on-chain would be extremely gas-intensive and
-wouldn't scale performance-wise. The correctness and honesty of OEV Auctioneer
+auctions hosted on the OEV network. The honesty of OEV Auctioneer
 can be verified on-chain because the logic is based solely on the
 [OevAuctionHouse](/oev-searchers/in-depth/oev-network/#oevauctionhouse) contract
-state and events at a given time.
+state.
 
 OEV Auctioneer has two main responsibilities:
 
@@ -33,10 +31,9 @@ well-established security. It has an Auctioneer wallet that is given the rights
 to resolve the auctions and confirm/contradict fulfillments.
 
 The only cross-chain communication happens during fulfillment verification - all
-other operations are performed solely on OEV Network or the target chain of the
-dApp. This minimizes latency and improves the resiliency.
+other operations are performed solely on OEV Network. This minimizes latency and improves the resiliency.
 
-## Enforced Conventions
+## Enforced conventions
 
 Auctioneer enforces a few conventions. These are important for searchers to
 understand and comply with in order to successfully participate in auctions.
@@ -48,12 +45,12 @@ understand and comply with in order to successfully participate in auctions.
 | AUCTION_LENGTH_SECONDS                | 30    | How long an auction lasts.                                                                         |
 | OEV_AUCTIONS_MAJOR_VERSION            | 1     | Increased when we release any breaking change relevant to OEV auctions.                            |
 | COLLATERAL_REQUIREMENT_BUFFER_PERCENT | 5     | The additional percentage of the bidder's collateral to mitigate against price changes.            |
-| BIDDING_PHASE_LENGTH_SECONDS          | 25    | The length of the bidding phase during which searchers can place their bids.                       |
+| BID_PHASE_LENGTH_SECONDS              | 25    | The length of the bid phase during which searchers can place their bids.                           |
 | REPORT_FULFILLMENT_PERIOD_SECONDS     | 86400 | The fulfillment period, during which the auction winner is able to report payment for the OEV bid. |
 | MINIMUM_BID_EXPIRING_SECONDS          | 15    | The minimum expiring time for a bid to be considered eligible for award.                           |
 | PLACED_BIDS_BLOCK_RANGE               | 300   | The number of blocks queried for placed bids during award phase.                                   |
 
-### Auction Offset
+### Auction offset
 
 Auctions repeat indefinitely and take a fixed amount of time. The first auction
 starts at the UNIX timestamp 0 (midnight UTC on 1st of January 1970) plus an
@@ -63,9 +60,7 @@ offset based on the dApp ID.
 uint256(keccak256(abi.encodePacked(uint256(dAppId)))) % AUCTION_LENGTH_SECONDS;
 ```
 
-::: info
-
-**Example:**
+::: info ℹ️ Example
 
 Say there is a dApp with ID `13` and `AUCTION_LENGTH_SECONDS=30`
 
@@ -80,7 +75,7 @@ second auction starts at timestamp `47`, the third at `77`, and so on...
 
 :::
 
-### Bid Topic
+### Bid topic
 
 Auctioneer uses the following convention for the bid topic:
 
@@ -105,20 +100,18 @@ Let's break down the components of the bid topic:
 3. `auctionLength` - The length of the auction. This parameter must be set to
    `AUCTION_LENGTH_SECONDS`. It is one of the most important parameters, so
    we're explicitly including it in the bid topic to highlight its importance.
-4. `signedDataTimestampCutoff` - The cutoff timestamp of the signed data. Only
-   signed data with timestamps smaller than or equal to this value are permitted
-   to update the data feed. It is equal to the end of the bidding phase of the
-   auction, that is `startTimestamp + BIDDING_PHASE_LENGTH_SECONDS`.
+4. `signedDataTimestampCutoff` - The cutoff timestamp of the signed data. The auction winner is permitted to only use signed data with timestamps smaller than or equal to this. It is equal to the end of the bid phase of the
+   auction.
 
-::: info
+::: info ℹ️ Info
 
 Auctions repeat continuously and indefinitely. To calculate the
 `signedDataTimestampCutoff` that is to be specified in the bid topic, one needs
-to calculate the `startTimestamp` of the auction. This depends on the auction
-offset and `BIDDING_PHASE_LENGTH_SECONDS`.
+to calculate the `startTimestamp` of the next auction. This depends on the auction
+offset, `BID_PHASE_LENGTH_SECONDS` and the current time.
 
 For example, dApp with ID `13` has an auction offset of `17`. With
-`AUCTION_LENGTH_SECONDS=30` and `BIDDING_PHASE_LENGTH_SECONDS=25` this gives the
+`AUCTION_LENGTH_SECONDS=30` and `BID_PHASE_LENGTH_SECONDS=25` this gives the
 following sequence of auctions:
 
 | `startTimestamp` | `signedDataTimestampCutoff` | End of award phase |
@@ -131,7 +124,7 @@ and so on...
 
 :::
 
-### Bid Details
+### Bid details
 
 The bid details follow this convention:
 
@@ -148,18 +141,18 @@ The arguments are:
    update the data feed, if the bid wins the auction.
 2. `nonce` - A random nonce to prevent bid ID conflicts.
 
-### Award Details
+### Award details
 
 The award details contain a signature that the auction winner uses to pay the
 OEV bid, which allows them to update the price feeds.
 
-### Fulfillment Details
+### Fulfillment details
 
 The fulfillment details are a single `bytes32` value that represents the
 transaction hash on the target chain in which the auction winner paid for the
 OEV bid.
 
-## Bid Eligibility
+## Bid eligibility
 
 Auctions are open for everyone. Searchers interact with the OevAuctionHouse
 contract when placing a bid, which enforces a few restrictions. Apart from the
@@ -181,9 +174,7 @@ Auctioneer fetches the required information from the OevAuctionHouse contract.
 In a rare case when Auctioneer fails to fetch eligibility for a bidder, it will
 abort awarding the current auction.
 
-::: info
-
-**Edge case:**
+::: info ⚠️ Warning
 
 If a bidder places multiple bids across different dApps in quick succession,
 with only enough collateral to cover a subset of the bids, then Auctioneer may
@@ -209,18 +200,16 @@ transaction.
 
 :::
 
-## Auction Resolution
+## Auction resolution
 
 Each auction is split into two phases:
 
-1. Bidding phase - During this phase, searchers are free to submit their bids.
-   This phase takes `BIDDING_PHASE_LENGTH_SECONDS`.
+1. Bid phase - During this phase, searchers are free to submit their bids.
+   This phase takes `BID_PHASE_LENGTH_SECONDS`.
 2. Award phase - During this phase, Auctioneer determines and awards the winner.
-   Bids placed during this period are ignored. This phase takes the remainder of
-   the auction length, which is
-   `AUCTION_LENGTH_SECONDS - BIDDING_PHASE_LENGTH_SECONDS`.
+   Bids placed during this period are ignored.
 
-As soon as the bidding phase is over, Auctioneer attempts to resolve the auction
+As soon as the bid phase is over, Auctioneer attempts to resolve the auction
 as soon as possible. The following happens under the hood:
 
 1. Compute the bid topic for the current auction
@@ -237,20 +226,24 @@ logs from the OEV Network, the auction will be aborted and no winner is chosen.
 Similarly, if the auction award transaction fails, there will be no retry,
 because the award signature was already exposed publicly.
 
-### Bidding Phase Guarantee
+### Bid guarantees
 
-Auctioneer guarantees that any bid placed during the bidding phase will be
+Auctioneer guarantees that any bid placed during the bid phase will be
 processed. The timestamp of the placed bid is determined by the block timestamp
 in which the transaction is included. Searchers need to be mindful of that and
-of the block time of the OEV Network and make sure to place their bids in time.
+consider practical limitations like the OEV Network block time and make sure their bids are placed in time.
 
-That said, Auctioneer may also include bids placed before or slightly after the
-bidding phase. This is because Auctioneer fetches the logs from the OEV Network
+::: info ⚠️ Warning
+
+Auctioneer may also include bids placed before or slightly after the
+bid phase. This is because Auctioneer fetches the logs from the OEV Network
 some time in the award phase. It fetches logs from a sufficient block range with
-some buffer to ensure the full bidding phase is included. This behavior might
+some buffer to ensure the full bid phase is included. This behavior might
 change in time and searchers should not rely on it.
 
-## Processing Fulfillments
+:::
+
+## Processing fulfillments
 
 After the auction winner is awarded, they are expected to fulfill their duties
 by paying for the awarded OEV bid. After they've made the transaction on the
@@ -259,8 +252,7 @@ Network to get their collateral released. Auction winners are advised to wait a
 sufficient time for the transaction to reach enough finality on the target
 chain.
 
-Auctioneer periodically queries the OEV Network logs for such events by doing
-the following:
+Auctioneer periodically queries the OEV Network logs for such events and performs the following operations:
 
 1. Fetch all logs regarding fulfillments for a sufficient time period -
    AwardedBid, ReportedFulfillment, ConfirmedFulfillment and
@@ -270,7 +262,7 @@ the following:
 
 2. Contradict all AwardedBid events that are `REPORT_FULFILLMENT_PERIOD_SECONDS`
    old without a matching reported fulfillment. Make no action for other
-   AwardedBid events because they are within the fulfillment period.
+   AwardedBid events that are within the fulfillment period.
 
 3. For all ReportedFulfillment events without a matching ConfirmedFulfillment or
    ContradictedFulfillment, fetch the PlacedBid event to determine which chain
@@ -284,7 +276,7 @@ to process the fulfillment later. Its utmost priority is to avoid slashing
 honest searchers. That said, once the Auctioneer disproves the fulfillment, it
 will promptly slash.
 
-::: info
+::: info ℹ️ Info
 
 Note that the auction winner may choose not to update the price feed when they
 pay for the awarded bid. This is an allowed way to withhold the updates because
@@ -295,7 +287,7 @@ threshold.
 
 :::
 
-## Auctioneer Addresses
+## Auctioneer addresses
 
 OEV Auctioneers use dedicated wallets to award auctions and process
 fulfillments. These addresses are granted the respective privileges on the
@@ -317,3 +309,9 @@ Auctioneer is maintained by the Api3 DAO, which is responsible for its uptime
 and reliable auction processing. In case of a planned migration or maintenance,
 there will be an announcement shared in advance. It's expected that maintenance
 periods will be very rare and short.
+
+::: info 💡 Tip
+
+In fact, ever since we launched OEV Network, there was not a single period of time that resulted in a downtime.
+
+:::

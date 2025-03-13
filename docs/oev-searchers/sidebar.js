@@ -14,12 +14,12 @@ module.exports = [
     collapsed: false,
     items: [
       {
-        text: 'Searchers',
+        text: 'Getting started',
         link: '/oev-searchers/in-depth/',
       },
       {
-        text: 'dAPIs',
-        link: '/oev-searchers/in-depth/dapis/',
+        text: 'Data feeds',
+        link: '/oev-searchers/in-depth/data-feeds/',
       },
       {
         text: 'MEV with Signed APIs',
@@ -34,12 +34,8 @@ module.exports = [
         link: '/oev-searchers/in-depth/oev-auctioneer',
       },
       {
-        text: 'OEV Searching',
+        text: 'OEV searching',
         link: '/oev-searchers/in-depth/oev-searching',
-      },
-      {
-        text: 'Examples',
-        link: '/oev-searchers/in-depth/examples',
       },
     ],
   },

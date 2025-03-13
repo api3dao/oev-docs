@@ -1,62 +1,74 @@
 ---
-title: Searchers
+title: Getting started
 pageHeader: OEV Searchers → In Depth
 outline: deep
 ---
 
 <PageHeader/>
 
-# Searchers
+# Getting started
 
-This part of the docs is dedicated to searchers. It details how OEV auctions
-work and explains basic searching strategies to simplify the onboarding of
+This is a good starting place for searchers. It includes the list of good dApp candidates for searching, details how OEV auctions
+work and explains basic OEV searching strategy to simplify the onboarding of
 existing MEV searchers to OEV.
 
-## OEV dApps Catalog
+## dApps catalog
 
-We maintain an open-source list of all dApps that have integrated Api3 feeds as
-part of the [dApp registry](https://github.com/api3dao/dapp-registry). However,
-not all of the dApps are suitable for OEV extraction, so we provide a separate
-list of currently suitable candidates for OEV searching.
+Api3 feeds are used across many dApps, but not all are suitable for OEV searching. This catalog includes those dApps that are generating significant OEV amounts and are open for searchers to participate.
 
-<!-- NOTE: Make sure these are sorted alphabetically. -->
+### OEV dApps
 
-1. [Hana protocol on Taiko](https://www.hana.finance/)
-2. [Lendle protocol on Mantle](https://lendle.xyz/)
-3. [Orbit protocol on Blast](https://orbitlending.io/)
-4. [Silo protocol on Arbitrum](https://app.silo.finance/)
-5. [Yei protocol on Sei](https://www.yei.finance/)
+<!-- NOTE: Make sure these are sorted alphabetically; title matches information in @api3/contracts; homepage points to the dApp market (can differ from dApp landing page) -->
 
-Currently, these protocols use outdated Api3 proxies that support the previous
-version of OEV auctions, which are no longer supported. Searchers can still
+The following table includes dApps which integrated OEV proxies and are good candidates for OEV searching. The chain and dApp alias define are unique for every market and are required when implementing searcher bots.
+
+| dApp                                                 | Chain   | dApp alias       |
+| ---------------------------------------------------- | ------- | ---------------- |
+| [dTRINITY](https://dtrinity.org/)                    | Fraxtal | `dtrinity`       |
+| [INIT Capital](https://app.init.capital/?chain=5000) | Mantle  | `init`           |
+| [Lendle](https://lendle.xyz/)                        | Mantle  | `lendle`         |
+| [MachFi](https://www.machfi.xyz/)                    | Sonic   | `mach-finance`   |
+| [Vicuna Finance](https://vicunafinance.com/)         | Sonic   | `vicuna-finance` |
+| [Yei Finance](https://www.yei.finance/)              | Sei     | `yei`            |
+
+### Legacy integrations
+
+Some dApps are still using the legacy design of oracle proxies, which do not support OEV auctions. It's expected these will migrate the OEV supported ones soon. That said, searchers can already
 perform [MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis)
-extraction though.
+extraction.
 
-## From MEV Searching
+<!-- NOTE: Make sure these are sorted alphabetically; title matches information in @api3/contracts; homepage points to the dApp market (can differ from dApp landing page) -->
+
+| dApp                                                                                                 | Chain    |
+| ---------------------------------------------------------------------------------------------------- | -------- |
+| [Compound Finance USDe market](https://app.compound.finance/markets/usde-mantle)                     | Mantle   |
+| [Hana Finance](https://www.hana.finance/)                                                            | Taiko    |
+| [INIT Capital](https://app.init.capital/?chain=81457)                                                | Blast    |
+| [Orbit Protocol](https://orbitlending.io/)                                                           | Blast    |
+| [Silo Finance RDNT market](https://app.silo.finance/silo/0x19d3F8D09773065867e9fD11716229e73481c55A) | Ethereum |
+
+## From MEV searching
 
 MEV searching has a well-established community and expertise in securing health
 and stability across many dApps and chains. We want to motivate this community
 to join OEV searching by outlining the steps to transition from MEV to OEV.
 
-Let's emphasize that MEV searchers can still use their existing infrastructure
-and searching bots even when opting into OEV. OEV should be treated as an
-extension to MEV that searchers can capitalize on. OEV can increase profits
-through lower fees paid to block validators when compared to traditional MEV.
+OEV can be considered an extension of MEV that searchers can capitalize on. While traditional searching prioritizes low latency, OEV searchers can secure guaranteed profits through exclusive priority access for updating data feeds.
 
-The following is a list of things that need to be done to enable an existing MEV
+The following is a short list of requirements to upgrade an existing MEV
 bot to participate in OEV searching:
 
 1. Bridge funds to the OEV network
 2. Deposit funds to the OevAuctionHouse contract
-3. Monitor off-chain signed data for dAPIs used by the dApp
+3. Monitor off-chain signed data for data feeds used by the dApp
 4. Simulate the data feed update on-chain to determine OEV opportunities
 5. Place a bid on the OEV Network
-6. Wait for auction award
-7. Use the award to update the on-chain data feed on target chain and capture
+6. Wait for the auction to end
+7. Provided the auction is won, use the award to update the on-chain data feed on target chain and capture
    the OEV
 
 Most of these steps require small additions to the existing MEV bot, but it is
 required to understand the mental model behind OEV and our
-[dAPIs](#/oev-searchers/in-depth/dapis/). Because of this, we recommend starting
+[data feeds](/oev-searchers/in-depth/data-feeds/). Because of this, we recommend starting
 with an in-between solution we call
 [MEV with Signed APIs](/oev-searchers/in-depth/mev-with-signed-apis).

@@ -11,9 +11,8 @@ outline: deep
 ![OEV Network image](./oev-network.svg)
 
 The OEV Network operates as a standard Arbitrum Nitro L2 optimistic-rollup. The
-system ensures transparency and allows verification of the auction process. In
-this marketplace, OEV searchers place bids for the exclusive opportunity to
-update dAPIs for a short period of time.
+system ensures transparency and allows verification of the auction process. It allows searchers to place bids for the exclusive opportunity to
+update a dApp's data feeds for a short period of time.
 
 By hosting auctions on-chain, we address two big issues:
 
@@ -23,7 +22,7 @@ By hosting auctions on-chain, we address two big issues:
    long-solved problem in blockchains through gas fees.
 2. Transparency - Auctions are awarded via an off-chain system, called OEV
    Auctioneer, so it is important to be able to reason about the correctness of
-   auction outcomes. Blockchains are the perfect tool for this, as all the data
+   auction outcomes. Blockchains are the perfect tool for this, as all the transactions and data
    is public and verifiable.
 
 To participate in auctions, searchers need to have a sufficient amount of ETH
@@ -32,7 +31,7 @@ bridged to the OEV network and interact with the
 
 ## Using the OEV Network
 
-The OEV Network can be added as a custom network to an EVM compatible wallet.
+The OEV Network can be added as a custom network to any EVM compatible wallet.
 
 | Details            | Value                          |
 | ------------------ | ------------------------------ |
@@ -44,6 +43,16 @@ The OEV Network can be added as a custom network to an EVM compatible wallet.
 | Block Explorer URL | https://oev.explorer.api3.org/ |
 | Bridge URL         | https://oev.bridge.api3.org/   |
 
+::: info 💡 Tip
+
+Apart from the official bridge, Api3 hosts an extended version available at https://oev-explorer-extended.api3.org/. This is a fork of the explorer with small additions for relevant to OEV.
+
+For example, when browsing logs for [this transaction](https://oev-explorer-extended.api3.org/tx/0x2bbe268d6f2c837af9c842158183fdb5cce641bb35c7a3b0de1af06112371051?tab=logs), the extended explorer shows decoded OEV details for users' convenience.
+
+![OEV extended explorer](./oev-extended-explorer.png)
+
+:::
+
 ## Properties
 
 Here are some of the key properties of the OEV Network:
@@ -52,7 +61,7 @@ Here are some of the key properties of the OEV Network:
    250ms. Note that the OEV Network only produces blocks when there are
    transactions.
 2. Gas fees - The gas fees are paid in ETH, and because the network is an
-   optimistic L2 rollup, the gas fees are low.
+   optimistic L2 rollup, the gas fees are low and get cheaper with the increased number of transactions.
 3. Using Anytrust - By using AnyTrust DAC, the OEV Network achieves further cost
    reduction.
 
@@ -77,7 +86,7 @@ OEV Network.
 The implementation of the audited Api3ServerV1 contract is publicly available
 [here](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1.sol).
 
-The Api3ServerV1 contract powers dAPIs on the OEV Network, which are used in the
+The Api3ServerV1 contract powers data feeds on the OEV Network, which are used in the
 OevAuctionHouse contract to compute collateral and protocol fee from the bid
 amount. Note that this chain is not officially listed on the Api3 market because
 the OEV Network is primarily intended to be used for OEV auctions.
@@ -114,7 +123,7 @@ The interactions with this contract include:
 
 Tech-savvy users can refer to the contract's source for details.
 
-### Depositing Collateral
+### Depositing collateral
 
 To be eligible to win OEV auctions, searchers need to have enough collateral
 deposited in the OevAuctionHouse contract. See
@@ -143,7 +152,7 @@ For an advanced usage where the bidder is a contract, refer to
 [bidding contract](/oev-searchers/in-depth/oev-searching#bidding-contract)
 section.
 
-### Withdrawing Collateral
+### Withdrawing collateral
 
 Withdrawal of deposited collateral is implemented as a two-way process to
 prevent denial of service by frontrunning the award transaction by withdrawing
@@ -171,11 +180,10 @@ function withdraw(
 ) external;
 ```
 
-### Collateral and Protocol Fee
+### Collateral and protocol fee
 
 For a searcher to win an auction, they are required to have enough ETH deposited
-in the OevAuctionHouse contract. Similarly, the value the searcher can win is
-limited by the amount they have deposited. Refer to
+in the OevAuctionHouse contract. Refer to
 [bid eligibility](/oev-searchers/in-depth/oev-auctioneer#bid-eligibility)
 section for details.
 
@@ -277,7 +285,7 @@ how to use these functions, we need to understand how
 [Expediting a bid](/oev-searchers/in-depth/oev-searching#expediting-a-bid)
 section for more details.
 
-## Deployed Contracts
+## Deployed contracts
 
 These are the relevant contracts deployed on the OEV Network:
 
