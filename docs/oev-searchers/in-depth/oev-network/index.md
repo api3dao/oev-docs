@@ -45,7 +45,7 @@ The OEV Network can be added as a custom network to any EVM compatible wallet.
 
 ::: info 💡 Tip
 
-Apart from the official bridge, Api3 hosts an extended version available on https://oev-explorer-extended.api3.org/. This is a fork of the explorer with a small additions for relevant for OEV.
+Apart from the official bridge, Api3 hosts an extended version available at https://oev-explorer-extended.api3.org/. This is a fork of the explorer with small additions for relevant to OEV.
 
 For example, when browsing logs for [this transaction](https://oev-explorer-extended.api3.org/tx/0x2bbe268d6f2c837af9c842158183fdb5cce641bb35c7a3b0de1af06112371051?tab=logs), the extended explorer shows decoded OEV details for users' convenience.
 
