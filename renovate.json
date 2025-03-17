@@ -13,7 +13,8 @@
     },
     {
       "matchPackageNames": ["vitepress"],
-      "groupName": "vitepress"
+      "groupName": "vitepress",
+      "schedule": ["before 4am on Monday"]
     },
     {
       "matchDepTypes": ["devDependencies"],
@@ -34,7 +35,7 @@
   "lockFileMaintenance": {
     "enabled": false
   },
-  "reviewers": ["dcroote", "wkande"],
+  "reviewers": ["Siegrift"],
   "minimumReleaseAge": "5 days",
   "dependencyDashboard": false
 }
