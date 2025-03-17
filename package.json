@@ -15,7 +15,7 @@
     "firebase:emulator": "pnpm docs:build; firebase emulators:start"
   },
   "devDependencies": {
-    "axios": "^1.8.1",
+    "axios": "^1.8.3",
     "colors": "^1.4.0",
     "file": "^0.2.2",
     "fs-extra": "^11.3.0",
