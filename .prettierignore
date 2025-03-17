@@ -1,1 +1,23 @@
-.gitignore
+/.git
+/.github
+/.vscode
+/node_modules
+/archives
+pnpm-lock.yaml
+
+# .vitepress
+/docs/.vitepress/cache
+/docs/.vitepress/dist
+/docs/.vitepress/public
+/docs/.vuepress/styles
+
+/docs/public/img
+/docs/public/api3-whitepaper-v1.0.3.pdf
+
+# assets
+/docs/reference/ois/latest/assets
+/docs/reference/airnode/latest/assets
+/docs/reference/dao-members/assets
+/docs/reference/chainapi/assets
+/docs/reference/qrng/assets
+/docs/oev-searchers/assets
