@@ -72,7 +72,7 @@ export default {
     },
     siteTitle: 'Documentation',
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/api3dao/oev-docs' },
+      { icon: 'github', link: 'https://github.com/api3dao/api3-docs' },
       {
         icon: 'discord',
         link: 'https://discord.gg/api3dao',

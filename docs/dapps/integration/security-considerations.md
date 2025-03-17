@@ -24,7 +24,7 @@ Like all smart contracts, Api3ReaderProxyV1 carries this inherent risk.
 
 We propose three methods to assess the smart contract risk.
 You can refer to the related [audit reports.](https://github.com/api3dao/contracts?tab=readme-ov-file#security)
-A more practical approach is to refer to [our historical TVS](https://defillama.com/oracles/API3) to understand the _battle-testedness_ of our data feeds.
+A more practical approach is to refer to [our historical TVS](https://defillama.com/oracles/Api3) to understand the _battle-testedness_ of our data feeds.
 Additionally, you are welcome to review the contracts behind [Api3ReaderProxyV1](/dapps/integration/contract-integration.md#api3readerproxyv1), specifically [Api3ServerV1](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1.sol) and [Api3ServerV1OevExtension](https://github.com/api3dao/contracts/blob/main/contracts/api3-server-v1/Api3ServerV1OevExtension.sol).
 Our [contract developer docs](https://github.com/api3dao/contracts/tree/main/docs) provide additional context for understanding the design decisions behind these contracts.
 
