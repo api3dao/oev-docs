@@ -295,10 +295,6 @@ OEV Network is an Arbitrum Nitro L2. Its chain ID is 4913 and it uses ETH as the
 gas token. Its purpose is to hold [OEV auctions](#oev-auction) in a transparent
 and retrospectively verifiable way.
 
-### OEV proceeds
-
-OEV proceeds refer to auction proceeds, which is the amount searchers pay for auctions. Vast majority of OEV proceeds goes back to the dApp in the form of [OEV Rewards](#oev-rewards), while the rest is kept as protocol fee for Api3.
-
 ### OEV proxy
 
 An OEV proxy is a proxy contract that reads a value from both
@@ -308,7 +304,7 @@ Chainlink's AggregatorV2V3Interface for convenience.
 
 ### OEV Rewards
 
-OEV Rewards refer to the amount paid to the dApp. These rewards constitute the majority portion of the [OEV proceeds](#oev-proceeds).
+OEV Rewards refer to the amount paid to the dApp.
 
 ### Protocol fee
 

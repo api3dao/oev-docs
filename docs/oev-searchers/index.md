@@ -61,11 +61,9 @@ arbitrage and many others.
 ## OEV distribution
 
 To update the data feed, the auction winner must pay the bid amount they
-announced during the auction. These payments constitute auction proceeds. Majority of these proceeds go back to the dApp in the form of [OEV Rewards](/dapps/oev-rewards/). Searchers, in return, get exclusive rights to capture
-the OEV and get to capitalize on the remaining revenue of the opportunity.
+announced during the auction. Majority of these funds go back to the dApp in the form of [OEV Rewards](/dapps/oev-rewards/), while a part of it is kept as Api3 revenue.
 
-Thus, the majority of the OEV is distributed to the dApp and the
-searchers.
+Searchers, in return, get exclusive rights to capture the OEV and get to capitalize on the remaining revenue of the OEV opportunity.
 
 ## How do auctions work?
 
