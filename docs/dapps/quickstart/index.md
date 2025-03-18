@@ -117,4 +117,4 @@ For information about using this selection on mainnets, refer to [this section.]
 
 This guide should help you get started with a hackathon project.
 For production use of Api3 data feeds, please continue to the [integration section.](/dapps/integration/)
-You can also learn how to [get paid](/dapps/oev-rewards/) for using Api3 data feeds."
+You can also learn how to [get paid](/dapps/oev-rewards/) for using Api3 data feeds.
