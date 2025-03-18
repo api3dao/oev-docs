@@ -129,13 +129,14 @@ To resume updates in such cases, simply purchase a new plan.
 If we overestimate the price, the remainder rolls over to the next plan purchased for the same network–data feed pair, which appears as a **discount** on Api3 Market as seen below.
 Similarly, when a user purchases a plan for a data feed that is already active, the remainder of the payments made for earlier purchases will appear as a discount.
 
+<center><img src="./images/discount.png"></center>
+
 ::: info 💰 Financial
 
 In some cases, the discount allows you to get the plan for free.
 
 :::
 
-<center><img src="./images/discount.png"></center>
 
 ### Gas grants
 
