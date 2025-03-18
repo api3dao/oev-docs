@@ -137,7 +137,6 @@ In some cases, the discount allows you to get the plan for free.
 
 :::
 
-
 ### Gas grants
 
 You can request a gas grant for your dApp by filling out [this form,](https://api3dao.typeform.com/to/TBTu8bJt) where you can ask us to purchase plans for you.
@@ -168,7 +167,7 @@ Follow the OEV Rewards [onboarding steps](/dapps/oev-rewards/index.md#how-to-get
 The term _first-party oracle_ is coined in the Api3 whitepaper and refers to an API provider that provides oracle services without depending on any middlemen.
 There are three conditions to be verified to check if an oracle service is first-party:
 
-- Each individual node must operate an independent API service as their primary business model (for them to be called API providers).
+- The operator of each individual node must also operate an independent API service as their primary business model for them to be called API providers.
 - Each API provider must certify their public key and sign their data with the respective private key.
 - Each API provider must make their signed data available themselves, without depending on third-party APIs, blockchains, or state channels.
 
