@@ -14,8 +14,7 @@ If your contract integration is faulty, the suggestions below are unlikely to he
 
 :::
 
-OEV Rewards are proceeds from auctions in which OEV searchers participate.
-For the auction bids to be competitive, there must be multiple independent OEV searcher parties.
+For OEV auctions to be competitive, there must be multiple independent OEV searcher parties.
 An OEV searcher is a blockchain developer with specific expertise whose time is typically quite valuable.
 Therefore, for a maximum amount of OEV Rewards, searching for your dApp must be as easy as possible.
 
@@ -38,9 +37,9 @@ Since Api3 is also incentivized to maximize OEV Rewards, we will provide access 
 
 :::
 
-The second way to attract OEV searchers and maximize OEV Rewards is to increase revenue.
+The second way to attract OEV searchers and maximize OEV Rewards is to increase incentives.
 For example, a lending platform that pays 10% of the position size as a liquidation reward will attract more attention than one that pays 5%.
-Similarly, a perpetual derivative exchange that properly uses Api3 data feeds is likely to yield a significant amount of OEV Rewards.
+Similarly, a perpetual derivative exchange that uses Api3 data feeds as intended is likely to yield a significant amount of OEV Rewards.
 
 ::: info 💰 Financial
 
