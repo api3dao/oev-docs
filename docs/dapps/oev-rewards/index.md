@@ -58,7 +58,7 @@ This revenue can be broken down into three parts:
 
 ::: info ℹ️ Info
 
-The OEV and MEV searching activity facilitated by Api3 is strictly limited to using data that is already available to the public, as documented in the [OEV searcher docs.](/oev-searchers)
+The OEV and MEV searching activity facilitated by Api3 is strictly limited to using data that is already available to the public, as documented in the [OEV searcher docs.](/oev-searchers/)
 This can be audited retrospectively by referring to data on OEV Network and the chain that the dApp is on.
 
 A side-effect of the above is that once organic searcher activity takes hold for a dApp, Api3 will no longer be able to generate searcher revenue, and the auction proceeds will constitute the entirety of the OEV Rewards.
