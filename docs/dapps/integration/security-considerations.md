@@ -62,7 +62,7 @@ Second, even when a Pyth oracle is an API provider, their data is aggregated and
 In general, when oracle services use an intermediary blockchain or state channel for delivery, they create a third-party system since the intermediary's consensus model will not match the aggregation model.
 Consider a system where 7 API providers supply data and 100+ node operators provide aggregation and data availability—this creates two points of failure, typical of third-party oracle designs.
 The secondary point of failure (the node operators) is typically weaker than the primary one (the API providers).
-Consequently, when dApps use Pyth data on Ethereum, users pay Ethereum gas fees while only receiving security equivalent to [Wormhole.](https://www.google.com/search?q=wormhole+down+%22pyth%22)
+Consequently, when dApps use Pyth data on Ethereum, users pay Ethereum gas fees while only receiving security equivalent to [Wormhole.](https://www.google.com/search?q=wormhole+outage+downtime+"pyth")
 
 :::
 
@@ -92,7 +92,7 @@ Similarly, our OEV implementation uses this mechanism, ensuring OEV updates cont
 
 ## Oracle Extractable Value (OEV)
 
-OEV updates provide identical guarantees to regular updates—they are on-chain aggregations of API provider-signed data—so they introduce no additional data correctness risk.
+OEV updates provide identical guarantees to regular updates—they are on-chain aggregations of API provider-signed data—so they introduce no additional [data correctness](#data-correctness) risk.
 The OEV auction mechanism allows winners to frontrun updates of an artificially delayed base feed, a tradeoff designed to benefit the dApp.
 
 Here's how the process works.
