@@ -70,7 +70,7 @@ export default {
       light: '/img/Api3_Docs-Logo-Primary-Dark.svg',
       dark: '/img/Api3_Docs-Logo-Primary-Light.svg',
     },
-    siteTitle: 'Documentation',
+    siteTitle: false,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/api3dao/api3-docs' },
       {
