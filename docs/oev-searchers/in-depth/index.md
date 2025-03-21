@@ -39,13 +39,13 @@ extraction.
 
 <!-- NOTE: Make sure these are sorted alphabetically; title matches information in @api3/contracts; homepage points to the dApp market (can differ from dApp landing page) -->
 
-| dApp                                                                                                 | Chain    |
-| ---------------------------------------------------------------------------------------------------- | -------- |
-| [Compound Finance USDe market](https://app.compound.finance/markets/usde-mantle)                     | Mantle   |
-| [Hana Finance](https://www.hana.finance/)                                                            | Taiko    |
-| [INIT Capital](https://app.init.capital/?chain=81457)                                                | Blast    |
-| [Orbit Protocol](https://orbitlending.io/)                                                           | Blast    |
-| [Silo Finance RDNT market](https://app.silo.finance/silo/0x19d3F8D09773065867e9fD11716229e73481c55A) | Ethereum |
+| dApp                                                                                                | Chain    |
+| --------------------------------------------------------------------------------------------------- | -------- |
+| [Compound Finance USDe market](https://app.compound.finance/markets/usde-mantle)                    | Mantle   |
+| [Hana Finance](https://www.hana.finance/)                                                           | Taiko    |
+| [INIT Capital](https://app.init.capital/?chain=81457)                                               | Blast    |
+| [Orbit Protocol](https://orbitlending.io/)                                                          | Blast    |
+| [Silo Finance RDNT market](https://v1.silo.finance/silo/0x19d3F8D09773065867e9fD11716229e73481c55A) | Ethereum |
 
 ## From MEV searching
 
